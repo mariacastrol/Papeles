@@ -1154,7 +1154,9 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        BJDialogAeropuertosPlanes capturarAeropuerto = new BJDialogAeropuertosPlanes(this,true);
+        capturarAeropuerto.setDatosConexion ("localhost","root","l1u2c3h4o5e6d7u","pplanes");
+        capturarAeropuerto.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
@@ -1323,7 +1325,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    public static javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
@@ -1334,14 +1336,14 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
+    public static javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField3;
+    public static javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
