@@ -6,6 +6,7 @@
 package Ventanas;
 
 import Clases.ConexionMysql;
+import Clases.FuncionesGenerales;
 import javax.swing.JOptionPane;
 
 /**
@@ -39,23 +40,23 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAeropuertosPlanes = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        jTextField8 = new javax.swing.JTextField();
+        jTextFieldBuscarOACI = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         botonEliminar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
+        jTextFieldSeleccionarOACI = new javax.swing.JTextField();
+        jTextFieldSeleccionarIATA = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jTextFieldSeleccionarNombre = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        botonVolver = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        jTextFieldAAOACI = new javax.swing.JTextField();
+        jTextFieldAAIATA = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        jTextFieldAANombre = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         botonAgregar = new javax.swing.JButton();
         botonActualizar = new javax.swing.JButton();
@@ -85,7 +86,7 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
         jPopupMenu1.add(jMenuItem3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("AEROPUERTOS: PLANES DE VUELO");
+        setTitle("AEROPUERTOS: APERTURA DE PLAN DE VUELO");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -118,10 +119,10 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jTextField8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldBuscarOACI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldBuscarOACI.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField8KeyTyped(evt);
+                jTextFieldBuscarOACIKeyTyped(evt);
             }
         });
 
@@ -141,7 +142,7 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldBuscarOACI, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jLabel15)))
@@ -154,7 +155,7 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldBuscarOACI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonEliminar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15)
@@ -163,24 +164,24 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("AEROPUERTO DE DESTINO"));
 
-        jTextField7.setEditable(false);
-        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldSeleccionarOACI.setEditable(false);
+        jTextFieldSeleccionarOACI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jTextField9.setEditable(false);
-        jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldSeleccionarIATA.setEditable(false);
+        jTextFieldSeleccionarIATA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel16.setText("IATA");
 
         jLabel12.setText("OACI");
 
-        jTextField6.setEditable(false);
+        jTextFieldSeleccionarNombre.setEditable(false);
 
         jLabel13.setText("NOMBRE");
 
-        jButton2.setText("VOLVER A VENTANA PRINCIPAL");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonVolver.setText("VOLVER A VENTANA PRINCIPAL");
+        botonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonVolverActionPerformed(evt);
             }
         });
 
@@ -191,23 +192,23 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2)
+                    .addComponent(botonVolver)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel12))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldSeleccionarOACI, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldSeleccionarIATA, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel16)))))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldSeleccionarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel13)))))
@@ -219,35 +220,45 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldSeleccionarOACI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel12))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldSeleccionarIATA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldSeleccionarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
                             .addComponent(jLabel13))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(botonVolver)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("AGREGAR/ACTUALIZAR AEROPUERTOS"));
 
-        jTextField10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldAAOACI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldAAOACI.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldAAOACIFocusGained(evt);
+            }
+        });
+        jTextFieldAAOACI.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField10KeyTyped(evt);
+                jTextFieldAAOACIKeyTyped(evt);
             }
         });
 
-        jTextField11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField11.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldAAIATA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldAAIATA.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldAAIATAFocusGained(evt);
+            }
+        });
+        jTextFieldAAIATA.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField11KeyTyped(evt);
+                jTextFieldAAIATAKeyTyped(evt);
             }
         });
 
@@ -255,9 +266,14 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
 
         jLabel14.setText("OACI");
 
-        jTextField12.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldAANombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldAANombreFocusGained(evt);
+            }
+        });
+        jTextFieldAANombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField12KeyTyped(evt);
+                jTextFieldAANombreKeyTyped(evt);
             }
         });
 
@@ -296,16 +312,16 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel14))
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldAAOACI, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAAIATA, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel17)))))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldAANombre, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel18)))))
@@ -317,13 +333,13 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldAAOACI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel14))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldAAIATA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldAANombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
@@ -380,7 +396,7 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
-        String campoConsulta=jTextField8.getText();
+        String campoConsulta=jTextFieldBuscarOACI.getText();
         String columnasTablaAeropuerto []= {"codigo_oaci","codigo_iata","nombre"};
         if (!ping.mostrarRegistroEspecifico(jTableAeropuertosPlanes, "AEROPUERTOS_PLANES", columnasTablaAeropuerto, "codigo_oaci", campoConsulta)) {
             JOptionPane.showMessageDialog(this, ping.getMensajesError(),"ERROR AL CARGAR CONSULTA",JOptionPane.ERROR_MESSAGE);
@@ -388,71 +404,102 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_botonEliminarActionPerformed
 
     private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
-              String [] datosActualizados={jTextField10.getText(), jTextField11.getText(), jTextField12.getText()};
-        String columnasTablaAeropuerto []= {"codigo_oaci","codigo_iata","nombre"};
-        
-        ping.modificarFilaEnTabla("aeropuertos_planes", columnasTablaAeropuerto, datosActualizados, "codigo_oaci",llaveActual);
-        
-        ping.mostrarColumnasTablaMysqlSimple(jTableAeropuertosPlanes, "aeropuertos_planes", columnasTablaAeropuerto);
-        
-        jTextField10.setText(null);
-        jTextField11.setText(null);
-        jTextField12.setText(null);
-        
-        botonActualizar.setEnabled(false);
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAOACI) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAIATA) || FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre)) {
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAOACI)) {
+                jTextFieldAAOACI.setBackground(new java.awt.Color(255, 0, 0));
+            }
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAIATA)) {
+                jTextFieldAAIATA.setBackground(new java.awt.Color(255, 0, 0));
+            }
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre)) {
+                jTextFieldAANombre.setBackground(new java.awt.Color(255, 0, 0));
+            }
+            JOptionPane.showMessageDialog(this, "Ha dejado campos vacios","NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+        } else {
+            String [] datosActualizados={jTextFieldAAOACI.getText(), jTextFieldAAIATA.getText(), jTextFieldAANombre.getText()};
+            String columnasTablaAeropuerto []= {"codigo_oaci","codigo_iata","nombre"};
+            if (!ping.modificarFilaEnTabla("AEROPUERTOS_PLANES", columnasTablaAeropuerto, datosActualizados, "codigo_oaci",llaveActual)) {
+                JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+            } else {
+                if (!ping.mostrarColumnasTablaMysqlSimple(jTableAeropuertosPlanes, "AEROPUERTOS_PLANES", columnasTablaAeropuerto)) {
+                    JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            jTextFieldAAOACI.setText(null);
+            jTextFieldAAIATA.setText(null);
+            jTextFieldAANombre.setText(null);
+            botonActualizar.setEnabled(false); 
+        }
     }//GEN-LAST:event_botonActualizarActionPerformed
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
-        String [] nombreColumnas = {"codigo_oaci","codigo_iata","nombre"};
-        String [] valores = {jTextField10.getText(), jTextField11.getText(), jTextField12.getText()};
-        String mensajeSiRepiteRegistro = "Ya existe un aeropuerto con ese codigo oaci";
-        if(!ping.insertarFilaEnTabla("AEROPUERTOS_PLANES", nombreColumnas, valores, mensajeSiRepiteRegistro)){
-            JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTROS",JOptionPane.ERROR_MESSAGE);
-        } else {
-            String columnasTablaAeropuerto []= {"codigo_oaci","codigo_iata","nombre"};
-            if(!ping.mostrarColumnasTablaMysqlSimple(jTableAeropuertosPlanes, "AEROPUERTOS_PLANES", columnasTablaAeropuerto)){
-                JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAOACI) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAIATA) || FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre)) {
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAOACI)) {
+                jTextFieldAAOACI.setBackground(new java.awt.Color(255, 0, 0));
             }
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAIATA)) {
+                jTextFieldAAIATA.setBackground(new java.awt.Color(255, 0, 0));
+            }
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre)) {
+                jTextFieldAANombre.setBackground(new java.awt.Color(255, 0, 0));
+            }
+            JOptionPane.showMessageDialog(this, "Ha dejado campos vacios","NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+        } else {
+            String [] nombreColumnas = {"codigo_oaci","codigo_iata","nombre"};
+            String [] valores = {jTextFieldAAOACI.getText(), jTextFieldAAIATA.getText(), jTextFieldAANombre.getText()};
+            String mensajeSiRepiteRegistro = "Ya existe un aeropuerto con ese codigo oaci";
+            if(!ping.insertarFilaEnTabla("AEROPUERTOS_PLANES", nombreColumnas, valores, mensajeSiRepiteRegistro)){
+                JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+            } else {
+                String columnasTablaAeropuerto []= {"codigo_oaci","codigo_iata","nombre"};
+                if(!ping.mostrarColumnasTablaMysqlSimple(jTableAeropuertosPlanes, "AEROPUERTOS_PLANES", columnasTablaAeropuerto)){
+                    JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            jTextFieldAAOACI.setText(null);
+            jTextFieldAAIATA.setText(null);
+            jTextFieldAANombre.setText(null);
         }
     }//GEN-LAST:event_botonAgregarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        AJFrameVentanaCapturas.jTextField1.setText(jTextField7.getText());
-        AJFrameVentanaCapturas.jTextField2.setText(jTextField9.getText());
-        AJFrameVentanaCapturas.jTextField3.setText(jTextField6.getText());
-        AJFrameVentanaCapturas.jTextField1.setBackground(new java.awt.Color(153, 255, 153));
-        AJFrameVentanaCapturas.jTextField2.setBackground(new java.awt.Color(153, 255, 153));
-        AJFrameVentanaCapturas.jTextField3.setBackground(new java.awt.Color(153, 255, 153));
-        this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSeleccionarOACI)) {
+            jTextFieldSeleccionarOACI.setBackground(new java.awt.Color(255, 0, 0));
+            jTextFieldSeleccionarIATA.setBackground(new java.awt.Color(255, 0, 0));
+            jTextFieldSeleccionarNombre.setBackground(new java.awt.Color(255, 0, 0));
+        } else {
+            AJFrameVentanaCapturas.jTextField1.setText(jTextFieldSeleccionarOACI.getText());
+            AJFrameVentanaCapturas.jTextField2.setText(jTextFieldSeleccionarIATA.getText());
+            AJFrameVentanaCapturas.jTextField3.setText(jTextFieldSeleccionarNombre.getText());
+            AJFrameVentanaCapturas.jTextField1.setBackground(new java.awt.Color(153, 255, 153));
+            AJFrameVentanaCapturas.jTextField2.setBackground(new java.awt.Color(153, 255, 153));
+            AJFrameVentanaCapturas.jTextField3.setBackground(new java.awt.Color(153, 255, 153));
+            this.dispose();  
+        }
+    }//GEN-LAST:event_botonVolverActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         int filaSeleccionada=jTableAeropuertosPlanes.getSelectedRow();
         String celda = jTableAeropuertosPlanes.getValueAt(filaSeleccionada, 0).toString();
         String celda1 = jTableAeropuertosPlanes.getValueAt(filaSeleccionada, 1).toString();
         String celda2 = jTableAeropuertosPlanes.getValueAt(filaSeleccionada, 2).toString();
-        
-        jTextField7.setText(celda);
-        jTextField9.setText(celda1);
-        jTextField6.setText(celda2);
-        
-        jTextField7.setBackground(new java.awt.Color(153, 255, 153));
-        jTextField9.setBackground(new java.awt.Color(153, 255, 153));
-        jTextField6.setBackground(new java.awt.Color(153, 255, 153));
+        jTextFieldSeleccionarOACI.setText(celda);
+        jTextFieldSeleccionarIATA.setText(celda1);
+        jTextFieldSeleccionarNombre.setText(celda2);
+        jTextFieldSeleccionarOACI.setBackground(new java.awt.Color(153, 255, 153));
+        jTextFieldSeleccionarIATA.setBackground(new java.awt.Color(153, 255, 153));
+        jTextFieldSeleccionarNombre.setBackground(new java.awt.Color(153, 255, 153));
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-           int filaSeleccionada=jTableAeropuertosPlanes.getSelectedRow();
+        int filaSeleccionada=jTableAeropuertosPlanes.getSelectedRow();
         String celda = jTableAeropuertosPlanes.getValueAt(filaSeleccionada, 0).toString();
         String celda1 = jTableAeropuertosPlanes.getValueAt(filaSeleccionada, 1).toString();
         String celda2 = jTableAeropuertosPlanes.getValueAt(filaSeleccionada, 2).toString();
-        
-        jTextField10.setText(celda);
-        jTextField11.setText(celda1);
-        jTextField12.setText(celda2);
-        
+        jTextFieldAAOACI.setText(celda);
+        jTextFieldAAIATA.setText(celda1);
+        jTextFieldAANombre.setText(celda2);
         llaveActual=celda;
-         
         botonActualizar.setEnabled(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -468,53 +515,65 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
         }    
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
+    private void jTextFieldBuscarOACIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarOACIKeyTyped
         int limite = 4;
         char caracterValidar =evt.getKeyChar();
-        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextField8.getText().length()  < limite )){
+        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldBuscarOACI.getText().length()  < limite )){
             getToolkit().beep(); 
             evt.consume();
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
         }
-    }//GEN-LAST:event_jTextField8KeyTyped
+    }//GEN-LAST:event_jTextFieldBuscarOACIKeyTyped
 
-    private void jTextField10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyTyped
+    private void jTextFieldAAOACIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAOACIKeyTyped
          int limite = 4;
         char caracterValidar =evt.getKeyChar();
-        if ( !((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextField10.getText().length()  < limite )){
+        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAAOACI.getText().length()  < limite )){
             getToolkit().beep(); 
             evt.consume();
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
         }
-    }//GEN-LAST:event_jTextField10KeyTyped
+    }//GEN-LAST:event_jTextFieldAAOACIKeyTyped
 
-    private void jTextField11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyTyped
+    private void jTextFieldAAIATAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAIATAKeyTyped
          int limite = 3;
         char caracterValidar =evt.getKeyChar();
-        if ( !((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextField11.getText().length()  < limite )){
+        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAAIATA.getText().length()  < limite )){
             getToolkit().beep(); 
             evt.consume();
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
         }
-    }//GEN-LAST:event_jTextField11KeyTyped
+    }//GEN-LAST:event_jTextFieldAAIATAKeyTyped
 
-    private void jTextField12KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyTyped
+    private void jTextFieldAANombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAANombreKeyTyped
          int limite = 100;
         char caracterValidar =evt.getKeyChar();
-        if ( !((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextField12.getText().length()  < limite )){
+        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAANombre.getText().length()  < limite )){
             getToolkit().beep(); 
             evt.consume();
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
         }
-    }//GEN-LAST:event_jTextField12KeyTyped
+    }//GEN-LAST:event_jTextFieldAANombreKeyTyped
+
+    private void jTextFieldAAOACIFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAAOACIFocusGained
+        jTextFieldAAOACI.setBackground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_jTextFieldAAOACIFocusGained
+
+    private void jTextFieldAAIATAFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAAIATAFocusGained
+        jTextFieldAAIATA.setBackground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_jTextFieldAAIATAFocusGained
+
+    private void jTextFieldAANombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAANombreFocusGained
+        jTextFieldAANombre.setBackground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_jTextFieldAANombreFocusGained
 
     /**
      * @param args the command line arguments
@@ -593,7 +652,7 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
     private javax.swing.JButton botonActualizar;
     private javax.swing.JButton botonAgregar;
     private javax.swing.JButton botonEliminar;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton botonVolver;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -606,18 +665,18 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    public javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableAeropuertosPlanes;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextFieldAAIATA;
+    private javax.swing.JTextField jTextFieldAANombre;
+    private javax.swing.JTextField jTextFieldAAOACI;
+    private javax.swing.JTextField jTextFieldBuscarOACI;
+    private javax.swing.JTextField jTextFieldSeleccionarIATA;
+    private javax.swing.JTextField jTextFieldSeleccionarNombre;
+    private javax.swing.JTextField jTextFieldSeleccionarOACI;
     // End of variables declaration//GEN-END:variables
 
     private final ConexionMysql ping = new ConexionMysql();

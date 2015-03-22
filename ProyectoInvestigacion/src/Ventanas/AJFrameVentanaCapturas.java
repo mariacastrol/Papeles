@@ -31,7 +31,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        jComboBoxOperacionPlanes = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
         jSpinner2 = new javax.swing.JSpinner();
@@ -163,7 +163,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jLabel1.setText("TIPO DE OPERACIÓN");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APERTURA DE PLAN DE VUELO", "CIERRE DE PLAN DE VUELO" }));
+        jComboBoxOperacionPlanes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APERTURA DE PLAN DE VUELO", "CIERRE DE PLAN DE VUELO" }));
 
         jLabel2.setText("FECHA");
 
@@ -481,7 +481,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jComboBoxOperacionPlanes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(330, 330, 330)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2)
@@ -528,7 +528,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBoxOperacionPlanes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1155,6 +1155,14 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         BJDialogAeropuertosPlanes capturarAeropuerto = new BJDialogAeropuertosPlanes(this,true);
+        String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
+        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
+            capturarAeropuerto.jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("AEROPUERTO DE DESTINO"));
+            capturarAeropuerto.setTitle("AEROPUERTOS: APERTURA DE PLAN DE VUELO");
+        } else {
+            capturarAeropuerto.jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("AEROPUERTO DE PROCEDENCIA"));
+            capturarAeropuerto.setTitle("AEROPUERTOS: CIERRE DE PLAN DE VUELO");
+        }
         capturarAeropuerto.setDatosConexion ("localhost","root","l1u2c3h4o5e6d7u","pplanes");
         capturarAeropuerto.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -1242,8 +1250,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JComboBox jComboBoxOperacionPlanes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

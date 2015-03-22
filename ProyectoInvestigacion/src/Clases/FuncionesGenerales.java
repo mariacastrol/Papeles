@@ -25,6 +25,10 @@ public class FuncionesGenerales {
         return (Character.isLetterOrDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && cajaTextoAValidar.getText().length() < maxCaracteres;
     }
     
+    public static boolean estaVacioJTextField(JTextField cajaTextoAValidar) {
+        return (cajaTextoAValidar.getText() == null || cajaTextoAValidar.getText().equals(""));
+    }
+    
     
     //!Character.isDigit(caracterValidar) && !Character.isAlphabetic(caracterValidar) && !Character.isISOControl(caracterValidar)) || cajaTextoAValidar.getText().length() == maxCaracteres
     //JTextField cajaTextoAValidar, int maxCaracteres, char caracterValidar
