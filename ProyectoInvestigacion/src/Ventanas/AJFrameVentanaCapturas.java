@@ -49,13 +49,13 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
+        botonSeleccionarAeropuertoPlanes = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jTextField4 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
+        botonSeleccionarAeronavePlanes = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jTextField6 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -192,10 +192,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jTextField3.setEditable(false);
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jButton7.setText("AGREGAR");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        botonSeleccionarAeropuertoPlanes.setText("AGREGAR");
+        botonSeleccionarAeropuertoPlanes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                botonSeleccionarAeropuertoPlanesActionPerformed(evt);
             }
         });
 
@@ -222,7 +222,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton7)
+                .addComponent(botonSeleccionarAeropuertoPlanes)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -238,7 +238,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton7)
+                .addComponent(botonSeleccionarAeropuertoPlanes)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -254,7 +254,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jLabel11.setText("TIPO DE AERONAVE");
 
-        jButton9.setText("AGREGAR");
+        botonSeleccionarAeronavePlanes.setText("AGREGAR");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -275,7 +275,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                                 .addGap(0, 14, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton9)))
+                        .addComponent(botonSeleccionarAeronavePlanes)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -290,7 +290,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton9)
+                .addComponent(botonSeleccionarAeronavePlanes)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1153,7 +1153,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void botonSeleccionarAeropuertoPlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarAeropuertoPlanesActionPerformed
         BJDialogAeropuertosPlanes capturarAeropuerto = new BJDialogAeropuertosPlanes(this,true);
         String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
         if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
@@ -1163,9 +1163,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             capturarAeropuerto.jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("AEROPUERTO DE PROCEDENCIA"));
             capturarAeropuerto.setTitle("AEROPUERTOS: CIERRE DE PLAN DE VUELO");
         }
-        capturarAeropuerto.setDatosConexion ("localhost","root","l1u2c3h4o5e6d7u","pplanes");
+        String [] cT = {"codigo_oaci","codigo_iata","nombre"};
+        capturarAeropuerto.setDatosConexion (sv,us,pw,dB,cT,"AEROPUERTOS_PLANES","codigo_oaci");
         capturarAeropuerto.setVisible(true);
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_botonSeleccionarAeropuertoPlanesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1234,6 +1235,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonSeleccionarAeronavePlanes;
+    private javax.swing.JButton botonSeleccionarAeropuertoPlanes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -1247,9 +1250,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBoxOperacionPlanes;
     private javax.swing.JLabel jLabel1;
@@ -1359,4 +1360,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
+    private String sv = "localhost";
+    private String us = "root";
+    private String pw = "l1u2c3h4o5e6d7u";
+    private String dB = "proyecto_planes";
+
+
 }
