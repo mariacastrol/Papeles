@@ -255,6 +255,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jLabel11.setText("TIPO DE AERONAVE");
 
         botonSeleccionarAeronavePlanes.setText("AGREGAR");
+        botonSeleccionarAeronavePlanes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSeleccionarAeronavePlanesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1168,6 +1173,19 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         capturarAeropuerto.setVisible(true);
     }//GEN-LAST:event_botonSeleccionarAeropuertoPlanesActionPerformed
 
+    private void botonSeleccionarAeronavePlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarAeronavePlanesActionPerformed
+        CJDialogAeronavesPlanes capturarAeronave = new CJDialogAeronavesPlanes(this,true);
+        String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
+        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
+            capturarAeronave.setTitle("AERONAVES: APERTURA DE PLAN DE VUELO");
+        } else {
+            capturarAeronave.setTitle("AERONAVES: CIERRE DE PLAN DE VUELO");
+        }
+        String [] cT = {"identificacion_aeronave","tipo"};
+        capturarAeronave.setDatosConexion (sv,us,pw,dB,cT,"AERONAVES_PLANES","identificacion_aeronave");
+        capturarAeronave.setVisible(true);
+    }//GEN-LAST:event_botonSeleccionarAeronavePlanesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1353,8 +1371,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField25;
     public static javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    public static javax.swing.JTextField jTextField4;
+    public static javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
