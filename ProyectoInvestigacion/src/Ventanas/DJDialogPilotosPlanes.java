@@ -5,6 +5,10 @@
  */
 package Ventanas;
 
+import Clases.ConexionMysql;
+import Clases.FuncionesGenerales;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ADOLFO
@@ -28,32 +32,60 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jTextField8 = new javax.swing.JTextField();
+        botonBuscar = new javax.swing.JButton();
+        jTextFieldBuscarLicencia = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jTextField17 = new javax.swing.JTextField();
+        botonVolver = new javax.swing.JButton();
+        jTextFieldSNombreCompleto = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
-        jLabel40 = new javax.swing.JLabel();
+        jTextFieldSLicencia = new javax.swing.JTextField();
+        jLabelSTLicencia = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jTextField10 = new javax.swing.JTextField();
+        botonActualizar = new javax.swing.JButton();
+        jTextFieldAANombre = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        jTextFieldAAPaterno = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        jTextFieldAAMaterno = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
+        jTextFieldAALicencia = new javax.swing.JTextField();
+        jLabelAATLicencia = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTablePilotosPlanes = new javax.swing.JTable();
+
+        jMenuItem1.setText("Seleccionar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Actualizar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Eliminar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("PILOTOS: PLANES DE VUELO");
@@ -62,9 +94,19 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jButton4.setText("BUSCAR");
+        botonBuscar.setText("BUSCAR");
+        botonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarActionPerformed(evt);
+            }
+        });
 
-        jTextField8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldBuscarLicencia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldBuscarLicencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldBuscarLicenciaKeyTyped(evt);
+            }
+        });
 
         jLabel15.setText("N° DE LICENCIA");
 
@@ -76,9 +118,9 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldBuscarLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(botonBuscar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -86,28 +128,32 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
+                    .addComponent(jTextFieldBuscarLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("PILOTO"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("PILOTO AL MANDO"));
 
-        jButton2.setText("VOLVER A VENTANA PRINCIPAL");
+        botonVolver.setText("VOLVER A VENTANA PRINCIPAL");
+        botonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVolverActionPerformed(evt);
+            }
+        });
 
-        jTextField17.setEditable(false);
+        jTextFieldSNombreCompleto.setEditable(false);
 
         jLabel31.setText("PILOTO");
 
         jLabel33.setText("N° DE LICENCIA");
 
-        jTextField19.setEditable(false);
-        jTextField19.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldSLicencia.setEditable(false);
+        jTextFieldSLicencia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jLabel40.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        jLabel40.setText(" Lic. extranjera");
+        jLabelSTLicencia.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -121,55 +167,114 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel31))
-                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel33)
+                            .addComponent(jTextFieldSNombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel33)
+                                .addGap(85, 85, 85))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jTextFieldSLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel40))))
+                                .addComponent(jLabelSTLicencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
-                .addContainerGap())
+                        .addComponent(botonVolver)
+                        .addGap(10, 10, 10))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel40))
+                    .addComponent(jTextFieldSNombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldSLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelSTLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
                     .addComponent(jLabel33))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(botonVolver)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("AGREGAR/ACTUALIZAR PILOTOS"));
 
         jButton5.setText("AGREGAR");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("ACTUALIZAR");
-        jButton6.setEnabled(false);
+        botonActualizar.setText("ACTUALIZAR");
+        botonActualizar.setEnabled(false);
+        botonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonActualizarActionPerformed(evt);
+            }
+        });
+
+        jTextFieldAANombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldAANombreFocusGained(evt);
+            }
+        });
+        jTextFieldAANombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAANombreKeyTyped(evt);
+            }
+        });
 
         jLabel14.setText("NOMBRE(S)");
 
+        jTextFieldAAPaterno.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldAAPaternoFocusGained(evt);
+            }
+        });
+        jTextFieldAAPaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAAPaternoKeyTyped(evt);
+            }
+        });
+
         jLabel17.setText("APELLIDO PATERNO");
+
+        jTextFieldAAMaterno.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldAAMaternoFocusGained(evt);
+            }
+        });
+        jTextFieldAAMaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAAMaternoKeyTyped(evt);
+            }
+        });
 
         jLabel18.setText("APELLIDO MATERNO");
 
         jLabel19.setText("N° DE LICENCIA");
 
-        jTextField13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldAALicencia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldAALicencia.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldAALicenciaFocusGained(evt);
+            }
+        });
+        jTextFieldAALicencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldAALicenciaKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAALicenciaKeyTyped(evt);
+            }
+        });
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        jLabel20.setText(" Lic. extranjera");
+        jLabelAATLicencia.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jLabelAATLicencia.setText(" ");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -179,19 +284,20 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel20))
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldAAMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jTextFieldAANombre, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)
+                                .addComponent(jTextFieldAALicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabelAATLicencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jTextFieldAAPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel18)
@@ -203,7 +309,7 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
                                             .addComponent(jLabel19)
                                             .addGroup(jPanel4Layout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(jButton6)
+                                                .addComponent(botonActualizar)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jButton5)))))))
                         .addGap(30, 30, 30))))
@@ -213,33 +319,33 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20))
+                    .addComponent(jTextFieldAANombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldAALicencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelAATLicencia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel19))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldAAPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6)
+                    .addComponent(jTextFieldAAMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonActualizar)
                     .addComponent(jButton5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePilotosPlanes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "NOMBRE(S)", "A PATERNO", "A MATERNO", "LICENCIA", "TIPO LICENCIA"
+                "LICENCIA", "NOMBRE(S)", "A PATERNO", "A MATERNO", "TIPO LICENCIA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -250,20 +356,21 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(1).setMinWidth(80);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(80);
-            jTable1.getColumnModel().getColumn(1).setMaxWidth(80);
-            jTable1.getColumnModel().getColumn(2).setMinWidth(80);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(80);
-            jTable1.getColumnModel().getColumn(2).setMaxWidth(80);
-            jTable1.getColumnModel().getColumn(3).setMinWidth(80);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(80);
-            jTable1.getColumnModel().getColumn(3).setMaxWidth(80);
-            jTable1.getColumnModel().getColumn(4).setMinWidth(80);
-            jTable1.getColumnModel().getColumn(4).setPreferredWidth(80);
-            jTable1.getColumnModel().getColumn(4).setMaxWidth(80);
+        jTablePilotosPlanes.setComponentPopupMenu(jPopupMenu1);
+        jScrollPane1.setViewportView(jTablePilotosPlanes);
+        if (jTablePilotosPlanes.getColumnModel().getColumnCount() > 0) {
+            jTablePilotosPlanes.getColumnModel().getColumn(0).setMinWidth(80);
+            jTablePilotosPlanes.getColumnModel().getColumn(0).setPreferredWidth(80);
+            jTablePilotosPlanes.getColumnModel().getColumn(0).setMaxWidth(80);
+            jTablePilotosPlanes.getColumnModel().getColumn(2).setMinWidth(80);
+            jTablePilotosPlanes.getColumnModel().getColumn(2).setPreferredWidth(80);
+            jTablePilotosPlanes.getColumnModel().getColumn(2).setMaxWidth(80);
+            jTablePilotosPlanes.getColumnModel().getColumn(3).setMinWidth(80);
+            jTablePilotosPlanes.getColumnModel().getColumn(3).setPreferredWidth(80);
+            jTablePilotosPlanes.getColumnModel().getColumn(3).setMaxWidth(80);
+            jTablePilotosPlanes.getColumnModel().getColumn(4).setMinWidth(80);
+            jTablePilotosPlanes.getColumnModel().getColumn(4).setPreferredWidth(80);
+            jTablePilotosPlanes.getColumnModel().getColumn(4).setMaxWidth(80);
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -309,6 +416,237 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
+        String campoConsulta = jTextFieldBuscarLicencia.getText();
+        if (!ping.mostrarRegistroEspecifico(jTablePilotosPlanes,nombreTablaMysql,columnasTablaMysql,pK,campoConsulta)) {
+            JOptionPane.showMessageDialog(this,ping.getMensajesError(),"ERROR AL CARGAR CONSULTA",JOptionPane.ERROR_MESSAGE);
+        } else {
+            int filasTabla = jTablePilotosPlanes.getRowCount();
+            if (filasTabla == 0) {
+                JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO EL NÚMERO DE LICENCIA","ERROR EN BUSQUEDA",JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_botonBuscarActionPerformed
+
+    private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia) || FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia)) {
+                jTextFieldAALicencia.setBackground(new java.awt.Color(255,0,0));
+            }
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre)) {
+                jTextFieldAANombre.setBackground(new java.awt.Color(255,0,0));
+            }
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
+                jTextFieldAAPaterno.setBackground(new java.awt.Color(255,0,0));
+            }            
+            JOptionPane.showMessageDialog(this,"Ha dejado campos vacios","NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+        } else {
+            String [] datosActualizados = {jTextFieldAALicencia.getText(),jTextFieldAANombre.getText(),jTextFieldAAPaterno.getText(),jTextFieldAAMaterno.getText(),jLabelAATLicencia.getText()};
+            if (!ping.modificarFilaEnTabla(nombreTablaMysql, columnasTablaMysql, datosActualizados, pK,llaveActual)) {
+                JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+            } else {
+                if (!ping.mostrarColumnasTablaMysqlSimple(jTablePilotosPlanes, nombreTablaMysql, columnasTablaMysql)) {
+                    JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            jTextFieldAALicencia.setText(null);
+            jTextFieldAANombre.setText(null);
+            jTextFieldAAPaterno.setText(null);
+            jTextFieldAAMaterno.setText(null);
+            jLabelAATLicencia.setText(null);
+            botonActualizar.setEnabled(false); 
+        }
+    }//GEN-LAST:event_botonActualizarActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia) || FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia)) {
+                jTextFieldAALicencia.setBackground(new java.awt.Color(255,0,0));
+            }
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre)) {
+                jTextFieldAANombre.setBackground(new java.awt.Color(255,0,0));
+            }
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
+                jTextFieldAAPaterno.setBackground(new java.awt.Color(255,0,0));
+            }          
+            JOptionPane.showMessageDialog(this,"Ha dejado campos vacios","NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+        } else {
+            String [] valores = {jTextFieldAALicencia.getText(),jTextFieldAANombre.getText(),jTextFieldAAPaterno.getText(),jTextFieldAAMaterno.getText(),jLabelAATLicencia.getText()};
+            String mensajeSiRepiteRegistro = "Ya existe este número de Licencia";
+            if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
+                JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+            } else {
+                if(!ping.mostrarColumnasTablaMysqlSimple(jTablePilotosPlanes, nombreTablaMysql, columnasTablaMysql)){
+                    JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            jTextFieldAALicencia.setText(null);
+            jTextFieldAANombre.setText(null);
+            jTextFieldAAPaterno.setText(null);
+            jTextFieldAAMaterno.setText(null);
+            jLabelAATLicencia.setText(null);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
+           if (FuncionesGenerales.estaVacioJTextField(jTextFieldSNombreCompleto)) {
+            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(255,0,0));
+            jTextFieldSLicencia.setBackground(new java.awt.Color(255,0,0));        
+        } else {
+            AJFrameVentanaCapturas.jTextField6.setText(jTextFieldSNombreCompleto.getText());
+            AJFrameVentanaCapturas.jTextField7.setText(jTextFieldSLicencia.getText());
+            AJFrameVentanaCapturas.jLabel14.setText(jLabelSTLicencia.getText());
+            AJFrameVentanaCapturas.jTextField6.setBackground(new java.awt.Color(153,255,153));
+            AJFrameVentanaCapturas.jTextField7.setBackground(new java.awt.Color(153,255,153));            
+            this.dispose();  
+        }
+    }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        int filaSeleccionada = jTablePilotosPlanes.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            String celda = jTablePilotosPlanes.getValueAt(filaSeleccionada,0).toString();
+            String celda1 = jTablePilotosPlanes.getValueAt(filaSeleccionada,1).toString();
+            String celda2 = jTablePilotosPlanes.getValueAt(filaSeleccionada,2).toString();
+            String celda3 = jTablePilotosPlanes.getValueAt(filaSeleccionada,3).toString();
+            String celda4 = jTablePilotosPlanes.getValueAt(filaSeleccionada,4).toString();
+            jTextFieldSNombreCompleto.setText(celda1+" "+celda2+" "+celda3);
+            jTextFieldSLicencia.setText(celda);
+            jLabelSTLicencia.setText(celda4);           
+            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(153,255,153));
+            jTextFieldSLicencia.setBackground(new java.awt.Color(153,255,153));
+            
+        } else {
+            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+               int filaSeleccionada = jTablePilotosPlanes.getSelectedRow();
+        if (filaSeleccionada >= 0) {    
+            String celda = jTablePilotosPlanes.getValueAt(filaSeleccionada,0).toString();
+            String celda1 = jTablePilotosPlanes.getValueAt(filaSeleccionada,1).toString();
+            String celda2 = jTablePilotosPlanes.getValueAt(filaSeleccionada,2).toString();
+            String celda3 = jTablePilotosPlanes.getValueAt(filaSeleccionada,3).toString();
+            String celda4 = jTablePilotosPlanes.getValueAt(filaSeleccionada,4).toString();
+            jTextFieldAALicencia.setText(celda);
+            jTextFieldAANombre.setText(celda1);
+            jTextFieldAAPaterno.setText(celda2);
+            jTextFieldAAMaterno.setText(celda3);
+            jLabelAATLicencia.setText(celda4);
+            
+            llaveActual = celda;
+            botonActualizar.setEnabled(true);
+        } else {
+            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
+        }
+        jTextFieldAANombre.setBackground(new java.awt.Color(255,255,255));
+        jTextFieldAAPaterno.setBackground(new java.awt.Color(255,255,255));
+        jTextFieldAAMaterno.setBackground(new java.awt.Color(255,255,255));
+        jTextFieldAALicencia.setBackground(new java.awt.Color(255,255,255));
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        int filaSeleccionada = jTablePilotosPlanes.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            String campoBuscar = jTablePilotosPlanes.getValueAt(filaSeleccionada,0).toString();
+            if (!ping.eliminarFilaEnTabla(nombreTablaMysql,pK,campoBuscar)) {
+                JOptionPane.showMessageDialog(this,ping.getMensajesError(),"ERROR AL ELIMINAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+            } else {
+                jTextFieldSNombreCompleto.setText(null);
+                jTextFieldSLicencia.setText(null);
+                jLabelSTLicencia.setText(null);               
+                jTextFieldSNombreCompleto.setBackground(new java.awt.Color(212,208,200));
+                jTextFieldSLicencia.setBackground(new java.awt.Color(212,208,200));               
+            }
+            if(!ping.mostrarColumnasTablaMysqlSimple(jTablePilotosPlanes,nombreTablaMysql,columnasTablaMysql)){
+                JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jTextFieldBuscarLicenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarLicenciaKeyTyped
+        int limite = 9;
+        char caracterValidar = evt.getKeyChar();
+        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldBuscarLicencia.getText().length()  < limite )){
+            getToolkit().beep(); 
+            evt.consume();
+        } else {
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);
+        }
+    }//GEN-LAST:event_jTextFieldBuscarLicenciaKeyTyped
+
+    private void jTextFieldAALicenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAALicenciaKeyTyped
+        int limite = 9;
+        char caracterValidar = evt.getKeyChar();
+        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAALicencia.getText().length()  < limite )){
+            getToolkit().beep(); 
+            evt.consume();
+        } else {
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);
+        }
+    }//GEN-LAST:event_jTextFieldAALicenciaKeyTyped
+
+    private void jTextFieldAALicenciaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAALicenciaFocusGained
+        jTextFieldAALicencia.setBackground(new java.awt.Color(255,255,255));
+    }//GEN-LAST:event_jTextFieldAALicenciaFocusGained
+
+    private void jTextFieldAANombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAANombreKeyTyped
+         int limite = 50;
+        char caracterValidar = evt.getKeyChar();
+        if ( !((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAANombre.getText().length()  < limite )){
+            getToolkit().beep(); 
+            evt.consume();
+        } else {
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);
+        }
+    }//GEN-LAST:event_jTextFieldAANombreKeyTyped
+
+    private void jTextFieldAANombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAANombreFocusGained
+        jTextFieldAANombre.setBackground(new java.awt.Color(255,255,255));
+    }//GEN-LAST:event_jTextFieldAANombreFocusGained
+
+    private void jTextFieldAAPaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAPaternoKeyTyped
+        int limite = 20;
+        char caracterValidar = evt.getKeyChar();
+        if ( !((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAAPaterno.getText().length()  < limite )){
+            getToolkit().beep(); 
+            evt.consume();
+        } else {
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);
+        }
+    }//GEN-LAST:event_jTextFieldAAPaternoKeyTyped
+
+    private void jTextFieldAAPaternoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAAPaternoFocusGained
+        jTextFieldAAPaterno.setBackground(new java.awt.Color(255,255,255));
+    }//GEN-LAST:event_jTextFieldAAPaternoFocusGained
+
+    private void jTextFieldAAMaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAMaternoKeyTyped
+        int limite = 20;
+        char caracterValidar = evt.getKeyChar();
+        if ( !((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAAMaterno.getText().length()  < limite )){
+            getToolkit().beep(); 
+            evt.consume();
+        } else {
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);
+        }
+    }//GEN-LAST:event_jTextFieldAAMaternoKeyTyped
+
+    private void jTextFieldAAMaternoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAAMaternoFocusGained
+        jTextFieldAAMaterno.setBackground(new java.awt.Color(255,255,255));
+    }//GEN-LAST:event_jTextFieldAAMaternoFocusGained
+
+    private void jTextFieldAALicenciaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAALicenciaKeyReleased
+        FuncionesGenerales.nacionalExtranjera(jTextFieldAALicencia,jLabelAATLicencia); 
+    }//GEN-LAST:event_jTextFieldAALicenciaKeyReleased
 
     /**
      * @param args the command line arguments
@@ -416,31 +754,55 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton botonActualizar;
+    private javax.swing.JButton botonBuscar;
+    private javax.swing.JButton botonVolver;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabelAATLicencia;
+    private javax.swing.JLabel jLabelSTLicencia;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTable jTablePilotosPlanes;
+    private javax.swing.JTextField jTextFieldAALicencia;
+    private javax.swing.JTextField jTextFieldAAMaterno;
+    private javax.swing.JTextField jTextFieldAANombre;
+    private javax.swing.JTextField jTextFieldAAPaterno;
+    private javax.swing.JTextField jTextFieldBuscarLicencia;
+    private javax.swing.JTextField jTextFieldSLicencia;
+    private javax.swing.JTextField jTextFieldSNombreCompleto;
     // End of variables declaration//GEN-END:variables
+
+    private final ConexionMysql ping = new ConexionMysql();
+    private String llaveActual;
+    private String [] columnasTablaMysql;
+    private String nombreTablaMysql;
+    private String pK;
+    private final String mensajeNoSeleccionado = "Primero de clic izquierdo sobre el elemento deseado de la tabla";
+    
+    public void setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
+        if (ping.conectarBD(sv,us,pw,dB)) {
+            columnasTablaMysql = cTM;
+            nombreTablaMysql = nTM;
+            this.pK = pK;
+            if(!ping.mostrarColumnasTablaMysqlSimple(jTablePilotosPlanes, nombreTablaMysql, columnasTablaMysql)){
+                JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA INFORMACIÓN DE LA TABLA",JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }

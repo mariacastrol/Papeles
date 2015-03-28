@@ -5,6 +5,7 @@
  */
 package Clases;
 
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
@@ -29,7 +30,16 @@ public class FuncionesGenerales {
         return (cajaTextoAValidar.getText() == null || cajaTextoAValidar.getText().equals(""));
     }
     
-    
+    public static void nacionalExtranjera (JTextField cajaTextoLicencia, JLabel jLabelTipoLicencia){
+        
+        int longitud= cajaTextoLicencia.getText().length();
+        if (longitud==9){
+            jLabelTipoLicencia.setText("NACIONAL");
+        }
+        else {
+            jLabelTipoLicencia.setText("EXTRANJERA");
+        }
+    }
     //!Character.isDigit(caracterValidar) && !Character.isAlphabetic(caracterValidar) && !Character.isISOControl(caracterValidar)) || cajaTextoAValidar.getText().length() == maxCaracteres
     //JTextField cajaTextoAValidar, int maxCaracteres, char caracterValidar
 }

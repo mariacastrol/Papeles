@@ -512,6 +512,9 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
+            jTextFieldAAOACI.setBackground(new java.awt.Color(255,255,255));
+            jTextFieldAAIATA.setBackground(new java.awt.Color(255,255,255));
+            jTextFieldAANombre.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
