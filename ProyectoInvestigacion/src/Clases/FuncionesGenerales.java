@@ -30,13 +30,11 @@ public class FuncionesGenerales {
         return (cajaTextoAValidar.getText() == null || cajaTextoAValidar.getText().equals(""));
     }
     
-    public static void nacionalExtranjera (JTextField cajaTextoLicencia, JLabel jLabelTipoLicencia){
-        
-        int longitud= cajaTextoLicencia.getText().length();
-        if (longitud==9){
+    public static void nacionalExtranjera (JTextField cajaTextoLicencia, JLabel jLabelTipoLicencia) {
+        int longitud = cajaTextoLicencia.getText().length();
+        if (longitud == 9) {
             jLabelTipoLicencia.setText("NACIONAL");
-        }
-        else {
+        } else {
             jLabelTipoLicencia.setText("EXTRANJERA");
         }
     }
