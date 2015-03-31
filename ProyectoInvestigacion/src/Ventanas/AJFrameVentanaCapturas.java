@@ -1214,12 +1214,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         EJDialogCopilotosPlanes capturarCopiloto = new EJDialogCopilotosPlanes(this,true);
-        String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
-        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
-            capturarCopiloto.setTitle("COPILOTOS: APERTURA DE PLAN DE VUELO");
-        } else {
-            capturarCopiloto.setTitle("COPILOTOS: CIERRE DE PLAN DE VUELO");
-        }
+        capturarCopiloto.setTitle("COPILOTOS: CIERRE DE PLAN DE VUELO");
         String [] cT = {"no_licencia","nombre","apellido_paterno","apellido_materno","tipo_licencia"};
         capturarCopiloto.setDatosConexion (sv,us,pw,dB,cT,"COPILOTOS_PLANES","no_licencia");
         capturarCopiloto.setVisible(true);

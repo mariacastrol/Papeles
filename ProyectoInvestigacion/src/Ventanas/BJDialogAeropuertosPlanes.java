@@ -86,7 +86,6 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
         jPopupMenu1.add(jMenuItem3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("AEROPUERTOS: APERTURA DE PLAN DE VUELO");
         setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -512,9 +511,9 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
-            jTextFieldAAOACI.setBackground(new java.awt.Color(255,255,255));
-            jTextFieldAAIATA.setBackground(new java.awt.Color(255,255,255));
-            jTextFieldAANombre.setBackground(new java.awt.Color(255,255,255));
+        jTextFieldAAOACI.setBackground(new java.awt.Color(255,255,255));
+        jTextFieldAAIATA.setBackground(new java.awt.Color(255,255,255));
+        jTextFieldAANombre.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -542,7 +541,7 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
     private void jTextFieldBuscarOACIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarOACIKeyTyped
         int limite = 4;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldBuscarOACI.getText().length()  < limite )){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldBuscarOACI.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -554,7 +553,7 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
     private void jTextFieldAAOACIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAOACIKeyTyped
         int limite = 4;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAAOACI.getText().length()  < limite )){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAAOACI.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -566,7 +565,7 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
     private void jTextFieldAAIATAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAIATAKeyTyped
         int limite = 3;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAAIATA.getText().length()  < limite )){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAAIATA.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -578,7 +577,7 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
     private void jTextFieldAANombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAANombreKeyTyped
         int limite = 100;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAANombre.getText().length()  < limite )){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAANombre.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {

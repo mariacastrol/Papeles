@@ -82,7 +82,6 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         jPopupMenu1.add(jMenuItem3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("AERONAVES: PLANES DE VUELO");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -409,7 +408,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-           if (FuncionesGenerales.estaVacioJTextField(jTextFieldSMatricula)) {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSMatricula)) {
             jTextFieldSMatricula.setBackground(new java.awt.Color(255,0,0));
             jTextFieldSTipo.setBackground(new java.awt.Color(255,0,0));
         } else {
@@ -474,7 +473,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     private void jTextFieldBuscarMatriculaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarMatriculaKeyTyped
         int limite = 7;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldBuscarMatricula.getText().length()  < limite )){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldBuscarMatricula.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -486,7 +485,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     private void jTextFieldAAMatriculaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAMatriculaKeyTyped
         int limite = 7;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAAMatricula.getText().length()  < limite )){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAAMatricula.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -498,7 +497,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     private void jTextFieldAATipoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAATipoKeyTyped
         int limite = 4;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAATipo.getText().length()  < limite )){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAATipo.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {

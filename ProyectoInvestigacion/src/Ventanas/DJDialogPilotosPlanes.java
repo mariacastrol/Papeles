@@ -49,7 +49,7 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
         jTextFieldSLicencia = new javax.swing.JTextField();
         jLabelSTLicencia = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
+        botonAgregar = new javax.swing.JButton();
         botonActualizar = new javax.swing.JButton();
         jTextFieldAANombre = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
@@ -88,7 +88,6 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
         jPopupMenu1.add(jMenuItem3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("PILOTOS: PLANES DE VUELO");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -202,10 +201,10 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("AGREGAR/ACTUALIZAR PILOTOS"));
 
-        jButton5.setText("AGREGAR");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        botonAgregar.setText("AGREGAR");
+        botonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                botonAgregarActionPerformed(evt);
             }
         });
 
@@ -311,7 +310,7 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                 .addComponent(botonActualizar)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jButton5)))))))
+                                                .addComponent(botonAgregar)))))))
                         .addGap(30, 30, 30))))
         );
         jPanel4Layout.setVerticalGroup(
@@ -334,7 +333,7 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldAAMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonActualizar)
-                    .addComponent(jButton5))
+                    .addComponent(botonAgregar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -459,7 +458,7 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_botonActualizarActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia) || FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
             if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia)) {
                 jTextFieldAALicencia.setBackground(new java.awt.Color(255,0,0));
@@ -487,10 +486,10 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
             jTextFieldAAMaterno.setText(null);
             jLabelAATLicencia.setText(null);
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-           if (FuncionesGenerales.estaVacioJTextField(jTextFieldSNombreCompleto)) {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSNombreCompleto)) {
             jTextFieldSNombreCompleto.setBackground(new java.awt.Color(255,0,0));
             jTextFieldSLicencia.setBackground(new java.awt.Color(255,0,0));        
         } else {
@@ -511,19 +510,18 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
             String celda2 = jTablePilotosPlanes.getValueAt(filaSeleccionada,2).toString();
             String celda3 = jTablePilotosPlanes.getValueAt(filaSeleccionada,3).toString();
             String celda4 = jTablePilotosPlanes.getValueAt(filaSeleccionada,4).toString();
-            jTextFieldSNombreCompleto.setText(celda1+" "+celda2+" "+celda3);
+            jTextFieldSNombreCompleto.setText(celda1 + " " + celda2 + " " + celda3);
             jTextFieldSLicencia.setText(celda);
             jLabelSTLicencia.setText(celda4);           
             jTextFieldSNombreCompleto.setBackground(new java.awt.Color(153,255,153));
             jTextFieldSLicencia.setBackground(new java.awt.Color(153,255,153));
-            
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-               int filaSeleccionada = jTablePilotosPlanes.getSelectedRow();
+        int filaSeleccionada = jTablePilotosPlanes.getSelectedRow();
         if (filaSeleccionada >= 0) {    
             String celda = jTablePilotosPlanes.getValueAt(filaSeleccionada,0).toString();
             String celda1 = jTablePilotosPlanes.getValueAt(filaSeleccionada,1).toString();
@@ -535,7 +533,6 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
             jTextFieldAAPaterno.setText(celda2);
             jTextFieldAAMaterno.setText(celda3);
             jLabelAATLicencia.setText(celda4);
-            
             llaveActual = celda;
             botonActualizar.setEnabled(true);
         } else {
@@ -571,7 +568,7 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
     private void jTextFieldBuscarLicenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarLicenciaKeyTyped
         int limite = 9;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldBuscarLicencia.getText().length()  < limite )){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldBuscarLicencia.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -583,7 +580,7 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
     private void jTextFieldAALicenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAALicenciaKeyTyped
         int limite = 9;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAALicencia.getText().length()  < limite )){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAALicencia.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -597,9 +594,9 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldAALicenciaFocusGained
 
     private void jTextFieldAANombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAANombreKeyTyped
-         int limite = 50;
+        int limite = 50;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAANombre.getText().length()  < limite )){
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAANombre.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -615,7 +612,7 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
     private void jTextFieldAAPaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAPaternoKeyTyped
         int limite = 20;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAAPaterno.getText().length()  < limite )){
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAAPaterno.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -631,7 +628,7 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
     private void jTextFieldAAMaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAMaternoKeyTyped
         int limite = 20;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAAMaterno.getText().length()  < limite )){
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAAMaterno.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -755,9 +752,9 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonActualizar;
+    private javax.swing.JButton botonAgregar;
     private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonVolver;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;

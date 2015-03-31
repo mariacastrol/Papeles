@@ -88,7 +88,6 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
         jPopupMenu1.add(jMenuItem3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("COPILOTOS: CIERRES DE PLAN DE VUELO");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -431,7 +430,7 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_botonBuscarActionPerformed
 
     private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
-               if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia) || FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia) || FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
             if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia)) {
                 jTextFieldAALicencia.setBackground(new java.awt.Color(255,0,0));
             }
@@ -505,7 +504,7 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-                int filaSeleccionada = jTableCopilotosPlanes.getSelectedRow();
+        int filaSeleccionada = jTableCopilotosPlanes.getSelectedRow();
         if (filaSeleccionada >= 0) {
             String celda = jTableCopilotosPlanes.getValueAt(filaSeleccionada,0).toString();
             String celda1 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,1).toString();
@@ -517,7 +516,6 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
             jLabelSTLicencia.setText(celda4);           
             jTextFieldSNombreCompleto.setBackground(new java.awt.Color(153,255,153));
             jTextFieldSLicencia.setBackground(new java.awt.Color(153,255,153));
-            
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -536,7 +534,6 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
             jTextFieldAAPaterno.setText(celda2);
             jTextFieldAAMaterno.setText(celda3);
             jLabelAATLicencia.setText(celda4);
-            
             llaveActual = celda;
             botonActualizar.setEnabled(true);
         } else {
@@ -549,7 +546,7 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-                int filaSeleccionada = jTableCopilotosPlanes.getSelectedRow();
+        int filaSeleccionada = jTableCopilotosPlanes.getSelectedRow();
         if (filaSeleccionada >= 0) {
             String campoBuscar = jTableCopilotosPlanes.getValueAt(filaSeleccionada,0).toString();
             if (!ping.eliminarFilaEnTabla(nombreTablaMysql,pK,campoBuscar)) {
@@ -572,7 +569,7 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
     private void jTextFieldBuscarLicenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarLicenciaKeyTyped
         int limite = 9;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldBuscarLicencia.getText().length()  < limite )){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldBuscarLicencia.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -584,7 +581,7 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
     private void jTextFieldAALicenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAALicenciaKeyTyped
         int limite = 9;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAALicencia.getText().length()  < limite )){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAALicencia.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -602,9 +599,9 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldAALicenciaFocusGained
 
     private void jTextFieldAANombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAANombreKeyTyped
-         int limite = 50;
+        int limite = 50;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAANombre.getText().length()  < limite )){
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAANombre.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -620,7 +617,7 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
     private void jTextFieldAAPaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAPaternoKeyTyped
         int limite = 20;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAAPaterno.getText().length()  < limite )){
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAAPaterno.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -636,7 +633,7 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
     private void jTextFieldAAMaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAMaternoKeyTyped
         int limite = 20;
         char caracterValidar = evt.getKeyChar();
-        if ( !((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAAMaterno.getText().length()  < limite )){
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAAMaterno.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
