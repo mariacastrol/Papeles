@@ -13,12 +13,12 @@ import javax.swing.JOptionPane;
  *
  * @author ADOLFO
  */
-public class JJDialogComandantes extends javax.swing.JDialog {
+public class LJDialogSegundos extends javax.swing.JDialog {
 
     /**
      * Creates new form JDialogPersonalVuelo
      */
-    public JJDialogComandantes(java.awt.Frame parent, boolean modal) {
+    public LJDialogSegundos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -61,7 +61,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
         jTextFieldAALicencia = new javax.swing.JTextField();
         jLabelAATLicencia = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableComandantes = new javax.swing.JTable();
+        jTableSegundosOficiales = new javax.swing.JTable();
 
         jMenuItem1.setText("Seleccionar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +134,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("COMANDANTE"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("SEGUNDO AL MANDO"));
 
         botonVolver.setText("VOLVER A VENTANA PRINCIPAL");
         botonVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +145,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
 
         jTextFieldSNombreCompleto.setEditable(false);
 
-        jLabel31.setText("COMANDANTE");
+        jLabel31.setText("SEGUNDO AL MANDO");
 
         jLabel33.setText("N° DE LICENCIA");
 
@@ -199,7 +199,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("AGREGAR/ACTUALIZAR COMANDANTES"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("AGREGAR/ACTUALIZAR SEGUNDOS AL MANDO"));
 
         botonAgregar.setText("AGREGAR");
         botonAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -340,7 +340,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTableComandantes.setModel(new javax.swing.table.DefaultTableModel(
+        jTableSegundosOficiales.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -356,21 +356,21 @@ public class JJDialogComandantes extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jTableComandantes.setComponentPopupMenu(jPopupMenu1);
-        jScrollPane1.setViewportView(jTableComandantes);
-        if (jTableComandantes.getColumnModel().getColumnCount() > 0) {
-            jTableComandantes.getColumnModel().getColumn(0).setMinWidth(80);
-            jTableComandantes.getColumnModel().getColumn(0).setPreferredWidth(80);
-            jTableComandantes.getColumnModel().getColumn(0).setMaxWidth(80);
-            jTableComandantes.getColumnModel().getColumn(2).setMinWidth(80);
-            jTableComandantes.getColumnModel().getColumn(2).setPreferredWidth(80);
-            jTableComandantes.getColumnModel().getColumn(2).setMaxWidth(80);
-            jTableComandantes.getColumnModel().getColumn(3).setMinWidth(80);
-            jTableComandantes.getColumnModel().getColumn(3).setPreferredWidth(80);
-            jTableComandantes.getColumnModel().getColumn(3).setMaxWidth(80);
-            jTableComandantes.getColumnModel().getColumn(4).setMinWidth(80);
-            jTableComandantes.getColumnModel().getColumn(4).setPreferredWidth(80);
-            jTableComandantes.getColumnModel().getColumn(4).setMaxWidth(80);
+        jTableSegundosOficiales.setComponentPopupMenu(jPopupMenu1);
+        jScrollPane1.setViewportView(jTableSegundosOficiales);
+        if (jTableSegundosOficiales.getColumnModel().getColumnCount() > 0) {
+            jTableSegundosOficiales.getColumnModel().getColumn(0).setMinWidth(80);
+            jTableSegundosOficiales.getColumnModel().getColumn(0).setPreferredWidth(80);
+            jTableSegundosOficiales.getColumnModel().getColumn(0).setMaxWidth(80);
+            jTableSegundosOficiales.getColumnModel().getColumn(2).setMinWidth(80);
+            jTableSegundosOficiales.getColumnModel().getColumn(2).setPreferredWidth(80);
+            jTableSegundosOficiales.getColumnModel().getColumn(2).setMaxWidth(80);
+            jTableSegundosOficiales.getColumnModel().getColumn(3).setMinWidth(80);
+            jTableSegundosOficiales.getColumnModel().getColumn(3).setPreferredWidth(80);
+            jTableSegundosOficiales.getColumnModel().getColumn(3).setMaxWidth(80);
+            jTableSegundosOficiales.getColumnModel().getColumn(4).setMinWidth(80);
+            jTableSegundosOficiales.getColumnModel().getColumn(4).setPreferredWidth(80);
+            jTableSegundosOficiales.getColumnModel().getColumn(4).setMaxWidth(80);
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -419,10 +419,10 @@ public class JJDialogComandantes extends javax.swing.JDialog {
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
         String campoConsulta = jTextFieldBuscarLicencia.getText();
-        if (!ping.mostrarRegistroEspecifico(jTableComandantes,nombreTablaMysql,columnasTablaMysql,pK,campoConsulta)) {
+        if (!ping.mostrarRegistroEspecifico(jTableSegundosOficiales,nombreTablaMysql,columnasTablaMysql,pK,campoConsulta)) {
             JOptionPane.showMessageDialog(this,ping.getMensajesError(),"ERROR AL CARGAR CONSULTA",JOptionPane.ERROR_MESSAGE);
         } else {
-            int filasTabla = jTableComandantes.getRowCount();
+            int filasTabla = jTableSegundosOficiales.getRowCount();
             if (filasTabla == 0) {
                 JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO EL NÚMERO DE LICENCIA","ERROR EN BUSQUEDA",JOptionPane.INFORMATION_MESSAGE);
             }
@@ -446,7 +446,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
             if (!ping.modificarFilaEnTabla(nombreTablaMysql, columnasTablaMysql, datosActualizados, pK,llaveActual)) {
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
-                if (!ping.mostrarColumnasTablaMysqlSimple(jTableComandantes, nombreTablaMysql, columnasTablaMysql)) {
+                if (!ping.mostrarColumnasTablaMysqlSimple(jTableSegundosOficiales, nombreTablaMysql, columnasTablaMysql)) {
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
             }
@@ -477,7 +477,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
-                if(!ping.mostrarColumnasTablaMysqlSimple(jTableComandantes, nombreTablaMysql, columnasTablaMysql)){
+                if(!ping.mostrarColumnasTablaMysqlSimple(jTableSegundosOficiales, nombreTablaMysql, columnasTablaMysql)){
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
             }
@@ -494,23 +494,23 @@ public class JJDialogComandantes extends javax.swing.JDialog {
             jTextFieldSNombreCompleto.setBackground(new java.awt.Color(255,0,0));
             jTextFieldSLicencia.setBackground(new java.awt.Color(255,0,0));        
         } else {
-            AJFrameVentanaCapturas.jTextField17.setText(jTextFieldSNombreCompleto.getText());
-            AJFrameVentanaCapturas.jTextField19.setText(jTextFieldSLicencia.getText());
-            AJFrameVentanaCapturas.jLabel18.setText(jLabelSTLicencia.getText());
-            AJFrameVentanaCapturas.jTextField17.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField19.setBackground(new java.awt.Color(153,255,153));            
+            AJFrameVentanaCapturas.jTextField22.setText(jTextFieldSNombreCompleto.getText());
+            AJFrameVentanaCapturas.jTextField23.setText(jTextFieldSLicencia.getText());
+            AJFrameVentanaCapturas.jLabel51.setText(jLabelSTLicencia.getText());
+            AJFrameVentanaCapturas.jTextField22.setBackground(new java.awt.Color(153,255,153));
+            AJFrameVentanaCapturas.jTextField23.setBackground(new java.awt.Color(153,255,153));            
             this.dispose();  
         }
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        int filaSeleccionada = jTableComandantes.getSelectedRow();
+        int filaSeleccionada = jTableSegundosOficiales.getSelectedRow();
         if (filaSeleccionada >= 0) {
-            String celda = jTableComandantes.getValueAt(filaSeleccionada,0).toString();
-            String celda1 = jTableComandantes.getValueAt(filaSeleccionada,1).toString();
-            String celda2 = jTableComandantes.getValueAt(filaSeleccionada,2).toString();
-            String celda3 = jTableComandantes.getValueAt(filaSeleccionada,3).toString();
-            String celda4 = jTableComandantes.getValueAt(filaSeleccionada,4).toString();
+            String celda = jTableSegundosOficiales.getValueAt(filaSeleccionada,0).toString();
+            String celda1 = jTableSegundosOficiales.getValueAt(filaSeleccionada,1).toString();
+            String celda2 = jTableSegundosOficiales.getValueAt(filaSeleccionada,2).toString();
+            String celda3 = jTableSegundosOficiales.getValueAt(filaSeleccionada,3).toString();
+            String celda4 = jTableSegundosOficiales.getValueAt(filaSeleccionada,4).toString();
             jTextFieldSNombreCompleto.setText(celda1 + " " + celda2 + " " + celda3);
             jTextFieldSLicencia.setText(celda);
             jLabelSTLicencia.setText(celda4);           
@@ -522,13 +522,13 @@ public class JJDialogComandantes extends javax.swing.JDialog {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        int filaSeleccionada = jTableComandantes.getSelectedRow();
+        int filaSeleccionada = jTableSegundosOficiales.getSelectedRow();
         if (filaSeleccionada >= 0) {    
-            String celda = jTableComandantes.getValueAt(filaSeleccionada,0).toString();
-            String celda1 = jTableComandantes.getValueAt(filaSeleccionada,1).toString();
-            String celda2 = jTableComandantes.getValueAt(filaSeleccionada,2).toString();
-            String celda3 = jTableComandantes.getValueAt(filaSeleccionada,3).toString();
-            String celda4 = jTableComandantes.getValueAt(filaSeleccionada,4).toString();
+            String celda = jTableSegundosOficiales.getValueAt(filaSeleccionada,0).toString();
+            String celda1 = jTableSegundosOficiales.getValueAt(filaSeleccionada,1).toString();
+            String celda2 = jTableSegundosOficiales.getValueAt(filaSeleccionada,2).toString();
+            String celda3 = jTableSegundosOficiales.getValueAt(filaSeleccionada,3).toString();
+            String celda4 = jTableSegundosOficiales.getValueAt(filaSeleccionada,4).toString();
             jTextFieldAALicencia.setText(celda);
             jTextFieldAANombre.setText(celda1);
             jTextFieldAAPaterno.setText(celda2);
@@ -546,9 +546,9 @@ public class JJDialogComandantes extends javax.swing.JDialog {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        int filaSeleccionada = jTableComandantes.getSelectedRow();
+        int filaSeleccionada = jTableSegundosOficiales.getSelectedRow();
         if (filaSeleccionada >= 0) {
-            String campoBuscar = jTableComandantes.getValueAt(filaSeleccionada,0).toString();
+            String campoBuscar = jTableSegundosOficiales.getValueAt(filaSeleccionada,0).toString();
             if (!ping.eliminarFilaEnTabla(nombreTablaMysql,pK,campoBuscar)) {
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"ERROR AL ELIMINAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
@@ -558,7 +558,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
                 jTextFieldSNombreCompleto.setBackground(new java.awt.Color(212,208,200));
                 jTextFieldSLicencia.setBackground(new java.awt.Color(212,208,200));               
             }
-            if(!ping.mostrarColumnasTablaMysqlSimple(jTableComandantes,nombreTablaMysql,columnasTablaMysql)){
+            if(!ping.mostrarColumnasTablaMysqlSimple(jTableSegundosOficiales,nombreTablaMysql,columnasTablaMysql)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
             }
         } else {
@@ -663,13 +663,13 @@ public class JJDialogComandantes extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JJDialogComandantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LJDialogSegundos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JJDialogComandantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LJDialogSegundos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JJDialogComandantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LJDialogSegundos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JJDialogComandantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LJDialogSegundos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -803,7 +803,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JJDialogComandantes dialog = new JJDialogComandantes(new javax.swing.JFrame(), true);
+                LJDialogSegundos dialog = new LJDialogSegundos(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -838,7 +838,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableComandantes;
+    private javax.swing.JTable jTableSegundosOficiales;
     private javax.swing.JTextField jTextFieldAALicencia;
     private javax.swing.JTextField jTextFieldAAMaterno;
     private javax.swing.JTextField jTextFieldAANombre;
@@ -860,7 +860,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
             columnasTablaMysql = cTM;
             nombreTablaMysql = nTM;
             this.pK = pK;
-            if(!ping.mostrarColumnasTablaMysqlSimple(jTableComandantes, nombreTablaMysql, columnasTablaMysql)){
+            if(!ping.mostrarColumnasTablaMysqlSimple(jTableSegundosOficiales, nombreTablaMysql, columnasTablaMysql)){
                 JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA INFORMACIÓN DE LA TABLA",JOptionPane.ERROR_MESSAGE);
             }
         } else {

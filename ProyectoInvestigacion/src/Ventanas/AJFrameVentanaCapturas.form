@@ -585,9 +585,9 @@
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="jLabel17" min="-2" pref="73" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                                              <Component id="jButton12" min="-2" max="-2" attributes="0"/>
+                                              <Component id="botonSeleccionarPilotoPlanes" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jButton14" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="botonSeleccionarCopilotoPlanes" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -614,7 +614,7 @@
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel17" min="-2" pref="20" max="-2" attributes="0"/>
-                                          <Component id="jButton12" min="-2" max="-2" attributes="0"/>
+                                          <Component id="botonSeleccionarPilotoPlanes" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -630,7 +630,7 @@
                                   <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton14" min="-2" max="-2" attributes="0"/>
+                              <Component id="botonSeleccionarCopilotoPlanes" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -707,20 +707,20 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton12">
+                    <Component class="javax.swing.JButton" name="botonSeleccionarPilotoPlanes">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="AGREGAR"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton12ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSeleccionarPilotoPlanesActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton14">
+                    <Component class="javax.swing.JButton" name="botonSeleccionarCopilotoPlanes">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="AGREGAR"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton14ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSeleccionarCopilotoPlanesActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel38">
@@ -899,7 +899,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel20" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBox2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxOperacionManifiestos" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -954,7 +954,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxOperacionManifiestos" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
@@ -1000,7 +1000,7 @@
                     <Property name="text" type="java.lang.String" value="TIPO DE OPERACI&#xd3;N"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox2">
+                <Component class="javax.swing.JComboBox" name="jComboBoxOperacionManifiestos">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="2">
@@ -1069,7 +1069,7 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="botonSeleccionarCompaniaManifiestos" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1093,7 +1093,7 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jButton16" min="-2" max="-2" attributes="0"/>
+                                      <Component id="botonSeleccionarAeronaveManifiestos" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1145,8 +1145,8 @@
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="botonSeleccionarCompaniaManifiestos" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="botonSeleccionarAeronaveManifiestos" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1160,12 +1160,18 @@
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField12">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel25">
                       <Properties>
@@ -1182,6 +1188,9 @@
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel27">
                       <Properties>
@@ -1198,10 +1207,12 @@
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField15">
                       <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                       </Properties>
                     </Component>
@@ -1210,15 +1221,21 @@
                         <Property name="text" type="java.lang.String" value="No. DE VUELO"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton1">
+                    <Component class="javax.swing.JButton" name="botonSeleccionarCompaniaManifiestos">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="AGREGAR"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSeleccionarCompaniaManifiestosActionPerformed"/>
+                      </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton16">
+                    <Component class="javax.swing.JButton" name="botonSeleccionarAeronaveManifiestos">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="AGREGAR"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSeleccionarAeronaveManifiestosActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1246,7 +1263,7 @@
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jTextField18" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jButton19" min="-2" max="-2" attributes="0"/>
+                                  <Component id="botonSeleccionarAeropuertoManifiestos" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1312,7 +1329,7 @@
                                           <Component id="jTextField18" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jButton19" min="-2" max="-2" attributes="0"/>
+                                      <Component id="botonSeleccionarAeropuertoManifiestos" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1325,6 +1342,9 @@
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel30">
                       <Properties>
@@ -1341,6 +1361,9 @@
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JSpinner" name="jSpinner10">
                     </Component>
@@ -1370,10 +1393,13 @@
                     </Component>
                     <Component class="javax.swing.JSpinner" name="jSpinner12">
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton19">
+                    <Component class="javax.swing.JButton" name="botonSeleccionarAeropuertoManifiestos">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="AGREGAR"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSeleccionarAeropuertoManifiestosActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1447,7 +1473,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                               <Component id="jTextField21" alignment="0" max="32767" attributes="0"/>
@@ -1468,29 +1494,31 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jTextField20" min="-2" pref="70" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jLabel47" min="-2" pref="73" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jTextField23" min="-2" pref="70" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jLabel49" min="-2" pref="73" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jTextField19" min="-2" pref="70" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                              <Component id="jLabel18" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jTextField20" min="-2" pref="70" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel51" max="32767" attributes="0"/>
+                                                  <Component id="jLabel53" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jTextField23" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
@@ -1500,23 +1528,23 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel46" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
                                               <Component id="jTextField25" min="-2" pref="70" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jLabel50" min="-2" pref="73" max="-2" attributes="0"/>
+                                              <Component id="jLabel52" min="-2" pref="73" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="botonSeleccionarComandante" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="botonSeleccionarPrimer" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="botonSeleccionarSegundo" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton15" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="30" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1524,11 +1552,13 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jTextField17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextField19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="botonSeleccionarComandante" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel18" min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1536,11 +1566,13 @@
                                   <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jTextField21" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextField20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="botonSeleccionarPrimer" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel53" min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1551,10 +1583,10 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="jTextField23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel49" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="botonSeleccionarSegundo" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jTextField22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel51" min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1565,10 +1597,10 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="jTextField25" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel50" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jButton15" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jTextField24" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel52" min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1585,6 +1617,9 @@
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel31">
                       <Properties>
@@ -1596,18 +1631,13 @@
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel33">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="N&#xb0; DE LICENCIA"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel40">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="11" style="2"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value=" Lic. extranjera"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField20">
@@ -1615,6 +1645,9 @@
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel41">
                       <Properties>
@@ -1625,6 +1658,9 @@
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel42">
                       <Properties>
@@ -1635,6 +1671,9 @@
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel43">
                       <Properties>
@@ -1650,6 +1689,9 @@
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField24">
                       <Properties>
@@ -1671,49 +1713,74 @@
                         <Property name="text" type="java.lang.String" value="N&#xb0; DE LICENCIA"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel47">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="11" style="2"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Lic. extranjera"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="jButton11">
+                    <Component class="javax.swing.JButton" name="botonSeleccionarComandante">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="AGREGAR"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSeleccionarComandanteActionPerformed"/>
+                      </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton4">
+                    <Component class="javax.swing.JButton" name="botonSeleccionarPrimer">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="AGREGAR"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSeleccionarPrimerActionPerformed"/>
+                      </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel49">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="11" style="2"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Lic. extranjera"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="jButton13">
+                    <Component class="javax.swing.JButton" name="botonSeleccionarSegundo">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="AGREGAR"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel50">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="11" style="2"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Lic. extranjera"/>
-                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSeleccionarSegundoActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton15">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="AGREGAR"/>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel18">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="2"/>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel51">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="2"/>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel52">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="2"/>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel53">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="2"/>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
