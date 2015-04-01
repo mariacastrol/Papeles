@@ -140,7 +140,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         botonSeleccionarComandante = new javax.swing.JButton();
         botonSeleccionarPrimer = new javax.swing.JButton();
         botonSeleccionarSegundo = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
+        botonSeleccionarTercero = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
@@ -920,7 +920,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
 
-        jButton15.setText("AGREGAR");
+        botonSeleccionarTercero.setText("AGREGAR");
+        botonSeleccionarTercero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSeleccionarTerceroActionPerformed(evt);
+            }
+        });
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
 
@@ -988,7 +993,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                     .addComponent(botonSeleccionarComandante)
                     .addComponent(botonSeleccionarPrimer)
                     .addComponent(botonSeleccionarSegundo)
-                    .addComponent(jButton15))
+                    .addComponent(botonSeleccionarTercero))
                 .addGap(30, 30, 30))
         );
         jPanel14Layout.setVerticalGroup(
@@ -1031,7 +1036,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton15))
+                        .addComponent(botonSeleccionarTercero))
                     .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1328,6 +1333,19 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         capturarSegundo.setVisible(true);
     }//GEN-LAST:event_botonSeleccionarSegundoActionPerformed
 
+    private void botonSeleccionarTerceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarTerceroActionPerformed
+        MJDialogTerceros capturarTercero = new MJDialogTerceros(this,true);
+        String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
+        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
+            capturarTercero.setTitle("TERCEROS OFICIALES: APERTURA DE PLAN DE VUELO");
+        } else {
+            capturarTercero.setTitle("TERCEROS OFICIALES: CIERRE DE PLAN DE VUELO");
+        }
+        String [] cT = {"no_licencia","nombre","apellido_paterno","apellido_materno","tipo_licencia"};
+        capturarTercero.setDatosConexion (sv,us,pw,"proyecto_manifiestos",cT,"TERCER_OFICIAL","no_licencia");
+        capturarTercero.setVisible(true);
+    }//GEN-LAST:event_botonSeleccionarTerceroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1405,7 +1423,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JButton botonSeleccionarPilotoPlanes;
     private javax.swing.JButton botonSeleccionarPrimer;
     private javax.swing.JButton botonSeleccionarSegundo;
-    private javax.swing.JButton jButton15;
+    private javax.swing.JButton botonSeleccionarTercero;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
@@ -1510,8 +1528,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     public static javax.swing.JTextField jTextField21;
     public static javax.swing.JTextField jTextField22;
     public static javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
+    public static javax.swing.JTextField jTextField24;
+    public static javax.swing.JTextField jTextField25;
     public static javax.swing.JTextField jTextField3;
     public static javax.swing.JTextField jTextField4;
     public static javax.swing.JTextField jTextField5;
