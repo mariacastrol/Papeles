@@ -5,6 +5,8 @@
  */
 package Ventanas;
 
+import Clases.FuncionesGenerales;
+
 /**
  *
  * @author ADOLFO
@@ -33,16 +35,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jComboBoxOperacionPlanes = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jSpinner2 = new javax.swing.JSpinner();
-        jSpinner3 = new javax.swing.JSpinner();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jSpinner4 = new javax.swing.JSpinner();
+        jSpinnerHorasUTC = new javax.swing.JSpinner();
         jLabel7 = new javax.swing.JLabel();
-        jSpinner5 = new javax.swing.JSpinner();
+        jSpinnerMinutosUTC = new javax.swing.JSpinner();
         jPanel5 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
@@ -72,23 +68,18 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jLabel38 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jTextField10 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        botonListaPasajeros = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jComboBoxOperacionManifiestos = new javax.swing.JComboBox();
-        jSpinner6 = new javax.swing.JSpinner();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jSpinner7 = new javax.swing.JSpinner();
-        jSpinner8 = new javax.swing.JSpinner();
-        jLabel24 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jTextField11 = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
@@ -107,14 +98,14 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jTextField18 = new javax.swing.JTextField();
-        jSpinner10 = new javax.swing.JSpinner();
-        jSpinner9 = new javax.swing.JSpinner();
+        jSpinnerMinutosItinerario = new javax.swing.JSpinner();
+        jSpinnerHoraItinerario = new javax.swing.JSpinner();
         jLabel35 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
-        jSpinner11 = new javax.swing.JSpinner();
+        jSpinnerHoraReal = new javax.swing.JSpinner();
         jLabel37 = new javax.swing.JLabel();
-        jSpinner12 = new javax.swing.JSpinner();
+        jSpinnerMinutosReal = new javax.swing.JSpinner();
         botonSeleccionarAeropuertoManifiestos = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
@@ -148,6 +139,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
         jLabel48 = new javax.swing.JLabel();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -167,15 +159,25 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jLabel2.setText("FECHA");
 
-        jLabel3.setText("DÍA");
-
-        jLabel4.setText("MES");
-
-        jLabel5.setText("AÑO");
-
         jLabel6.setText("HORA (UTC)");
 
+        jSpinnerHorasUTC.setModel(new javax.swing.SpinnerNumberModel());
+        jSpinnerHorasUTC.setEditor(new javax.swing.JSpinner.NumberEditor(jSpinnerHorasUTC, "00"));
+        jSpinnerHorasUTC.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerHorasUTCStateChanged(evt);
+            }
+        });
+
         jLabel7.setText(":");
+
+        jSpinnerMinutosUTC.setModel(new javax.swing.SpinnerNumberModel());
+        jSpinnerMinutosUTC.setEditor(new javax.swing.JSpinner.NumberEditor(jSpinnerMinutosUTC, "00"));
+        jSpinnerMinutosUTC.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerMinutosUTCStateChanged(evt);
+            }
+        });
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("AEROPUERTO/AERODROMO DE DESTINO"));
 
@@ -423,7 +425,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jTextField10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jButton2.setText("LISTA DE PASAJEROS");
+        botonListaPasajeros.setText("LISTA DE PASAJEROS");
+        botonListaPasajeros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonListaPasajerosActionPerformed(evt);
+            }
+        });
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel19.setText("Se ha declaro una lista de pasajeros");
@@ -436,7 +443,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(botonListaPasajeros)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel19)
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -447,7 +454,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2)
+                    .addComponent(botonListaPasajeros)
                     .addComponent(jLabel19))
                 .addContainerGap())
         );
@@ -477,6 +484,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jButton3.setText("GUARDAR");
 
+        jDateChooser1.setDateFormatString("dd/MM/yyyy");
+        jDateChooser1.setMaxSelectableDate(new java.util.Date(1483250399000L));
+        jDateChooser1.setMinSelectableDate(new java.util.Date(1262325599000L));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -503,33 +514,16 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                             .addGap(330, 330, 330)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                            .addGap(10, 10, 10)
-                                            .addComponent(jLabel3)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                            .addGap(10, 10, 10)
-                                            .addComponent(jLabel4)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                            .addGap(10, 10, 10)
-                                            .addComponent(jLabel5))
-                                        .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(100, 100, 100)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(110, 110, 110)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel6)
                                 .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinnerHorasUTC, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel7)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jSpinnerMinutosUTC, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(20, 20, 20)
@@ -540,34 +534,23 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBoxOperacionPlanes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jSpinner1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
-                                    .addComponent(jSpinner3)
-                                    .addComponent(jSpinner2))))
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel5))))
+                        .addComponent(jComboBoxOperacionPlanes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSpinnerHorasUTC, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
-                            .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(20, 20, 20)
+                            .addComponent(jSpinnerMinutosUTC, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(40, 40, 40)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -581,7 +564,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -610,12 +593,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jComboBoxOperacionManifiestos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MANIFIESTO DE SALIDA", "MANIFIESTO DE LLEGADA" }));
 
         jLabel21.setText("FECHA");
-
-        jLabel22.setText("DÍA");
-
-        jLabel23.setText("MES");
-
-        jLabel24.setText("AÑO");
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("AERONAVE"));
 
@@ -748,13 +725,45 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jTextField18.setEditable(false);
         jTextField18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        jSpinnerMinutosItinerario.setModel(new javax.swing.SpinnerNumberModel());
+        jSpinnerMinutosItinerario.setEditor(new javax.swing.JSpinner.NumberEditor(jSpinnerMinutosItinerario, "00"));
+        jSpinnerMinutosItinerario.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerMinutosItinerarioStateChanged(evt);
+            }
+        });
+
+        jSpinnerHoraItinerario.setModel(new javax.swing.SpinnerNumberModel());
+        jSpinnerHoraItinerario.setEditor(new javax.swing.JSpinner.NumberEditor(jSpinnerHoraItinerario, "00"));
+        jSpinnerHoraItinerario.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerHoraItinerarioStateChanged(evt);
+            }
+        });
+
         jLabel35.setText(":");
 
         jLabel34.setText("HORA ITINERARIO");
 
         jLabel36.setText("HORA REAL");
 
+        jSpinnerHoraReal.setModel(new javax.swing.SpinnerNumberModel());
+        jSpinnerHoraReal.setEditor(new javax.swing.JSpinner.NumberEditor(jSpinnerHoraReal, "00"));
+        jSpinnerHoraReal.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerHoraRealStateChanged(evt);
+            }
+        });
+
         jLabel37.setText(":");
+
+        jSpinnerMinutosReal.setModel(new javax.swing.SpinnerNumberModel());
+        jSpinnerMinutosReal.setEditor(new javax.swing.JSpinner.NumberEditor(jSpinnerMinutosReal, "00"));
+        jSpinnerMinutosReal.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerMinutosRealStateChanged(evt);
+            }
+        });
 
         botonSeleccionarAeropuertoManifiestos.setText("AGREGAR");
         botonSeleccionarAeropuertoManifiestos.addActionListener(new java.awt.event.ActionListener() {
@@ -783,20 +792,20 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel34)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jSpinner9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSpinnerHoraItinerario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel35)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSpinner10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jSpinnerMinutosItinerario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel36)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jSpinner11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSpinnerHoraReal, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel37)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSpinner12, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jSpinnerMinutosReal, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
@@ -810,16 +819,16 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                                 .addComponent(jLabel36)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jSpinner11, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinnerHoraReal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel37)
-                                    .addComponent(jSpinner12, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jSpinnerMinutosReal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addComponent(jLabel34)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSpinner10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinnerMinutosItinerario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jSpinner9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSpinnerHoraItinerario, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel35)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel11Layout.createSequentialGroup()
@@ -1074,6 +1083,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jDateChooser2.setDateFormatString("dd/MM/yyyy");
+        jDateChooser2.setMaxSelectableDate(new java.util.Date(1483250399000L));
+        jDateChooser2.setMinSelectableDate(new java.util.Date(1262325599000L));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -1090,24 +1103,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                         .addGap(100, 100, 100)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel21)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel22)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel23)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel24))
-                                    .addComponent(jSpinner8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1122,7 +1118,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1130,17 +1126,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jSpinner6, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSpinner8)
-                            .addComponent(jSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel22)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel23)
-                        .addComponent(jLabel24)))
-                .addGap(15, 15, 15)
+                        .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(36, 36, 36)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1346,6 +1333,47 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         capturarTercero.setVisible(true);
     }//GEN-LAST:event_botonSeleccionarTerceroActionPerformed
 
+    private void jSpinnerHorasUTCStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerHorasUTCStateChanged
+        int valor = (int) jSpinnerHorasUTC.getValue();
+        FuncionesGenerales.spinnerNumericoCiclico(0, 23, valor, jSpinnerHorasUTC);
+    }//GEN-LAST:event_jSpinnerHorasUTCStateChanged
+
+    private void jSpinnerMinutosUTCStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerMinutosUTCStateChanged
+        int valor = (int) jSpinnerMinutosUTC.getValue();
+        FuncionesGenerales.spinnerNumericoCiclico(0, 59, valor, jSpinnerMinutosUTC);
+    }//GEN-LAST:event_jSpinnerMinutosUTCStateChanged
+
+    private void jSpinnerHoraItinerarioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerHoraItinerarioStateChanged
+        int valor = (int) jSpinnerHoraItinerario.getValue();
+        FuncionesGenerales.spinnerNumericoCiclico(0, 23, valor, jSpinnerHoraItinerario);
+    }//GEN-LAST:event_jSpinnerHoraItinerarioStateChanged
+
+    private void jSpinnerMinutosItinerarioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerMinutosItinerarioStateChanged
+        int valor = (int) jSpinnerMinutosItinerario.getValue();
+        FuncionesGenerales.spinnerNumericoCiclico(0, 59, valor, jSpinnerMinutosItinerario);
+    }//GEN-LAST:event_jSpinnerMinutosItinerarioStateChanged
+
+    private void jSpinnerHoraRealStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerHoraRealStateChanged
+        int valor = (int) jSpinnerHoraReal.getValue();
+        FuncionesGenerales.spinnerNumericoCiclico(0, 23, valor, jSpinnerHoraReal);
+    }//GEN-LAST:event_jSpinnerHoraRealStateChanged
+
+    private void jSpinnerMinutosRealStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerMinutosRealStateChanged
+        int valor = (int) jSpinnerMinutosReal.getValue();
+        FuncionesGenerales.spinnerNumericoCiclico(0, 59, valor, jSpinnerMinutosReal);
+    }//GEN-LAST:event_jSpinnerMinutosRealStateChanged
+
+    private void botonListaPasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListaPasajerosActionPerformed
+        FJDialogListaPasajerosPlanes capturarListaPasajeros = new FJDialogListaPasajerosPlanes(this,true);
+        String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
+        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
+            capturarListaPasajeros.setTitle("LISTA DE PASAJEROS: APERTURA DE PLAN DE VUELO");
+        } else {
+            capturarListaPasajeros.setTitle("LISTA DE PASAJEROS: CIERRE DE PLAN DE VUELO");
+        }
+        capturarListaPasajeros.setVisible(true);
+    }//GEN-LAST:event_botonListaPasajerosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1413,6 +1441,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonListaPasajeros;
     private javax.swing.JButton botonSeleccionarAeronaveManifiestos;
     private javax.swing.JButton botonSeleccionarAeronavePlanes;
     private javax.swing.JButton botonSeleccionarAeropuertoManifiestos;
@@ -1424,13 +1453,14 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JButton botonSeleccionarPrimer;
     private javax.swing.JButton botonSeleccionarSegundo;
     private javax.swing.JButton botonSeleccionarTercero;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox jComboBoxOperacionManifiestos;
     private javax.swing.JComboBox jComboBoxOperacionPlanes;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1445,15 +1475,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -1464,7 +1490,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     public static javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
@@ -1472,7 +1497,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel51;
     public static javax.swing.JLabel jLabel52;
     public static javax.swing.JLabel jLabel53;
@@ -1498,18 +1522,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner10;
-    private javax.swing.JSpinner jSpinner11;
-    private javax.swing.JSpinner jSpinner12;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JSpinner jSpinner4;
-    private javax.swing.JSpinner jSpinner5;
-    private javax.swing.JSpinner jSpinner6;
-    private javax.swing.JSpinner jSpinner7;
-    private javax.swing.JSpinner jSpinner8;
-    private javax.swing.JSpinner jSpinner9;
+    private javax.swing.JSpinner jSpinnerHoraItinerario;
+    private javax.swing.JSpinner jSpinnerHoraReal;
+    private javax.swing.JSpinner jSpinnerHorasUTC;
+    private javax.swing.JSpinner jSpinnerMinutosItinerario;
+    private javax.swing.JSpinner jSpinnerMinutosReal;
+    private javax.swing.JSpinner jSpinnerMinutosUTC;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     public static javax.swing.JTextField jTextField1;

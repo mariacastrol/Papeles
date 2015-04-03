@@ -5,6 +5,10 @@
  */
 package Ventanas;
 
+import Clases.FuncionesGenerales;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ADOLFO
@@ -28,32 +32,62 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        jTextField6 = new javax.swing.JTextField();
+        jTextFieldNombre = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        botonGrabar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField9 = new javax.swing.JTextField();
+        jTableListaPasajeros = new javax.swing.JTable();
+        botonAgregar = new javax.swing.JButton();
+        botonModificar = new javax.swing.JButton();
+        jTextFieldAPaterno = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        jTextFieldAMaterno = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        jListNacionalidad = new javax.swing.JList();
         jLabel1 = new javax.swing.JLabel();
+
+        jMenuItem1.setText("Eliminar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Modificar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LISTA DE PASAJEROS");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jTextFieldNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNombreKeyTyped(evt);
+            }
+        });
+
         jLabel12.setText("NOMBRE(S)");
 
-        jButton2.setText("GRABAR LISTA DE PASAJEROS");
+        botonGrabar.setText("GRABAR LISTA DE PASAJEROS");
+        botonGrabar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGrabarActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableListaPasajeros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -69,34 +103,57 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(1).setMinWidth(80);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(80);
-            jTable1.getColumnModel().getColumn(1).setMaxWidth(80);
-            jTable1.getColumnModel().getColumn(2).setMinWidth(80);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(80);
-            jTable1.getColumnModel().getColumn(2).setMaxWidth(80);
-            jTable1.getColumnModel().getColumn(3).setMinWidth(100);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(3).setMaxWidth(100);
+        jTableListaPasajeros.setComponentPopupMenu(jPopupMenu1);
+        jScrollPane1.setViewportView(jTableListaPasajeros);
+        if (jTableListaPasajeros.getColumnModel().getColumnCount() > 0) {
+            jTableListaPasajeros.getColumnModel().getColumn(1).setMinWidth(80);
+            jTableListaPasajeros.getColumnModel().getColumn(1).setPreferredWidth(80);
+            jTableListaPasajeros.getColumnModel().getColumn(1).setMaxWidth(80);
+            jTableListaPasajeros.getColumnModel().getColumn(2).setMinWidth(80);
+            jTableListaPasajeros.getColumnModel().getColumn(2).setPreferredWidth(80);
+            jTableListaPasajeros.getColumnModel().getColumn(2).setMaxWidth(80);
+            jTableListaPasajeros.getColumnModel().getColumn(3).setMinWidth(200);
+            jTableListaPasajeros.getColumnModel().getColumn(3).setPreferredWidth(200);
+            jTableListaPasajeros.getColumnModel().getColumn(3).setMaxWidth(200);
         }
 
-        jButton1.setText("AGREGAR");
+        botonAgregar.setText("AGREGAR");
+        botonAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("MODIFICAR");
-        jButton3.setEnabled(false);
+        botonModificar.setText("MODIFICAR");
+        botonModificar.setEnabled(false);
+        botonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonModificarActionPerformed(evt);
+            }
+        });
+
+        jTextFieldAPaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAPaternoKeyTyped(evt);
+            }
+        });
 
         jLabel16.setText("APELLIDO PATERNO");
 
+        jTextFieldAMaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAMaternoKeyTyped(evt);
+            }
+        });
+
         jLabel17.setText("APELLIDO MATERNO");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "República Democrática del Congo", "Item 2", "Item 3", "Item 4", "Item 5" };
+        jListNacionalidad.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "MEXICO (MEXICANO/A)", "ESTADOS UNIDOS (ESTADOUNIDENSE)", "AFGANISTAN (AFGANO/A)", "ALBANIA (ALBANES)", "ALEMANIA (ALEMAN/A)", "ANDORRA (ANDORRANO)", "ANGOLA (ANGOLEÑO/A)", "ANTILLAS HOLANDESAS (ANTILLANO/A)", "ARGELIA (ARGELINO/A)", "ARGENTINA (ARGENTINO/A)", "ARMENIA (ARMENIO)", "AZERBAIYAN (AZERBAIYANO/A)", "AUSTRALIA (AUSTRALIANO/A)", "AUSTRIA (AUSTRIACO/A)", "BAHAMAS (BAHAMES)", "BANGLADESH (BENGALI)", "BARBADOS (BARBANDENSE)", "BELGICA (BELGA)", "BELICE (BELICEÑO/A)", "BENIN (BENINES)", "BIELORRUSIA (BIELORRUSO/A)", "BOLIVIA (BOLIVIANO/A)", "BOSNIA- HERZEGOVINA (BOSNIO)", "BOTSWANA (BOTSWANES)", "BRASIL (BRASILEÑO/A)", "BRUNEI (BRUNEANO/A)", "BULGARIA (BULGARO/A)", "BURKINA FASO (BURKINES)", "BURUNDI (BURUNDIANO/A)", "BUTAN (BUTANES/A)", "CABO VERDE (CABOVERDIANO)", "CAMBOYA (CAMBOYANO/A)", "CAMERUN (CAMERUNES)", "CANADA (CANADIENSE)", "CHAD (CHADIANO/A)", "CHILE (CHILENO/A)", "CHINA (CHINO/A)", "COLOMBIA (COLOMBIANO/A)", "COMORES (COMORANO/A, COMORENSE)", "CONGO (CONGOLES)", "COREA DEL NORTE (NORCOREANO/A)", "COREA DEL SUR (SURCOREANO/A)", "COSTA DE MARFIL (MARFILEÑO/A)", "COSTA RICA (COSTARRICENSE)", "CROACIA (CROATA)", "CUBA (CUBANO/A)", "DJIBOUTI  (YIBUTIANO/A)", "DINAMARCA (DANES/DANESA)", "ECUADOR (ECUATORIANO/A)", "EGIPTO (EGIPCIO/A)", "EL SALVADOR (SALVADOREÑO/A)", "ESCOCIA (ESCOCES / ESCOCESA)", "ESLOVAQUIA (ESLOVACO/A)", "ESLOVENIA (ESLOVENO/A)", "ESPAÑA (ESPAÑOL/A)", "ESTONIA (ESTONIO)", "ETIOPIA (ETIOPE)", "FIJI (FIYIANO/A)", "FILIPINAS (FILIPINO/A)", "FINLANDIA (FINLANDES/FINLANDESA)", "FRANCIA (FRANCES/ FRANCESA)", "GABON (GABONES)", "GALES (GALES)", "GAMBIA (GAMBIENSE)", "GEORGIA (GEORGIANO/A)", "GHANA (GHANES)", "GRANADA (GRANADINO/A)", "GRECIA (GRIEGO/A)", "GUAYANA FRANCESA (GUAYANES)", "GUATEMALA (GUATEMALTECO/A)", "GUINEA (GUINEANO/A)", "GUINEA BISSAU (GUINEANO/A)", "GUINEA ECUATORIAL (ECUATOGUINEANO/A)", "GUYANA (GUYANES)", "HAITI (HAITIANO/A)", "HOLANDA (HOLANDES/ HOLANDESA)", "HONDURAS (HONDUREÑO/A)", "HUNGRIA (HUNGARO/A)", "INDIA (INDIO/A)", "INDONESIA (INDONESIO)", "INGLATERRA (INGLES/INGLESA)", "IRLANDA, EIRE (IRLANDES/ IRLANDESA)", "IRLANDA DEL NORTE (IRLANDES)", "ISLANDIA (ISLANDES/ ISLANDESA)", "ISLAS CAIMAN (CAIMANES)", "ISLAS MARSHALL (MARSHALES)", "ISLAS SALOMON (SALOMONENSE)", "ISLAS VIRGENES AMERICANAS (DE ISLAS VIRGENES)", "ISLAS VIRGENES BRITANICAS (DE ISLAS VIRGENES BRITANICAS)", "ITALIA (ITALIANO/A)", "JAMAICA (JAMAICANO/A)", "JAPON (JAPONES/A, )", "KAZAJSTAN (KAZAJO)", "KENIA (KENIATA)", "KIRGUIZISTAN (KIRGUIZ)", "KIRIBATI (KIRIBATIANO/A)", "LAOS (LAOSIANO/A)", "LESOTO (LESOTENSE)", "LETONIA (LETON/ LETONA)", "LIBERIA (LIBERIANO/A)", "LIBIA (LIBIO)", "LIECHTENSTEIN (LIECHTENTIENSE)", "LITUANIA (LITUANO/A)", "LUXEMBURGO (LUXEMBURGUES/A)", "MACEDONIA (MACEDONIO/A)", "MADAGASCAR (MALGACHE)", "MALASIA (MALAYO/A)", "MALDIVAS (MALDIVO/A)", "MALAWI (MALAWIANO/A)", "MALI (MALI)", "MALTA (MALTES/ MALTESA)", "MARRUECOS (MARROQUI)", "MARTINICA (MARTINIQUES)", "MAURICIO (MAURICIANO)", "MAURITANIA (MAURITANO)", "MOLDOVA (MOLDAVO)", "MONACO (MONEGASCO/A)", "MONGOLIA (MONGOL)", "MOZAMBIQUE (MOZAMBIQUEÑO/A)", "MYANMAR (BIRMANO/A)", "NAMIBIA (NAMIBIO)", "NAURU (NAURUANO)", "NICARAGUA (NICARAGÜENSE)", "NIGER (NIGERIANO/A)", "NIGERIA (NIGERIANO/A)", "NORUEGA (NORUEGO/A)", "NUEVA CALEDONIA (NEOCALEDONIO)", "NUEVA ZELANDA (NEOZELANDES)", "PAISES BAJOS (HOLANDES/ HOLANDESA)", "PALAU (PALAUANO/A)", "PANAMA (PANAMEÑO/A)", "PAPUA-NUEVA GUINEA (PAPU)", "PARAGUAY (PARAGUAYO/A)", "PERU (PERUANO/A)", "POLONIA (POLACO/A)", "PORTUGAL (PORTUGUES/ PORTUGUESA)", "PUERTO RICO (PORTORRIQUEÑO/A)", "REPUBLICA CENTROAFRICANA (CENTROAFRICANO/A)", "REPUBLICA CHECA (CHECO/A)", "REPUBLICA DEMOCRATICA DEL CONGO (ZAIREÑO/A)", "REPUBLICA DOMINICANA (DOMINICANO/A)", "RUANDA (RUANDES)", "RUMANIA (RUMANO/A)", "RUSIA (RUSO/A)", "SAMOA OCCIDENTAL (SAMOANO/A)", "SAN CRISTOBAL Y NIEVES (SANCRISTOBALENSE)", "SAN VICENTE Y GRANADINAS (SANVICENTINO/A)", "SANTA LUCIA (SANTALUCENSE)", "SANTA SEDE (VATICANO)", "SENEGAL (SENEGALES)", "SEYCHELLES (SEYCHELENSE)", "SIERRA LEONA (SIERRALEONES)", "SOMALIA (SOMALI)", "SUAZILANDIA (SUAZI)", "SUDAFRICA (SUDAFRICANO/A)", "SUDAN (SUDANES)", "SUECIA (SUECO/A)", "SUIZA (SUIZO/A)", "SURINAM (SURINAMES)", "TADZHIKISTAN (TADZHIK)", "TANZANIA (TANZANO)", "TAYIKISTAN (TAYIKO)", "TOGO (TOGOLES)", "TONGA (TONGANO)", "TRINIDAD Y TOBAGO (TRINITARIO/A)", "TUNICIA (TUNECINO/A)", "TURKMENISTAN (TURCOMANO)", "TUVALU (TUVALUANO/A)", "UCRANIA (UCRANIANO/A)", "UGANDA (UGANDES)", "URUGUAY (URUGUAYO/A)", "UZBEKISTAN (UZBEKO)", "VANUATU (VANUATUENSE)", "VENEZUELA (VENEZOLANO/A)", "YUGOSLAVIA (YUGOSLAVO/A)", "ZAMBIA (ZAMBIANO)", "ZIMBABWE (ZIMBABUENSE)" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList1);
+        jScrollPane2.setViewportView(jListNacionalidad);
 
         jLabel1.setText("PAIS");
 
@@ -110,57 +167,57 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldAMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldAPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel17)
                                     .addComponent(jLabel16)
                                     .addComponent(jLabel12)))))
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2)
+                            .addComponent(botonGrabar)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton3)
+                                .addComponent(botonModificar)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1)))))
+                                .addComponent(botonAgregar)))))
                 .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(5, 5, 5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldAPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel16))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel16)
+                        .addGap(12, 12, 12)
+                        .addComponent(jTextFieldAMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
+                    .addComponent(botonAgregar)
+                    .addComponent(botonModificar))
                 .addGap(15, 15, 15)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(jButton2)
+                .addComponent(botonGrabar)
                 .addGap(15, 15, 15))
         );
 
@@ -172,14 +229,118 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
+        if (jListNacionalidad.getSelectedIndex() != -1) {
+            String [] filaAInsertar={
+                jTextFieldNombre.getText(),
+                jTextFieldAPaterno.getText(),
+                jTextFieldAMaterno.getText(),
+                jListNacionalidad.getSelectedValue().toString()
+                };
+            FuncionesGenerales.agregarFila(jTableListaPasajeros, filaAInsertar);
+        } else {
+            JOptionPane.showMessageDialog(this,"Seleccione una nacionalidad","",JOptionPane.INFORMATION_MESSAGE);
+        }
+        jTextFieldNombre.setText(null);
+        jTextFieldAPaterno.setText(null);
+        jTextFieldAMaterno.setText(null);               
+    }//GEN-LAST:event_botonAgregarActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        int filaAEliminar=jTableListaPasajeros.getSelectedRow();
+        if (filaAEliminar != -1) {           
+            FuncionesGenerales.eliminarFila(jTableListaPasajeros, filaAEliminar);
+        } else {
+            JOptionPane.showMessageDialog(this,"Seleccione el pasajero a eliminar","",JOptionPane.INFORMATION_MESSAGE);
+        }      
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        filaAModificar=jTableListaPasajeros.getSelectedRow();
+        if (filaAModificar!= -1) {           
+            jTextFieldNombre.setText(jTableListaPasajeros.getValueAt(filaAModificar,0).toString());
+            jTextFieldAPaterno.setText(jTableListaPasajeros.getValueAt(filaAModificar,1).toString());
+            jTextFieldAMaterno.setText(jTableListaPasajeros.getValueAt(filaAModificar,2).toString());
+            String nacionalidad = jTableListaPasajeros.getValueAt(filaAModificar,3).toString();
+            String [] strings = { "MEXICO (MEXICANO/A)", "ESTADOS UNIDOS (ESTADOUNIDENSE)", "AFGANISTAN (AFGANO/A)", "ALBANIA (ALBANES)", "ALEMANIA (ALEMAN/A)", "ANDORRA (ANDORRANO)", "ANGOLA (ANGOLEÑO/A)", "ANTILLAS HOLANDESAS (ANTILLANO/A)", "ARGELIA (ARGELINO/A)", "ARGENTINA (ARGENTINO/A)", "ARMENIA (ARMENIO)", "AZERBAIYAN (AZERBAIYANO/A)", "AUSTRALIA (AUSTRALIANO/A)", "AUSTRIA (AUSTRIACO/A)", "BAHAMAS (BAHAMES)", "BANGLADESH (BENGALI)", "BARBADOS (BARBANDENSE)", "BELGICA (BELGA)", "BELICE (BELICEÑO/A)", "BENIN (BENINES)", "BIELORRUSIA (BIELORRUSO/A)", "BOLIVIA (BOLIVIANO/A)", "BOSNIA- HERZEGOVINA (BOSNIO)", "BOTSWANA (BOTSWANES)", "BRASIL (BRASILEÑO/A)", "BRUNEI (BRUNEANO/A)", "BULGARIA (BULGARO/A)", "BURKINA FASO (BURKINES)", "BURUNDI (BURUNDIANO/A)", "BUTAN (BUTANES/A)", "CABO VERDE (CABOVERDIANO)", "CAMBOYA (CAMBOYANO/A)", "CAMERUN (CAMERUNES)", "CANADA (CANADIENSE)", "CHAD (CHADIANO/A)", "CHILE (CHILENO/A)", "CHINA (CHINO/A)", "COLOMBIA (COLOMBIANO/A)", "COMORES (COMORANO/A, COMORENSE)", "CONGO (CONGOLES)", "COREA DEL NORTE (NORCOREANO/A)", "COREA DEL SUR (SURCOREANO/A)", "COSTA DE MARFIL (MARFILEÑO/A)", "COSTA RICA (COSTARRICENSE)", "CROACIA (CROATA)", "CUBA (CUBANO/A)", "DJIBOUTI  (YIBUTIANO/A)", "DINAMARCA (DANES/DANESA)", "ECUADOR (ECUATORIANO/A)", "EGIPTO (EGIPCIO/A)", "EL SALVADOR (SALVADOREÑO/A)", "ESCOCIA (ESCOCES / ESCOCESA)", "ESLOVAQUIA (ESLOVACO/A)", "ESLOVENIA (ESLOVENO/A)", "ESPAÑA (ESPAÑOL/A)", "ESTONIA (ESTONIO)", "ETIOPIA (ETIOPE)", "FIJI (FIYIANO/A)", "FILIPINAS (FILIPINO/A)", "FINLANDIA (FINLANDES/FINLANDESA)", "FRANCIA (FRANCES/ FRANCESA)", "GABON (GABONES)", "GALES (GALES)", "GAMBIA (GAMBIENSE)", "GEORGIA (GEORGIANO/A)", "GHANA (GHANES)", "GRANADA (GRANADINO/A)", "GRECIA (GRIEGO/A)", "GUAYANA FRANCESA (GUAYANES)", "GUATEMALA (GUATEMALTECO/A)", "GUINEA (GUINEANO/A)", "GUINEA BISSAU (GUINEANO/A)", "GUINEA ECUATORIAL (ECUATOGUINEANO/A)", "GUYANA (GUYANES)", "HAITI (HAITIANO/A)", "HOLANDA (HOLANDES/ HOLANDESA)", "HONDURAS (HONDUREÑO/A)", "HUNGRIA (HUNGARO/A)", "INDIA (INDIO/A)", "INDONESIA (INDONESIO)", "INGLATERRA (INGLES/INGLESA)", "IRLANDA, EIRE (IRLANDES/ IRLANDESA)", "IRLANDA DEL NORTE (IRLANDES)", "ISLANDIA (ISLANDES/ ISLANDESA)", "ISLAS CAIMAN (CAIMANES)", "ISLAS MARSHALL (MARSHALES)", "ISLAS SALOMON (SALOMONENSE)", "ISLAS VIRGENES AMERICANAS (DE ISLAS VIRGENES)", "ISLAS VIRGENES BRITANICAS (DE ISLAS VIRGENES BRITANICAS)", "ITALIA (ITALIANO/A)", "JAMAICA (JAMAICANO/A)", "JAPON (JAPONES/A, )", "KAZAJSTAN (KAZAJO)", "KENIA (KENIATA)", "KIRGUIZISTAN (KIRGUIZ)", "KIRIBATI (KIRIBATIANO/A)", "LAOS (LAOSIANO/A)", "LESOTO (LESOTENSE)", "LETONIA (LETON/ LETONA)", "LIBERIA (LIBERIANO/A)", "LIBIA (LIBIO)", "LIECHTENSTEIN (LIECHTENTIENSE)", "LITUANIA (LITUANO/A)", "LUXEMBURGO (LUXEMBURGUES/A)", "MACEDONIA (MACEDONIO/A)", "MADAGASCAR (MALGACHE)", "MALASIA (MALAYO/A)", "MALDIVAS (MALDIVO/A)", "MALAWI (MALAWIANO/A)", "MALI (MALI)", "MALTA (MALTES/ MALTESA)", "MARRUECOS (MARROQUI)", "MARTINICA (MARTINIQUES)", "MAURICIO (MAURICIANO)", "MAURITANIA (MAURITANO)", "MOLDOVA (MOLDAVO)", "MONACO (MONEGASCO/A)", "MONGOLIA (MONGOL)", "MOZAMBIQUE (MOZAMBIQUEÑO/A)", "MYANMAR (BIRMANO/A)", "NAMIBIA (NAMIBIO)", "NAURU (NAURUANO)", "NICARAGUA (NICARAGÜENSE)", "NIGER (NIGERIANO/A)", "NIGERIA (NIGERIANO/A)", "NORUEGA (NORUEGO/A)", "NUEVA CALEDONIA (NEOCALEDONIO)", "NUEVA ZELANDA (NEOZELANDES)", "PAISES BAJOS (HOLANDES/ HOLANDESA)", "PALAU (PALAUANO/A)", "PANAMA (PANAMEÑO/A)", "PAPUA-NUEVA GUINEA (PAPU)", "PARAGUAY (PARAGUAYO/A)", "PERU (PERUANO/A)", "POLONIA (POLACO/A)", "PORTUGAL (PORTUGUES/ PORTUGUESA)", "PUERTO RICO (PORTORRIQUEÑO/A)", "REPUBLICA CENTROAFRICANA (CENTROAFRICANO/A)", "REPUBLICA CHECA (CHECO/A)", "REPUBLICA DEMOCRATICA DEL CONGO (ZAIREÑO/A)", "REPUBLICA DOMINICANA (DOMINICANO/A)", "RUANDA (RUANDES)", "RUMANIA (RUMANO/A)", "RUSIA (RUSO/A)", "SAMOA OCCIDENTAL (SAMOANO/A)", "SAN CRISTOBAL Y NIEVES (SANCRISTOBALENSE)", "SAN VICENTE Y GRANADINAS (SANVICENTINO/A)", "SANTA LUCIA (SANTALUCENSE)", "SANTA SEDE (VATICANO)", "SENEGAL (SENEGALES)", "SEYCHELLES (SEYCHELENSE)", "SIERRA LEONA (SIERRALEONES)", "SOMALIA (SOMALI)", "SUAZILANDIA (SUAZI)", "SUDAFRICA (SUDAFRICANO/A)", "SUDAN (SUDANES)", "SUECIA (SUECO/A)", "SUIZA (SUIZO/A)", "SURINAM (SURINAMES)", "TADZHIKISTAN (TADZHIK)", "TANZANIA (TANZANO)", "TAYIKISTAN (TAYIKO)", "TOGO (TOGOLES)", "TONGA (TONGANO)", "TRINIDAD Y TOBAGO (TRINITARIO/A)", "TUNICIA (TUNECINO/A)", "TURKMENISTAN (TURCOMANO)", "TUVALU (TUVALUANO/A)", "UCRANIA (UCRANIANO/A)", "UGANDA (UGANDES)", "URUGUAY (URUGUAYO/A)", "UZBEKISTAN (UZBEKO)", "VANUATU (VANUATUENSE)", "VENEZUELA (VENEZOLANO/A)", "YUGOSLAVIA (YUGOSLAVO/A)", "ZAMBIA (ZAMBIANO)", "ZIMBABWE (ZIMBABUENSE)" };
+            int indiceNacionalidad = 0;
+            while (strings [indiceNacionalidad] != nacionalidad && strings.length != indiceNacionalidad) {
+               indiceNacionalidad++; 
+            }
+            jListNacionalidad.setSelectedIndex(indiceNacionalidad);
+            jListNacionalidad.ensureIndexIsVisible(jListNacionalidad.getSelectedIndex());
+            botonModificar.setEnabled(true);
+        } else {
+            JOptionPane.showMessageDialog(this,"Seleccione el pasajero a modificar","",JOptionPane.INFORMATION_MESSAGE);
+        } 
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
+        if (jListNacionalidad.getSelectedIndex() != -1) {
+            String [] filaAInsertar={
+                jTextFieldNombre.getText(),
+                jTextFieldAPaterno.getText(),
+                jTextFieldAMaterno.getText(),
+                jListNacionalidad.getSelectedValue().toString()
+                };
+            FuncionesGenerales.agregarFila(jTableListaPasajeros, filaAInsertar);
+            FuncionesGenerales.eliminarFila(jTableListaPasajeros, filaAModificar);
+            DefaultTableModel modelo=(DefaultTableModel)jTableListaPasajeros.getModel();
+            modelo.moveRow(modelo.getRowCount()-1,modelo.getRowCount()-1, filaAModificar);
+        } else {
+            JOptionPane.showMessageDialog(this,"Seleccione una nacionalidad","",JOptionPane.INFORMATION_MESSAGE);
+        }
+        jTextFieldNombre.setText(null);
+        jTextFieldAPaterno.setText(null);
+        jTextFieldAMaterno.setText(null);   
+    }//GEN-LAST:event_botonModificarActionPerformed
+
+    private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
+        int limite = 50;
+        char caracterValidar = evt.getKeyChar();
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldNombre.getText().length() < limite)){
+            getToolkit().beep(); 
+            evt.consume();
+        } else {
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);
+        }
+    }//GEN-LAST:event_jTextFieldNombreKeyTyped
+
+    private void jTextFieldAPaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAPaternoKeyTyped
+        int limite = 20;
+        char caracterValidar = evt.getKeyChar();
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAPaterno.getText().length() < limite)){
+            getToolkit().beep(); 
+            evt.consume();
+        } else {
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);
+        }
+    }//GEN-LAST:event_jTextFieldAPaternoKeyTyped
+
+    private void jTextFieldAMaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAMaternoKeyTyped
+        int limite = 20;
+        char caracterValidar = evt.getKeyChar();
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAMaterno.getText().length() < limite)){
+            getToolkit().beep(); 
+            evt.consume();
+        } else {
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);
+        }
+    }//GEN-LAST:event_jTextFieldAMaternoKeyTyped
+
+    private void botonGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGrabarActionPerformed
+        
+    }//GEN-LAST:event_botonGrabarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,20 +416,24 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton botonAgregar;
+    private javax.swing.JButton botonGrabar;
+    private javax.swing.JButton botonModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JList jList1;
+    private javax.swing.JList jListNacionalidad;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable jTableListaPasajeros;
+    private javax.swing.JTextField jTextFieldAMaterno;
+    private javax.swing.JTextField jTextFieldAPaterno;
+    private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
+    int filaAModificar;
 }

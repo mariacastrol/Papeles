@@ -6,7 +6,10 @@
 package Clases;
 
 import javax.swing.JLabel;
+import javax.swing.JSpinner;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -37,6 +40,24 @@ public class FuncionesGenerales {
         } else {
             jLabelTipoLicencia.setText("EXTRANJERA");
         }
+    }
+    
+    public static void spinnerNumericoCiclico (int valorMinimo, int valorMaximo, int valorActual, JSpinner spinnerNumerico) {
+        if (valorActual == (valorMinimo - 1) || valorActual > (valorMaximo + 1)) {
+            spinnerNumerico.setValue(valorMaximo);
+        } else if (valorActual == (valorMaximo + 1) || valorActual < (valorMinimo - 1)) {
+            spinnerNumerico.setValue(valorMinimo);
+        }
+    }
+    
+    public static void agregarFila (JTable tabla, String[] datosFila) {
+        DefaultTableModel modelo=(DefaultTableModel)tabla.getModel();
+        modelo.addRow(datosFila);
+    }
+    
+    public static void eliminarFila (JTable tabla, int numeroFila) {
+        DefaultTableModel modelo=(DefaultTableModel)tabla.getModel();
+        modelo.removeRow(numeroFila);
     }
     //!Character.isDigit(caracterValidar) && !Character.isAlphabetic(caracterValidar) && !Character.isISOControl(caracterValidar)) || cajaTextoAValidar.getText().length() == maxCaracteres
     //JTextField cajaTextoAValidar, int maxCaracteres, char caracterValidar
