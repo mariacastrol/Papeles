@@ -92,11 +92,11 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
 
             },
             new String [] {
-                "NOMBRE(S)", "A PATERNO", "A MATERNO", "NACIONALIDAD"
+                "NOMBRE(S)", "A PATERNO", "A MATERNO", "NACIONALIDAD", "ID"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -115,6 +115,9 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
             jTableListaPasajeros.getColumnModel().getColumn(3).setMinWidth(200);
             jTableListaPasajeros.getColumnModel().getColumn(3).setPreferredWidth(200);
             jTableListaPasajeros.getColumnModel().getColumn(3).setMaxWidth(200);
+            jTableListaPasajeros.getColumnModel().getColumn(4).setMinWidth(1);
+            jTableListaPasajeros.getColumnModel().getColumn(4).setPreferredWidth(1);
+            jTableListaPasajeros.getColumnModel().getColumn(4).setMaxWidth(1);
         }
 
         botonAgregar.setText("AGREGAR");
@@ -153,6 +156,7 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        jListNacionalidad.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(jListNacionalidad);
 
         jLabel1.setText("PAIS");
@@ -238,13 +242,14 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         if (jListNacionalidad.getSelectedIndex() != -1) {
-            String [] filaAInsertar={
+            String [] filaAInsertar = {
                 jTextFieldNombre.getText(),
                 jTextFieldAPaterno.getText(),
                 jTextFieldAMaterno.getText(),
-                jListNacionalidad.getSelectedValue().toString()
+                jListNacionalidad.getSelectedValue().toString(),
+                fecha+hora+minutos+FuncionesGenerales.integerFormat((jTableListaPasajeros.getRowCount()+1))   
                 };
-            FuncionesGenerales.agregarFila(jTableListaPasajeros, filaAInsertar);
+            FuncionesGenerales.agregarFila(jTableListaPasajeros,filaAInsertar);
         } else {
             JOptionPane.showMessageDialog(this,"Seleccione una nacionalidad","",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -254,17 +259,20 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        int filaAEliminar=jTableListaPasajeros.getSelectedRow();
+        int filaAEliminar = jTableListaPasajeros.getSelectedRow();
         if (filaAEliminar != -1) {           
             FuncionesGenerales.eliminarFila(jTableListaPasajeros, filaAEliminar);
+            for (int i = filaAEliminar; i < jTableListaPasajeros.getRowCount(); i++) {
+                jTableListaPasajeros.setValueAt(fecha+hora+minutos+FuncionesGenerales.integerFormat((i+1)),i, 4);
+            }
         } else {
             JOptionPane.showMessageDialog(this,"Seleccione el pasajero a eliminar","",JOptionPane.INFORMATION_MESSAGE);
         }      
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        filaAModificar=jTableListaPasajeros.getSelectedRow();
-        if (filaAModificar!= -1) {           
+        filaAModificar = jTableListaPasajeros.getSelectedRow();
+        if (filaAModificar != -1) {           
             jTextFieldNombre.setText(jTableListaPasajeros.getValueAt(filaAModificar,0).toString());
             jTextFieldAPaterno.setText(jTableListaPasajeros.getValueAt(filaAModificar,1).toString());
             jTextFieldAMaterno.setText(jTableListaPasajeros.getValueAt(filaAModificar,2).toString());
@@ -284,22 +292,20 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
 
     private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
         if (jListNacionalidad.getSelectedIndex() != -1) {
-            String [] filaAInsertar={
+            String [] informacionActualizada = {
                 jTextFieldNombre.getText(),
                 jTextFieldAPaterno.getText(),
                 jTextFieldAMaterno.getText(),
                 jListNacionalidad.getSelectedValue().toString()
                 };
-            FuncionesGenerales.agregarFila(jTableListaPasajeros, filaAInsertar);
-            FuncionesGenerales.eliminarFila(jTableListaPasajeros, filaAModificar);
-            DefaultTableModel modelo=(DefaultTableModel)jTableListaPasajeros.getModel();
-            modelo.moveRow(modelo.getRowCount()-1,modelo.getRowCount()-1, filaAModificar);
+            FuncionesGenerales.modificarFila(jTableListaPasajeros, filaAModificar, informacionActualizada);
+            jTextFieldNombre.setText(null);
+            jTextFieldAPaterno.setText(null);
+            jTextFieldAMaterno.setText(null);
+            botonModificar.setEnabled(false);
         } else {
             JOptionPane.showMessageDialog(this,"Seleccione una nacionalidad","",JOptionPane.INFORMATION_MESSAGE);
-        }
-        jTextFieldNombre.setText(null);
-        jTextFieldAPaterno.setText(null);
-        jTextFieldAMaterno.setText(null);   
+        }    
     }//GEN-LAST:event_botonModificarActionPerformed
 
     private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
@@ -339,7 +345,17 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldAMaternoKeyTyped
 
     private void botonGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGrabarActionPerformed
-        
+        String [][] listaPasajeros = new String [jTableListaPasajeros.getRowCount()][jTableListaPasajeros.getColumnCount()];
+        for (int i = 0; i < jTableListaPasajeros.getRowCount(); i++) {
+            for (int j = 0; j < jTableListaPasajeros.getColumnCount(); j++) {
+                listaPasajeros [i][j] = jTableListaPasajeros.getValueAt(i,j).toString();            
+            }
+        }
+        AJFrameVentanaCapturas.listaPasajeros = listaPasajeros;
+        if(jTableListaPasajeros.getRowCount()!= 0){
+            AJFrameVentanaCapturas.jLabel19.setEnabled(true);
+        } 
+        this.dispose();       
     }//GEN-LAST:event_botonGrabarActionPerformed
 
     /**
@@ -436,4 +452,6 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
     int filaAModificar;
+    String fecha, hora, minutos;
+    
 }

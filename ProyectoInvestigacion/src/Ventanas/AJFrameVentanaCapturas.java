@@ -6,6 +6,8 @@
 package Ventanas;
 
 import Clases.FuncionesGenerales;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -74,7 +76,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateFecha = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
@@ -137,7 +139,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
-        jButton8 = new javax.swing.JButton();
+        botonDeclararSobrecargos = new javax.swing.JButton();
         jLabel48 = new javax.swing.JLabel();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -434,6 +436,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel19.setText("Se ha declaro una lista de pasajeros");
+        jLabel19.setEnabled(false);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -484,9 +487,9 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jButton3.setText("GUARDAR");
 
-        jDateChooser1.setDateFormatString("dd/MM/yyyy");
-        jDateChooser1.setMaxSelectableDate(new java.util.Date(1483250399000L));
-        jDateChooser1.setMinSelectableDate(new java.util.Date(1262325599000L));
+        jDateFecha.setDateFormatString("dd/MM/yyyy");
+        jDateFecha.setMaxSelectableDate(new java.util.Date(1483250399000L));
+        jDateFecha.setMinSelectableDate(new java.util.Date(1262325599000L));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -514,7 +517,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                             .addGap(330, 330, 330)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jDateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(110, 110, 110)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel6)
@@ -542,7 +545,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jDateFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -848,6 +851,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jLabel39.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel39.setText("Declarado");
+        jLabel39.setEnabled(false);
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -1057,10 +1061,16 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("SOBRECARGOS"));
 
-        jButton8.setText("DECLARAR");
+        botonDeclararSobrecargos.setText("DECLARAR");
+        botonDeclararSobrecargos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonDeclararSobrecargosActionPerformed(evt);
+            }
+        });
 
         jLabel48.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel48.setText("Declarado");
+        jLabel48.setEnabled(false);
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -1068,7 +1078,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton8)
+                .addComponent(botonDeclararSobrecargos)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1078,7 +1088,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton8)
+                    .addComponent(botonDeclararSobrecargos)
                     .addComponent(jLabel48))
                 .addContainerGap())
         );
@@ -1364,15 +1374,34 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     }//GEN-LAST:event_jSpinnerMinutosRealStateChanged
 
     private void botonListaPasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListaPasajerosActionPerformed
-        FJDialogListaPasajerosPlanes capturarListaPasajeros = new FJDialogListaPasajerosPlanes(this,true);
-        String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
-        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
-            capturarListaPasajeros.setTitle("LISTA DE PASAJEROS: APERTURA DE PLAN DE VUELO");
+        if(jDateFecha.getDate() == null){
+                JOptionPane.showMessageDialog(this,"No ha ingresado la fecha","",JOptionPane.INFORMATION_MESSAGE);            
         } else {
-            capturarListaPasajeros.setTitle("LISTA DE PASAJEROS: CIERRE DE PLAN DE VUELO");
+            FJDialogListaPasajerosPlanes capturarListaPasajeros = new FJDialogListaPasajerosPlanes(this,true);
+            SimpleDateFormat ft = new SimpleDateFormat("yyyyMMdd");   
+            capturarListaPasajeros.fecha = ft.format(jDateFecha.getDate());
+            capturarListaPasajeros.hora = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerHorasUTC.getValue().toString()));
+            capturarListaPasajeros.minutos = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerMinutosUTC.getValue().toString())); 
+            String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
+            if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
+                capturarListaPasajeros.setTitle("LISTA DE PASAJEROS: APERTURA DE PLAN DE VUELO");
+            } else {
+                capturarListaPasajeros.setTitle("LISTA DE PASAJEROS: CIERRE DE PLAN DE VUELO");
+            }
+            capturarListaPasajeros.setVisible(true); 
         }
-        capturarListaPasajeros.setVisible(true);
     }//GEN-LAST:event_botonListaPasajerosActionPerformed
+
+    private void botonDeclararSobrecargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDeclararSobrecargosActionPerformed
+        NJDialogListaSobrecargos capturarListaSobrecargos = new NJDialogListaSobrecargos(this,true);
+        String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
+        if (tipoOperacion.contains("MANIFIESTO DE SALIDA")) {
+            capturarListaSobrecargos.setTitle("LISTA DE SOBRECARGOS: MANIFIESTO DE SALIDA");
+        } else {
+            capturarListaSobrecargos.setTitle("LISTA DE SOBRECAROGOS: MANIFIESTO DE LLEGADA");
+        }
+        capturarListaSobrecargos.setVisible(true); 
+    }//GEN-LAST:event_botonDeclararSobrecargosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1441,6 +1470,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonDeclararSobrecargos;
     private javax.swing.JButton botonListaPasajeros;
     private javax.swing.JButton botonSeleccionarAeronaveManifiestos;
     private javax.swing.JButton botonSeleccionarAeronavePlanes;
@@ -1456,11 +1486,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox jComboBoxOperacionManifiestos;
     private javax.swing.JComboBox jComboBoxOperacionPlanes;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDateFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1471,7 +1500,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     public static javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
+    public static javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -1496,7 +1525,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel48;
+    public static javax.swing.JLabel jLabel48;
     public static javax.swing.JLabel jLabel51;
     public static javax.swing.JLabel jLabel52;
     public static javax.swing.JLabel jLabel53;
@@ -1561,6 +1590,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private String us = "root";
     private String pw = "l1u2c3h4o5e6d7u";
     private String dB = "proyecto_planes";
-
+    static String [][] listaPasajeros;
+    static String listaSobrecargos;
 
 }

@@ -5,6 +5,9 @@
  */
 package Ventanas;
 
+import Clases.FuncionesGenerales;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ADOLFO
@@ -28,25 +31,55 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        jTextField6 = new javax.swing.JTextField();
+        jTextFieldNombre = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        botonGrabar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jTableSobrecargos = new javax.swing.JTable();
+        botonAgregar = new javax.swing.JButton();
+        botonModificar = new javax.swing.JButton();
+
+        jMenuItem1.setText("Eliminar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Modificar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LISTA DE SOBRECARGOS");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jTextFieldNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNombreKeyTyped(evt);
+            }
+        });
+
         jLabel12.setText("NOMBRE");
 
-        jButton2.setText("GRABAR LISTA DE SOBRECARGOS");
+        botonGrabar.setText("GRABAR LISTA DE SOBRECARGOS");
+        botonGrabar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGrabarActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableSobrecargos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -62,12 +95,23 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jTableSobrecargos.setComponentPopupMenu(jPopupMenu1);
+        jScrollPane1.setViewportView(jTableSobrecargos);
 
-        jButton1.setText("AGREGAR");
+        botonAgregar.setText("AGREGAR");
+        botonAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("MODIFICAR");
-        jButton3.setEnabled(false);
+        botonModificar.setText("MODIFICAR");
+        botonModificar.setEnabled(false);
+        botonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonModificarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -83,30 +127,30 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton3)
+                                .addComponent(botonModificar)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1))
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(botonAgregar))
+                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2))
+                            .addComponent(botonGrabar))
                         .addGap(30, 30, 30))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1))
+                    .addComponent(botonModificar)
+                    .addComponent(botonAgregar))
                 .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(botonGrabar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,6 +167,76 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
+        if (jTextFieldNombre.getText() == null || jTextFieldNombre.getText().equals("")) {
+             JOptionPane.showMessageDialog(this,"Escriba el nombre (del/de la) sobrecargo","",JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            String [] sobrecargo = {jTextFieldNombre.getText()};
+            FuncionesGenerales.agregarFila(jTableSobrecargos, sobrecargo);
+            jTextFieldNombre.setText(null);
+        }
+    }//GEN-LAST:event_botonAgregarActionPerformed
+
+    private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
+        if (jTextFieldNombre.getText() == null || jTextFieldNombre.getText().equals("")) {
+             JOptionPane.showMessageDialog(this,"Escriba el nombre (del/de la) sobrecargo","",JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            String [] sobrecargo = {jTextFieldNombre.getText()};
+            FuncionesGenerales.modificarFila(jTableSobrecargos, filaAModificar, sobrecargo);
+            botonModificar.setEnabled(false);
+            jTextFieldNombre.setText(null);
+        }
+    }//GEN-LAST:event_botonModificarActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        int filaAEliminar = jTableSobrecargos.getSelectedRow();
+        if (filaAEliminar != -1) {           
+            FuncionesGenerales.eliminarFila(jTableSobrecargos, filaAEliminar);            
+        } else {
+            JOptionPane.showMessageDialog(this,"Seleccione el/la sobrecargo a eliminar","",JOptionPane.INFORMATION_MESSAGE);
+        }  
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+         filaAModificar = jTableSobrecargos.getSelectedRow();
+        if (filaAModificar != -1) {           
+            jTextFieldNombre.setText(jTableSobrecargos.getValueAt(filaAModificar,0).toString());
+            botonModificar.setEnabled(true);
+        } else {
+            JOptionPane.showMessageDialog(this,"Seleccione el/la sobrecargo a modificar","",JOptionPane.INFORMATION_MESSAGE);
+        } 
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
+        int limite = 100;
+        char caracterValidar = evt.getKeyChar();
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldNombre.getText().length() < limite)){
+            getToolkit().beep(); 
+            evt.consume();
+        } else {
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);
+        }
+    }//GEN-LAST:event_jTextFieldNombreKeyTyped
+
+    private void botonGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGrabarActionPerformed
+        String listaSobrecargos = "";
+        for (int i = 0; i < jTableSobrecargos.getRowCount(); i++) {
+            if (i != jTableSobrecargos.getRowCount() - 1) {
+                listaSobrecargos += jTableSobrecargos.getValueAt(i, 0) + ", ";
+            } else {
+                listaSobrecargos += jTableSobrecargos.getValueAt(i, 0);
+            }
+        }
+        AJFrameVentanaCapturas.listaSobrecargos = listaSobrecargos;
+        this.dispose();
+        if(jTableSobrecargos.getRowCount()!=0){
+            AJFrameVentanaCapturas.jLabel48.setEnabled(true);
+        }   
+    }//GEN-LAST:event_botonGrabarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,13 +344,17 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton botonAgregar;
+    private javax.swing.JButton botonGrabar;
+    private javax.swing.JButton botonModificar;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTable jTableSobrecargos;
+    private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
+int filaAModificar;
 }
