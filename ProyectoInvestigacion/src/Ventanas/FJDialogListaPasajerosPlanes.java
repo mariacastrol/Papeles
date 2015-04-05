@@ -7,7 +7,6 @@ package Ventanas;
 
 import Clases.FuncionesGenerales;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -127,7 +126,7 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
             }
         });
 
-        botonModificar.setText("MODIFICAR");
+        botonModificar.setText("ACTUALIZAR");
         botonModificar.setEnabled(false);
         botonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,16 +344,16 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldAMaternoKeyTyped
 
     private void botonGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGrabarActionPerformed
-        String [][] listaPasajeros = new String [jTableListaPasajeros.getRowCount()][jTableListaPasajeros.getColumnCount()];
-        for (int i = 0; i < jTableListaPasajeros.getRowCount(); i++) {
-            for (int j = 0; j < jTableListaPasajeros.getColumnCount(); j++) {
-                listaPasajeros [i][j] = jTableListaPasajeros.getValueAt(i,j).toString();            
+        if (jTableListaPasajeros.getRowCount()> 0) {
+            String [][] listaPasajeros = new String [jTableListaPasajeros.getRowCount()][jTableListaPasajeros.getColumnCount()];
+            for (int i = 0; i < jTableListaPasajeros.getRowCount(); i++) {
+                for (int j = 0; j < jTableListaPasajeros.getColumnCount(); j++) {
+                    listaPasajeros [i][j] = jTableListaPasajeros.getValueAt(i,j).toString();            
+                }
             }
-        }
-        AJFrameVentanaCapturas.listaPasajeros = listaPasajeros;
-        if(jTableListaPasajeros.getRowCount()!= 0){
+            AJFrameVentanaCapturas.listaPasajeros = listaPasajeros;
             AJFrameVentanaCapturas.jLabel19.setEnabled(true);
-        } 
+        }
         this.dispose();       
     }//GEN-LAST:event_botonGrabarActionPerformed
 

@@ -105,7 +105,7 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
             }
         });
 
-        botonModificar.setText("MODIFICAR");
+        botonModificar.setText("ACTUALIZAR");
         botonModificar.setEnabled(false);
         botonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,9 +148,9 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
                     .addComponent(botonAgregar))
                 .addGap(15, 15, 15)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
                 .addComponent(botonGrabar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -170,22 +170,20 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         if (jTextFieldNombre.getText() == null || jTextFieldNombre.getText().equals("")) {
-             JOptionPane.showMessageDialog(this,"Escriba el nombre (del/de la) sobrecargo","",JOptionPane.INFORMATION_MESSAGE);
-        }
-        else{
+            JOptionPane.showMessageDialog(this,"Escriba el nombre del/de la sobrecargo","",JOptionPane.INFORMATION_MESSAGE);
+        } else {
             String [] sobrecargo = {jTextFieldNombre.getText()};
-            FuncionesGenerales.agregarFila(jTableSobrecargos, sobrecargo);
+            FuncionesGenerales.agregarFila(jTableSobrecargos,sobrecargo);
             jTextFieldNombre.setText(null);
         }
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
         if (jTextFieldNombre.getText() == null || jTextFieldNombre.getText().equals("")) {
-             JOptionPane.showMessageDialog(this,"Escriba el nombre (del/de la) sobrecargo","",JOptionPane.INFORMATION_MESSAGE);
-        }
-        else{
+            JOptionPane.showMessageDialog(this,"Escriba el nombre del/de la sobrecargo","",JOptionPane.INFORMATION_MESSAGE);
+        } else {
             String [] sobrecargo = {jTextFieldNombre.getText()};
-            FuncionesGenerales.modificarFila(jTableSobrecargos, filaAModificar, sobrecargo);
+            FuncionesGenerales.modificarFila(jTableSobrecargos,filaAModificar,sobrecargo);
             botonModificar.setEnabled(false);
             jTextFieldNombre.setText(null);
         }
@@ -194,14 +192,14 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         int filaAEliminar = jTableSobrecargos.getSelectedRow();
         if (filaAEliminar != -1) {           
-            FuncionesGenerales.eliminarFila(jTableSobrecargos, filaAEliminar);            
+            FuncionesGenerales.eliminarFila(jTableSobrecargos,filaAEliminar);            
         } else {
             JOptionPane.showMessageDialog(this,"Seleccione el/la sobrecargo a eliminar","",JOptionPane.INFORMATION_MESSAGE);
         }  
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-         filaAModificar = jTableSobrecargos.getSelectedRow();
+        filaAModificar = jTableSobrecargos.getSelectedRow();
         if (filaAModificar != -1) {           
             jTextFieldNombre.setText(jTableSobrecargos.getValueAt(filaAModificar,0).toString());
             botonModificar.setEnabled(true);
@@ -223,19 +221,19 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldNombreKeyTyped
 
     private void botonGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGrabarActionPerformed
-        String listaSobrecargos = "";
-        for (int i = 0; i < jTableSobrecargos.getRowCount(); i++) {
-            if (i != jTableSobrecargos.getRowCount() - 1) {
-                listaSobrecargos += jTableSobrecargos.getValueAt(i, 0) + ", ";
-            } else {
-                listaSobrecargos += jTableSobrecargos.getValueAt(i, 0);
+        if (jTableSobrecargos.getRowCount() > 0) {
+            String sobrecargos = "";
+            for (int i = 0; i < jTableSobrecargos.getRowCount(); i++) {
+                if (i != jTableSobrecargos.getRowCount() - 1) {
+                    sobrecargos += jTableSobrecargos.getValueAt(i,0) + ", ";
+                } else {
+                    sobrecargos += jTableSobrecargos.getValueAt(i,0);
+                }
             }
-        }
-        AJFrameVentanaCapturas.listaSobrecargos = listaSobrecargos;
-        this.dispose();
-        if(jTableSobrecargos.getRowCount()!=0){
-            AJFrameVentanaCapturas.jLabel48.setEnabled(true);
-        }   
+            AJFrameVentanaCapturas.listaSobrecargos = sobrecargos;
+            AJFrameVentanaCapturas.jLabel48.setEnabled(true);   
+        } 
+        this.dispose();     
     }//GEN-LAST:event_botonGrabarActionPerformed
 
     /**
@@ -356,5 +354,5 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
     private javax.swing.JTable jTableSobrecargos;
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
-int filaAModificar;
+    int filaAModificar;
 }

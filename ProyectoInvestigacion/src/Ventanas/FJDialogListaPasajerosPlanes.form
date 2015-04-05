@@ -234,7 +234,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="botonModificar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="MODIFICAR"/>
+            <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
