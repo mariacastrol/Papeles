@@ -110,7 +110,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jSpinnerMinutosReal = new javax.swing.JSpinner();
         botonSeleccionarAeropuertoManifiestos = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
+        botonDeclararEmDesembarque = new javax.swing.JButton();
         jLabel39 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
@@ -847,7 +847,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("EMBARQUE"));
 
-        jButton5.setText("DECLARAR");
+        botonDeclararEmDesembarque.setText("DECLARAR");
+        botonDeclararEmDesembarque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonDeclararEmDesembarqueActionPerformed(evt);
+            }
+        });
 
         jLabel39.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel39.setText("Declarado");
@@ -859,7 +864,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton5)
+                .addComponent(botonDeclararEmDesembarque)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -869,7 +874,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
+                    .addComponent(botonDeclararEmDesembarque)
                     .addComponent(jLabel39))
                 .addContainerGap())
         );
@@ -1394,7 +1399,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
     private void botonDeclararSobrecargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDeclararSobrecargosActionPerformed
         NJDialogListaSobrecargos capturarListaSobrecargos = new NJDialogListaSobrecargos(this,true);
-        String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
+        String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
         if (tipoOperacion.contains("MANIFIESTO DE SALIDA")) {
             capturarListaSobrecargos.setTitle("LISTA DE SOBRECARGOS: MANIFIESTO DE SALIDA");
         } else {
@@ -1402,6 +1407,17 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         }
         capturarListaSobrecargos.setVisible(true); 
     }//GEN-LAST:event_botonDeclararSobrecargosActionPerformed
+
+    private void botonDeclararEmDesembarqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDeclararEmDesembarqueActionPerformed
+        String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
+        if (tipoOperacion.contains("MANIFIESTO DE SALIDA")) {
+            OJDialogEmbarque embarque = new OJDialogEmbarque(this, true);
+            embarque.setVisible(true);
+        } else {
+            PJDialogDesembarque desembarque = new PJDialogDesembarque(this, true);
+            desembarque.setVisible(true);
+        }
+    }//GEN-LAST:event_botonDeclararEmDesembarqueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1470,6 +1486,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonDeclararEmDesembarque;
     private javax.swing.JButton botonDeclararSobrecargos;
     private javax.swing.JButton botonListaPasajeros;
     private javax.swing.JButton botonSeleccionarAeronaveManifiestos;
@@ -1484,7 +1501,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JButton botonSeleccionarSegundo;
     private javax.swing.JButton botonSeleccionarTercero;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox jComboBoxOperacionManifiestos;
     private javax.swing.JComboBox jComboBoxOperacionPlanes;
@@ -1518,7 +1534,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     public static javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
+    public static javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
@@ -1592,5 +1608,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private String dB = "proyecto_planes";
     static String [][] listaPasajeros;
     static String listaSobrecargos;
+    static String [] embarque;
 
 }
