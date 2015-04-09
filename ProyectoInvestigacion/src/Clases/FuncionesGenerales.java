@@ -61,9 +61,11 @@ public class FuncionesGenerales {
         modelo.removeRow(numeroFila);
     }
     
-    public static void modificarFila (JTable tabla, int numeroFila, String [] informacionNueva) {
-        for (int i = 0; i < informacionNueva.length; i++) {
-            tabla.setValueAt(informacionNueva[i],numeroFila, i);
+    public static void modificarFila (JTable tabla, int numeroFila, int posicionInicial, String [] informacionNueva) {
+        int posicion = 0;
+        for (int i = posicionInicial; i < (posicionInicial + informacionNueva.length); i++) {
+            tabla.setValueAt(informacionNueva[posicion],numeroFila, i);
+            posicion++;
         }
     }
     

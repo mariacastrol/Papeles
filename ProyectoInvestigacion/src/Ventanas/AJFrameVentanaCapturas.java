@@ -69,7 +69,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         botonSeleccionarCopilotoPlanes = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        jTextField10 = new javax.swing.JTextField();
+        jTextFieldPersonasPasajeros = new javax.swing.JTextField();
         botonListaPasajeros = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
@@ -425,7 +425,17 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("PERSONAS A BORDO"));
 
-        jTextField10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldPersonasPasajeros.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldPersonasPasajeros.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldPersonasPasajerosFocusGained(evt);
+            }
+        });
+        jTextFieldPersonasPasajeros.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldPersonasPasajerosKeyTyped(evt);
+            }
+        });
 
         botonListaPasajeros.setText("LISTA DE PASAJEROS");
         botonListaPasajeros.addActionListener(new java.awt.event.ActionListener() {
@@ -444,7 +454,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldPersonasPasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(botonListaPasajeros)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -456,7 +466,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(9, 9, 9)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPersonasPasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonListaPasajeros)
                     .addComponent(jLabel19))
                 .addContainerGap())
@@ -466,6 +476,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextArea1KeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -486,6 +501,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jButton3.setText("GUARDAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jDateFecha.setDateFormatString("dd/MM/yyyy");
         jDateFecha.setMaxSelectableDate(new java.util.Date(1483250399000L));
@@ -1383,10 +1403,15 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"No ha ingresado la fecha","",JOptionPane.INFORMATION_MESSAGE);            
         } else {
             FJDialogListaPasajerosPlanes capturarListaPasajeros = new FJDialogListaPasajerosPlanes(this,true);
+            String horas = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerHorasUTC.getValue().toString()));
+            String minutos = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerMinutosUTC.getValue().toString())); 
             SimpleDateFormat ft = new SimpleDateFormat("yyyyMMdd");   
             capturarListaPasajeros.fecha = ft.format(jDateFecha.getDate());
-            capturarListaPasajeros.hora = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerHorasUTC.getValue().toString()));
-            capturarListaPasajeros.minutos = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerMinutosUTC.getValue().toString())); 
+            capturarListaPasajeros.hora = horas;
+            capturarListaPasajeros.minutos = minutos;
+            SimpleDateFormat ft2 = new SimpleDateFormat("yyyy-MM-dd");   
+            String fechaCompleta = ft2.format(jDateFecha.getDate()) + " " + horas + ":" + minutos + ":00";
+            capturarListaPasajeros.fechaHora = fechaCompleta;
             String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
             if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
                 capturarListaPasajeros.setTitle("LISTA DE PASAJEROS: APERTURA DE PLAN DE VUELO");
@@ -1418,6 +1443,40 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             desembarque.setVisible(true);
         }
     }//GEN-LAST:event_botonDeclararEmDesembarqueActionPerformed
+
+    private void jTextFieldPersonasPasajerosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldPersonasPasajerosFocusGained
+        jTextFieldPersonasPasajeros.setBackground(new java.awt.Color(255,255,255));
+    }//GEN-LAST:event_jTextFieldPersonasPasajerosFocusGained
+
+    private void jTextFieldPersonasPasajerosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPersonasPasajerosKeyTyped
+        int limite = 3;
+        char caracterValidar = evt.getKeyChar();
+        if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldPersonasPasajeros.getText().length() < limite)){
+            getToolkit().beep(); 
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldPersonasPasajerosKeyTyped
+
+    private void jTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyTyped
+        int limite = 10;
+        if (jTextArea1.getText().length() > limite - 1){
+            getToolkit().beep(); 
+            evt.consume();
+        } else {
+            char caracterValidar = evt.getKeyChar();
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);  
+        }     
+    }//GEN-LAST:event_jTextArea1KeyTyped
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
+        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
+            
+        } else {
+            
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1576,7 +1635,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     public static javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
     public static javax.swing.JTextField jTextField11;
     public static javax.swing.JTextField jTextField12;
     public static javax.swing.JTextField jTextField13;
@@ -1600,6 +1658,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     public static javax.swing.JTextField jTextField7;
     public static javax.swing.JTextField jTextField8;
     public static javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextFieldPersonasPasajeros;
     // End of variables declaration//GEN-END:variables
 
     private String sv = "localhost";
@@ -1609,5 +1668,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     static String [][] listaPasajeros;
     static String listaSobrecargos;
     static String [] embarque;
+    static String [] desembarque;
 
 }

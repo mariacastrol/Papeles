@@ -782,10 +782,7 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
                 jTextFieldInf.getText(),
                 jTextFieldT.getText(),
                 jTextFieldTotal.getText()
-            };
-            for (int j = 0; j < embarqueDeclarado.length; j++) {
-                System.out.println(embarqueDeclarado[j]);         
-            }
+            };          
             
             AJFrameVentanaCapturas.embarque = embarqueDeclarado;
             AJFrameVentanaCapturas.jLabel39.setEnabled(true);

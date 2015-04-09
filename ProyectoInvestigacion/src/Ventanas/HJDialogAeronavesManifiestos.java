@@ -163,16 +163,19 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel21)))
-                        .addGap(20, 20, 20)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel14))
-                            .addComponent(jTextFieldSEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel14)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jTextFieldSEquipo)
+                                .addContainerGap())))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(botonVolver)))
-                .addContainerGap())
+                        .addComponent(botonVolver)
+                        .addGap(10, 10, 10))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,6 +227,7 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
         jLabel20.setText("MATRICULA");
 
         jTextFieldAAEquipo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldAAEquipo.setText("ASDFFAEQWQWQWQW");
         jTextFieldAAEquipo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextFieldAAEquipoFocusGained(evt);
@@ -250,12 +254,13 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(botonActualizar)
                             .addComponent(jLabel20))))
-                .addGap(20, 20, 20)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(30, 30, 30)
                         .addComponent(jLabel13))
-                    .addComponent(jTextFieldAAEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jTextFieldAAEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -301,9 +306,9 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
         jTableAeronavesManifiestos.setComponentPopupMenu(jPopupMenu1);
         jScrollPane1.setViewportView(jTableAeronavesManifiestos);
         if (jTableAeronavesManifiestos.getColumnModel().getColumnCount() > 0) {
-            jTableAeronavesManifiestos.getColumnModel().getColumn(1).setMinWidth(90);
-            jTableAeronavesManifiestos.getColumnModel().getColumn(1).setPreferredWidth(90);
-            jTableAeronavesManifiestos.getColumnModel().getColumn(1).setMaxWidth(90);
+            jTableAeronavesManifiestos.getColumnModel().getColumn(1).setMinWidth(150);
+            jTableAeronavesManifiestos.getColumnModel().getColumn(1).setPreferredWidth(150);
+            jTableAeronavesManifiestos.getColumnModel().getColumn(1).setMaxWidth(150);
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -380,6 +385,12 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
             }
             jTextFieldAAMatricula.setText(null);
             jTextFieldAAEquipo.setText(null);
+            botonBuscar.setEnabled(true);
+            botonAgregar.setEnabled(true);
+            botonVolver.setEnabled(true);
+            jMenuItem1.setEnabled(true);
+            jMenuItem2.setEnabled(true);
+            jMenuItem3.setEnabled(true);
             botonActualizar.setEnabled(false); 
         }
     }//GEN-LAST:event_botonActualizarActionPerformed
@@ -487,6 +498,12 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
             jTextFieldAAMatricula.setText(celda);
             jTextFieldAAEquipo.setText(celda1);
             llaveActual = celda;
+            botonBuscar.setEnabled(false);
+            botonAgregar.setEnabled(false);
+            botonVolver.setEnabled(false);
+            jMenuItem1.setEnabled(false);
+            jMenuItem2.setEnabled(false);
+            jMenuItem3.setEnabled(false);
             botonActualizar.setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);

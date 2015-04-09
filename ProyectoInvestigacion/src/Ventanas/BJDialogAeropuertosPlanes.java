@@ -431,6 +431,12 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
             jTextFieldAAOACI.setText(null);
             jTextFieldAAIATA.setText(null);
             jTextFieldAANombre.setText(null);
+            botonBuscar.setEnabled(true);
+            botonAgregar.setEnabled(true);
+            botonVolver.setEnabled(true);
+            jMenuItem1.setEnabled(true);
+            jMenuItem2.setEnabled(true);
+            jMenuItem3.setEnabled(true);
             botonActualizar.setEnabled(false); 
         }
     }//GEN-LAST:event_botonActualizarActionPerformed
@@ -506,6 +512,12 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
             jTextFieldAAIATA.setText(celda1);
             jTextFieldAANombre.setText(celda2);
             llaveActual = celda;
+            botonBuscar.setEnabled(false);
+            botonAgregar.setEnabled(false);
+            botonVolver.setEnabled(false);
+            jMenuItem1.setEnabled(false);
+            jMenuItem2.setEnabled(false);
+            jMenuItem3.setEnabled(false);
             botonActualizar.setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);

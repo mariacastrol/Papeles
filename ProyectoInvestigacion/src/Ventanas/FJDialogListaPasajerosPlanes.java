@@ -91,11 +91,11 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
 
             },
             new String [] {
-                "NOMBRE(S)", "A PATERNO", "A MATERNO", "NACIONALIDAD", "ID"
+                "ID", "NOMBRE(S)", "A PATERNO", "A MATERNO", "NACIONALIDAD", "FECHA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -105,18 +105,21 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
         jTableListaPasajeros.setComponentPopupMenu(jPopupMenu1);
         jScrollPane1.setViewportView(jTableListaPasajeros);
         if (jTableListaPasajeros.getColumnModel().getColumnCount() > 0) {
-            jTableListaPasajeros.getColumnModel().getColumn(1).setMinWidth(80);
-            jTableListaPasajeros.getColumnModel().getColumn(1).setPreferredWidth(80);
-            jTableListaPasajeros.getColumnModel().getColumn(1).setMaxWidth(80);
+            jTableListaPasajeros.getColumnModel().getColumn(0).setMinWidth(1);
+            jTableListaPasajeros.getColumnModel().getColumn(0).setPreferredWidth(1);
+            jTableListaPasajeros.getColumnModel().getColumn(0).setMaxWidth(1);
             jTableListaPasajeros.getColumnModel().getColumn(2).setMinWidth(80);
             jTableListaPasajeros.getColumnModel().getColumn(2).setPreferredWidth(80);
             jTableListaPasajeros.getColumnModel().getColumn(2).setMaxWidth(80);
-            jTableListaPasajeros.getColumnModel().getColumn(3).setMinWidth(200);
-            jTableListaPasajeros.getColumnModel().getColumn(3).setPreferredWidth(200);
-            jTableListaPasajeros.getColumnModel().getColumn(3).setMaxWidth(200);
-            jTableListaPasajeros.getColumnModel().getColumn(4).setMinWidth(1);
-            jTableListaPasajeros.getColumnModel().getColumn(4).setPreferredWidth(1);
-            jTableListaPasajeros.getColumnModel().getColumn(4).setMaxWidth(1);
+            jTableListaPasajeros.getColumnModel().getColumn(3).setMinWidth(80);
+            jTableListaPasajeros.getColumnModel().getColumn(3).setPreferredWidth(80);
+            jTableListaPasajeros.getColumnModel().getColumn(3).setMaxWidth(80);
+            jTableListaPasajeros.getColumnModel().getColumn(4).setMinWidth(200);
+            jTableListaPasajeros.getColumnModel().getColumn(4).setPreferredWidth(200);
+            jTableListaPasajeros.getColumnModel().getColumn(4).setMaxWidth(200);
+            jTableListaPasajeros.getColumnModel().getColumn(5).setMinWidth(1);
+            jTableListaPasajeros.getColumnModel().getColumn(5).setPreferredWidth(1);
+            jTableListaPasajeros.getColumnModel().getColumn(5).setMaxWidth(1);
         }
 
         botonAgregar.setText("AGREGAR");
@@ -242,11 +245,12 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         if (jListNacionalidad.getSelectedIndex() != -1) {
             String [] filaAInsertar = {
+                fecha + hora + minutos + FuncionesGenerales.integerFormat((jTableListaPasajeros.getRowCount()+1)),
                 jTextFieldNombre.getText(),
                 jTextFieldAPaterno.getText(),
                 jTextFieldAMaterno.getText(),
                 jListNacionalidad.getSelectedValue().toString(),
-                fecha+hora+minutos+FuncionesGenerales.integerFormat((jTableListaPasajeros.getRowCount()+1))   
+                fechaHora
                 };
             FuncionesGenerales.agregarFila(jTableListaPasajeros,filaAInsertar);
         } else {
@@ -262,7 +266,7 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
         if (filaAEliminar != -1) {           
             FuncionesGenerales.eliminarFila(jTableListaPasajeros, filaAEliminar);
             for (int i = filaAEliminar; i < jTableListaPasajeros.getRowCount(); i++) {
-                jTableListaPasajeros.setValueAt(fecha+hora+minutos+FuncionesGenerales.integerFormat((i+1)),i, 4);
+                jTableListaPasajeros.setValueAt(fecha+hora+minutos+FuncionesGenerales.integerFormat((i+1)),i,0);
             }
         } else {
             JOptionPane.showMessageDialog(this,"Seleccione el pasajero a eliminar","",JOptionPane.INFORMATION_MESSAGE);
@@ -272,10 +276,10 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         filaAModificar = jTableListaPasajeros.getSelectedRow();
         if (filaAModificar != -1) {           
-            jTextFieldNombre.setText(jTableListaPasajeros.getValueAt(filaAModificar,0).toString());
-            jTextFieldAPaterno.setText(jTableListaPasajeros.getValueAt(filaAModificar,1).toString());
-            jTextFieldAMaterno.setText(jTableListaPasajeros.getValueAt(filaAModificar,2).toString());
-            String nacionalidad = jTableListaPasajeros.getValueAt(filaAModificar,3).toString();
+            jTextFieldNombre.setText(jTableListaPasajeros.getValueAt(filaAModificar,1).toString());
+            jTextFieldAPaterno.setText(jTableListaPasajeros.getValueAt(filaAModificar,2).toString());
+            jTextFieldAMaterno.setText(jTableListaPasajeros.getValueAt(filaAModificar,3).toString());
+            String nacionalidad = jTableListaPasajeros.getValueAt(filaAModificar,4).toString();
             String [] strings = { "MEXICO (MEXICANO/A)", "ESTADOS UNIDOS (ESTADOUNIDENSE)", "AFGANISTAN (AFGANO/A)", "ALBANIA (ALBANES)", "ALEMANIA (ALEMAN/A)", "ANDORRA (ANDORRANO)", "ANGOLA (ANGOLEÑO/A)", "ANTILLAS HOLANDESAS (ANTILLANO/A)", "ARGELIA (ARGELINO/A)", "ARGENTINA (ARGENTINO/A)", "ARMENIA (ARMENIO)", "AZERBAIYAN (AZERBAIYANO/A)", "AUSTRALIA (AUSTRALIANO/A)", "AUSTRIA (AUSTRIACO/A)", "BAHAMAS (BAHAMES)", "BANGLADESH (BENGALI)", "BARBADOS (BARBANDENSE)", "BELGICA (BELGA)", "BELICE (BELICEÑO/A)", "BENIN (BENINES)", "BIELORRUSIA (BIELORRUSO/A)", "BOLIVIA (BOLIVIANO/A)", "BOSNIA- HERZEGOVINA (BOSNIO)", "BOTSWANA (BOTSWANES)", "BRASIL (BRASILEÑO/A)", "BRUNEI (BRUNEANO/A)", "BULGARIA (BULGARO/A)", "BURKINA FASO (BURKINES)", "BURUNDI (BURUNDIANO/A)", "BUTAN (BUTANES/A)", "CABO VERDE (CABOVERDIANO)", "CAMBOYA (CAMBOYANO/A)", "CAMERUN (CAMERUNES)", "CANADA (CANADIENSE)", "CHAD (CHADIANO/A)", "CHILE (CHILENO/A)", "CHINA (CHINO/A)", "COLOMBIA (COLOMBIANO/A)", "COMORES (COMORANO/A, COMORENSE)", "CONGO (CONGOLES)", "COREA DEL NORTE (NORCOREANO/A)", "COREA DEL SUR (SURCOREANO/A)", "COSTA DE MARFIL (MARFILEÑO/A)", "COSTA RICA (COSTARRICENSE)", "CROACIA (CROATA)", "CUBA (CUBANO/A)", "DJIBOUTI  (YIBUTIANO/A)", "DINAMARCA (DANES/DANESA)", "ECUADOR (ECUATORIANO/A)", "EGIPTO (EGIPCIO/A)", "EL SALVADOR (SALVADOREÑO/A)", "ESCOCIA (ESCOCES / ESCOCESA)", "ESLOVAQUIA (ESLOVACO/A)", "ESLOVENIA (ESLOVENO/A)", "ESPAÑA (ESPAÑOL/A)", "ESTONIA (ESTONIO)", "ETIOPIA (ETIOPE)", "FIJI (FIYIANO/A)", "FILIPINAS (FILIPINO/A)", "FINLANDIA (FINLANDES/FINLANDESA)", "FRANCIA (FRANCES/ FRANCESA)", "GABON (GABONES)", "GALES (GALES)", "GAMBIA (GAMBIENSE)", "GEORGIA (GEORGIANO/A)", "GHANA (GHANES)", "GRANADA (GRANADINO/A)", "GRECIA (GRIEGO/A)", "GUAYANA FRANCESA (GUAYANES)", "GUATEMALA (GUATEMALTECO/A)", "GUINEA (GUINEANO/A)", "GUINEA BISSAU (GUINEANO/A)", "GUINEA ECUATORIAL (ECUATOGUINEANO/A)", "GUYANA (GUYANES)", "HAITI (HAITIANO/A)", "HOLANDA (HOLANDES/ HOLANDESA)", "HONDURAS (HONDUREÑO/A)", "HUNGRIA (HUNGARO/A)", "INDIA (INDIO/A)", "INDONESIA (INDONESIO)", "INGLATERRA (INGLES/INGLESA)", "IRLANDA, EIRE (IRLANDES/ IRLANDESA)", "IRLANDA DEL NORTE (IRLANDES)", "ISLANDIA (ISLANDES/ ISLANDESA)", "ISLAS CAIMAN (CAIMANES)", "ISLAS MARSHALL (MARSHALES)", "ISLAS SALOMON (SALOMONENSE)", "ISLAS VIRGENES AMERICANAS (DE ISLAS VIRGENES)", "ISLAS VIRGENES BRITANICAS (DE ISLAS VIRGENES BRITANICAS)", "ITALIA (ITALIANO/A)", "JAMAICA (JAMAICANO/A)", "JAPON (JAPONES/A, )", "KAZAJSTAN (KAZAJO)", "KENIA (KENIATA)", "KIRGUIZISTAN (KIRGUIZ)", "KIRIBATI (KIRIBATIANO/A)", "LAOS (LAOSIANO/A)", "LESOTO (LESOTENSE)", "LETONIA (LETON/ LETONA)", "LIBERIA (LIBERIANO/A)", "LIBIA (LIBIO)", "LIECHTENSTEIN (LIECHTENTIENSE)", "LITUANIA (LITUANO/A)", "LUXEMBURGO (LUXEMBURGUES/A)", "MACEDONIA (MACEDONIO/A)", "MADAGASCAR (MALGACHE)", "MALASIA (MALAYO/A)", "MALDIVAS (MALDIVO/A)", "MALAWI (MALAWIANO/A)", "MALI (MALI)", "MALTA (MALTES/ MALTESA)", "MARRUECOS (MARROQUI)", "MARTINICA (MARTINIQUES)", "MAURICIO (MAURICIANO)", "MAURITANIA (MAURITANO)", "MOLDOVA (MOLDAVO)", "MONACO (MONEGASCO/A)", "MONGOLIA (MONGOL)", "MOZAMBIQUE (MOZAMBIQUEÑO/A)", "MYANMAR (BIRMANO/A)", "NAMIBIA (NAMIBIO)", "NAURU (NAURUANO)", "NICARAGUA (NICARAGÜENSE)", "NIGER (NIGERIANO/A)", "NIGERIA (NIGERIANO/A)", "NORUEGA (NORUEGO/A)", "NUEVA CALEDONIA (NEOCALEDONIO)", "NUEVA ZELANDA (NEOZELANDES)", "PAISES BAJOS (HOLANDES/ HOLANDESA)", "PALAU (PALAUANO/A)", "PANAMA (PANAMEÑO/A)", "PAPUA-NUEVA GUINEA (PAPU)", "PARAGUAY (PARAGUAYO/A)", "PERU (PERUANO/A)", "POLONIA (POLACO/A)", "PORTUGAL (PORTUGUES/ PORTUGUESA)", "PUERTO RICO (PORTORRIQUEÑO/A)", "REPUBLICA CENTROAFRICANA (CENTROAFRICANO/A)", "REPUBLICA CHECA (CHECO/A)", "REPUBLICA DEMOCRATICA DEL CONGO (ZAIREÑO/A)", "REPUBLICA DOMINICANA (DOMINICANO/A)", "RUANDA (RUANDES)", "RUMANIA (RUMANO/A)", "RUSIA (RUSO/A)", "SAMOA OCCIDENTAL (SAMOANO/A)", "SAN CRISTOBAL Y NIEVES (SANCRISTOBALENSE)", "SAN VICENTE Y GRANADINAS (SANVICENTINO/A)", "SANTA LUCIA (SANTALUCENSE)", "SANTA SEDE (VATICANO)", "SENEGAL (SENEGALES)", "SEYCHELLES (SEYCHELENSE)", "SIERRA LEONA (SIERRALEONES)", "SOMALIA (SOMALI)", "SUAZILANDIA (SUAZI)", "SUDAFRICA (SUDAFRICANO/A)", "SUDAN (SUDANES)", "SUECIA (SUECO/A)", "SUIZA (SUIZO/A)", "SURINAM (SURINAMES)", "TADZHIKISTAN (TADZHIK)", "TANZANIA (TANZANO)", "TAYIKISTAN (TAYIKO)", "TOGO (TOGOLES)", "TONGA (TONGANO)", "TRINIDAD Y TOBAGO (TRINITARIO/A)", "TUNICIA (TUNECINO/A)", "TURKMENISTAN (TURCOMANO)", "TUVALU (TUVALUANO/A)", "UCRANIA (UCRANIANO/A)", "UGANDA (UGANDES)", "URUGUAY (URUGUAYO/A)", "UZBEKISTAN (UZBEKO)", "VANUATU (VANUATUENSE)", "VENEZUELA (VENEZOLANO/A)", "YUGOSLAVIA (YUGOSLAVO/A)", "ZAMBIA (ZAMBIANO)", "ZIMBABWE (ZIMBABUENSE)" };
             int indiceNacionalidad = 0;
             while (strings [indiceNacionalidad] != nacionalidad && strings.length != indiceNacionalidad) {
@@ -283,6 +287,8 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
             }
             jListNacionalidad.setSelectedIndex(indiceNacionalidad);
             jListNacionalidad.ensureIndexIsVisible(jListNacionalidad.getSelectedIndex());
+            botonAgregar.setEnabled(false);
+            botonGrabar.setEnabled(false);
             botonModificar.setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(this,"Seleccione el pasajero a modificar","",JOptionPane.INFORMATION_MESSAGE);
@@ -297,10 +303,12 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
                 jTextFieldAMaterno.getText(),
                 jListNacionalidad.getSelectedValue().toString()
                 };
-            FuncionesGenerales.modificarFila(jTableListaPasajeros, filaAModificar, informacionActualizada);
+            FuncionesGenerales.modificarFila(jTableListaPasajeros,filaAModificar,1,informacionActualizada);
             jTextFieldNombre.setText(null);
             jTextFieldAPaterno.setText(null);
             jTextFieldAMaterno.setText(null);
+            botonAgregar.setEnabled(true);
+            botonGrabar.setEnabled(true);
             botonModificar.setEnabled(false);
         } else {
             JOptionPane.showMessageDialog(this,"Seleccione una nacionalidad","",JOptionPane.INFORMATION_MESSAGE);
@@ -348,7 +356,7 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
             String [][] listaPasajeros = new String [jTableListaPasajeros.getRowCount()][jTableListaPasajeros.getColumnCount()];
             for (int i = 0; i < jTableListaPasajeros.getRowCount(); i++) {
                 for (int j = 0; j < jTableListaPasajeros.getColumnCount(); j++) {
-                    listaPasajeros [i][j] = jTableListaPasajeros.getValueAt(i,j).toString();            
+                    listaPasajeros [i][j] = jTableListaPasajeros.getValueAt(i,j).toString();
                 }
             }
             AJFrameVentanaCapturas.listaPasajeros = listaPasajeros;
@@ -451,6 +459,6 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
     int filaAModificar;
-    String fecha, hora, minutos;
+    String fecha, fechaHora, hora, minutos;
     
 }

@@ -455,6 +455,12 @@ public class KJDialogPrimeros extends javax.swing.JDialog {
             jTextFieldAAPaterno.setText(null);
             jTextFieldAAMaterno.setText(null);
             jLabelAATLicencia.setText(null);
+            botonBuscar.setEnabled(true);
+            botonAgregar.setEnabled(true);
+            botonVolver.setEnabled(true);
+            jMenuItem1.setEnabled(true);
+            jMenuItem2.setEnabled(true);
+            jMenuItem3.setEnabled(true);
             botonActualizar.setEnabled(false); 
         }
     }//GEN-LAST:event_botonActualizarActionPerformed
@@ -535,6 +541,12 @@ public class KJDialogPrimeros extends javax.swing.JDialog {
             jTextFieldAAMaterno.setText(celda3);
             jLabelAATLicencia.setText(celda4);
             llaveActual = celda;
+            botonBuscar.setEnabled(false);
+            botonAgregar.setEnabled(false);
+            botonVolver.setEnabled(false);
+            jMenuItem1.setEnabled(false);
+            jMenuItem2.setEnabled(false);
+            jMenuItem3.setEnabled(false);
             botonActualizar.setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);

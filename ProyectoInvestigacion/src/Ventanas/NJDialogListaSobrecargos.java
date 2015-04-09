@@ -183,7 +183,9 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this,"Escriba el nombre del/de la sobrecargo","",JOptionPane.INFORMATION_MESSAGE);
         } else {
             String [] sobrecargo = {jTextFieldNombre.getText()};
-            FuncionesGenerales.modificarFila(jTableSobrecargos,filaAModificar,sobrecargo);
+            FuncionesGenerales.modificarFila(jTableSobrecargos,filaAModificar,0,sobrecargo);
+            botonAgregar.setEnabled(true);
+            botonGrabar.setEnabled(true);
             botonModificar.setEnabled(false);
             jTextFieldNombre.setText(null);
         }
@@ -202,6 +204,8 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
         filaAModificar = jTableSobrecargos.getSelectedRow();
         if (filaAModificar != -1) {           
             jTextFieldNombre.setText(jTableSobrecargos.getValueAt(filaAModificar,0).toString());
+            botonAgregar.setEnabled(false);
+            botonGrabar.setEnabled(false);
             botonModificar.setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(this,"Seleccione el/la sobrecargo a modificar","",JOptionPane.INFORMATION_MESSAGE);
