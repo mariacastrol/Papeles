@@ -771,17 +771,17 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
         }
         if (jTextFieldVacios == 0) {
             String [] embarqueDeclarado = {
-                jTextFieldTtlPersonas1.getText() + "/" + jTextFieldTtlPersonas2.getText() + "/" + jTextFieldTtlPersonas3.getText(),
-                jTextFieldEquipajePzas.getText() + "/" + jTextFieldEquipajeKg.getText(),
-                jTextFieldCargaPzas.getText() + "/" + jTextFieldCargaKg.getText(),
-                jTextFieldCorreoPzas.getText() + "/" + jTextFieldCorreoKg.getText(),
                 jTextFieldTI.getText(),
                 jTextFieldEN.getText(),
                 jTextFieldInt.getText(),
                 jTextFieldEI.getText(),
                 jTextFieldInf.getText(),
                 jTextFieldT.getText(),
-                jTextFieldTotal.getText()
+                jTextFieldTotal.getText(),
+                jTextFieldTtlPersonas1.getText() + "/" + jTextFieldTtlPersonas2.getText() + "/" + jTextFieldTtlPersonas3.getText(),
+                jTextFieldEquipajePzas.getText() + "/" + jTextFieldEquipajeKg.getText(),
+                jTextFieldCargaPzas.getText() + "/" + jTextFieldCargaKg.getText(),
+                jTextFieldCorreoPzas.getText() + "/" + jTextFieldCorreoKg.getText(),
             };          
             
             AJFrameVentanaCapturas.embarque = embarqueDeclarado;

@@ -485,8 +485,8 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         }
         if (jTextFieldVacios == 0) {
             String [] desembarqueDeclarado = {
-                jTextFieldPersonas1.getText() + "/" + jTextFieldPersonas2.getText() + "/" + jTextFieldPersonas3.getText(),
                 jTextFieldPersonasTotal.getText(),
+                jTextFieldPersonas1.getText() + "/" + jTextFieldPersonas2.getText() + "/" + jTextFieldPersonas3.getText(),
                 jTextFieldEquipajePzas.getText() + "/" + jTextFieldEquipajeKg.getText(),
                 jTextFieldCargaPzas.getText() + "/" + jTextFieldCargaKg.getText(),
                 jTextFieldCorreoPzas.getText() + "/" + jTextFieldCorreoKg.getText(),
