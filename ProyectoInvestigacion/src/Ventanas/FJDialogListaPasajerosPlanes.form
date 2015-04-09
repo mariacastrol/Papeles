@@ -115,7 +115,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -329,7 +329,7 @@
                     <StringItem index="48" value="ECUADOR (ECUATORIANO/A)"/>
                     <StringItem index="49" value="EGIPTO (EGIPCIO/A)"/>
                     <StringItem index="50" value="EL SALVADOR (SALVADORE&#xd1;O/A)"/>
-                    <StringItem index="51" value="ESCOCIA (ESCOCES /&#xa0;ESCOCESA)"/>
+                    <StringItem index="51" value="ESCOCIA (ESCOCES/ESCOCESA)"/>
                     <StringItem index="52" value="ESLOVAQUIA (ESLOVACO/A)"/>
                     <StringItem index="53" value="ESLOVENIA (ESLOVENO/A)"/>
                     <StringItem index="54" value="ESPA&#xd1;A (ESPA&#xd1;OL/A)"/>
@@ -338,7 +338,7 @@
                     <StringItem index="57" value="FIJI (FIYIANO/A)"/>
                     <StringItem index="58" value="FILIPINAS (FILIPINO/A)"/>
                     <StringItem index="59" value="FINLANDIA (FINLANDES/FINLANDESA)"/>
-                    <StringItem index="60" value="FRANCIA (FRANCES/&#xa0;FRANCESA)"/>
+                    <StringItem index="60" value="FRANCIA (FRANCES/FRANCESA)"/>
                     <StringItem index="61" value="GABON (GABONES)"/>
                     <StringItem index="62" value="GALES (GALES)"/>
                     <StringItem index="63" value="GAMBIA (GAMBIENSE)"/>
@@ -353,15 +353,15 @@
                     <StringItem index="72" value="GUINEA&#xa0;ECUATORIAL (ECUATOGUINEANO/A)"/>
                     <StringItem index="73" value="GUYANA (GUYANES)"/>
                     <StringItem index="74" value="HAITI (HAITIANO/A)"/>
-                    <StringItem index="75" value="HOLANDA (HOLANDES/&#xa0;HOLANDESA)"/>
+                    <StringItem index="75" value="HOLANDA (HOLANDES/HOLANDESA)"/>
                     <StringItem index="76" value="HONDURAS (HONDURE&#xd1;O/A)"/>
                     <StringItem index="77" value="HUNGRIA (HUNGARO/A)"/>
                     <StringItem index="78" value="INDIA (INDIO/A)"/>
                     <StringItem index="79" value="INDONESIA (INDONESIO)"/>
                     <StringItem index="80" value="INGLATERRA (INGLES/INGLESA)"/>
-                    <StringItem index="81" value="IRLANDA, EIRE (IRLANDES/&#xa0;IRLANDESA)"/>
+                    <StringItem index="81" value="IRLANDA, EIRE (IRLANDES/IRLANDESA)"/>
                     <StringItem index="82" value="IRLANDA&#xa0;DEL NORTE (IRLANDES)"/>
-                    <StringItem index="83" value="ISLANDIA (ISLANDES/&#xa0;ISLANDESA)"/>
+                    <StringItem index="83" value="ISLANDIA (ISLANDES/ISLANDESA)"/>
                     <StringItem index="84" value="ISLAS CAIMAN (CAIMANES)"/>
                     <StringItem index="85" value="ISLAS MARSHALL (MARSHALES)"/>
                     <StringItem index="86" value="ISLAS&#xa0;SALOMON (SALOMONENSE)"/>
@@ -369,14 +369,14 @@
                     <StringItem index="88" value="ISLAS VIRGENES BRITANICAS (DE ISLAS VIRGENES BRITANICAS)"/>
                     <StringItem index="89" value="ITALIA (ITALIANO/A)"/>
                     <StringItem index="90" value="JAMAICA (JAMAICANO/A)"/>
-                    <StringItem index="91" value="JAPON (JAPONES/A,&#xa0;)"/>
+                    <StringItem index="91" value="JAPON (JAPONES/A)"/>
                     <StringItem index="92" value="KAZAJSTAN (KAZAJO)"/>
                     <StringItem index="93" value="KENIA (KENIATA)"/>
                     <StringItem index="94" value="KIRGUIZISTAN (KIRGUIZ)"/>
                     <StringItem index="95" value="KIRIBATI (KIRIBATIANO/A)"/>
                     <StringItem index="96" value="LAOS (LAOSIANO/A)"/>
                     <StringItem index="97" value="LESOTO (LESOTENSE)"/>
-                    <StringItem index="98" value="LETONIA (LETON/&#xa0;LETONA)"/>
+                    <StringItem index="98" value="LETONIA (LETON/LETONA)"/>
                     <StringItem index="99" value="LIBERIA (LIBERIANO/A)"/>
                     <StringItem index="100" value="LIBIA (LIBIO)"/>
                     <StringItem index="101" value="LIECHTENSTEIN (LIECHTENTIENSE)"/>
@@ -388,7 +388,7 @@
                     <StringItem index="107" value="MALDIVAS (MALDIVO/A)"/>
                     <StringItem index="108" value="MALAWI (MALAWIANO/A)"/>
                     <StringItem index="109" value="MALI (MALI)"/>
-                    <StringItem index="110" value="MALTA (MALTES/&#xa0;MALTESA)"/>
+                    <StringItem index="110" value="MALTA (MALTES/MALTESA)"/>
                     <StringItem index="111" value="MARRUECOS (MARROQUI)"/>
                     <StringItem index="112" value="MARTINICA (MARTINIQUES)"/>
                     <StringItem index="113" value="MAURICIO (MAURICIANO)"/>
@@ -406,14 +406,14 @@
                     <StringItem index="125" value="NORUEGA (NORUEGO/A)"/>
                     <StringItem index="126" value="NUEVA&#xa0;CALEDONIA (NEOCALEDONIO)"/>
                     <StringItem index="127" value="NUEVA&#xa0;ZELANDA (NEOZELANDES)"/>
-                    <StringItem index="128" value="PAISES BAJOS (HOLANDES/&#xa0;HOLANDESA)"/>
+                    <StringItem index="128" value="PAISES BAJOS (HOLANDES/HOLANDESA)"/>
                     <StringItem index="129" value="PALAU (PALAUANO/A)"/>
                     <StringItem index="130" value="PANAMA (PANAME&#xd1;O/A)"/>
                     <StringItem index="131" value="PAPUA-NUEVA&#xa0;GUINEA (PAPU)"/>
                     <StringItem index="132" value="PARAGUAY (PARAGUAYO/A)"/>
                     <StringItem index="133" value="PERU (PERUANO/A)"/>
                     <StringItem index="134" value="POLONIA (POLACO/A)"/>
-                    <StringItem index="135" value="PORTUGAL (PORTUGUES/&#xa0;PORTUGUESA)"/>
+                    <StringItem index="135" value="PORTUGAL (PORTUGUES/PORTUGUESA)"/>
                     <StringItem index="136" value="PUERTO&#xa0;RICO (PORTORRIQUE&#xd1;O/A)"/>
                     <StringItem index="137" value="REPUBLICA&#xa0;CENTROAFRICANA (CENTROAFRICANO/A)"/>
                     <StringItem index="138" value="REPUBLICA&#xa0;CHECA (CHECO/A)"/>
