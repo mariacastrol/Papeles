@@ -131,6 +131,35 @@ public class ConexionMysql {
         }
         return ejecutarModificacionStatement(instruccionInsert,"insertarFilaEnTabla", mensajeDuplicado);
     }
+    ///*******************************************//
+    public boolean insertarTablaEnTabla(String tablaMysql, String [] nombreColumnasTablaMysql, String [] [] datosAInsertar, String mensajeDuplicado) {
+        String instruccionInsert = "INSERT INTO " + tablaMysql + "(";
+        for (int i = 0; i < nombreColumnasTablaMysql.length; i++) {
+            instruccionInsert += nombreColumnasTablaMysql[i];
+            if (i < nombreColumnasTablaMysql.length - 1) {
+                instruccionInsert += ", ";
+            } else {
+                instruccionInsert += ") VALUES";
+            }
+        }
+        for (int i = 0; i < datosAInsertar.length; i++) {
+            for (int j = 0; j < datosAInsertar[0].length; j++) {
+                if (j == 0) {
+                    instruccionInsert += " ('";
+                }
+                instruccionInsert += datosAInsertar[i][j];
+                if (j < nombreColumnasTablaMysql.length - 1) {
+                    instruccionInsert += "', '";
+                } else {
+                    instruccionInsert += "')";
+                }
+            }
+            if (i < datosAInsertar.length - 1) {
+                instruccionInsert += ",";
+            } 
+        }
+        return ejecutarModificacionStatement(instruccionInsert,"insertarTablaEnTabla", mensajeDuplicado);
+    }
     ///*******************************************
     public boolean eliminarFilaEnTabla(String tablaMysql, String columnaDondeBuscar, String campoBuscado) {
         String instruccionDelete = "DELETE FROM " + tablaMysql + " WHERE " + columnaDondeBuscar + " = '" + campoBuscado + "'";
