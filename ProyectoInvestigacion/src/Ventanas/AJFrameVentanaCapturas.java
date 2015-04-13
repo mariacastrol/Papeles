@@ -154,6 +154,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jTabbedPane1.setMaximumSize(new java.awt.Dimension(960, 580));
         jTabbedPane1.setMinimumSize(new java.awt.Dimension(960, 580));
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -635,6 +640,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jLabel20.setText("TIPO DE OPERACIÓN");
 
         jComboBoxOperacionManifiestos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MANIFIESTO DE SALIDA", "MANIFIESTO DE LLEGADA" }));
+        jComboBoxOperacionManifiestos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxOperacionManifiestosItemStateChanged(evt);
+            }
+        });
 
         jLabel21.setText("FECHA");
 
@@ -660,6 +670,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jTextField14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jTextField15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField15.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField15FocusGained(evt);
+            }
+        });
 
         jLabel29.setText("No. DE VUELO");
 
@@ -762,7 +777,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jTextField16.setEditable(false);
 
-        jLabel30.setText("ORIGEN");
+        jLabel30.setText("DESTINO");
 
         jLabel32.setText("SIGLAS");
 
@@ -823,15 +838,15 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonSeleccionarAeropuertoManifiestos)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jLabel30)
-                        .addGap(23, 23, 23)
+                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
                         .addComponent(jLabel32)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(botonSeleccionarAeropuertoManifiestos))
+                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel34)
@@ -1484,7 +1499,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPersonasPasajerosKeyTyped
 
     private void jTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyTyped
-        int limite = 10;
+        int limite = 1000;
         if (jTextArea1.getText().length() > limite - 1){
             getToolkit().beep(); 
             evt.consume();
@@ -1521,10 +1536,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"NO HAS SELECCIONADO LA FECHA","",JOptionPane.ERROR_MESSAGE);
             vacios++;
         }
-        // CREACION DE LA CONEXION A MYSQL
-        ConexionMysql conexionPlanes= new ConexionMysql();
-        // INTENTA REALIZAR LA CONEXION A LA BASE DE DATOS
         if (vacios == 0) {
+            // CREACION DE LA CONEXION A MYSQL
+            ConexionMysql conexionPlanes= new ConexionMysql();
+            // INTENTA REALIZAR LA CONEXION A LA BASE DE DATOS
             if (conexionPlanes.conectarBD(sv,us,pw,dB)) {
                 // FECHA DEL PLAN O CIERRE
                 String horas = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerHorasUTC.getValue().toString()));
@@ -1576,37 +1591,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    /////////
-                    jTextField1.setBackground(new java.awt.Color(255,255,255));
-                    jTextField2.setBackground(new java.awt.Color(255,255,255));
-                    jTextField3.setBackground(new java.awt.Color(255,255,255));
-                    jTextField4.setBackground(new java.awt.Color(255,255,255));
-                    jTextField5.setBackground(new java.awt.Color(255,255,255));
-                    jTextField6.setBackground(new java.awt.Color(255,255,255));
-                    jTextField7.setBackground(new java.awt.Color(255,255,255));
-                    jTextFieldPersonasPasajeros.setBackground(new java.awt.Color(255,255,255));
-                    /////
-                    jTextField1.setText(null);
-                    jTextField2.setText(null);
-                    jTextField3.setText(null);
-                    jTextField4.setText(null);
-                    jTextField5.setText(null);
-                    jTextField6.setText(null);
-                    jTextField7.setText(null);
-                    jTextFieldPersonasPasajeros.setText(null);
-                    jTextArea1.setText(null);
-                    jLabel14.setText(null);
-                    jLabel38.setText(null);
-                    jLabel19.setEnabled(false);
-                    jDateFecha.setDate(null);
-                    jSpinnerHorasUTC.setValue(0);
-                    jSpinnerMinutosUTC.setValue(0);
-                    if (tipoOperacion.equals("CIERRE DE PLAN DE VUELO")) {
-                        jTextField8.setBackground(new java.awt.Color(255,255,255));
-                        jTextField9.setBackground(new java.awt.Color(255,255,255));
-                        jTextField8.setText(null);
-                        jTextField9.setText(null);
-                    }
+                    limpiarPlan();
                 }
             } else {
                 JOptionPane.showMessageDialog(this, conexionPlanes.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
@@ -1615,7 +1600,131 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     }//GEN-LAST:event_botonGuardarPlanesActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        System.out.println("+++ " + jTabbedPane1.getSelectedIndex());
+        int vacios = 0;
+        if (jTextField11.getText() == null || "".equals(jTextField11.getText())) {
+            jTextField11.setBackground(new java.awt.Color(255,0,0));
+            jTextField12.setBackground(new java.awt.Color(255,0,0));
+            vacios++;
+        }
+        if (jTextField13.getText() == null || "".equals(jTextField13.getText())) {
+            jTextField13.setBackground(new java.awt.Color(255,0,0));
+            jTextField14.setBackground(new java.awt.Color(255,0,0));
+            vacios++;
+        }
+        if (jTextField15.getText() == null || "".equals(jTextField15.getText())) {
+            jTextField15.setBackground(new java.awt.Color(255,0,0));
+            vacios++;
+        }
+        if (jTextField16.getText() == null || "".equals(jTextField16.getText())) {
+            jTextField16.setBackground(new java.awt.Color(255,0,0));
+            jTextField18.setBackground(new java.awt.Color(255,0,0));
+            vacios++;
+        }
+        if (jTextField17.getText() == null || "".equals(jTextField17.getText())) {
+            jTextField17.setBackground(new java.awt.Color(255,0,0));
+            jTextField19.setBackground(new java.awt.Color(255,0,0));
+            vacios++;
+        }
+        if (jTextField21.getText() == null || "".equals(jTextField21.getText())) {
+            jTextField21.setBackground(new java.awt.Color(255,0,0));
+            jTextField20.setBackground(new java.awt.Color(255,0,0));
+            vacios++;
+        }
+        if (jDateChooser2.getDate() == null) {
+            JOptionPane.showMessageDialog(this,"NO HAS SELECCIONADO LA FECHA","",JOptionPane.ERROR_MESSAGE);
+            vacios++;
+        }
+        if (vacios == 0) {
+            ConexionMysql conexionPlanes= new ConexionMysql();
+            if (conexionPlanes.conectarBD(sv,us,pw,dB)) {
+                String horasItinerario = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerHoraItinerario.getValue().toString()));
+                String minutosItinerario = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerMinutosItinerario.getValue().toString()));
+                String horasReal = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerHoraReal.getValue().toString()));
+                String minutosReal = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerMinutosReal.getValue().toString()));
+                String tiempoReal = horasReal + ":" + minutosReal + ":00";
+                SimpleDateFormat ft4 = new SimpleDateFormat("yyyy-MM-dd");   
+                String fechaCompletaM = ft4.format(jDateChooser2.getDate()) + " " + horasItinerario + ":" + minutosItinerario + ":00";
+                String columnasATomar [] = {"fecha_hora_itinerario","hora_real","no_de_vuelo","empresa","aeronave","comandante","primer","sobrecargos","destino","tramo_interior","exentos_nacionales","internacionales","exentos_internacionales","infantes","transito","total","ttl_pasajeros","ttl_equipaje","ttl_carga","ttl_correo"};
+                String valoresAInsertar [] = {fechaCompletaM,tiempoReal,jTextField15.getText(),jTextField12.getText(),jTextField14.getText(),jTextField19.getText(),jTextField20.getText(),"",jTextField18.getText(),"0","0","0","0","0","0","0","0/0/0","0/0/0","0/0/0","0/0/0"};
+                String tablaSL = "MANIFIESTOS_SALIDA";
+                String mensajeSiRepiteSL = "YA EXISTE EN LA BASE DE DATOS UN MANIFIESTO DE SALIDA CON ESTA FECHA Y HORA";
+                String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
+                if (jLabel48.isEnabled()) {
+                    valoresAInsertar [7] = listaSobrecargos;
+                }
+                if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
+                    if (jLabel39.isEnabled()) {
+                        valoresAInsertar[9] = embarque[0];
+                        valoresAInsertar[10] = embarque[1];
+                        valoresAInsertar[11] = embarque[2];
+                        valoresAInsertar[12] = embarque[3];
+                        valoresAInsertar[13] = embarque[4];
+                        valoresAInsertar[14] = embarque[5];
+                        valoresAInsertar[15] = embarque[6];
+                        valoresAInsertar[16] = embarque[7];
+                        valoresAInsertar[17] = embarque[8];
+                        valoresAInsertar[18] = embarque[9];
+                        valoresAInsertar[19] = embarque[10];
+                    }
+                } else {
+                    tablaSL = "MANIFIESTOS_LLEGADA";
+                    String columnasML [] = {"fecha_hora_itinerario","hora_real","no_de_vuelo","empresa","aeronave","comandante","primer","sobrecargos","origen","total_pasajeros","ttl_pasajeros","ttl_equipaje","ttl_carga","ttl_correo"};
+                    columnasATomar = columnasML;
+                    String [] valoresML = {fechaCompletaM,tiempoReal,jTextField15.getText(),jTextField12.getText(),jTextField14.getText(),jTextField19.getText(),jTextField20.getText(),"",jTextField18.getText(),"0","0/0/0","0/0/0","0/0/0","0/0/0"};
+                    valoresAInsertar = valoresML;
+                    mensajeSiRepiteSL = "YA EXISTE EN LA BASE DE DATOS UN MANIFIESTO DE LLEGADA CON ESTA FECHA Y HORA";
+                    if (jLabel39.isEnabled()) {
+                        valoresAInsertar[9] = desembarque[0];
+                        valoresAInsertar[10] = desembarque[1];
+                        valoresAInsertar[11] = desembarque[2];
+                        valoresAInsertar[12] = desembarque[3];
+                        valoresAInsertar[13] = desembarque[4];
+                    }
+                }
+                if(!conexionPlanes.insertarFilaEnTabla(tablaSL,columnasATomar,valoresAInsertar,mensajeSiRepiteSL)){
+                    JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                } else {
+                    if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
+                        if (!jTextField22.getText().equals("") && jTextField22.getText() != null) {
+                            String columnasSS [] = {"licencia_ss","fecha_ss"};
+                            String [] datosSegundo = {jTextField23.getText(),fechaCompletaM};
+                            String mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"SEGUNDO_SALIDA\"";
+                            if(!conexionPlanes.insertarFilaEnTabla("SEGUNDO_SALIDA",columnasSS,datosSegundo,mensajeSiRepiteRegistro)){
+                                JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                        if (!jTextField24.getText().equals("") && jTextField24.getText() != null) {
+                            String columnasTS [] = {"licencia_ts","fecha_ts"};
+                            String [] datosTercero = {jTextField25.getText(),fechaCompletaM};
+                            String mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"TERCERO_SALIDA\"";
+                            if(!conexionPlanes.insertarFilaEnTabla("TERCERO_SALIDA",columnasTS,datosTercero,mensajeSiRepiteRegistro)){
+                                JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                    } else {
+                        if (!jTextField22.getText().equals("") && jTextField22.getText() != null) {
+                            String columnasSL [] = {"licencia_sl","fecha_sl"};
+                            String [] datosSegundo = {jTextField23.getText(),fechaCompletaM};
+                            String mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"SEGUNDO_LLEGADA\"";
+                            if(!conexionPlanes.insertarFilaEnTabla("SEGUNDO_LLEGADA",columnasSL,datosSegundo,mensajeSiRepiteRegistro)){
+                                JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                        if (!jTextField24.getText().equals("") && jTextField24.getText() != null) {
+                            String columnasTL [] = {"licencia_tl","fecha_tl"};
+                            String [] datosTercero = {jTextField25.getText(),fechaCompletaM};
+                            String mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"TERCERO_LLEGADA\"";
+                            if(!conexionPlanes.insertarFilaEnTabla("TERCERO_LLEGADA",columnasTL,datosTercero,mensajeSiRepiteRegistro)){
+                                JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                    }
+                }
+                limpiarManifiesto();
+            } else {
+                JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
+            }
+        }    
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jComboBoxOperacionPlanesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxOperacionPlanesItemStateChanged
@@ -1645,7 +1754,32 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("OBSERVACIONES"));
             jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("PASAJEROS"));
         }
+        limpiarPlan();
     }//GEN-LAST:event_jComboBoxOperacionPlanesItemStateChanged
+
+    private void jTextField15FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField15FocusGained
+        jTextField15.setBackground(new java.awt.Color(255,255,255));
+    }//GEN-LAST:event_jTextField15FocusGained
+
+    private void jComboBoxOperacionManifiestosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxOperacionManifiestosItemStateChanged
+        String aperturaCierre = jComboBoxOperacionManifiestos.getSelectedItem().toString();
+        if (aperturaCierre.equals("MANIFIESTO DE SALIDA")) {
+            jLabel30.setText("DESTINO");
+            jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("EMBARQUE"));
+        } else {
+            jLabel30.setText("ORIGEN");
+            jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("DESEMBARQUE"));
+        }
+        limpiarManifiesto();
+    }//GEN-LAST:event_jComboBoxOperacionManifiestosItemStateChanged
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        if (jTabbedPane1.getSelectedIndex() == 0) {
+            limpiarPlan();
+        } else {
+            limpiarManifiesto();
+        }
+    }//GEN-LAST:event_jTabbedPane1StateChanged
 
     /**
      * @param args the command line arguments
@@ -1839,5 +1973,81 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     static String listaSobrecargos;
     static String [] embarque;
     static String [] desembarque;
-
+    
+    private void limpiarManifiesto() {
+        jTextField11.setBackground(new java.awt.Color(212,208,200));
+        jTextField12.setBackground(new java.awt.Color(212,208,200));
+        jTextField13.setBackground(new java.awt.Color(212,208,200));
+        jTextField14.setBackground(new java.awt.Color(212,208,200));
+        jTextField15.setBackground(new java.awt.Color(255,255,255));
+        jTextField16.setBackground(new java.awt.Color(212,208,200));
+        jTextField18.setBackground(new java.awt.Color(212,208,200));
+        jTextField17.setBackground(new java.awt.Color(212,208,200));
+        jTextField19.setBackground(new java.awt.Color(212,208,200));
+        jTextField21.setBackground(new java.awt.Color(212,208,200));
+        jTextField20.setBackground(new java.awt.Color(212,208,200));
+        jTextField22.setBackground(new java.awt.Color(212,208,200));
+        jTextField23.setBackground(new java.awt.Color(212,208,200));
+        jTextField24.setBackground(new java.awt.Color(212,208,200));
+        jTextField25.setBackground(new java.awt.Color(212,208,200));
+        jTextField11.setText(null);
+        jTextField12.setText(null);
+        jTextField13.setText(null);
+        jTextField14.setText(null);
+        jTextField15.setText(null);
+        jTextField16.setText(null);
+        jTextField18.setText(null);
+        jTextField17.setText(null);
+        jTextField19.setText(null);
+        jTextField21.setText(null);
+        jTextField20.setText(null);
+        jTextField22.setText(null);
+        jTextField23.setText(null);
+        jTextField24.setText(null);
+        jTextField25.setText(null);
+        jLabel18.setText(null);
+        jLabel53.setText(null);
+        jLabel51.setText(null);
+        jLabel52.setText(null);
+        jLabel48.setEnabled(false);
+        jLabel39.setEnabled(false);
+        jDateChooser2.setDate(null);
+        jSpinnerHoraItinerario.setValue(0);
+        jSpinnerMinutosItinerario.setValue(0);
+        jSpinnerHoraReal.setValue(0);
+        jSpinnerMinutosReal.setValue(0);
+    }
+    
+    private void limpiarPlan() {
+        jTextField1.setBackground(new java.awt.Color(212,208,200));
+        jTextField2.setBackground(new java.awt.Color(212,208,200));
+        jTextField3.setBackground(new java.awt.Color(212,208,200));
+        jTextField4.setBackground(new java.awt.Color(212,208,200));
+        jTextField5.setBackground(new java.awt.Color(212,208,200));
+        jTextField6.setBackground(new java.awt.Color(212,208,200));
+        jTextField7.setBackground(new java.awt.Color(212,208,200));
+        jTextFieldPersonasPasajeros.setBackground(new java.awt.Color(212,208,200));
+        jTextField1.setText(null);
+        jTextField2.setText(null);
+        jTextField3.setText(null);
+        jTextField4.setText(null);
+        jTextField5.setText(null);
+        jTextField6.setText(null);
+        jTextField7.setText(null);
+        jTextFieldPersonasPasajeros.setText(null);
+        jTextArea1.setText(null);
+        jLabel14.setText(null);
+        jLabel38.setText(null);
+        jLabel19.setEnabled(false);
+        jDateFecha.setDate(null);
+        jSpinnerHorasUTC.setValue(0);
+        jSpinnerMinutosUTC.setValue(0);
+        String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
+        if (tipoOperacion.equals("CIERRE DE PLAN DE VUELO")) {
+            jTextField8.setBackground(new java.awt.Color(212,208,200));
+            jTextField9.setBackground(new java.awt.Color(212,208,200));
+            jTextField8.setText(null);
+            jTextField9.setText(null);
+        }
+    }
 }

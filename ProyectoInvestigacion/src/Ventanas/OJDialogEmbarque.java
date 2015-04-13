@@ -354,6 +354,7 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
 
         jLabel15.setText("TRANSITOS");
 
+        jTextFieldT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldT.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextFieldTFocusGained(evt);
