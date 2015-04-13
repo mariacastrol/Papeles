@@ -381,7 +381,6 @@
             <Component class="javax.swing.JTextField" name="jTextFieldAAEquipo">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="ASDFFAEQWQWQWQW"/>
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldAAEquipoFocusGained"/>
@@ -431,6 +430,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableAeronavesManifiestosMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

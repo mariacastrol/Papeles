@@ -209,7 +209,6 @@ public class GJDialogCompanias extends javax.swing.JDialog {
 
         jLabel29.setText("SIGLAS");
 
-        jTextFieldAASiglas.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldAASiglas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldAASiglas.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -222,7 +221,6 @@ public class GJDialogCompanias extends javax.swing.JDialog {
             }
         });
 
-        jTextFieldAACompania.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldAACompania.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextFieldAACompaniaFocusGained(evt);
@@ -296,6 +294,11 @@ public class GJDialogCompanias extends javax.swing.JDialog {
             }
         });
         jTableCompaniasManifiestos.setComponentPopupMenu(jPopupMenu1);
+        jTableCompaniasManifiestos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCompaniasManifiestosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableCompaniasManifiestos);
         if (jTableCompaniasManifiestos.getColumnModel().getColumnCount() > 0) {
             jTableCompaniasManifiestos.getColumnModel().getColumn(0).setMinWidth(60);
@@ -412,16 +415,7 @@ public class GJDialogCompanias extends javax.swing.JDialog {
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSSiglas)) {
-            jTextFieldSSiglas.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSCompania.setBackground(new java.awt.Color(255,0,0));
-        } else {
-            AJFrameVentanaCapturas.jTextField12.setText(jTextFieldSSiglas.getText());
-            AJFrameVentanaCapturas.jTextField11.setText(jTextFieldSCompania.getText());
-            AJFrameVentanaCapturas.jTextField12.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField11.setBackground(new java.awt.Color(153,255,153));
-            this.dispose();  
-        }
+        funcionVolver();
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void jTextFieldBuscarSiglasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarSiglasKeyTyped
@@ -469,17 +463,7 @@ public class GJDialogCompanias extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldAACompaniaFocusGained
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        int filaSeleccionada = jTableCompaniasManifiestos.getSelectedRow();
-        if (filaSeleccionada >= 0) {
-            String celda = jTableCompaniasManifiestos.getValueAt(filaSeleccionada,0).toString();
-            String celda1 = jTableCompaniasManifiestos.getValueAt(filaSeleccionada,1).toString();
-            jTextFieldSSiglas.setText(celda);
-            jTextFieldSCompania.setText(celda1);
-            jTextFieldSSiglas.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSCompania.setBackground(new java.awt.Color(153,255,153));
-        } else {
-            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
-        }
+        funcionSeleccionar();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -523,6 +507,14 @@ public class GJDialogCompanias extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jTableCompaniasManifiestosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCompaniasManifiestosMouseClicked
+        if (evt.getClickCount() == 2) {
+            funcionSeleccionar();
+        } else if (evt.getClickCount() == 3) {
+            funcionVolver();
+        }
+    }//GEN-LAST:event_jTableCompaniasManifiestosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -737,6 +729,33 @@ public class GJDialogCompanias extends javax.swing.JDialog {
             }
         } else {
             JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void funcionSeleccionar() {
+        int filaSeleccionada = jTableCompaniasManifiestos.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            String celda = jTableCompaniasManifiestos.getValueAt(filaSeleccionada,0).toString();
+            String celda1 = jTableCompaniasManifiestos.getValueAt(filaSeleccionada,1).toString();
+            jTextFieldSSiglas.setText(celda);
+            jTextFieldSCompania.setText(celda1);
+            jTextFieldSSiglas.setBackground(new java.awt.Color(153,255,153));
+            jTextFieldSCompania.setBackground(new java.awt.Color(153,255,153));
+        } else {
+            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    
+    private void funcionVolver() {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSSiglas)) {
+            jTextFieldSSiglas.setBackground(new java.awt.Color(255,0,0));
+            jTextFieldSCompania.setBackground(new java.awt.Color(255,0,0));
+        } else {
+            AJFrameVentanaCapturas.jTextField12.setText(jTextFieldSSiglas.getText());
+            AJFrameVentanaCapturas.jTextField11.setText(jTextFieldSCompania.getText());
+            AJFrameVentanaCapturas.jTextField12.setBackground(new java.awt.Color(153,255,153));
+            AJFrameVentanaCapturas.jTextField11.setBackground(new java.awt.Color(153,255,153));
+            this.dispose();  
         }
     }
 }

@@ -357,6 +357,11 @@ public class MJDialogTerceros extends javax.swing.JDialog {
             }
         });
         jTableTercerosOficiales.setComponentPopupMenu(jPopupMenu1);
+        jTableTercerosOficiales.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableTercerosOficialesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableTercerosOficiales);
         if (jTableTercerosOficiales.getColumnModel().getColumnCount() > 0) {
             jTableTercerosOficiales.getColumnModel().getColumn(0).setMinWidth(80);
@@ -496,35 +501,11 @@ public class MJDialogTerceros extends javax.swing.JDialog {
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSNombreCompleto)) {
-            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSLicencia.setBackground(new java.awt.Color(255,0,0));        
-        } else {
-            AJFrameVentanaCapturas.jTextField24.setText(jTextFieldSNombreCompleto.getText());
-            AJFrameVentanaCapturas.jTextField25.setText(jTextFieldSLicencia.getText());
-            AJFrameVentanaCapturas.jLabel52.setText(jLabelSTLicencia.getText());
-            AJFrameVentanaCapturas.jTextField24.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField25.setBackground(new java.awt.Color(153,255,153));            
-            this.dispose();  
-        }
+        funcionVolver();
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        int filaSeleccionada = jTableTercerosOficiales.getSelectedRow();
-        if (filaSeleccionada >= 0) {
-            String celda = jTableTercerosOficiales.getValueAt(filaSeleccionada,0).toString();
-            String celda1 = jTableTercerosOficiales.getValueAt(filaSeleccionada,1).toString();
-            String celda2 = jTableTercerosOficiales.getValueAt(filaSeleccionada,2).toString();
-            String celda3 = jTableTercerosOficiales.getValueAt(filaSeleccionada,3).toString();
-            String celda4 = jTableTercerosOficiales.getValueAt(filaSeleccionada,4).toString();
-            jTextFieldSNombreCompleto.setText(celda1 + " " + celda2 + " " + celda3);
-            jTextFieldSLicencia.setText(celda);
-            jLabelSTLicencia.setText(celda4);           
-            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSLicencia.setBackground(new java.awt.Color(153,255,153));
-        } else {
-            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
-        }
+        funcionSeleccionar();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -657,6 +638,14 @@ public class MJDialogTerceros extends javax.swing.JDialog {
     private void jTextFieldAALicenciaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAALicenciaKeyReleased
         FuncionesGenerales.nacionalExtranjera(jTextFieldAALicencia,jLabelAATLicencia); 
     }//GEN-LAST:event_jTextFieldAALicenciaKeyReleased
+
+    private void jTableTercerosOficialesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableTercerosOficialesMouseClicked
+        if (evt.getClickCount() == 2) {
+            funcionSeleccionar();
+        } else if (evt.getClickCount() == 3) {
+            funcionVolver();
+        }
+    }//GEN-LAST:event_jTableTercerosOficialesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -877,6 +866,38 @@ public class MJDialogTerceros extends javax.swing.JDialog {
             }
         } else {
             JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void funcionSeleccionar() {
+        int filaSeleccionada = jTableTercerosOficiales.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            String celda = jTableTercerosOficiales.getValueAt(filaSeleccionada,0).toString();
+            String celda1 = jTableTercerosOficiales.getValueAt(filaSeleccionada,1).toString();
+            String celda2 = jTableTercerosOficiales.getValueAt(filaSeleccionada,2).toString();
+            String celda3 = jTableTercerosOficiales.getValueAt(filaSeleccionada,3).toString();
+            String celda4 = jTableTercerosOficiales.getValueAt(filaSeleccionada,4).toString();
+            jTextFieldSNombreCompleto.setText(celda1 + " " + celda2 + " " + celda3);
+            jTextFieldSLicencia.setText(celda);
+            jLabelSTLicencia.setText(celda4);           
+            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(153,255,153));
+            jTextFieldSLicencia.setBackground(new java.awt.Color(153,255,153));
+        } else {
+            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    
+    private void funcionVolver() {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSNombreCompleto)) {
+            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(255,0,0));
+            jTextFieldSLicencia.setBackground(new java.awt.Color(255,0,0));        
+        } else {
+            AJFrameVentanaCapturas.jTextField24.setText(jTextFieldSNombreCompleto.getText());
+            AJFrameVentanaCapturas.jTextField25.setText(jTextFieldSLicencia.getText());
+            AJFrameVentanaCapturas.jLabel52.setText(jLabelSTLicencia.getText());
+            AJFrameVentanaCapturas.jTextField24.setBackground(new java.awt.Color(153,255,153));
+            AJFrameVentanaCapturas.jTextField25.setBackground(new java.awt.Color(153,255,153));            
+            this.dispose();  
         }
     }
 }

@@ -358,6 +358,11 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
             }
         });
         jTableCopilotosPlanes.setComponentPopupMenu(jPopupMenu1);
+        jTableCopilotosPlanes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCopilotosPlanesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableCopilotosPlanes);
         if (jTableCopilotosPlanes.getColumnModel().getColumnCount() > 0) {
             jTableCopilotosPlanes.getColumnModel().getColumn(0).setMinWidth(80);
@@ -497,35 +502,11 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSNombreCompleto)) {
-            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSLicencia.setBackground(new java.awt.Color(255,0,0));        
-        } else {
-            AJFrameVentanaCapturas.jTextField8.setText(jTextFieldSNombreCompleto.getText());
-            AJFrameVentanaCapturas.jTextField9.setText(jTextFieldSLicencia.getText());
-            AJFrameVentanaCapturas.jLabel38.setText(jLabelSTLicencia.getText());
-            AJFrameVentanaCapturas.jTextField8.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField9.setBackground(new java.awt.Color(153,255,153));            
-            this.dispose();  
-        }
+        funcionVolver();
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        int filaSeleccionada = jTableCopilotosPlanes.getSelectedRow();
-        if (filaSeleccionada >= 0) {
-            String celda = jTableCopilotosPlanes.getValueAt(filaSeleccionada,0).toString();
-            String celda1 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,1).toString();
-            String celda2 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,2).toString();
-            String celda3 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,3).toString();
-            String celda4 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,4).toString();
-            jTextFieldSNombreCompleto.setText(celda1+" "+celda2+" "+celda3);
-            jTextFieldSLicencia.setText(celda);
-            jLabelSTLicencia.setText(celda4);           
-            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSLicencia.setBackground(new java.awt.Color(153,255,153));
-        } else {
-            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
-        }
+        funcionSeleccionar();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -658,6 +639,14 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
     private void jTextFieldAAMaternoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAAMaternoFocusGained
         jTextFieldAAMaterno.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jTextFieldAAMaternoFocusGained
+
+    private void jTableCopilotosPlanesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCopilotosPlanesMouseClicked
+        if (evt.getClickCount() == 2) {
+            funcionSeleccionar();
+        } else if (evt.getClickCount() == 3) {
+            funcionVolver();
+        }
+    }//GEN-LAST:event_jTableCopilotosPlanesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -878,6 +867,38 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
             }
         } else {
             JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void funcionSeleccionar() {
+        int filaSeleccionada = jTableCopilotosPlanes.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            String celda = jTableCopilotosPlanes.getValueAt(filaSeleccionada,0).toString();
+            String celda1 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,1).toString();
+            String celda2 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,2).toString();
+            String celda3 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,3).toString();
+            String celda4 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,4).toString();
+            jTextFieldSNombreCompleto.setText(celda1+" "+celda2+" "+celda3);
+            jTextFieldSLicencia.setText(celda);
+            jLabelSTLicencia.setText(celda4);           
+            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(153,255,153));
+            jTextFieldSLicencia.setBackground(new java.awt.Color(153,255,153));
+        } else {
+            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    
+    private void funcionVolver() {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSNombreCompleto)) {
+            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(255,0,0));
+            jTextFieldSLicencia.setBackground(new java.awt.Color(255,0,0));        
+        } else {
+            AJFrameVentanaCapturas.jTextField8.setText(jTextFieldSNombreCompleto.getText());
+            AJFrameVentanaCapturas.jTextField9.setText(jTextFieldSLicencia.getText());
+            AJFrameVentanaCapturas.jLabel38.setText(jLabelSTLicencia.getText());
+            AJFrameVentanaCapturas.jTextField8.setBackground(new java.awt.Color(153,255,153));
+            AJFrameVentanaCapturas.jTextField9.setBackground(new java.awt.Color(153,255,153));            
+            this.dispose();  
         }
     }
 }

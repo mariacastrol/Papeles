@@ -357,6 +357,11 @@ public class JJDialogComandantes extends javax.swing.JDialog {
             }
         });
         jTableComandantes.setComponentPopupMenu(jPopupMenu1);
+        jTableComandantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableComandantesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableComandantes);
         if (jTableComandantes.getColumnModel().getColumnCount() > 0) {
             jTableComandantes.getColumnModel().getColumn(0).setMinWidth(80);
@@ -496,35 +501,11 @@ public class JJDialogComandantes extends javax.swing.JDialog {
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSNombreCompleto)) {
-            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSLicencia.setBackground(new java.awt.Color(255,0,0));        
-        } else {
-            AJFrameVentanaCapturas.jTextField17.setText(jTextFieldSNombreCompleto.getText());
-            AJFrameVentanaCapturas.jTextField19.setText(jTextFieldSLicencia.getText());
-            AJFrameVentanaCapturas.jLabel18.setText(jLabelSTLicencia.getText());
-            AJFrameVentanaCapturas.jTextField17.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField19.setBackground(new java.awt.Color(153,255,153));            
-            this.dispose();  
-        }
+        funcionVolver();
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        int filaSeleccionada = jTableComandantes.getSelectedRow();
-        if (filaSeleccionada >= 0) {
-            String celda = jTableComandantes.getValueAt(filaSeleccionada,0).toString();
-            String celda1 = jTableComandantes.getValueAt(filaSeleccionada,1).toString();
-            String celda2 = jTableComandantes.getValueAt(filaSeleccionada,2).toString();
-            String celda3 = jTableComandantes.getValueAt(filaSeleccionada,3).toString();
-            String celda4 = jTableComandantes.getValueAt(filaSeleccionada,4).toString();
-            jTextFieldSNombreCompleto.setText(celda1 + " " + celda2 + " " + celda3);
-            jTextFieldSLicencia.setText(celda);
-            jLabelSTLicencia.setText(celda4);           
-            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSLicencia.setBackground(new java.awt.Color(153,255,153));
-        } else {
-            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
-        }
+        funcionSeleccionar();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -657,6 +638,14 @@ public class JJDialogComandantes extends javax.swing.JDialog {
     private void jTextFieldAALicenciaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAALicenciaKeyReleased
         FuncionesGenerales.nacionalExtranjera(jTextFieldAALicencia,jLabelAATLicencia); 
     }//GEN-LAST:event_jTextFieldAALicenciaKeyReleased
+
+    private void jTableComandantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableComandantesMouseClicked
+        if (evt.getClickCount() == 2) {
+            funcionSeleccionar();
+        } else if (evt.getClickCount() == 3) {
+            funcionVolver();
+        }
+    }//GEN-LAST:event_jTableComandantesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -877,6 +866,38 @@ public class JJDialogComandantes extends javax.swing.JDialog {
             }
         } else {
             JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void funcionSeleccionar() {
+        int filaSeleccionada = jTableComandantes.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            String celda = jTableComandantes.getValueAt(filaSeleccionada,0).toString();
+            String celda1 = jTableComandantes.getValueAt(filaSeleccionada,1).toString();
+            String celda2 = jTableComandantes.getValueAt(filaSeleccionada,2).toString();
+            String celda3 = jTableComandantes.getValueAt(filaSeleccionada,3).toString();
+            String celda4 = jTableComandantes.getValueAt(filaSeleccionada,4).toString();
+            jTextFieldSNombreCompleto.setText(celda1 + " " + celda2 + " " + celda3);
+            jTextFieldSLicencia.setText(celda);
+            jLabelSTLicencia.setText(celda4);           
+            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(153,255,153));
+            jTextFieldSLicencia.setBackground(new java.awt.Color(153,255,153));
+        } else {
+            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    
+    private void funcionVolver() {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSNombreCompleto)) {
+            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(255,0,0));
+            jTextFieldSLicencia.setBackground(new java.awt.Color(255,0,0));        
+        } else {
+            AJFrameVentanaCapturas.jTextField17.setText(jTextFieldSNombreCompleto.getText());
+            AJFrameVentanaCapturas.jTextField19.setText(jTextFieldSLicencia.getText());
+            AJFrameVentanaCapturas.jLabel18.setText(jLabelSTLicencia.getText());
+            AJFrameVentanaCapturas.jTextField17.setBackground(new java.awt.Color(153,255,153));
+            AJFrameVentanaCapturas.jTextField19.setBackground(new java.awt.Color(153,255,153));            
+            this.dispose();  
         }
     }
 }

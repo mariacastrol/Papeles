@@ -227,7 +227,6 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
         jLabel20.setText("MATRICULA");
 
         jTextFieldAAEquipo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldAAEquipo.setText("ASDFFAEQWQWQWQW");
         jTextFieldAAEquipo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextFieldAAEquipoFocusGained(evt);
@@ -304,6 +303,11 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
             }
         });
         jTableAeronavesManifiestos.setComponentPopupMenu(jPopupMenu1);
+        jTableAeronavesManifiestos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAeronavesManifiestosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableAeronavesManifiestos);
         if (jTableAeronavesManifiestos.getColumnModel().getColumnCount() > 0) {
             jTableAeronavesManifiestos.getColumnModel().getColumn(1).setMinWidth(150);
@@ -420,16 +424,7 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSMatricula)) {
-            jTextFieldSMatricula.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSEquipo.setBackground(new java.awt.Color(255,0,0));
-        } else {
-            AJFrameVentanaCapturas.jTextField14.setText(jTextFieldSMatricula.getText());
-            AJFrameVentanaCapturas.jTextField13.setText(jTextFieldSEquipo.getText());
-            AJFrameVentanaCapturas.jTextField14.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField13.setBackground(new java.awt.Color(153,255,153));
-            this.dispose();  
-        }
+        funcionVolver();
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void jTextFieldBuscarMatriculaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarMatriculaKeyTyped
@@ -477,17 +472,7 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldAAEquipoFocusGained
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        int filaSeleccionada = jTableAeronavesManifiestos.getSelectedRow();
-        if (filaSeleccionada >= 0) {
-            String celda = jTableAeronavesManifiestos.getValueAt(filaSeleccionada,0).toString();
-            String celda1 = jTableAeronavesManifiestos.getValueAt(filaSeleccionada,1).toString();
-            jTextFieldSMatricula.setText(celda);
-            jTextFieldSEquipo.setText(celda1);
-            jTextFieldSMatricula.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSEquipo.setBackground(new java.awt.Color(153,255,153));
-        } else {
-            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
-        }  
+        funcionSeleccionar(); 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -531,6 +516,14 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jTableAeronavesManifiestosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAeronavesManifiestosMouseClicked
+        if (evt.getClickCount() == 2) {
+            funcionSeleccionar();
+        } else if (evt.getClickCount() == 3) {
+            funcionVolver();
+        }
+    }//GEN-LAST:event_jTableAeronavesManifiestosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -873,6 +866,33 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
             }
         } else {
             JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void funcionSeleccionar() {
+        int filaSeleccionada = jTableAeronavesManifiestos.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            String celda = jTableAeronavesManifiestos.getValueAt(filaSeleccionada,0).toString();
+            String celda1 = jTableAeronavesManifiestos.getValueAt(filaSeleccionada,1).toString();
+            jTextFieldSMatricula.setText(celda);
+            jTextFieldSEquipo.setText(celda1);
+            jTextFieldSMatricula.setBackground(new java.awt.Color(153,255,153));
+            jTextFieldSEquipo.setBackground(new java.awt.Color(153,255,153));
+        } else {
+            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
+        } 
+    }
+    
+    private void funcionVolver() {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSMatricula)) {
+            jTextFieldSMatricula.setBackground(new java.awt.Color(255,0,0));
+            jTextFieldSEquipo.setBackground(new java.awt.Color(255,0,0));
+        } else {
+            AJFrameVentanaCapturas.jTextField14.setText(jTextFieldSMatricula.getText());
+            AJFrameVentanaCapturas.jTextField13.setText(jTextFieldSEquipo.getText());
+            AJFrameVentanaCapturas.jTextField14.setBackground(new java.awt.Color(153,255,153));
+            AJFrameVentanaCapturas.jTextField13.setBackground(new java.awt.Color(153,255,153));
+            this.dispose();  
         }
     }
 }

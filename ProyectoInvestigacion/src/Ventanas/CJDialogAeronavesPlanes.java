@@ -296,6 +296,11 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
             }
         });
         jTableAeronavesPlanes.setComponentPopupMenu(jPopupMenu1);
+        jTableAeronavesPlanes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAeronavesPlanesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableAeronavesPlanes);
         if (jTableAeronavesPlanes.getColumnModel().getColumnCount() > 0) {
             jTableAeronavesPlanes.getColumnModel().getColumn(1).setMinWidth(60);
@@ -414,30 +419,11 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSMatricula)) {
-            jTextFieldSMatricula.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSTipo.setBackground(new java.awt.Color(255,0,0));
-        } else {
-            AJFrameVentanaCapturas.jTextField4.setText(jTextFieldSMatricula.getText());
-            AJFrameVentanaCapturas.jTextField5.setText(jTextFieldSTipo.getText());
-            AJFrameVentanaCapturas.jTextField4.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField5.setBackground(new java.awt.Color(153,255,153));
-            this.dispose();  
-        }
+        funcionVolver();
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        int filaSeleccionada = jTableAeronavesPlanes.getSelectedRow();
-        if (filaSeleccionada >= 0) {
-            String celda = jTableAeronavesPlanes.getValueAt(filaSeleccionada,0).toString();
-            String celda1 = jTableAeronavesPlanes.getValueAt(filaSeleccionada,1).toString();
-            jTextFieldSMatricula.setText(celda);
-            jTextFieldSTipo.setText(celda1);       
-            jTextFieldSMatricula.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSTipo.setBackground(new java.awt.Color(153,255,153));          
-        } else {
-            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
-        }
+        funcionSeleccionar();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -525,6 +511,14 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     private void jTextFieldAATipoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAATipoFocusGained
         jTextFieldAATipo.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jTextFieldAATipoFocusGained
+
+    private void jTableAeronavesPlanesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAeronavesPlanesMouseClicked
+        if (evt.getClickCount() == 2) {
+            funcionSeleccionar();
+        } else if (evt.getClickCount() == 3) {
+            funcionVolver();
+        }
+    }//GEN-LAST:event_jTableAeronavesPlanesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -739,6 +733,33 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
             }
         } else {
             JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void funcionSeleccionar() {
+        int filaSeleccionada = jTableAeronavesPlanes.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            String celda = jTableAeronavesPlanes.getValueAt(filaSeleccionada,0).toString();
+            String celda1 = jTableAeronavesPlanes.getValueAt(filaSeleccionada,1).toString();
+            jTextFieldSMatricula.setText(celda);
+            jTextFieldSTipo.setText(celda1);       
+            jTextFieldSMatricula.setBackground(new java.awt.Color(153,255,153));
+            jTextFieldSTipo.setBackground(new java.awt.Color(153,255,153));          
+        } else {
+            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    
+    private void funcionVolver() {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSMatricula)) {
+            jTextFieldSMatricula.setBackground(new java.awt.Color(255,0,0));
+            jTextFieldSTipo.setBackground(new java.awt.Color(255,0,0));
+        } else {
+            AJFrameVentanaCapturas.jTextField4.setText(jTextFieldSMatricula.getText());
+            AJFrameVentanaCapturas.jTextField5.setText(jTextFieldSTipo.getText());
+            AJFrameVentanaCapturas.jTextField4.setBackground(new java.awt.Color(153,255,153));
+            AJFrameVentanaCapturas.jTextField5.setBackground(new java.awt.Color(153,255,153));
+            this.dispose();  
         }
     }
 }

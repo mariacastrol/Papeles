@@ -107,6 +107,11 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
             }
         });
         jTableAeropuertosPlanes.setComponentPopupMenu(jPopupMenu1);
+        jTableAeropuertosPlanes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAeropuertosPlanesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableAeropuertosPlanes);
         if (jTableAeropuertosPlanes.getColumnModel().getColumnCount() > 0) {
             jTableAeropuertosPlanes.getColumnModel().getColumn(0).setMinWidth(55);
@@ -325,7 +330,7 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel18)))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -355,16 +360,15 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 381, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(30, 30, 30))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -470,36 +474,11 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSOACI)) {
-            jTextFieldSOACI.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSIATA.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSNombre.setBackground(new java.awt.Color(255,0,0));
-        } else {
-            AJFrameVentanaCapturas.jTextField1.setText(jTextFieldSOACI.getText());
-            AJFrameVentanaCapturas.jTextField2.setText(jTextFieldSIATA.getText());
-            AJFrameVentanaCapturas.jTextField3.setText(jTextFieldSNombre.getText());
-            AJFrameVentanaCapturas.jTextField1.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField2.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField3.setBackground(new java.awt.Color(153,255,153));
-            this.dispose();  
-        }
+        funcionVolver();
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        int filaSeleccionada = jTableAeropuertosPlanes.getSelectedRow();
-        if (filaSeleccionada >= 0) {
-            String celda = jTableAeropuertosPlanes.getValueAt(filaSeleccionada,0).toString();
-            String celda1 = jTableAeropuertosPlanes.getValueAt(filaSeleccionada,1).toString();
-            String celda2 = jTableAeropuertosPlanes.getValueAt(filaSeleccionada,2).toString();
-            jTextFieldSOACI.setText(celda);
-            jTextFieldSIATA.setText(celda1);
-            jTextFieldSNombre.setText(celda2);
-            jTextFieldSOACI.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSIATA.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSNombre.setBackground(new java.awt.Color(153,255,153));
-        } else {
-            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
-        }  
+        funcionSeleccionar();  
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -608,6 +587,14 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
     private void jTextFieldAANombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAANombreFocusGained
         jTextFieldAANombre.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jTextFieldAANombreFocusGained
+
+    private void jTableAeropuertosPlanesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAeropuertosPlanesMouseClicked
+        if (evt.getClickCount() == 2) {
+            funcionSeleccionar();
+        } else if (evt.getClickCount() == 3) {
+            funcionVolver();
+        }
+    }//GEN-LAST:event_jTableAeropuertosPlanesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -730,6 +717,39 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
             }
         } else {
             JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void funcionVolver() {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSOACI)) {
+            jTextFieldSOACI.setBackground(new java.awt.Color(255,0,0));
+            jTextFieldSIATA.setBackground(new java.awt.Color(255,0,0));
+            jTextFieldSNombre.setBackground(new java.awt.Color(255,0,0));
+        } else {
+            AJFrameVentanaCapturas.jTextField1.setText(jTextFieldSOACI.getText());
+            AJFrameVentanaCapturas.jTextField2.setText(jTextFieldSIATA.getText());
+            AJFrameVentanaCapturas.jTextField3.setText(jTextFieldSNombre.getText());
+            AJFrameVentanaCapturas.jTextField1.setBackground(new java.awt.Color(153,255,153));
+            AJFrameVentanaCapturas.jTextField2.setBackground(new java.awt.Color(153,255,153));
+            AJFrameVentanaCapturas.jTextField3.setBackground(new java.awt.Color(153,255,153));
+            this.dispose();  
+        }
+    }
+    
+    private void funcionSeleccionar() {
+        int filaSeleccionada = jTableAeropuertosPlanes.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            String celda = jTableAeropuertosPlanes.getValueAt(filaSeleccionada,0).toString();
+            String celda1 = jTableAeropuertosPlanes.getValueAt(filaSeleccionada,1).toString();
+            String celda2 = jTableAeropuertosPlanes.getValueAt(filaSeleccionada,2).toString();
+            jTextFieldSOACI.setText(celda);
+            jTextFieldSIATA.setText(celda1);
+            jTextFieldSNombre.setText(celda2);
+            jTextFieldSOACI.setBackground(new java.awt.Color(153,255,153));
+            jTextFieldSIATA.setBackground(new java.awt.Color(153,255,153));
+            jTextFieldSNombre.setBackground(new java.awt.Color(153,255,153));
+        } else {
+            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

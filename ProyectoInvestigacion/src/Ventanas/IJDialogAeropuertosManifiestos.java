@@ -106,6 +106,11 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
             }
         });
         jTableAeropuertosManifiestos.setComponentPopupMenu(jPopupMenu1);
+        jTableAeropuertosManifiestos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAeropuertosManifiestosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableAeropuertosManifiestos);
         if (jTableAeropuertosManifiestos.getColumnModel().getColumnCount() > 0) {
             jTableAeropuertosManifiestos.getColumnModel().getColumn(0).setMinWidth(55);
@@ -467,34 +472,11 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSIATA)) {
-            jTextFieldSIATA.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSOACI.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSNombre.setBackground(new java.awt.Color(255,0,0));
-        } else {
-            AJFrameVentanaCapturas.jTextField18.setText(jTextFieldSIATA.getText());
-            AJFrameVentanaCapturas.jTextField16.setText(jTextFieldSNombre.getText());
-            AJFrameVentanaCapturas.jTextField18.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField16.setBackground(new java.awt.Color(153,255,153));
-            this.dispose();  
-        }
+        funcionVolver();
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        int filaSeleccionada = jTableAeropuertosManifiestos.getSelectedRow();
-        if (filaSeleccionada >= 0) {
-            String celda = jTableAeropuertosManifiestos.getValueAt(filaSeleccionada,0).toString();
-            String celda1 = jTableAeropuertosManifiestos.getValueAt(filaSeleccionada,1).toString();
-            String celda2 = jTableAeropuertosManifiestos.getValueAt(filaSeleccionada,2).toString();
-            jTextFieldSIATA.setText(celda);
-            jTextFieldSOACI.setText(celda1);
-            jTextFieldSNombre.setText(celda2);
-            jTextFieldSIATA.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSOACI.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSNombre.setBackground(new java.awt.Color(153,255,153));
-        } else {
-            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
-        }  
+        funcionSeleccionar();  
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -603,6 +585,14 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
     private void jTextFieldAANombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAANombreFocusGained
         jTextFieldAANombre.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jTextFieldAANombreFocusGained
+
+    private void jTableAeropuertosManifiestosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAeropuertosManifiestosMouseClicked
+        if (evt.getClickCount() == 2) {
+            funcionSeleccionar();
+        } else if (evt.getClickCount() == 3) {
+            funcionVolver();
+        }
+    }//GEN-LAST:event_jTableAeropuertosManifiestosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -821,6 +811,37 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
             }
         } else {
             JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void funcionSeleccionar() {
+        int filaSeleccionada = jTableAeropuertosManifiestos.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            String celda = jTableAeropuertosManifiestos.getValueAt(filaSeleccionada,0).toString();
+            String celda1 = jTableAeropuertosManifiestos.getValueAt(filaSeleccionada,1).toString();
+            String celda2 = jTableAeropuertosManifiestos.getValueAt(filaSeleccionada,2).toString();
+            jTextFieldSIATA.setText(celda);
+            jTextFieldSOACI.setText(celda1);
+            jTextFieldSNombre.setText(celda2);
+            jTextFieldSIATA.setBackground(new java.awt.Color(153,255,153));
+            jTextFieldSOACI.setBackground(new java.awt.Color(153,255,153));
+            jTextFieldSNombre.setBackground(new java.awt.Color(153,255,153));
+        } else {
+            JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    
+    private void funcionVolver() {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldSIATA)) {
+            jTextFieldSIATA.setBackground(new java.awt.Color(255,0,0));
+            jTextFieldSOACI.setBackground(new java.awt.Color(255,0,0));
+            jTextFieldSNombre.setBackground(new java.awt.Color(255,0,0));
+        } else {
+            AJFrameVentanaCapturas.jTextField18.setText(jTextFieldSIATA.getText());
+            AJFrameVentanaCapturas.jTextField16.setText(jTextFieldSNombre.getText());
+            AJFrameVentanaCapturas.jTextField18.setBackground(new java.awt.Color(153,255,153));
+            AJFrameVentanaCapturas.jTextField16.setBackground(new java.awt.Color(153,255,153));
+            this.dispose();  
         }
     }
 }
