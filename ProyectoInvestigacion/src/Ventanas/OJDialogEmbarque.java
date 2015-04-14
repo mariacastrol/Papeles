@@ -782,7 +782,7 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
                 jTextFieldTtlPersonas1.getText() + "/" + jTextFieldTtlPersonas2.getText() + "/" + jTextFieldTtlPersonas3.getText(),
                 jTextFieldEquipajePzas.getText() + "/" + jTextFieldEquipajeKg.getText(),
                 jTextFieldCargaPzas.getText() + "/" + jTextFieldCargaKg.getText(),
-                jTextFieldCorreoPzas.getText() + "/" + jTextFieldCorreoKg.getText(),
+                jTextFieldCorreoPzas.getText() + "/" + jTextFieldCorreoKg.getText()
             };          
             
             AJFrameVentanaCapturas.embarque = embarqueDeclarado;
@@ -871,21 +871,21 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextFieldCargaKg;
-    private javax.swing.JTextField jTextFieldCargaPzas;
-    private javax.swing.JTextField jTextFieldCorreoKg;
-    private javax.swing.JTextField jTextFieldCorreoPzas;
-    private javax.swing.JTextField jTextFieldEI;
-    private javax.swing.JTextField jTextFieldEN;
-    private javax.swing.JTextField jTextFieldEquipajeKg;
-    private javax.swing.JTextField jTextFieldEquipajePzas;
-    private javax.swing.JTextField jTextFieldInf;
-    private javax.swing.JTextField jTextFieldInt;
-    private javax.swing.JTextField jTextFieldT;
-    private javax.swing.JTextField jTextFieldTI;
-    private javax.swing.JTextField jTextFieldTotal;
-    private javax.swing.JTextField jTextFieldTtlPersonas1;
-    private javax.swing.JTextField jTextFieldTtlPersonas2;
-    private javax.swing.JTextField jTextFieldTtlPersonas3;
+    public javax.swing.JTextField jTextFieldCargaKg;
+    public javax.swing.JTextField jTextFieldCargaPzas;
+    public javax.swing.JTextField jTextFieldCorreoKg;
+    public javax.swing.JTextField jTextFieldCorreoPzas;
+    public javax.swing.JTextField jTextFieldEI;
+    public javax.swing.JTextField jTextFieldEN;
+    public javax.swing.JTextField jTextFieldEquipajeKg;
+    public javax.swing.JTextField jTextFieldEquipajePzas;
+    public javax.swing.JTextField jTextFieldInf;
+    public javax.swing.JTextField jTextFieldInt;
+    public javax.swing.JTextField jTextFieldT;
+    public javax.swing.JTextField jTextFieldTI;
+    public javax.swing.JTextField jTextFieldTotal;
+    public javax.swing.JTextField jTextFieldTtlPersonas1;
+    public javax.swing.JTextField jTextFieldTtlPersonas2;
+    public javax.swing.JTextField jTextFieldTtlPersonas3;
     // End of variables declaration//GEN-END:variables
 }

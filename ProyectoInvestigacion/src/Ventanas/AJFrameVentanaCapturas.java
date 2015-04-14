@@ -9,6 +9,7 @@ import Clases.ConexionMysql;
 import Clases.FuncionesGenerales;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -525,10 +526,14 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
 
-        jDateFecha.setBackground(new java.awt.Color(255, 0, 0));
         jDateFecha.setDateFormatString("dd/MM/yyyy");
         jDateFecha.setMaxSelectableDate(new java.util.Date(1483250399000L));
         jDateFecha.setMinSelectableDate(new java.util.Date(1262325599000L));
+        jDateFecha.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateFechaPropertyChange(evt);
+            }
+        });
 
         jLabel22.setText("(UTC)");
 
@@ -1412,6 +1417,29 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void jSpinnerHorasUTCStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerHorasUTCStateChanged
         int valor = (int) jSpinnerHorasUTC.getValue();
         FuncionesGenerales.spinnerNumericoCiclico(0, 23, valor, jSpinnerHorasUTC);
+        if (jLabel19.isEnabled()) {
+            for (String [] fila: listaPasajeros) {
+                for (String celda: fila) {
+                    System.out.println("xxx " + celda);
+                }
+            }
+            String horas = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerHorasUTC.getValue().toString()));
+            SimpleDateFormat ft = new SimpleDateFormat("yyyyMMdd");   
+            String fecha = ft.format(jDateFecha.getDate()) + horas;
+            SimpleDateFormat ft2 = new SimpleDateFormat("yyyy-MM-dd");   
+            String fechaCompleta = ft2.format(jDateFecha.getDate()) + " " + horas;
+            for (String[] pasajero : listaPasajeros) {
+                String sinFecha = pasajero[0].substring(10);
+                pasajero[0] = fecha + sinFecha;
+                String sinFechaCompleta = pasajero[5].substring(13);
+                pasajero[5] = fechaCompleta + sinFechaCompleta;
+            }
+            for (String [] fila: listaPasajeros) {
+                for (String celda: fila) {
+                    System.out.println("+++ " + celda);
+                }
+            }
+        }
     }//GEN-LAST:event_jSpinnerHorasUTCStateChanged
 
     private void jSpinnerMinutosUTCStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerMinutosUTCStateChanged
@@ -1459,6 +1487,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             } else {
                 capturarListaPasajeros.setTitle("LISTA DE PASAJEROS: CIERRE DE PLAN DE VUELO");
             }
+            if (jLabel19.isEnabled()) {
+                DefaultTableModel modelo = (DefaultTableModel) capturarListaPasajeros.jTableListaPasajeros.getModel();
+                for (String[] listaPasajero : listaPasajeros) {
+                    modelo.addRow(listaPasajero);
+                }
+            }
             capturarListaPasajeros.setVisible(true); 
         }
     }//GEN-LAST:event_botonListaPasajerosActionPerformed
@@ -1471,17 +1505,63 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         } else {
             capturarListaSobrecargos.setTitle("LISTA DE SOBRECAROGOS: MANIFIESTO DE LLEGADA");
         }
+        if (jLabel48.isEnabled()) {
+            DefaultTableModel modelo = (DefaultTableModel) capturarListaSobrecargos.jTableSobrecargos.getModel();
+            String [] listaSobrecargo = listaSobrecargos.split(", ");
+            for (String sobrecargo : listaSobrecargo) {
+                String[] valor = {sobrecargo};
+                modelo.addRow(valor);
+            }
+        }
         capturarListaSobrecargos.setVisible(true); 
     }//GEN-LAST:event_botonDeclararSobrecargosActionPerformed
 
     private void botonDeclararEmDesembarqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDeclararEmDesembarqueActionPerformed
         String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
         if (tipoOperacion.contains("MANIFIESTO DE SALIDA")) {
-            OJDialogEmbarque embarque = new OJDialogEmbarque(this, true);
-            embarque.setVisible(true);
+            OJDialogEmbarque emb = new OJDialogEmbarque(this, true);
+            if (jLabel39.isEnabled()) {
+                emb.jTextFieldTI.setText(embarque[0]);
+                emb.jTextFieldEN.setText(embarque[1]);
+                emb.jTextFieldInt.setText(embarque[2]);
+                emb.jTextFieldEI.setText(embarque[3]);
+                emb.jTextFieldInf.setText(embarque[4]);
+                emb.jTextFieldT.setText(embarque[5]);
+                emb.jTextFieldTotal.setText(embarque[6]);
+                String [] personas = embarque[7].split("/");
+                emb.jTextFieldTtlPersonas1.setText(personas[0]);
+                emb.jTextFieldTtlPersonas2.setText(personas[1]);
+                emb.jTextFieldTtlPersonas3.setText(personas[2]);
+                String [] equipaje = embarque[8].split("/");
+                emb.jTextFieldEquipajePzas.setText(equipaje[0]);
+                emb.jTextFieldEquipajeKg.setText(equipaje[1]);
+                String [] carga = embarque[9].split("/");
+                emb.jTextFieldCargaPzas.setText(carga[0]);
+                emb.jTextFieldCargaKg.setText(carga[1]);
+                String [] correo = embarque[10].split("/");
+                emb.jTextFieldCorreoPzas.setText(correo[0]);
+                emb.jTextFieldCorreoKg.setText(correo[1]);
+            }
+            emb.setVisible(true);
         } else {
-            PJDialogDesembarque desembarque = new PJDialogDesembarque(this, true);
-            desembarque.setVisible(true);
+            PJDialogDesembarque desemb = new PJDialogDesembarque(this, true);
+            if (jLabel39.isEnabled()) {
+                desemb.jTextFieldPersonasTotal.setText(desembarque[0]);
+                String [] personas = desembarque[1].split("/");
+                desemb.jTextFieldPersonas1.setText(personas[0]);
+                desemb.jTextFieldPersonas2.setText(personas[1]);
+                desemb.jTextFieldPersonas3.setText(personas[2]);
+                String [] equipaje = desembarque[2].split("/");
+                desemb.jTextFieldEquipajePzas.setText(equipaje[0]);
+                desemb.jTextFieldEquipajeKg.setText(equipaje[1]);
+                String [] carga = desembarque[3].split("/");
+                desemb.jTextFieldCargaPzas.setText(carga[0]);
+                desemb.jTextFieldCargaKg.setText(carga[1]);
+                String [] correo = desembarque[4].split("/");
+                desemb.jTextFieldCorreoPzas.setText(correo[0]);
+                desemb.jTextFieldCorreoKg.setText(correo[1]);
+            }
+            desemb.setVisible(true);
         }
     }//GEN-LAST:event_botonDeclararEmDesembarqueActionPerformed
 
@@ -1781,6 +1861,31 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
+    private void jDateFechaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateFechaPropertyChange
+        if (jLabel19.isEnabled()) {
+            for (String [] fila: listaPasajeros) {
+                for (String celda: fila) {
+                    System.out.println("--- " + celda);
+                }
+            }
+            SimpleDateFormat ft = new SimpleDateFormat("yyyyMMdd");   
+            String fecha = ft.format(jDateFecha.getDate());
+            SimpleDateFormat ft2 = new SimpleDateFormat("yyyy-MM-dd");   
+            String fechaCompleta = ft2.format(jDateFecha.getDate());
+            for (String[] pasajero : listaPasajeros) {
+                String sinFecha = pasajero[0].substring(8);
+                pasajero[0] = fecha + sinFecha;
+                String sinFechaCompleta = pasajero[5].substring(10);
+                pasajero[5] = fechaCompleta + sinFechaCompleta;
+            }
+            for (String [] fila: listaPasajeros) {
+                for (String celda: fila) {
+                    System.out.println("+++ " + celda);
+                }
+            }       
+        }
+    }//GEN-LAST:event_jDateFechaPropertyChange
+
     /**
      * @param args the command line arguments
      */
@@ -2016,6 +2121,9 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jSpinnerMinutosItinerario.setValue(0);
         jSpinnerHoraReal.setValue(0);
         jSpinnerMinutosReal.setValue(0);
+        listaSobrecargos = null;
+        embarque = null;
+        desembarque = null;
     }
     
     private void limpiarPlan() {
@@ -2049,5 +2157,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jTextField8.setText(null);
             jTextField9.setText(null);
         }
+        listaPasajeros = null;
     }
 }

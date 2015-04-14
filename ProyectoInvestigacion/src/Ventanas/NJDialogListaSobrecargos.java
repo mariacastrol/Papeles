@@ -201,15 +201,7 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        filaAModificar = jTableSobrecargos.getSelectedRow();
-        if (filaAModificar != -1) {           
-            jTextFieldNombre.setText(jTableSobrecargos.getValueAt(filaAModificar,0).toString());
-            botonAgregar.setEnabled(false);
-            botonGrabar.setEnabled(false);
-            botonModificar.setEnabled(true);
-        } else {
-            JOptionPane.showMessageDialog(this,"Seleccione el/la sobrecargo a modificar","",JOptionPane.INFORMATION_MESSAGE);
-        } 
+        funcionSeleccionar(); 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
@@ -236,7 +228,10 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
             }
             AJFrameVentanaCapturas.listaSobrecargos = sobrecargos;
             AJFrameVentanaCapturas.jLabel48.setEnabled(true);   
-        } 
+        } else {
+            AJFrameVentanaCapturas.listaSobrecargos = null;
+            AJFrameVentanaCapturas.jLabel48.setEnabled(false);
+        }
         this.dispose();     
     }//GEN-LAST:event_botonGrabarActionPerformed
 
@@ -355,8 +350,20 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableSobrecargos;
+    public javax.swing.JTable jTableSobrecargos;
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
     int filaAModificar;
+    
+    private void funcionSeleccionar() {
+        filaAModificar = jTableSobrecargos.getSelectedRow();
+        if (filaAModificar != -1) {           
+            jTextFieldNombre.setText(jTableSobrecargos.getValueAt(filaAModificar,0).toString());
+            botonAgregar.setEnabled(false);
+            botonGrabar.setEnabled(false);
+            botonModificar.setEnabled(true);
+        } else {
+            JOptionPane.showMessageDialog(this,"Seleccione el/la sobrecargo a modificar","",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
 }

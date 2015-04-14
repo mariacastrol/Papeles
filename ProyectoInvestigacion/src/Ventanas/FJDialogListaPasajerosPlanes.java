@@ -103,6 +103,11 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
             }
         });
         jTableListaPasajeros.setComponentPopupMenu(jPopupMenu1);
+        jTableListaPasajeros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableListaPasajerosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableListaPasajeros);
         if (jTableListaPasajeros.getColumnModel().getColumnCount() > 0) {
             jTableListaPasajeros.getColumnModel().getColumn(0).setMinWidth(1);
@@ -274,25 +279,7 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        filaAModificar = jTableListaPasajeros.getSelectedRow();
-        if (filaAModificar != -1) {           
-            jTextFieldNombre.setText(jTableListaPasajeros.getValueAt(filaAModificar,1).toString());
-            jTextFieldAPaterno.setText(jTableListaPasajeros.getValueAt(filaAModificar,2).toString());
-            jTextFieldAMaterno.setText(jTableListaPasajeros.getValueAt(filaAModificar,3).toString());
-            String nacionalidad = jTableListaPasajeros.getValueAt(filaAModificar,4).toString();
-            String [] strings = { "MEXICO (MEXICANO/A)", "ESTADOS UNIDOS (ESTADOUNIDENSE)", "AFGANISTAN (AFGANO/A)", "ALBANIA (ALBANES)", "ALEMANIA (ALEMAN/A)", "ANDORRA (ANDORRANO)", "ANGOLA (ANGOLEÑO/A)", "ANTILLAS HOLANDESAS (ANTILLANO/A)", "ARGELIA (ARGELINO/A)", "ARGENTINA (ARGENTINO/A)", "ARMENIA (ARMENIO)", "AZERBAIYAN (AZERBAIYANO/A)", "AUSTRALIA (AUSTRALIANO/A)", "AUSTRIA (AUSTRIACO/A)", "BAHAMAS (BAHAMES)", "BANGLADESH (BENGALI)", "BARBADOS (BARBANDENSE)", "BELGICA (BELGA)", "BELICE (BELICEÑO/A)", "BENIN (BENINES)", "BIELORRUSIA (BIELORRUSO/A)", "BOLIVIA (BOLIVIANO/A)", "BOSNIA- HERZEGOVINA (BOSNIO)", "BOTSWANA (BOTSWANES)", "BRASIL (BRASILEÑO/A)", "BRUNEI (BRUNEANO/A)", "BULGARIA (BULGARO/A)", "BURKINA FASO (BURKINES)", "BURUNDI (BURUNDIANO/A)", "BUTAN (BUTANES/A)", "CABO VERDE (CABOVERDIANO)", "CAMBOYA (CAMBOYANO/A)", "CAMERUN (CAMERUNES)", "CANADA (CANADIENSE)", "CHAD (CHADIANO/A)", "CHILE (CHILENO/A)", "CHINA (CHINO/A)", "COLOMBIA (COLOMBIANO/A)", "COMORES (COMORANO/A, COMORENSE)", "CONGO (CONGOLES)", "COREA DEL NORTE (NORCOREANO/A)", "COREA DEL SUR (SURCOREANO/A)", "COSTA DE MARFIL (MARFILEÑO/A)", "COSTA RICA (COSTARRICENSE)", "CROACIA (CROATA)", "CUBA (CUBANO/A)", "DJIBOUTI  (YIBUTIANO/A)", "DINAMARCA (DANES/DANESA)", "ECUADOR (ECUATORIANO/A)", "EGIPTO (EGIPCIO/A)", "EL SALVADOR (SALVADOREÑO/A)", "ESCOCIA (ESCOCES/ESCOCESA)", "ESLOVAQUIA (ESLOVACO/A)", "ESLOVENIA (ESLOVENO/A)", "ESPAÑA (ESPAÑOL/A)", "ESTONIA (ESTONIO)", "ETIOPIA (ETIOPE)", "FIJI (FIYIANO/A)", "FILIPINAS (FILIPINO/A)", "FINLANDIA (FINLANDES/FINLANDESA)", "FRANCIA (FRANCES/FRANCESA)", "GABON (GABONES)", "GALES (GALES)", "GAMBIA (GAMBIENSE)", "GEORGIA (GEORGIANO/A)", "GHANA (GHANES)", "GRANADA (GRANADINO/A)", "GRECIA (GRIEGO/A)", "GUAYANA FRANCESA (GUAYANES)", "GUATEMALA (GUATEMALTECO/A)", "GUINEA (GUINEANO/A)", "GUINEA BISSAU (GUINEANO/A)", "GUINEA ECUATORIAL (ECUATOGUINEANO/A)", "GUYANA (GUYANES)", "HAITI (HAITIANO/A)", "HOLANDA (HOLANDES/HOLANDESA)", "HONDURAS (HONDUREÑO/A)", "HUNGRIA (HUNGARO/A)", "INDIA (INDIO/A)", "INDONESIA (INDONESIO)", "INGLATERRA (INGLES/INGLESA)", "IRLANDA, EIRE (IRLANDES/IRLANDESA)", "IRLANDA DEL NORTE (IRLANDES)", "ISLANDIA (ISLANDES/ISLANDESA)", "ISLAS CAIMAN (CAIMANES)", "ISLAS MARSHALL (MARSHALES)", "ISLAS SALOMON (SALOMONENSE)", "ISLAS VIRGENES AMERICANAS (DE ISLAS VIRGENES)", "ISLAS VIRGENES BRITANICAS (DE ISLAS VIRGENES BRITANICAS)", "ITALIA (ITALIANO/A)", "JAMAICA (JAMAICANO/A)", "JAPON (JAPONES/A)", "KAZAJSTAN (KAZAJO)", "KENIA (KENIATA)", "KIRGUIZISTAN (KIRGUIZ)", "KIRIBATI (KIRIBATIANO/A)", "LAOS (LAOSIANO/A)", "LESOTO (LESOTENSE)", "LETONIA (LETON/LETONA)", "LIBERIA (LIBERIANO/A)", "LIBIA (LIBIO)", "LIECHTENSTEIN (LIECHTENTIENSE)", "LITUANIA (LITUANO/A)", "LUXEMBURGO (LUXEMBURGUES/A)", "MACEDONIA (MACEDONIO/A)", "MADAGASCAR (MALGACHE)", "MALASIA (MALAYO/A)", "MALDIVAS (MALDIVO/A)", "MALAWI (MALAWIANO/A)", "MALI (MALI)", "MALTA (MALTES/MALTESA)", "MARRUECOS (MARROQUI)", "MARTINICA (MARTINIQUES)", "MAURICIO (MAURICIANO)", "MAURITANIA (MAURITANO)", "MOLDOVA (MOLDAVO)", "MONACO (MONEGASCO/A)", "MONGOLIA (MONGOL)", "MOZAMBIQUE (MOZAMBIQUEÑO/A)", "MYANMAR (BIRMANO/A)", "NAMIBIA (NAMIBIO)", "NAURU (NAURUANO)", "NICARAGUA (NICARAGÜENSE)", "NIGER (NIGERIANO/A)", "NIGERIA (NIGERIANO/A)", "NORUEGA (NORUEGO/A)", "NUEVA CALEDONIA (NEOCALEDONIO)", "NUEVA ZELANDA (NEOZELANDES)", "PAISES BAJOS (HOLANDES/HOLANDESA)", "PALAU (PALAUANO/A)", "PANAMA (PANAMEÑO/A)", "PAPUA-NUEVA GUINEA (PAPU)", "PARAGUAY (PARAGUAYO/A)", "PERU (PERUANO/A)", "POLONIA (POLACO/A)", "PORTUGAL (PORTUGUES/PORTUGUESA)", "PUERTO RICO (PORTORRIQUEÑO/A)", "REPUBLICA CENTROAFRICANA (CENTROAFRICANO/A)", "REPUBLICA CHECA (CHECO/A)", "REPUBLICA DEMOCRATICA DEL CONGO (ZAIREÑO/A)", "REPUBLICA DOMINICANA (DOMINICANO/A)", "RUANDA (RUANDES)", "RUMANIA (RUMANO/A)", "RUSIA (RUSO/A)", "SAMOA OCCIDENTAL (SAMOANO/A)", "SAN CRISTOBAL Y NIEVES (SANCRISTOBALENSE)", "SAN VICENTE Y GRANADINAS (SANVICENTINO/A)", "SANTA LUCIA (SANTALUCENSE)", "SANTA SEDE (VATICANO)", "SENEGAL (SENEGALES)", "SEYCHELLES (SEYCHELENSE)", "SIERRA LEONA (SIERRALEONES)", "SOMALIA (SOMALI)", "SUAZILANDIA (SUAZI)", "SUDAFRICA (SUDAFRICANO/A)", "SUDAN (SUDANES)", "SUECIA (SUECO/A)", "SUIZA (SUIZO/A)", "SURINAM (SURINAMES)", "TADZHIKISTAN (TADZHIK)", "TANZANIA (TANZANO)", "TAYIKISTAN (TAYIKO)", "TOGO (TOGOLES)", "TONGA (TONGANO)", "TRINIDAD Y TOBAGO (TRINITARIO/A)", "TUNICIA (TUNECINO/A)", "TURKMENISTAN (TURCOMANO)", "TUVALU (TUVALUANO/A)", "UCRANIA (UCRANIANO/A)", "UGANDA (UGANDES)", "URUGUAY (URUGUAYO/A)", "UZBEKISTAN (UZBEKO)", "VANUATU (VANUATUENSE)", "VENEZUELA (VENEZOLANO/A)", "YUGOSLAVIA (YUGOSLAVO/A)", "ZAMBIA (ZAMBIANO)", "ZIMBABWE (ZIMBABUENSE)" };
-            int indiceNacionalidad = 0;
-            while (strings [indiceNacionalidad] != nacionalidad && strings.length != indiceNacionalidad) {
-               indiceNacionalidad++; 
-            }
-            jListNacionalidad.setSelectedIndex(indiceNacionalidad);
-            jListNacionalidad.ensureIndexIsVisible(jListNacionalidad.getSelectedIndex());
-            botonAgregar.setEnabled(false);
-            botonGrabar.setEnabled(false);
-            botonModificar.setEnabled(true);
-        } else {
-            JOptionPane.showMessageDialog(this,"Seleccione el pasajero a modificar","",JOptionPane.INFORMATION_MESSAGE);
-        } 
+        funcionSeleccionar();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
@@ -361,9 +348,18 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
             }
             AJFrameVentanaCapturas.listaPasajeros = listaPasajeros;
             AJFrameVentanaCapturas.jLabel19.setEnabled(true);
+        } else {
+            AJFrameVentanaCapturas.listaPasajeros = null;
+            AJFrameVentanaCapturas.jLabel19.setEnabled(false);
         }
         this.dispose();       
     }//GEN-LAST:event_botonGrabarActionPerformed
+
+    private void jTableListaPasajerosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableListaPasajerosMouseClicked
+        if (evt.getClickCount() == 2) {
+            funcionSeleccionar();
+        }
+    }//GEN-LAST:event_jTableListaPasajerosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -453,7 +449,7 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTableListaPasajeros;
+    public javax.swing.JTable jTableListaPasajeros;
     private javax.swing.JTextField jTextFieldAMaterno;
     private javax.swing.JTextField jTextFieldAPaterno;
     private javax.swing.JTextField jTextFieldNombre;
@@ -461,4 +457,25 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     int filaAModificar;
     String fecha, fechaHora, hora, minutos;
     
+    private void funcionSeleccionar() {
+        filaAModificar = jTableListaPasajeros.getSelectedRow();
+        if (filaAModificar != -1) {           
+            jTextFieldNombre.setText(jTableListaPasajeros.getValueAt(filaAModificar,1).toString());
+            jTextFieldAPaterno.setText(jTableListaPasajeros.getValueAt(filaAModificar,2).toString());
+            jTextFieldAMaterno.setText(jTableListaPasajeros.getValueAt(filaAModificar,3).toString());
+            String nacionalidad = jTableListaPasajeros.getValueAt(filaAModificar,4).toString();
+            String [] strings = { "MEXICO (MEXICANO/A)", "ESTADOS UNIDOS (ESTADOUNIDENSE)", "AFGANISTAN (AFGANO/A)", "ALBANIA (ALBANES)", "ALEMANIA (ALEMAN/A)", "ANDORRA (ANDORRANO)", "ANGOLA (ANGOLEÑO/A)", "ANTILLAS HOLANDESAS (ANTILLANO/A)", "ARGELIA (ARGELINO/A)", "ARGENTINA (ARGENTINO/A)", "ARMENIA (ARMENIO)", "AZERBAIYAN (AZERBAIYANO/A)", "AUSTRALIA (AUSTRALIANO/A)", "AUSTRIA (AUSTRIACO/A)", "BAHAMAS (BAHAMES)", "BANGLADESH (BENGALI)", "BARBADOS (BARBANDENSE)", "BELGICA (BELGA)", "BELICE (BELICEÑO/A)", "BENIN (BENINES)", "BIELORRUSIA (BIELORRUSO/A)", "BOLIVIA (BOLIVIANO/A)", "BOSNIA- HERZEGOVINA (BOSNIO)", "BOTSWANA (BOTSWANES)", "BRASIL (BRASILEÑO/A)", "BRUNEI (BRUNEANO/A)", "BULGARIA (BULGARO/A)", "BURKINA FASO (BURKINES)", "BURUNDI (BURUNDIANO/A)", "BUTAN (BUTANES/A)", "CABO VERDE (CABOVERDIANO)", "CAMBOYA (CAMBOYANO/A)", "CAMERUN (CAMERUNES)", "CANADA (CANADIENSE)", "CHAD (CHADIANO/A)", "CHILE (CHILENO/A)", "CHINA (CHINO/A)", "COLOMBIA (COLOMBIANO/A)", "COMORES (COMORANO/A, COMORENSE)", "CONGO (CONGOLES)", "COREA DEL NORTE (NORCOREANO/A)", "COREA DEL SUR (SURCOREANO/A)", "COSTA DE MARFIL (MARFILEÑO/A)", "COSTA RICA (COSTARRICENSE)", "CROACIA (CROATA)", "CUBA (CUBANO/A)", "DJIBOUTI  (YIBUTIANO/A)", "DINAMARCA (DANES/DANESA)", "ECUADOR (ECUATORIANO/A)", "EGIPTO (EGIPCIO/A)", "EL SALVADOR (SALVADOREÑO/A)", "ESCOCIA (ESCOCES/ESCOCESA)", "ESLOVAQUIA (ESLOVACO/A)", "ESLOVENIA (ESLOVENO/A)", "ESPAÑA (ESPAÑOL/A)", "ESTONIA (ESTONIO)", "ETIOPIA (ETIOPE)", "FIJI (FIYIANO/A)", "FILIPINAS (FILIPINO/A)", "FINLANDIA (FINLANDES/FINLANDESA)", "FRANCIA (FRANCES/FRANCESA)", "GABON (GABONES)", "GALES (GALES)", "GAMBIA (GAMBIENSE)", "GEORGIA (GEORGIANO/A)", "GHANA (GHANES)", "GRANADA (GRANADINO/A)", "GRECIA (GRIEGO/A)", "GUAYANA FRANCESA (GUAYANES)", "GUATEMALA (GUATEMALTECO/A)", "GUINEA (GUINEANO/A)", "GUINEA BISSAU (GUINEANO/A)", "GUINEA ECUATORIAL (ECUATOGUINEANO/A)", "GUYANA (GUYANES)", "HAITI (HAITIANO/A)", "HOLANDA (HOLANDES/HOLANDESA)", "HONDURAS (HONDUREÑO/A)", "HUNGRIA (HUNGARO/A)", "INDIA (INDIO/A)", "INDONESIA (INDONESIO)", "INGLATERRA (INGLES/INGLESA)", "IRLANDA, EIRE (IRLANDES/IRLANDESA)", "IRLANDA DEL NORTE (IRLANDES)", "ISLANDIA (ISLANDES/ISLANDESA)", "ISLAS CAIMAN (CAIMANES)", "ISLAS MARSHALL (MARSHALES)", "ISLAS SALOMON (SALOMONENSE)", "ISLAS VIRGENES AMERICANAS (DE ISLAS VIRGENES)", "ISLAS VIRGENES BRITANICAS (DE ISLAS VIRGENES BRITANICAS)", "ITALIA (ITALIANO/A)", "JAMAICA (JAMAICANO/A)", "JAPON (JAPONES/A)", "KAZAJSTAN (KAZAJO)", "KENIA (KENIATA)", "KIRGUIZISTAN (KIRGUIZ)", "KIRIBATI (KIRIBATIANO/A)", "LAOS (LAOSIANO/A)", "LESOTO (LESOTENSE)", "LETONIA (LETON/LETONA)", "LIBERIA (LIBERIANO/A)", "LIBIA (LIBIO)", "LIECHTENSTEIN (LIECHTENTIENSE)", "LITUANIA (LITUANO/A)", "LUXEMBURGO (LUXEMBURGUES/A)", "MACEDONIA (MACEDONIO/A)", "MADAGASCAR (MALGACHE)", "MALASIA (MALAYO/A)", "MALDIVAS (MALDIVO/A)", "MALAWI (MALAWIANO/A)", "MALI (MALI)", "MALTA (MALTES/MALTESA)", "MARRUECOS (MARROQUI)", "MARTINICA (MARTINIQUES)", "MAURICIO (MAURICIANO)", "MAURITANIA (MAURITANO)", "MOLDOVA (MOLDAVO)", "MONACO (MONEGASCO/A)", "MONGOLIA (MONGOL)", "MOZAMBIQUE (MOZAMBIQUEÑO/A)", "MYANMAR (BIRMANO/A)", "NAMIBIA (NAMIBIO)", "NAURU (NAURUANO)", "NICARAGUA (NICARAGÜENSE)", "NIGER (NIGERIANO/A)", "NIGERIA (NIGERIANO/A)", "NORUEGA (NORUEGO/A)", "NUEVA CALEDONIA (NEOCALEDONIO)", "NUEVA ZELANDA (NEOZELANDES)", "PAISES BAJOS (HOLANDES/HOLANDESA)", "PALAU (PALAUANO/A)", "PANAMA (PANAMEÑO/A)", "PAPUA-NUEVA GUINEA (PAPU)", "PARAGUAY (PARAGUAYO/A)", "PERU (PERUANO/A)", "POLONIA (POLACO/A)", "PORTUGAL (PORTUGUES/PORTUGUESA)", "PUERTO RICO (PORTORRIQUEÑO/A)", "REPUBLICA CENTROAFRICANA (CENTROAFRICANO/A)", "REPUBLICA CHECA (CHECO/A)", "REPUBLICA DEMOCRATICA DEL CONGO (ZAIREÑO/A)", "REPUBLICA DOMINICANA (DOMINICANO/A)", "RUANDA (RUANDES)", "RUMANIA (RUMANO/A)", "RUSIA (RUSO/A)", "SAMOA OCCIDENTAL (SAMOANO/A)", "SAN CRISTOBAL Y NIEVES (SANCRISTOBALENSE)", "SAN VICENTE Y GRANADINAS (SANVICENTINO/A)", "SANTA LUCIA (SANTALUCENSE)", "SANTA SEDE (VATICANO)", "SENEGAL (SENEGALES)", "SEYCHELLES (SEYCHELENSE)", "SIERRA LEONA (SIERRALEONES)", "SOMALIA (SOMALI)", "SUAZILANDIA (SUAZI)", "SUDAFRICA (SUDAFRICANO/A)", "SUDAN (SUDANES)", "SUECIA (SUECO/A)", "SUIZA (SUIZO/A)", "SURINAM (SURINAMES)", "TADZHIKISTAN (TADZHIK)", "TANZANIA (TANZANO)", "TAYIKISTAN (TAYIKO)", "TOGO (TOGOLES)", "TONGA (TONGANO)", "TRINIDAD Y TOBAGO (TRINITARIO/A)", "TUNICIA (TUNECINO/A)", "TURKMENISTAN (TURCOMANO)", "TUVALU (TUVALUANO/A)", "UCRANIA (UCRANIANO/A)", "UGANDA (UGANDES)", "URUGUAY (URUGUAYO/A)", "UZBEKISTAN (UZBEKO)", "VANUATU (VANUATUENSE)", "VENEZUELA (VENEZOLANO/A)", "YUGOSLAVIA (YUGOSLAVO/A)", "ZAMBIA (ZAMBIANO)", "ZIMBABWE (ZIMBABUENSE)" };
+            int indiceNacionalidad = 0;
+            while (strings [indiceNacionalidad] != nacionalidad && strings.length != indiceNacionalidad) {
+               indiceNacionalidad++; 
+            }
+            jListNacionalidad.setSelectedIndex(indiceNacionalidad);
+            jListNacionalidad.ensureIndexIsVisible(jListNacionalidad.getSelectedIndex());
+            botonAgregar.setEnabled(false);
+            botonGrabar.setEnabled(false);
+            botonModificar.setEnabled(true);
+        } else {
+            JOptionPane.showMessageDialog(this,"Seleccione el pasajero a modificar","",JOptionPane.INFORMATION_MESSAGE);
+        } 
+    }
 }

@@ -489,7 +489,7 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
                 jTextFieldPersonas1.getText() + "/" + jTextFieldPersonas2.getText() + "/" + jTextFieldPersonas3.getText(),
                 jTextFieldEquipajePzas.getText() + "/" + jTextFieldEquipajeKg.getText(),
                 jTextFieldCargaPzas.getText() + "/" + jTextFieldCargaKg.getText(),
-                jTextFieldCorreoPzas.getText() + "/" + jTextFieldCorreoKg.getText(),
+                jTextFieldCorreoPzas.getText() + "/" + jTextFieldCorreoKg.getText()
             };
                        
             AJFrameVentanaCapturas.desembarque = desembarqueDeclarado;
@@ -570,15 +570,15 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldCargaKg;
-    private javax.swing.JTextField jTextFieldCargaPzas;
-    private javax.swing.JTextField jTextFieldCorreoKg;
-    private javax.swing.JTextField jTextFieldCorreoPzas;
-    private javax.swing.JTextField jTextFieldEquipajeKg;
-    private javax.swing.JTextField jTextFieldEquipajePzas;
-    private javax.swing.JTextField jTextFieldPersonas1;
-    private javax.swing.JTextField jTextFieldPersonas2;
-    private javax.swing.JTextField jTextFieldPersonas3;
-    private javax.swing.JTextField jTextFieldPersonasTotal;
+    public javax.swing.JTextField jTextFieldCargaKg;
+    public javax.swing.JTextField jTextFieldCargaPzas;
+    public javax.swing.JTextField jTextFieldCorreoKg;
+    public javax.swing.JTextField jTextFieldCorreoPzas;
+    public javax.swing.JTextField jTextFieldEquipajeKg;
+    public javax.swing.JTextField jTextFieldEquipajePzas;
+    public javax.swing.JTextField jTextFieldPersonas1;
+    public javax.swing.JTextField jTextFieldPersonas2;
+    public javax.swing.JTextField jTextFieldPersonas3;
+    public javax.swing.JTextField jTextFieldPersonasTotal;
     // End of variables declaration//GEN-END:variables
 }
