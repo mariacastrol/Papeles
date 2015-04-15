@@ -529,11 +529,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jDateFecha.setDateFormatString("dd/MM/yyyy");
         jDateFecha.setMaxSelectableDate(new java.util.Date(1483250399000L));
         jDateFecha.setMinSelectableDate(new java.util.Date(1262325599000L));
-        jDateFecha.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jDateFechaPropertyChange(evt);
-            }
-        });
 
         jLabel22.setText("(UTC)");
 
@@ -1417,29 +1412,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void jSpinnerHorasUTCStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerHorasUTCStateChanged
         int valor = (int) jSpinnerHorasUTC.getValue();
         FuncionesGenerales.spinnerNumericoCiclico(0, 23, valor, jSpinnerHorasUTC);
-        if (jLabel19.isEnabled()) {
-            for (String [] fila: listaPasajeros) {
-                for (String celda: fila) {
-                    System.out.println("xxx " + celda);
-                }
-            }
-            String horas = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerHorasUTC.getValue().toString()));
-            SimpleDateFormat ft = new SimpleDateFormat("yyyyMMdd");   
-            String fecha = ft.format(jDateFecha.getDate()) + horas;
-            SimpleDateFormat ft2 = new SimpleDateFormat("yyyy-MM-dd");   
-            String fechaCompleta = ft2.format(jDateFecha.getDate()) + " " + horas;
-            for (String[] pasajero : listaPasajeros) {
-                String sinFecha = pasajero[0].substring(10);
-                pasajero[0] = fecha + sinFecha;
-                String sinFechaCompleta = pasajero[5].substring(13);
-                pasajero[5] = fechaCompleta + sinFechaCompleta;
-            }
-            for (String [] fila: listaPasajeros) {
-                for (String celda: fila) {
-                    System.out.println("+++ " + celda);
-                }
-            }
-        }
     }//GEN-LAST:event_jSpinnerHorasUTCStateChanged
 
     private void jSpinnerMinutosUTCStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerMinutosUTCStateChanged
@@ -1468,33 +1440,20 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     }//GEN-LAST:event_jSpinnerMinutosRealStateChanged
 
     private void botonListaPasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListaPasajerosActionPerformed
-        if(jDateFecha.getDate() == null){
-                JOptionPane.showMessageDialog(this,"No ha ingresado la fecha","",JOptionPane.INFORMATION_MESSAGE);            
+        FJDialogListaPasajerosPlanes capturarListaPasajeros = new FJDialogListaPasajerosPlanes(this,true);
+        String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
+        if (tipoOperacion.equals("APERTURA DE PLAN DE VUELO")) {
+            capturarListaPasajeros.setTitle("LISTA DE PASAJEROS: APERTURA DE PLAN DE VUELO");
         } else {
-            FJDialogListaPasajerosPlanes capturarListaPasajeros = new FJDialogListaPasajerosPlanes(this,true);
-            String horas = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerHorasUTC.getValue().toString()));
-            String minutos = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerMinutosUTC.getValue().toString())); 
-            SimpleDateFormat ft = new SimpleDateFormat("yyyyMMdd");   
-            capturarListaPasajeros.fecha = ft.format(jDateFecha.getDate());
-            capturarListaPasajeros.hora = horas;
-            capturarListaPasajeros.minutos = minutos;
-            SimpleDateFormat ft2 = new SimpleDateFormat("yyyy-MM-dd");   
-            String fechaCompleta = ft2.format(jDateFecha.getDate()) + " " + horas + ":" + minutos + ":00";
-            capturarListaPasajeros.fechaHora = fechaCompleta;
-            String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
-            if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
-                capturarListaPasajeros.setTitle("LISTA DE PASAJEROS: APERTURA DE PLAN DE VUELO");
-            } else {
-                capturarListaPasajeros.setTitle("LISTA DE PASAJEROS: CIERRE DE PLAN DE VUELO");
-            }
-            if (jLabel19.isEnabled()) {
-                DefaultTableModel modelo = (DefaultTableModel) capturarListaPasajeros.jTableListaPasajeros.getModel();
-                for (String[] listaPasajero : listaPasajeros) {
-                    modelo.addRow(listaPasajero);
-                }
-            }
-            capturarListaPasajeros.setVisible(true); 
+            capturarListaPasajeros.setTitle("LISTA DE PASAJEROS: CIERRE DE PLAN DE VUELO");
         }
+        if (jLabel19.isEnabled()) {
+            DefaultTableModel modelo = (DefaultTableModel) capturarListaPasajeros.jTableListaPasajeros.getModel();
+            for (String[] listaPasajero : listaPasajeros) {
+                modelo.addRow(listaPasajero);
+            }
+        }
+        capturarListaPasajeros.setVisible(true);      
     }//GEN-LAST:event_botonListaPasajerosActionPerformed
 
     private void botonDeclararSobrecargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDeclararSobrecargosActionPerformed
@@ -1624,8 +1583,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 // FECHA DEL PLAN O CIERRE
                 String horas = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerHorasUTC.getValue().toString()));
                 String minutos = FuncionesGenerales.integerFormat(Integer.parseInt(jSpinnerMinutosUTC.getValue().toString()));          
-                SimpleDateFormat ft2 = new SimpleDateFormat("yyyy-MM-dd");   
-                String fechaCompleta = ft2.format(jDateFecha.getDate()) + " " + horas + ":" + minutos + ":00";
+                SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");   
+                String fechaCompleta = formato.format(jDateFecha.getDate()) + " " + horas + ":" + minutos + ":00";
                 // VALORES DEL PLAN O CIERRE
                 String [] valores1= {fechaCompleta,jTextField7.getText(),jTextField1.getText(),jTextField4.getText(),jTextArea1.getText(),jTextFieldPersonasPasajeros.getText()};
                 // NOMBRES DE LAS COLUMNAS DE LA TABLAS EN MYSQL: PLANES DE VUELO
@@ -1667,6 +1626,13 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                             mensajeSiRepiteRegistros = "REGISTROS DUPLICADOS EN TABLA \"PASAJEROS_CIERRES\"";
                         }
                         String columnasTablasPasajeros [] = {"id_pasajero","nombre","apellido_paterno","apellido_materno","nacionalidad","fecha"};
+                        SimpleDateFormat formato2 = new SimpleDateFormat("yyyyMMdd");   
+                        String fechaJunta = formato2.format(jDateFecha.getDate()) + horas + minutos;
+                        for (String[] pasajero : listaPasajeros) {
+                            String sinFecha = pasajero[0];
+                            pasajero[0] = fechaJunta + sinFecha;
+                            pasajero[5] = fechaCompleta;
+                        }
                         if(!conexionPlanes.insertarTablaEnTabla(tablaPasajeros,columnasTablasPasajeros,listaPasajeros,mensajeSiRepiteRegistros)){
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
                         }
@@ -1729,9 +1695,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 String tablaSL = "MANIFIESTOS_SALIDA";
                 String mensajeSiRepiteSL = "YA EXISTE EN LA BASE DE DATOS UN MANIFIESTO DE SALIDA CON ESTA FECHA Y HORA";
                 String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
-                if (jLabel48.isEnabled()) {
-                    valoresAInsertar [7] = listaSobrecargos;
-                }
                 if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
                     if (jLabel39.isEnabled()) {
                         valoresAInsertar[9] = embarque[0];
@@ -1760,6 +1723,9 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                         valoresAInsertar[12] = desembarque[3];
                         valoresAInsertar[13] = desembarque[4];
                     }
+                }
+                if (jLabel48.isEnabled()) {
+                    valoresAInsertar [7] = listaSobrecargos;
                 }
                 if(!conexionPlanes.insertarFilaEnTabla(tablaSL,columnasATomar,valoresAInsertar,mensajeSiRepiteSL)){
                     JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
@@ -1860,31 +1826,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             limpiarManifiesto();
         }
     }//GEN-LAST:event_jTabbedPane1StateChanged
-
-    private void jDateFechaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateFechaPropertyChange
-        if (jLabel19.isEnabled()) {
-            for (String [] fila: listaPasajeros) {
-                for (String celda: fila) {
-                    System.out.println("--- " + celda);
-                }
-            }
-            SimpleDateFormat ft = new SimpleDateFormat("yyyyMMdd");   
-            String fecha = ft.format(jDateFecha.getDate());
-            SimpleDateFormat ft2 = new SimpleDateFormat("yyyy-MM-dd");   
-            String fechaCompleta = ft2.format(jDateFecha.getDate());
-            for (String[] pasajero : listaPasajeros) {
-                String sinFecha = pasajero[0].substring(8);
-                pasajero[0] = fecha + sinFecha;
-                String sinFechaCompleta = pasajero[5].substring(10);
-                pasajero[5] = fechaCompleta + sinFechaCompleta;
-            }
-            for (String [] fila: listaPasajeros) {
-                for (String celda: fila) {
-                    System.out.println("+++ " + celda);
-                }
-            }       
-        }
-    }//GEN-LAST:event_jDateFechaPropertyChange
 
     /**
      * @param args the command line arguments

@@ -250,12 +250,12 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         if (jListNacionalidad.getSelectedIndex() != -1) {
             String [] filaAInsertar = {
-                fecha + hora + minutos + FuncionesGenerales.integerFormat((jTableListaPasajeros.getRowCount()+1)),
+                FuncionesGenerales.integerFormat((jTableListaPasajeros.getRowCount()+1)),
                 jTextFieldNombre.getText(),
                 jTextFieldAPaterno.getText(),
                 jTextFieldAMaterno.getText(),
                 jListNacionalidad.getSelectedValue().toString(),
-                fechaHora
+                ""
                 };
             FuncionesGenerales.agregarFila(jTableListaPasajeros,filaAInsertar);
         } else {
@@ -271,7 +271,7 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
         if (filaAEliminar != -1) {           
             FuncionesGenerales.eliminarFila(jTableListaPasajeros, filaAEliminar);
             for (int i = filaAEliminar; i < jTableListaPasajeros.getRowCount(); i++) {
-                jTableListaPasajeros.setValueAt(fecha+hora+minutos+FuncionesGenerales.integerFormat((i+1)),i,0);
+                jTableListaPasajeros.setValueAt(FuncionesGenerales.integerFormat((i+1)),i,0);
             }
         } else {
             JOptionPane.showMessageDialog(this,"Seleccione el pasajero a eliminar","",JOptionPane.INFORMATION_MESSAGE);
@@ -454,8 +454,8 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldAPaterno;
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
+    
     int filaAModificar;
-    String fecha, fechaHora, hora, minutos;
     
     private void funcionSeleccionar() {
         filaAModificar = jTableListaPasajeros.getSelectedRow();
