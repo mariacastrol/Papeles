@@ -47,6 +47,7 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
         jLabel21 = new javax.swing.JLabel();
         jTextFieldSEquipo = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         botonAgregar = new javax.swing.JButton();
         botonActualizar = new javax.swing.JButton();
@@ -54,6 +55,7 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
         jLabel20 = new javax.swing.JLabel();
         jTextFieldAAEquipo = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        jLabelObligatorios = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAeronavesManifiestos = new javax.swing.JTable();
 
@@ -101,7 +103,7 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
             }
         });
 
-        jLabel19.setText("MATRICULA");
+        jLabel19.setText("MATRÍCULA");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -143,12 +145,15 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
         jTextFieldSMatricula.setEditable(false);
         jTextFieldSMatricula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jLabel21.setText("MATRICULA");
+        jLabel21.setText("MATRÍCULA");
 
         jTextFieldSEquipo.setEditable(false);
         jTextFieldSEquipo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel14.setText("EQUIPO");
+
+        jLabel1.setForeground(new java.awt.Color(212, 208, 200));
+        jLabel1.setText("SELECCIONE UNA AERONAVE DE LA TABLA");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -175,7 +180,11 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(botonVolver)
-                        .addGap(10, 10, 10))))
+                        .addGap(10, 10, 10))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,8 +199,10 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
                         .addComponent(jTextFieldSEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel14)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonVolver)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
                 .addContainerGap())
         );
 
@@ -224,7 +235,7 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
             }
         });
 
-        jLabel20.setText("MATRICULA");
+        jLabel20.setText("MATRÍCULA");
 
         jTextFieldAAEquipo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldAAEquipo.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -240,6 +251,9 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
 
         jLabel13.setText("EQUIPO");
 
+        jLabelObligatorios.setForeground(new java.awt.Color(212, 208, 200));
+        jLabelObligatorios.setText("* ESTOS CAMPOS SON OBLIGATORIOS");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -247,22 +261,27 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldAAMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldAAMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel20)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel13))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jTextFieldAAEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botonActualizar)
-                            .addComponent(jLabel20))))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel13))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jTextFieldAAEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelObligatorios)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonActualizar)
+                .addGap(18, 18, 18)
                 .addComponent(botonAgregar)
                 .addContainerGap())
         );
@@ -283,6 +302,8 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonAgregar)
                     .addComponent(botonActualizar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelObligatorios)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -291,7 +312,7 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
 
             },
             new String [] {
-                "MATRICULA", "EQUIPO"
+                "MATRÍCULA", "EQUIPO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -326,7 +347,7 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,22 +356,24 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -364,62 +387,46 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
         } else {
             int filasTabla = jTableAeronavesManifiestos.getRowCount();
             if (filasTabla == 0) {
-                JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO LA MATRICULA","ERROR EN BUSQUEDA",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO LA MATRICULA","",JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }//GEN-LAST:event_botonBuscarActionPerformed
 
     private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAMatricula) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAEquipo)) {
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAMatricula)) {
-                jTextFieldAAMatricula.setBackground(new java.awt.Color(255,0,0));
-            }
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAEquipo)) {
-                jTextFieldAAEquipo.setBackground(new java.awt.Color(255,0,0));
-            }
-            JOptionPane.showMessageDialog(this,"Ha dejado campos vacios","NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
-        } else {
+        if (!estanVacios()) {
             String [] datosActualizados = {jTextFieldAAMatricula.getText(),jTextFieldAAEquipo.getText()};
             if (!ping.modificarFilaEnTabla(nombreTablaMysql, columnasTablaMysql, datosActualizados, pK,llaveActual)) {
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
+                limpiarAA();
+                botonBuscar.setEnabled(true);
+                botonAgregar.setEnabled(true);
+                botonVolver.setEnabled(true);
+                jMenuItem1.setEnabled(true);
+                jMenuItem2.setEnabled(true);
+                jMenuItem3.setEnabled(true);
+                botonActualizar.setEnabled(false);
+                jTextFieldSMatricula.setText(null);
+                jTextFieldSEquipo.setText(null); 
                 if (!ping.mostrarColumnasTablaMysqlSimple(jTableAeronavesManifiestos, nombreTablaMysql, columnasTablaMysql)) {
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
             }
-            jTextFieldAAMatricula.setText(null);
-            jTextFieldAAEquipo.setText(null);
-            botonBuscar.setEnabled(true);
-            botonAgregar.setEnabled(true);
-            botonVolver.setEnabled(true);
-            jMenuItem1.setEnabled(true);
-            jMenuItem2.setEnabled(true);
-            jMenuItem3.setEnabled(true);
-            botonActualizar.setEnabled(false); 
         }
     }//GEN-LAST:event_botonActualizarActionPerformed
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAMatricula) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAEquipo)) {
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAMatricula)) {
-                jTextFieldAAMatricula.setBackground(new java.awt.Color(255,0,0));
-            }
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAEquipo)) {
-                jTextFieldAAEquipo.setBackground(new java.awt.Color(255,0,0));
-            }
-            JOptionPane.showMessageDialog(this,"Ha dejado campos vacios","NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
-        } else {
+        if (!estanVacios()) {
             String [] valores = {jTextFieldAAMatricula.getText(),jTextFieldAAEquipo.getText()};
             String mensajeSiRepiteRegistro = "Ya existe una aeronave con esa matricula";
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
+                limpiarAA();
                 if(!ping.mostrarColumnasTablaMysqlSimple(jTableAeronavesManifiestos, nombreTablaMysql, columnasTablaMysql)){
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
             }
-            jTextFieldAAMatricula.setText(null);
-            jTextFieldAAEquipo.setText(null);
         }
     }//GEN-LAST:event_botonAgregarActionPerformed
 
@@ -493,8 +500,6 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
-        jTextFieldAAMatricula.setBackground(new java.awt.Color(255,255,255));
-        jTextFieldAAEquipo.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -506,8 +511,6 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
             } else {
                 jTextFieldSMatricula.setText(null);
                 jTextFieldSEquipo.setText(null);
-                jTextFieldSMatricula.setBackground(new java.awt.Color(212,208,200));
-                jTextFieldSEquipo.setBackground(new java.awt.Color(212,208,200));
             }
             if(!ping.mostrarColumnasTablaMysqlSimple(jTableAeronavesManifiestos,nombreTablaMysql,columnasTablaMysql)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
@@ -827,11 +830,13 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
     private javax.swing.JButton botonAgregar;
     private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonVolver;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabelObligatorios;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -854,7 +859,10 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
     private String [] columnasTablaMysql;
     private String nombreTablaMysql;
     private String pK;
-    private final String mensajeNoSeleccionado = "Primero de clic izquierdo sobre el elemento deseado de la tabla";
+    private final String mensajeNoSeleccionado = "PRIMERO HAGA CLIC IZQUIERDO SOBRE EL ELEMENTO DESEADO DE LA TABLA";
+    private final int rError = 255;
+    private final int gError = 0;
+    private final int bError = 0;
     
     public void setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
         if (ping.conectarBD(sv,us,pw,dB)) {
@@ -876,8 +884,9 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
             String celda1 = jTableAeronavesManifiestos.getValueAt(filaSeleccionada,1).toString();
             jTextFieldSMatricula.setText(celda);
             jTextFieldSEquipo.setText(celda1);
-            jTextFieldSMatricula.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSEquipo.setBackground(new java.awt.Color(153,255,153));
+            jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel1.setForeground(new java.awt.Color(212, 208, 200));
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         } 
@@ -885,14 +894,39 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
     
     private void funcionVolver() {
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldSMatricula)) {
-            jTextFieldSMatricula.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSEquipo.setBackground(new java.awt.Color(255,0,0));
+            jLabel21.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabel14.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabel1.setForeground(new java.awt.Color(rError, gError, bError));
         } else {
             AJFrameVentanaCapturas.jTextField14.setText(jTextFieldSMatricula.getText());
             AJFrameVentanaCapturas.jTextField13.setText(jTextFieldSEquipo.getText());
-            AJFrameVentanaCapturas.jTextField14.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField13.setBackground(new java.awt.Color(153,255,153));
             this.dispose();  
         }
+    }
+    
+    private boolean estanVacios() {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAMatricula) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAEquipo)) {
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAMatricula)) {
+                jLabel20.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel20.setText("MATRÍCULA*");
+            }
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAEquipo)) {
+                jLabel13.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel13.setText("EQUIPO*");
+            }
+            jLabelObligatorios.setForeground(new java.awt.Color(rError, gError, bError));
+            return true;
+        }
+        return false;
+    }
+    
+    private void limpiarAA() {
+        jTextFieldAAMatricula.setText(null);
+        jTextFieldAAEquipo.setText(null);
+        jLabelObligatorios.setForeground(new java.awt.Color(212, 208, 200));
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setText("MATRÍCULA");
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("EQUIPO");    
     }
 }

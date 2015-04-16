@@ -51,6 +51,7 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
         jTextFieldSNombre = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         botonVolver = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jTextFieldAAIATA = new javax.swing.JTextField();
         jTextFieldAAOACI = new javax.swing.JTextField();
@@ -60,6 +61,7 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
         jLabel18 = new javax.swing.JLabel();
         botonAgregar = new javax.swing.JButton();
         botonActualizar = new javax.swing.JButton();
+        jLabelObligatorios = new javax.swing.JLabel();
 
         jMenuItem1.setText("Seleccionar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -189,33 +191,42 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(212, 208, 200));
+        jLabel1.setText("SELECCIONE UN AEROPUERTO DE LA TABLA");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botonVolver)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(339, 339, 339)
+                        .addComponent(botonVolver))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel12))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jTextFieldSIATA, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldSOACI, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTextFieldSIATA, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
-                                        .addComponent(jLabel16)))))
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldSNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jTextFieldSOACI, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextFieldSNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jLabel13)))))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -236,7 +247,9 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
                             .addComponent(jLabel16)
                             .addComponent(jLabel13))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonVolver)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonVolver)
+                    .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -298,37 +311,41 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
             }
         });
 
+        jLabelObligatorios.setForeground(new java.awt.Color(212, 208, 200));
+        jLabelObligatorios.setText("* ESTOS CAMPOS SON OBLIGATORIOS");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldAAIATA, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jTextFieldAAOACI, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldAANombre, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(botonActualizar)
                         .addGap(18, 18, 18)
                         .addComponent(botonAgregar))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel14))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jTextFieldAAIATA, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldAAOACI, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel17)))))
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldAANombre, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel18)))))
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabelObligatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -351,7 +368,8 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonAgregar)
-                    .addComponent(botonActualizar))
+                    .addComponent(botonActualizar)
+                    .addComponent(jLabelObligatorios))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -404,70 +422,47 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
         } else {
             int filasTabla = jTableAeropuertosManifiestos.getRowCount();
             if (filasTabla == 0) {
-                JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO EL CODIGO IATA","ERROR EN BUSQUEDA",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO EL CODIGO IATA","",JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }//GEN-LAST:event_botonBuscarActionPerformed
 
     private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAIATA) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAOACI) || FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre)) {
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAIATA)) {
-                jTextFieldAAIATA.setBackground(new java.awt.Color(255,0,0));
-            }
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAOACI)) {
-                jTextFieldAAOACI.setBackground(new java.awt.Color(255,0,0));
-            }
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre)) {
-                jTextFieldAANombre.setBackground(new java.awt.Color(255,0,0));
-            }
-            JOptionPane.showMessageDialog(this,"Ha dejado campos vacios","NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
-        } else {
+        if (!estanVacios()) {
             String [] datosActualizados = {jTextFieldAAIATA.getText(),jTextFieldAAOACI.getText(),jTextFieldAANombre.getText()};
             if (!ping.modificarFilaEnTabla(nombreTablaMysql, columnasTablaMysql, datosActualizados, pK,llaveActual)) {
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
+                limpiarAA();
+                botonBuscar.setEnabled(true);
+                botonAgregar.setEnabled(true);
+                botonVolver.setEnabled(true);
+                jMenuItem1.setEnabled(true);
+                jMenuItem2.setEnabled(true);
+                jMenuItem3.setEnabled(true);
+                botonActualizar.setEnabled(false); 
+                jTextFieldSIATA.setText(null);
+                jTextFieldSOACI.setText(null);
+                jTextFieldSNombre.setText(null);
                 if (!ping.mostrarColumnasTablaMysqlSimple(jTableAeropuertosManifiestos, nombreTablaMysql, columnasTablaMysql)) {
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
             }
-            jTextFieldAAIATA.setText(null);
-            jTextFieldAAOACI.setText(null);
-            jTextFieldAANombre.setText(null);
-            botonBuscar.setEnabled(true);
-            botonAgregar.setEnabled(true);
-            botonVolver.setEnabled(true);
-            jMenuItem1.setEnabled(true);
-            jMenuItem2.setEnabled(true);
-            jMenuItem3.setEnabled(true);
-            botonActualizar.setEnabled(false); 
         }
     }//GEN-LAST:event_botonActualizarActionPerformed
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAIATA) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAOACI) || FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre)) {
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAIATA)) {
-                jTextFieldAAIATA.setBackground(new java.awt.Color(255,0,0));
-            }
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAOACI)) {
-                jTextFieldAAOACI.setBackground(new java.awt.Color(255,0,0));
-            }
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre)) {
-                jTextFieldAANombre.setBackground(new java.awt.Color(255,0,0));
-            }
-            JOptionPane.showMessageDialog(this,"Ha dejado campos vacios","NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
-        } else {
+        if (!estanVacios()) {
             String [] valores = {jTextFieldAAIATA.getText(),jTextFieldAAOACI.getText(),jTextFieldAANombre.getText()};
             String mensajeSiRepiteRegistro = "Ya existe un aeropuerto con ese codigo iata";
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
+                limpiarAA();
                 if(!ping.mostrarColumnasTablaMysqlSimple(jTableAeropuertosManifiestos, nombreTablaMysql, columnasTablaMysql)){
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
             }
-            jTextFieldAAIATA.setText(null);
-            jTextFieldAAOACI.setText(null);
-            jTextFieldAANombre.setText(null);
         }
     }//GEN-LAST:event_botonAgregarActionPerformed
 
@@ -499,9 +494,6 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
-        jTextFieldAAIATA.setBackground(new java.awt.Color(255,255,255));
-        jTextFieldAAOACI.setBackground(new java.awt.Color(255,255,255));
-        jTextFieldAANombre.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -514,9 +506,6 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
                 jTextFieldSIATA.setText(null);
                 jTextFieldSOACI.setText(null);
                 jTextFieldSNombre.setText(null);
-                jTextFieldSIATA.setBackground(new java.awt.Color(212,208,200));
-                jTextFieldSOACI.setBackground(new java.awt.Color(212,208,200));
-                jTextFieldSNombre.setBackground(new java.awt.Color(212,208,200));
             }
             if(!ping.mostrarColumnasTablaMysqlSimple(jTableAeropuertosManifiestos,nombreTablaMysql,columnasTablaMysql)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
@@ -768,6 +757,7 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
     private javax.swing.JButton botonAgregar;
     private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonVolver;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -775,6 +765,7 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabelObligatorios;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -799,7 +790,10 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
     private String [] columnasTablaMysql;
     private String nombreTablaMysql;
     private String pK;
-    private final String mensajeNoSeleccionado = "Primero de clic izquierdo sobre el elemento deseado de la tabla";
+    private final String mensajeNoSeleccionado = "PRIMERO HAGA CLIC IZQUIERDO SOBRE EL ELEMENTO DESEADO DE LA TABLA";
+    private final int rError = 255;
+    private final int gError = 0;
+    private final int bError = 0;
     
     public void setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
         if (ping.conectarBD(sv,us,pw,dB)) {
@@ -823,9 +817,10 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
             jTextFieldSIATA.setText(celda);
             jTextFieldSOACI.setText(celda1);
             jTextFieldSNombre.setText(celda2);
-            jTextFieldSIATA.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSOACI.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSNombre.setBackground(new java.awt.Color(153,255,153));
+            jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel1.setForeground(new java.awt.Color(212, 208, 200));
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -833,15 +828,47 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
     
     private void funcionVolver() {
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldSIATA)) {
-            jTextFieldSIATA.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSOACI.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSNombre.setBackground(new java.awt.Color(255,0,0));
+            jLabel12.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabel16.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabel13.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabel1.setForeground(new java.awt.Color(rError, gError, bError));
         } else {
             AJFrameVentanaCapturas.jTextField18.setText(jTextFieldSIATA.getText());
             AJFrameVentanaCapturas.jTextField16.setText(jTextFieldSNombre.getText());
-            AJFrameVentanaCapturas.jTextField18.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField16.setBackground(new java.awt.Color(153,255,153));
             this.dispose();  
         }
+    }
+    
+    private boolean estanVacios() {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAIATA) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAOACI) || FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre)) {
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAIATA)) {
+                jLabel14.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel14.setText("IATA*");
+            }
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAOACI)) {
+                jLabel17.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel17.setText("OACI*");
+            }
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre)) {
+                jLabel18.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel18.setText("NOMBRE*");
+            }
+            jLabelObligatorios.setForeground(new java.awt.Color(rError, gError, bError));
+            return true;
+        }
+        return false;
+    }
+    
+    private void limpiarAA() {
+        jTextFieldAAIATA.setText(null);
+        jTextFieldAAOACI.setText(null);
+        jTextFieldAANombre.setText(null);
+        jLabelObligatorios.setForeground(new java.awt.Color(212, 208, 200));
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("IATA");
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setText("OACI");
+        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel18.setText("NOMBRE");
     }
 }

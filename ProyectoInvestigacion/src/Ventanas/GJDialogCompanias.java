@@ -47,6 +47,7 @@ public class GJDialogCompanias extends javax.swing.JDialog {
         jLabel31 = new javax.swing.JLabel();
         jTextFieldSCompania = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         botonAgregar = new javax.swing.JButton();
         botonActualizar = new javax.swing.JButton();
@@ -54,6 +55,7 @@ public class GJDialogCompanias extends javax.swing.JDialog {
         jTextFieldAASiglas = new javax.swing.JTextField();
         jTextFieldAACompania = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
+        jLabelObligatorios = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCompaniasManifiestos = new javax.swing.JTable();
 
@@ -149,33 +151,41 @@ public class GJDialogCompanias extends javax.swing.JDialog {
 
         jLabel32.setText("COMPAÑÍA");
 
+        jLabel1.setForeground(new java.awt.Color(212, 208, 200));
+        jLabel1.setText("SELECCIONE UNA COMPAÑÍA DE LA TABLA");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botonVolver)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(botonVolver)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel31))
-                            .addComponent(jTextFieldSSiglas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jTextFieldSCompania, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldSSiglas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addComponent(jTextFieldSCompania, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jTextFieldSSiglas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -187,10 +197,12 @@ public class GJDialogCompanias extends javax.swing.JDialog {
                         .addComponent(jLabel32)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonVolver)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("AGREGAR/ACTUALIZAR COMPAÑIAS"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("AGREGAR/ACTUALIZAR COMPAÑÍAS"));
 
         botonAgregar.setText("AGREGAR");
         botonAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -210,22 +222,12 @@ public class GJDialogCompanias extends javax.swing.JDialog {
         jLabel29.setText("SIGLAS");
 
         jTextFieldAASiglas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldAASiglas.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldAASiglasFocusGained(evt);
-            }
-        });
         jTextFieldAASiglas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldAASiglasKeyTyped(evt);
             }
         });
 
-        jTextFieldAACompania.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldAACompaniaFocusGained(evt);
-            }
-        });
         jTextFieldAACompania.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldAACompaniaKeyTyped(evt);
@@ -233,6 +235,9 @@ public class GJDialogCompanias extends javax.swing.JDialog {
         });
 
         jLabel30.setText("COMPAÑÍA");
+
+        jLabelObligatorios.setForeground(new java.awt.Color(212, 208, 200));
+        jLabelObligatorios.setText("* ESTOS CAMPOS SON OBLIGATORIOS");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -242,19 +247,24 @@ public class GJDialogCompanias extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel29))
-                    .addComponent(jTextFieldAASiglas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldAASiglas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(botonActualizar)
+                                .addGap(18, 18, 18)
+                                .addComponent(botonAgregar))
+                            .addComponent(jTextFieldAACompania, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(botonActualizar)
-                        .addGap(18, 18, 18)
-                        .addComponent(botonAgregar))
-                    .addComponent(jTextFieldAACompania, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelObligatorios)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -274,6 +284,8 @@ public class GJDialogCompanias extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonAgregar)
                     .addComponent(botonActualizar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelObligatorios)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -317,7 +329,7 @@ public class GJDialogCompanias extends javax.swing.JDialog {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,11 +338,11 @@ public class GJDialogCompanias extends javax.swing.JDialog {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -355,62 +367,46 @@ public class GJDialogCompanias extends javax.swing.JDialog {
         } else {
             int filasTabla = jTableCompaniasManifiestos.getRowCount();
             if (filasTabla == 0) {
-                JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO LAS SIGLAS","ERROR EN BUSQUEDA",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO LAS SIGLAS","",JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }//GEN-LAST:event_botonBuscarActionPerformed
 
     private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAASiglas) || FuncionesGenerales.estaVacioJTextField(jTextFieldAACompania)) {
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAASiglas)) {
-                jTextFieldAASiglas.setBackground(new java.awt.Color(255,0,0));
-            }
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAACompania)) {
-                jTextFieldAACompania.setBackground(new java.awt.Color(255,0,0));
-            }
-            JOptionPane.showMessageDialog(this,"Ha dejado campos vacios","NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
-        } else {
+        if (!estanVacios()) {
             String [] datosActualizados = {jTextFieldAASiglas.getText(),jTextFieldAACompania.getText()};
             if (!ping.modificarFilaEnTabla(nombreTablaMysql, columnasTablaMysql, datosActualizados, pK,llaveActual)) {
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
+                limpiarAA();
+                botonBuscar.setEnabled(true);
+                botonAgregar.setEnabled(true);
+                botonVolver.setEnabled(true);
+                jMenuItem1.setEnabled(true);
+                jMenuItem2.setEnabled(true);
+                jMenuItem3.setEnabled(true);
+                botonActualizar.setEnabled(false);
+                jTextFieldSSiglas.setText(null);
+                jTextFieldSCompania.setText(null);
                 if (!ping.mostrarColumnasTablaMysqlSimple(jTableCompaniasManifiestos, nombreTablaMysql, columnasTablaMysql)) {
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
             }
-            jTextFieldAASiglas.setText(null);
-            jTextFieldAACompania.setText(null);
-            botonBuscar.setEnabled(true);
-            botonAgregar.setEnabled(true);
-            botonVolver.setEnabled(true);
-            jMenuItem1.setEnabled(true);
-            jMenuItem2.setEnabled(true);
-            jMenuItem3.setEnabled(true);
-            botonActualizar.setEnabled(false); 
         }
     }//GEN-LAST:event_botonActualizarActionPerformed
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAASiglas) || FuncionesGenerales.estaVacioJTextField(jTextFieldAACompania)) {
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAASiglas)) {
-                jTextFieldAASiglas.setBackground(new java.awt.Color(255,0,0));
-            }
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAACompania)) {
-                jTextFieldAACompania.setBackground(new java.awt.Color(255,0,0));
-            }
-            JOptionPane.showMessageDialog(this,"Ha dejado campos vacios","NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
-        } else {
+        if (!estanVacios()) {
             String [] valores = {jTextFieldAASiglas.getText(),jTextFieldAACompania.getText()};
             String mensajeSiRepiteRegistro = "Ya existe una compañia con esas siglas";
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
+                limpiarAA();
                 if(!ping.mostrarColumnasTablaMysqlSimple(jTableCompaniasManifiestos, nombreTablaMysql, columnasTablaMysql)){
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
             }
-            jTextFieldAASiglas.setText(null);
-            jTextFieldAACompania.setText(null);
         }
     }//GEN-LAST:event_botonAgregarActionPerformed
 
@@ -454,14 +450,6 @@ public class GJDialogCompanias extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jTextFieldAACompaniaKeyTyped
 
-    private void jTextFieldAASiglasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAASiglasFocusGained
-        jTextFieldAASiglas.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldAASiglasFocusGained
-
-    private void jTextFieldAACompaniaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAACompaniaFocusGained
-        jTextFieldAACompania.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldAACompaniaFocusGained
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         funcionSeleccionar();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -484,8 +472,6 @@ public class GJDialogCompanias extends javax.swing.JDialog {
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
-        jTextFieldAASiglas.setBackground(new java.awt.Color(255,255,255));
-        jTextFieldAACompania.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -497,8 +483,6 @@ public class GJDialogCompanias extends javax.swing.JDialog {
             } else {
                 jTextFieldSSiglas.setText(null);
                 jTextFieldSCompania.setText(null);
-                jTextFieldSSiglas.setBackground(new java.awt.Color(212,208,200));
-                jTextFieldSCompania.setBackground(new java.awt.Color(212,208,200));
             }
             if(!ping.mostrarColumnasTablaMysqlSimple(jTableCompaniasManifiestos,nombreTablaMysql,columnasTablaMysql)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
@@ -690,11 +674,13 @@ public class GJDialogCompanias extends javax.swing.JDialog {
     private javax.swing.JButton botonAgregar;
     private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonVolver;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabelObligatorios;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -717,7 +703,10 @@ public class GJDialogCompanias extends javax.swing.JDialog {
     private String [] columnasTablaMysql;
     private String nombreTablaMysql;
     private String pK;
-    private final String mensajeNoSeleccionado = "Primero de clic izquierdo sobre el elemento deseado de la tabla";
+    private final String mensajeNoSeleccionado = "PRIMERO HAGA CLIC IZQUIERDO SOBRE EL ELEMENTO DESEADO DE LA TABLA";
+    private final int rError = 255;
+    private final int gError = 0;
+    private final int bError = 0;
     
     public void setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
         if (ping.conectarBD(sv,us,pw,dB)) {
@@ -739,8 +728,9 @@ public class GJDialogCompanias extends javax.swing.JDialog {
             String celda1 = jTableCompaniasManifiestos.getValueAt(filaSeleccionada,1).toString();
             jTextFieldSSiglas.setText(celda);
             jTextFieldSCompania.setText(celda1);
-            jTextFieldSSiglas.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSCompania.setBackground(new java.awt.Color(153,255,153));
+            jLabel31.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel32.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel1.setForeground(new java.awt.Color(212, 208, 200));
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -748,14 +738,39 @@ public class GJDialogCompanias extends javax.swing.JDialog {
     
     private void funcionVolver() {
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldSSiglas)) {
-            jTextFieldSSiglas.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSCompania.setBackground(new java.awt.Color(255,0,0));
+            jLabel31.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabel32.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabel1.setForeground(new java.awt.Color(rError, gError, bError));
         } else {
             AJFrameVentanaCapturas.jTextField12.setText(jTextFieldSSiglas.getText());
             AJFrameVentanaCapturas.jTextField11.setText(jTextFieldSCompania.getText());
-            AJFrameVentanaCapturas.jTextField12.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField11.setBackground(new java.awt.Color(153,255,153));
             this.dispose();  
         }
+    }
+    
+    private boolean estanVacios() {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAASiglas) || FuncionesGenerales.estaVacioJTextField(jTextFieldAACompania)) {
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAASiglas)) {
+                jLabel29.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel29.setText("SIGLAS*");
+            }
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAACompania)) {
+                jLabel30.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel30.setText("COMPAÑÍA*");
+            }
+            jLabelObligatorios.setForeground(new java.awt.Color(rError, gError, bError));
+            return true;
+        }
+        return false;
+    }
+    
+    private void limpiarAA() {
+        jTextFieldAASiglas.setText(null);
+        jTextFieldAACompania.setText(null);
+        jLabelObligatorios.setForeground(new java.awt.Color(212, 208, 200));
+        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel29.setText("SIGLAS");
+        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel30.setText("COMPAÑÍA");
     }
 }

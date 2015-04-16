@@ -47,6 +47,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         jLabel22 = new javax.swing.JLabel();
         jTextFieldSTipo = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         botonAgregar = new javax.swing.JButton();
         botonActualizar = new javax.swing.JButton();
@@ -54,6 +55,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         jTextFieldAATipo = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        jLabelObligatorios = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAeronavesPlanes = new javax.swing.JTable();
 
@@ -150,6 +152,9 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
 
         jLabel21.setText("MATRICULA");
 
+        jLabel1.setForeground(new java.awt.Color(212, 208, 200));
+        jLabel1.setText("SELECCIONE UNA AERONAVE DE LA TABLA");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -157,21 +162,25 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldSMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel21)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel22))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jTextFieldSTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonVolver)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botonVolver, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jTextFieldSMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldSTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -185,9 +194,11 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(jLabel22))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonVolver)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("AGREGAR/ACTUALIZAR AERONAVES"));
@@ -208,11 +219,6 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         });
 
         jTextFieldAAMatricula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldAAMatricula.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldAAMatriculaFocusGained(evt);
-            }
-        });
         jTextFieldAAMatricula.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldAAMatriculaKeyTyped(evt);
@@ -220,11 +226,6 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         });
 
         jTextFieldAATipo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldAATipo.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldAATipoFocusGained(evt);
-            }
-        });
         jTextFieldAATipo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldAATipoKeyTyped(evt);
@@ -235,30 +236,40 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
 
         jLabel20.setText("MATRICULA");
 
+        jLabelObligatorios.setForeground(new java.awt.Color(212, 208, 200));
+        jLabelObligatorios.setText("* ESTOS CAMPOS SON OBLIGATORIOS");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldAAMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jTextFieldAAMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jTextFieldAATipo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel20)))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel15))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jTextFieldAATipo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(botonActualizar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonAgregar)
+                        .addContainerGap()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(botonActualizar)
+                                .addGap(18, 18, 18)
+                                .addComponent(botonAgregar))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabelObligatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -276,6 +287,8 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonAgregar)
                     .addComponent(botonActualizar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelObligatorios)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -314,10 +327,11 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
@@ -327,21 +341,19 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
                 .addGap(30, 30, 30)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,62 +371,46 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         } else {
             int filasTabla = jTableAeronavesPlanes.getRowCount();
             if (filasTabla == 0) {
-                JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO LA MATRICULA","ERROR EN BUSQUEDA",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO LA MATRICULA","",JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }//GEN-LAST:event_botonBuscarActionPerformed
 
     private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAMatricula) || FuncionesGenerales.estaVacioJTextField(jTextFieldAATipo)) {
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAMatricula)) {
-                jTextFieldAAMatricula.setBackground(new java.awt.Color(255,0,0));
-            }
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAATipo)) {
-                jTextFieldAATipo.setBackground(new java.awt.Color(255,0,0));
-            }
-            JOptionPane.showMessageDialog(this,"Ha dejado campos vacios","NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
-        } else {
+        if (!estanVacios()) {
             String [] datosActualizados = {jTextFieldAAMatricula.getText(),jTextFieldAATipo.getText()};
             if (!ping.modificarFilaEnTabla(nombreTablaMysql, columnasTablaMysql, datosActualizados, pK,llaveActual)) {
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
+                limpiarAA();
+                botonBuscar.setEnabled(true);
+                botonAgregar.setEnabled(true);
+                botonVolver.setEnabled(true);
+                jMenuItem1.setEnabled(true);
+                jMenuItem2.setEnabled(true);
+                jMenuItem3.setEnabled(true);
+                botonActualizar.setEnabled(false);
+                jTextFieldSMatricula.setText(null);
+                jTextFieldSTipo.setText(null); 
                 if (!ping.mostrarColumnasTablaMysqlSimple(jTableAeronavesPlanes, nombreTablaMysql, columnasTablaMysql)) {
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
             }
-            jTextFieldAAMatricula.setText(null);
-            jTextFieldAATipo.setText(null);
-            botonBuscar.setEnabled(true);
-            botonAgregar.setEnabled(true);
-            botonVolver.setEnabled(true);
-            jMenuItem1.setEnabled(true);
-            jMenuItem2.setEnabled(true);
-            jMenuItem3.setEnabled(true);
-            botonActualizar.setEnabled(false); 
         }
     }//GEN-LAST:event_botonActualizarActionPerformed
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAMatricula) || FuncionesGenerales.estaVacioJTextField(jTextFieldAATipo)) {
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAMatricula)) {
-                jTextFieldAAMatricula.setBackground(new java.awt.Color(255,0,0));
-            }
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAATipo)) {
-                jTextFieldAATipo.setBackground(new java.awt.Color(255,0,0));
-            }
-            JOptionPane.showMessageDialog(this,"Ha dejado campos vacios","NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
-        } else {
+        if (!estanVacios()) {
             String [] valores = {jTextFieldAAMatricula.getText(),jTextFieldAATipo.getText()};
-            String mensajeSiRepiteRegistro = "Ya existe un aeronave con esa matricula";
+            String mensajeSiRepiteRegistro = "YA EXISTE UNA AERONAVE CON ESA MATRICULA";
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
+                limpiarAA();               
                 if(!ping.mostrarColumnasTablaMysqlSimple(jTableAeronavesPlanes, nombreTablaMysql, columnasTablaMysql)){
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
             }
-            jTextFieldAAMatricula.setText(null);
-            jTextFieldAATipo.setText(null);
         }
     }//GEN-LAST:event_botonAgregarActionPerformed
 
@@ -444,8 +440,6 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
-        jTextFieldAAMatricula.setBackground(new java.awt.Color(255,255,255));
-        jTextFieldAATipo.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -457,8 +451,6 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
             } else {
                 jTextFieldSMatricula.setText(null);
                 jTextFieldSTipo.setText(null);                
-                jTextFieldSMatricula.setBackground(new java.awt.Color(212,208,200));
-                jTextFieldSTipo.setBackground(new java.awt.Color(212,208,200));               
             }
             if(!ping.mostrarColumnasTablaMysqlSimple(jTableAeronavesPlanes,nombreTablaMysql,columnasTablaMysql)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
@@ -503,14 +495,6 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
             evt.setKeyChar(caracterMayuscula);
         }
     }//GEN-LAST:event_jTextFieldAATipoKeyTyped
-
-    private void jTextFieldAAMatriculaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAAMatriculaFocusGained
-        jTextFieldAAMatricula.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldAAMatriculaFocusGained
-
-    private void jTextFieldAATipoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAATipoFocusGained
-        jTextFieldAATipo.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldAATipoFocusGained
 
     private void jTableAeronavesPlanesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAeronavesPlanesMouseClicked
         if (evt.getClickCount() == 2) {
@@ -694,11 +678,13 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     private javax.swing.JButton botonAgregar;
     private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonVolver;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabelObligatorios;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -722,6 +708,9 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     private String nombreTablaMysql;
     private String pK;
     private final String mensajeNoSeleccionado = "Primero de clic izquierdo sobre el elemento deseado de la tabla";
+    private final int rError = 255;
+    private final int gError = 0;
+    private final int bError = 0;
     
     public void setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
         if (ping.conectarBD(sv,us,pw,dB)) {
@@ -743,8 +732,9 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
             String celda1 = jTableAeronavesPlanes.getValueAt(filaSeleccionada,1).toString();
             jTextFieldSMatricula.setText(celda);
             jTextFieldSTipo.setText(celda1);       
-            jTextFieldSMatricula.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSTipo.setBackground(new java.awt.Color(153,255,153));          
+            jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel22.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel1.setForeground(new java.awt.Color(212, 208, 200));          
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -752,14 +742,39 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     
     private void funcionVolver() {
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldSMatricula)) {
-            jTextFieldSMatricula.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSTipo.setBackground(new java.awt.Color(255,0,0));
+            jLabel21.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabel22.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabel1.setForeground(new java.awt.Color(rError, gError, bError));
         } else {
             AJFrameVentanaCapturas.jTextField4.setText(jTextFieldSMatricula.getText());
             AJFrameVentanaCapturas.jTextField5.setText(jTextFieldSTipo.getText());
-            AJFrameVentanaCapturas.jTextField4.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField5.setBackground(new java.awt.Color(153,255,153));
             this.dispose();  
         }
+    }
+
+    private boolean estanVacios() {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAMatricula) || FuncionesGenerales.estaVacioJTextField(jTextFieldAATipo)) {
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAMatricula)) {
+                jLabel20.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel20.setText("MATRÍCULA*");
+            }
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAATipo)) {
+                jLabel15.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel15.setText("TIPO*");
+            }
+            jLabelObligatorios.setForeground(new java.awt.Color(rError, gError, bError));
+            return true;
+        }
+        return false;
+    }
+    
+    private void limpiarAA() {
+        jTextFieldAAMatricula.setText(null);
+        jTextFieldAATipo.setText(null);
+        jLabelObligatorios.setForeground(new java.awt.Color(212, 208, 200));
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setText("MATRÍCULA");
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("TIPO");
     }
 }

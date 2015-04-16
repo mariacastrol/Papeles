@@ -48,6 +48,7 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
         jLabel33 = new javax.swing.JLabel();
         jTextFieldSLicencia = new javax.swing.JTextField();
         jLabelSTLicencia = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         botonAgregar = new javax.swing.JButton();
         botonActualizar = new javax.swing.JButton();
@@ -59,6 +60,7 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jTextFieldAALicencia = new javax.swing.JTextField();
+        jLabelObligatorios = new javax.swing.JLabel();
         jLabelAATLicencia = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCopilotosPlanes = new javax.swing.JTable();
@@ -154,6 +156,9 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
 
         jLabelSTLicencia.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
 
+        jLabel1.setForeground(new java.awt.Color(212, 208, 200));
+        jLabel1.setText("SELECCIONE UN COPILOTO DE LA TABLA");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -163,10 +168,12 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldSNombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jLabel31))
-                            .addComponent(jTextFieldSNombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel31))))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -196,7 +203,9 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
                     .addComponent(jLabel31)
                     .addComponent(jLabel33))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonVolver)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonVolver)
+                    .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -217,11 +226,6 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
             }
         });
 
-        jTextFieldAANombre.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldAANombreFocusGained(evt);
-            }
-        });
         jTextFieldAANombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldAANombreKeyTyped(evt);
@@ -230,11 +234,6 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
 
         jLabel14.setText("NOMBRE(S)");
 
-        jTextFieldAAPaterno.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldAAPaternoFocusGained(evt);
-            }
-        });
         jTextFieldAAPaterno.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldAAPaternoKeyTyped(evt);
@@ -243,11 +242,6 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
 
         jLabel17.setText("APELLIDO PATERNO");
 
-        jTextFieldAAMaterno.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldAAMaternoFocusGained(evt);
-            }
-        });
         jTextFieldAAMaterno.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldAAMaternoKeyTyped(evt);
@@ -259,11 +253,6 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
         jLabel19.setText("N° DE LICENCIA");
 
         jTextFieldAALicencia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldAALicencia.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldAALicenciaFocusGained(evt);
-            }
-        });
         jTextFieldAALicencia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldAALicenciaKeyReleased(evt);
@@ -272,6 +261,9 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
                 jTextFieldAALicenciaKeyTyped(evt);
             }
         });
+
+        jLabelObligatorios.setForeground(new java.awt.Color(212, 208, 200));
+        jLabelObligatorios.setText("* ESTOS CAMPOS SON OBLIGATORIOS");
 
         jLabelAATLicencia.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         jLabelAATLicencia.setText(" ");
@@ -289,31 +281,33 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jTextFieldAAPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel17)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(jLabel14)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(botonActualizar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(botonAgregar))))
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(botonActualizar)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(botonAgregar))
+                                            .addComponent(jLabel19)
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(jTextFieldAALicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jLabelAATLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabelObligatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel18)
+                                            .addComponent(jLabel17))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jTextFieldAANombre, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jLabel19)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jTextFieldAALicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabelAATLicencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                        .addGap(30, 30, 30))))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextFieldAAPaterno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAANombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(28, 28, 28))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,7 +322,9 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
                     .addComponent(jLabel14)
                     .addComponent(jLabel19))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldAAPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldAAPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelObligatorios))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -338,7 +334,7 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
                     .addComponent(botonAgregar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTableCopilotosPlanes.setModel(new javax.swing.table.DefaultTableModel(
@@ -430,74 +426,47 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
         } else {
             int filasTabla = jTableCopilotosPlanes.getRowCount();
             if (filasTabla == 0) {
-                JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO EL NÚMERO DE LICENCIA","ERROR EN BUSQUEDA",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO EL NÚMERO DE LICENCIA","",JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }//GEN-LAST:event_botonBuscarActionPerformed
 
     private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia) || FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia)) {
-                jTextFieldAALicencia.setBackground(new java.awt.Color(255,0,0));
-            }
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre)) {
-                jTextFieldAANombre.setBackground(new java.awt.Color(255,0,0));
-            }
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
-                jTextFieldAAPaterno.setBackground(new java.awt.Color(255,0,0));
-            }           
-            JOptionPane.showMessageDialog(this,"Ha dejado campos vacios","NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
-        } else {
+        if (!estanVacios()) {
             String [] datosActualizados = {jTextFieldAALicencia.getText(),jTextFieldAANombre.getText(),jTextFieldAAPaterno.getText(),jTextFieldAAMaterno.getText(),jLabelAATLicencia.getText()};
             if (!ping.modificarFilaEnTabla(nombreTablaMysql, columnasTablaMysql, datosActualizados, pK,llaveActual)) {
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO ACTUALIZAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
+                limpiarAA();
+                botonBuscar.setEnabled(true);
+                botonAgregar.setEnabled(true);
+                botonVolver.setEnabled(true);
+                jMenuItem1.setEnabled(true);
+                jMenuItem2.setEnabled(true);
+                jMenuItem3.setEnabled(true);
+                botonActualizar.setEnabled(false);
+                jTextFieldSNombreCompleto.setText(null);
+                jTextFieldSLicencia.setText(null);
+                jLabelSTLicencia.setText(null);
                 if (!ping.mostrarColumnasTablaMysqlSimple(jTableCopilotosPlanes, nombreTablaMysql, columnasTablaMysql)) {
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
             }
-            jTextFieldAALicencia.setText(null);
-            jTextFieldAANombre.setText(null);
-            jTextFieldAAPaterno.setText(null);
-            jTextFieldAAMaterno.setText(null);
-            jLabelAATLicencia.setText(null);
-            botonBuscar.setEnabled(true);
-            botonAgregar.setEnabled(true);
-            botonVolver.setEnabled(true);
-            jMenuItem1.setEnabled(true);
-            jMenuItem2.setEnabled(true);
-            jMenuItem3.setEnabled(true);
-            botonActualizar.setEnabled(false); 
         }
     }//GEN-LAST:event_botonActualizarActionPerformed
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
-        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia) || FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia)) {
-                jTextFieldAALicencia.setBackground(new java.awt.Color(255,0,0));
-            }
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAANombre)) {
-                jTextFieldAANombre.setBackground(new java.awt.Color(255,0,0));
-            }
-            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
-                jTextFieldAAPaterno.setBackground(new java.awt.Color(255,0,0));
-            }          
-            JOptionPane.showMessageDialog(this,"Ha dejado campos vacios","NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
-        } else {
+        if (!estanVacios()) {
             String [] valores = {jTextFieldAALicencia.getText(),jTextFieldAANombre.getText(),jTextFieldAAPaterno.getText(),jTextFieldAAMaterno.getText(),jLabelAATLicencia.getText()};
-            String mensajeSiRepiteRegistro = "Ya existe este número de Licencia";
+            String mensajeSiRepiteRegistro = "YA EXISTE ESTE NÚMERO DE LICENCIA";
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
+                limpiarAA();
                 if(!ping.mostrarColumnasTablaMysqlSimple(jTableCopilotosPlanes, nombreTablaMysql, columnasTablaMysql)){
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
             }
-            jTextFieldAALicencia.setText(null);
-            jTextFieldAANombre.setText(null);
-            jTextFieldAAPaterno.setText(null);
-            jTextFieldAAMaterno.setText(null);
-            jLabelAATLicencia.setText(null);
         }
     }//GEN-LAST:event_botonAgregarActionPerformed
 
@@ -533,10 +502,6 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
-        jTextFieldAANombre.setBackground(new java.awt.Color(255,255,255));
-        jTextFieldAAPaterno.setBackground(new java.awt.Color(255,255,255));
-        jTextFieldAAMaterno.setBackground(new java.awt.Color(255,255,255));
-        jTextFieldAALicencia.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -549,8 +514,6 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
                 jTextFieldSNombreCompleto.setText(null);
                 jTextFieldSLicencia.setText(null);
                 jLabelSTLicencia.setText(null);               
-                jTextFieldSNombreCompleto.setBackground(new java.awt.Color(212,208,200));
-                jTextFieldSLicencia.setBackground(new java.awt.Color(212,208,200));               
             }
             if(!ping.mostrarColumnasTablaMysqlSimple(jTableCopilotosPlanes,nombreTablaMysql,columnasTablaMysql)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
@@ -588,10 +551,6 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
         FuncionesGenerales.nacionalExtranjera(jTextFieldAALicencia,jLabelAATLicencia); 
     }//GEN-LAST:event_jTextFieldAALicenciaKeyReleased
 
-    private void jTextFieldAALicenciaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAALicenciaFocusGained
-        jTextFieldAALicencia.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldAALicenciaFocusGained
-
     private void jTextFieldAANombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAANombreKeyTyped
         int limite = 50;
         char caracterValidar = evt.getKeyChar();
@@ -603,10 +562,6 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
             evt.setKeyChar(caracterMayuscula);
         }
     }//GEN-LAST:event_jTextFieldAANombreKeyTyped
-
-    private void jTextFieldAANombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAANombreFocusGained
-        jTextFieldAANombre.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldAANombreFocusGained
 
     private void jTextFieldAAPaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAPaternoKeyTyped
         int limite = 20;
@@ -620,10 +575,6 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jTextFieldAAPaternoKeyTyped
 
-    private void jTextFieldAAPaternoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAAPaternoFocusGained
-        jTextFieldAAPaterno.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldAAPaternoFocusGained
-
     private void jTextFieldAAMaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAMaternoKeyTyped
         int limite = 20;
         char caracterValidar = evt.getKeyChar();
@@ -635,10 +586,6 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
             evt.setKeyChar(caracterMayuscula);
         }
     }//GEN-LAST:event_jTextFieldAAMaternoKeyTyped
-
-    private void jTextFieldAAMaternoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAAMaternoFocusGained
-        jTextFieldAAMaterno.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldAAMaternoFocusGained
 
     private void jTableCopilotosPlanesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCopilotosPlanesMouseClicked
         if (evt.getClickCount() == 2) {
@@ -822,6 +769,7 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
     private javax.swing.JButton botonAgregar;
     private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonVolver;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
@@ -830,6 +778,7 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabelAATLicencia;
+    private javax.swing.JLabel jLabelObligatorios;
     private javax.swing.JLabel jLabelSTLicencia;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -855,7 +804,10 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
     private String [] columnasTablaMysql;
     private String nombreTablaMysql;
     private String pK;
-    private final String mensajeNoSeleccionado = "Primero de clic izquierdo sobre el elemento deseado de la tabla";
+    private final String mensajeNoSeleccionado = "PRIMERO HAGA CLIC IZQUIERDO SOBRE EL ELEMENTO DESEADO DE LA TABLA";
+    private final int rError = 255;
+    private final int gError = 0;
+    private final int bError = 0;
     
     public void setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
         if (ping.conectarBD(sv,us,pw,dB)) {
@@ -881,8 +833,9 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
             jTextFieldSNombreCompleto.setText(celda1+" "+celda2+" "+celda3);
             jTextFieldSLicencia.setText(celda);
             jLabelSTLicencia.setText(celda4);           
-            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(153,255,153));
-            jTextFieldSLicencia.setBackground(new java.awt.Color(153,255,153));
+            jLabel31.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel33.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel1.setForeground(new java.awt.Color(212, 208, 200)); 
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -890,15 +843,43 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
     
     private void funcionVolver() {
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldSNombreCompleto)) {
-            jTextFieldSNombreCompleto.setBackground(new java.awt.Color(255,0,0));
-            jTextFieldSLicencia.setBackground(new java.awt.Color(255,0,0));        
+            jLabel31.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabel33.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabel1.setForeground(new java.awt.Color(rError, gError, bError));       
         } else {
             AJFrameVentanaCapturas.jTextField8.setText(jTextFieldSNombreCompleto.getText());
             AJFrameVentanaCapturas.jTextField9.setText(jTextFieldSLicencia.getText());
             AJFrameVentanaCapturas.jLabel38.setText(jLabelSTLicencia.getText());
-            AJFrameVentanaCapturas.jTextField8.setBackground(new java.awt.Color(153,255,153));
-            AJFrameVentanaCapturas.jTextField9.setBackground(new java.awt.Color(153,255,153));            
             this.dispose();  
         }
+    }
+    
+    private boolean estanVacios() {
+        if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia)) {
+                jLabel19.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel19.setText("N° DE LICENCIA*");
+            }
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
+                jLabel17.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel17.setText("APELLIDO PATERNO*");
+            }
+            jLabelObligatorios.setForeground(new java.awt.Color(rError, gError, bError));
+            return true;
+        }
+        return false;
+    }
+    
+    private void limpiarAA () {
+        jTextFieldAALicencia.setText(null);
+        jTextFieldAANombre.setText(null);
+        jTextFieldAAPaterno.setText(null);
+        jTextFieldAAMaterno.setText(null);
+        jLabelAATLicencia.setText(null);
+        jLabelObligatorios.setForeground(new java.awt.Color(212, 208, 200));
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setText("N° DE LICENCIA");
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setText("APELLIDO PATERNO");
     }
 }
