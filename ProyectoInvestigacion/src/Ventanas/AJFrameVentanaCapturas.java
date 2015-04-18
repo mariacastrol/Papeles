@@ -1507,9 +1507,9 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             if (jLabel39.isEnabled()) {
                 desemb.jTextFieldPersonasTotal.setText(desembarque[0]);
                 String [] personas = desembarque[1].split("/");
-                desemb.jTextFieldPersonas1.setText(personas[0]);
-                desemb.jTextFieldPersonas2.setText(personas[1]);
-                desemb.jTextFieldPersonas3.setText(personas[2]);
+                desemb.jTextFieldTtlPersonas1.setText(personas[0]);
+                desemb.jTextFieldTtlPersonas2.setText(personas[1]);
+                desemb.jTextFieldTtlPersonas3.setText(personas[2]);
                 String [] equipaje = desembarque[2].split("/");
                 desemb.jTextFieldEquipajePzas.setText(equipaje[0]);
                 desemb.jTextFieldEquipajeKg.setText(equipaje[1]);

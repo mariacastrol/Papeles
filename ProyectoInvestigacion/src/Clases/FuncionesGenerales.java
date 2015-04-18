@@ -74,6 +74,30 @@ public class FuncionesGenerales {
         String numeroConFormato = df.format(numeroDosDigitos);
         return numeroConFormato;
     }
+    
+    public static void ponerEnCeros(JTextField campoTexto, JLabel etiquetaCampo, String leyendaEtiqueta) {
+        if (campoTexto.getText() == null || "".equals(campoTexto.getText())) {
+            campoTexto.setText("0");
+            etiquetaCampo.setForeground(new java.awt.Color(0,0,0));
+            etiquetaCampo.setText(leyendaEtiqueta);
+        }
+    }
+    
+    public static int sumarSiEstaVacioColor(JTextField campoTexto, JLabel etiquetaCampo, String leyendaEtiqueta, int cantidad, int r, int g, int b) {
+        if (campoTexto.getText() == null || "".equals(campoTexto.getText())) {
+            etiquetaCampo.setForeground(new java.awt.Color(r, g, b));
+            etiquetaCampo.setText(leyendaEtiqueta);
+            return cantidad;
+        }
+        return 0;
+    }
+    
+    public static int sumarSiEstaVacio(JTextField campoTexto, int cantidad) {
+        if (campoTexto.getText() == null || "".equals(campoTexto.getText())) {
+            return cantidad;
+        }
+        return 0;
+    }
     //!Character.isDigit(caracterValidar) && !Character.isAlphabetic(caracterValidar) && !Character.isISOControl(caracterValidar)) || cajaTextoAValidar.getText().length() == maxCaracteres
     //JTextField cajaTextoAValidar, int maxCaracteres, char caracterValidar
 }

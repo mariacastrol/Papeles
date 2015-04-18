@@ -5,7 +5,9 @@
  */
 package Ventanas;
 
-import javax.swing.JOptionPane;
+import Clases.FuncionesGenerales;
+import java.awt.Color;
+import javax.swing.JTextField;
 
 /**
  *
@@ -19,6 +21,7 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
     public PJDialogDesembarque(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        arregloTextField();
     }
 
     /**
@@ -32,10 +35,10 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextFieldPersonas1 = new javax.swing.JTextField();
+        jTextFieldTtlPersonas1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldPersonas2 = new javax.swing.JTextField();
-        jTextFieldPersonas3 = new javax.swing.JTextField();
+        jTextFieldTtlPersonas2 = new javax.swing.JTextField();
+        jTextFieldTtlPersonas3 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldEquipajeKg = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -52,6 +55,8 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         jTextFieldPersonasTotal = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         botonAgregar = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("DESEMBARQUE: MANIFIESTO DE LLEGADA");
@@ -60,52 +65,32 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
 
         jLabel1.setText("PERSONAS");
 
-        jTextFieldPersonas1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldPersonas1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldPersonas1FocusGained(evt);
-            }
-        });
-        jTextFieldPersonas1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldTtlPersonas1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldTtlPersonas1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldPersonas1KeyTyped(evt);
+                jTextFieldTtlPersonas1KeyTyped(evt);
             }
         });
 
         jLabel5.setText("/");
 
-        jTextFieldPersonas2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldPersonas2.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldPersonas2FocusGained(evt);
-            }
-        });
-        jTextFieldPersonas2.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldTtlPersonas2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldTtlPersonas2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldPersonas2KeyTyped(evt);
+                jTextFieldTtlPersonas2KeyTyped(evt);
             }
         });
 
-        jTextFieldPersonas3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldPersonas3.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldPersonas3FocusGained(evt);
-            }
-        });
-        jTextFieldPersonas3.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldTtlPersonas3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldTtlPersonas3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldPersonas3KeyTyped(evt);
+                jTextFieldTtlPersonas3KeyTyped(evt);
             }
         });
 
         jLabel6.setText("/");
 
         jTextFieldEquipajeKg.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldEquipajeKg.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldEquipajeKgFocusGained(evt);
-            }
-        });
         jTextFieldEquipajeKg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldEquipajeKgKeyTyped(evt);
@@ -115,11 +100,6 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         jLabel2.setText("EQUIPAJE");
 
         jTextFieldEquipajePzas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldEquipajePzas.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldEquipajePzasFocusGained(evt);
-            }
-        });
         jTextFieldEquipajePzas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldEquipajePzasKeyTyped(evt);
@@ -129,11 +109,6 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         jLabel7.setText("/");
 
         jTextFieldCargaKg.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldCargaKg.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldCargaKgFocusGained(evt);
-            }
-        });
         jTextFieldCargaKg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldCargaKgKeyTyped(evt);
@@ -143,11 +118,6 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         jLabel8.setText("/");
 
         jTextFieldCargaPzas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldCargaPzas.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldCargaPzasFocusGained(evt);
-            }
-        });
         jTextFieldCargaPzas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldCargaPzasKeyTyped(evt);
@@ -159,11 +129,6 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         jLabel4.setText("CORREO");
 
         jTextFieldCorreoPzas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldCorreoPzas.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldCorreoPzasFocusGained(evt);
-            }
-        });
         jTextFieldCorreoPzas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldCorreoPzasKeyTyped(evt);
@@ -173,11 +138,6 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         jLabel9.setText("/");
 
         jTextFieldCorreoKg.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldCorreoKg.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldCorreoKgFocusGained(evt);
-            }
-        });
         jTextFieldCorreoKg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldCorreoKgKeyTyped(evt);
@@ -185,11 +145,6 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         });
 
         jTextFieldPersonasTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldPersonasTotal.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldPersonasTotalFocusGained(evt);
-            }
-        });
         jTextFieldPersonasTotal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldPersonasTotalKeyTyped(evt);
@@ -205,6 +160,16 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
             }
         });
 
+        jLabel17.setForeground(new java.awt.Color(212, 208, 200));
+        jLabel17.setText("* CAMPOS OBLIGATORIOS");
+
+        jButton1.setText("CEROS");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -212,53 +177,51 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botonAgregar)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonAgregar))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel17)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(6, 6, 6)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextFieldCargaPzas, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldEquipajePzas, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldTtlPersonas1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldCorreoPzas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
-                                    .addGap(18, 18, 18))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addGap(22, 22, 22)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4))
-                                .addGap(28, 28, 28)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextFieldCargaPzas, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldEquipajePzas, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldPersonas1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldCorreoPzas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldEquipajeKg, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldCargaKg, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldCorreoKg, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldPersonas2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldPersonas3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldPersonasTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(30, 30, 30))
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldEquipajeKg, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldCargaKg, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldCorreoKg, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldTtlPersonas2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldTtlPersonas3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(20, 20, 20)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldPersonasTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,11 +229,11 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextFieldPersonas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldTtlPersonas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextFieldPersonas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldTtlPersonas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextFieldPersonas3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldTtlPersonas3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldPersonasTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -292,7 +255,11 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
                     .addComponent(jLabel9)
                     .addComponent(jTextFieldCorreoKg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonAgregar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonAgregar)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel17)
                 .addGap(15, 15, 15))
         );
 
@@ -311,32 +278,68 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldPersonas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPersonas1KeyTyped
+    private void jTextFieldTtlPersonas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTtlPersonas1KeyTyped
         int limite = 4;
         char caracterValidar = evt.getKeyChar();
-        if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldPersonas1.getText().length() < limite)){
+        if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldTtlPersonas1.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
+        } else {
+            Color cError = new Color(rError, gError, bError);
+            if (jLabel1.getForeground().getRGB() == cError.getRGB()) {
+                int jTextFieldVacios = 0;
+                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas2,1);
+                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas3,1);
+                if (jTextFieldVacios == 0) {
+                    jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel1.setText("PERSONAS");
+                }
+            }
+            desaparecerEtiqueta(0);
         }
-    }//GEN-LAST:event_jTextFieldPersonas1KeyTyped
+    }//GEN-LAST:event_jTextFieldTtlPersonas1KeyTyped
 
-    private void jTextFieldPersonas2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPersonas2KeyTyped
+    private void jTextFieldTtlPersonas2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTtlPersonas2KeyTyped
         int limite = 4;
         char caracterValidar = evt.getKeyChar();
-        if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldPersonas2.getText().length() < limite)){
+        if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldTtlPersonas2.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
+        } else {
+            Color cError = new Color(rError, gError, bError);
+            if (jLabel1.getForeground().getRGB() == cError.getRGB()) {
+                int jTextFieldVacios = 0;
+                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas1,1);
+                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas3,1);
+                if (jTextFieldVacios == 0) {
+                    jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel1.setText("PERSONAS");
+                }
+            }
+            desaparecerEtiqueta(1);
         }
-    }//GEN-LAST:event_jTextFieldPersonas2KeyTyped
+    }//GEN-LAST:event_jTextFieldTtlPersonas2KeyTyped
 
-    private void jTextFieldPersonas3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPersonas3KeyTyped
+    private void jTextFieldTtlPersonas3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTtlPersonas3KeyTyped
         int limite = 4;
         char caracterValidar = evt.getKeyChar();
-        if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldPersonas3.getText().length() < limite)){
+        if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldTtlPersonas3.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
+        } else {
+            Color cError = new Color(rError, gError, bError);
+            if (jLabel1.getForeground().getRGB() == cError.getRGB()) {
+                int jTextFieldVacios = 0;
+                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas1,1);
+                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas2,1);
+                if (jTextFieldVacios == 0) {
+                    jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel1.setText("PERSONAS");
+                }
+            }
+            desaparecerEtiqueta(2);
         }
-    }//GEN-LAST:event_jTextFieldPersonas3KeyTyped
+    }//GEN-LAST:event_jTextFieldTtlPersonas3KeyTyped
 
     private void jTextFieldPersonasTotalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPersonasTotalKeyTyped
         int limite = 4;
@@ -344,6 +347,13 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldPersonasTotal.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
+        } else {
+            Color cError = new Color(rError, gError, bError);
+            if (jLabel10.getForeground().getRGB() == cError.getRGB()) {
+                jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel10.setText("Núm.");
+            }
+            desaparecerEtiqueta(9);
         }
     }//GEN-LAST:event_jTextFieldPersonasTotalKeyTyped
 
@@ -353,6 +363,15 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldEquipajePzas.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
+        } else {
+            Color cError = new Color(rError, gError, bError);
+            if (jLabel2.getForeground().getRGB() == cError.getRGB()) {
+                if (FuncionesGenerales.sumarSiEstaVacio(jTextFieldEquipajeKg,1) == 0) {
+                    jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel2.setText("EQUIPAJE");
+                }
+            }
+            desaparecerEtiqueta(3);
         }
     }//GEN-LAST:event_jTextFieldEquipajePzasKeyTyped
 
@@ -362,6 +381,15 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldEquipajeKg.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
+        }  else {
+            Color cError = new Color(rError, gError, bError);
+            if (jLabel2.getForeground().getRGB() == cError.getRGB()) {
+                if (FuncionesGenerales.sumarSiEstaVacio(jTextFieldEquipajePzas,1) == 0) {
+                    jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel2.setText("EQUIPAJE");
+                }
+            }
+            desaparecerEtiqueta(4);
         }
     }//GEN-LAST:event_jTextFieldEquipajeKgKeyTyped
 
@@ -371,6 +399,15 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldCargaPzas.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
+        } else {
+            Color cError = new Color(rError, gError, bError);
+            if (jLabel3.getForeground().getRGB() == cError.getRGB()) {
+                if (FuncionesGenerales.sumarSiEstaVacio(jTextFieldCargaKg,1) == 0) {
+                    jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel3.setText("CARGA");
+                }
+            }
+            desaparecerEtiqueta(5);
         }
     }//GEN-LAST:event_jTextFieldCargaPzasKeyTyped
 
@@ -380,6 +417,15 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldCargaKg.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
+        } else {
+            Color cError = new Color(rError, gError, bError);
+            if (jLabel3.getForeground().getRGB() == cError.getRGB()) {
+                if (FuncionesGenerales.sumarSiEstaVacio(jTextFieldCargaPzas,1) == 0) {
+                    jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel3.setText("CARGA");
+                }
+            }
+            desaparecerEtiqueta(6);
         }
     }//GEN-LAST:event_jTextFieldCargaKgKeyTyped
 
@@ -389,6 +435,15 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldCorreoPzas.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
+        }  else {
+            Color cError = new Color(rError, gError, bError);
+            if (jLabel4.getForeground().getRGB() == cError.getRGB()) {
+                if (FuncionesGenerales.sumarSiEstaVacio(jTextFieldCorreoKg,1) == 0) {
+                    jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel4.setText("CORREO");
+                }
+            }
+            desaparecerEtiqueta(7);
         }
     }//GEN-LAST:event_jTextFieldCorreoPzasKeyTyped
 
@@ -398,107 +453,59 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldCorreoKg.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
+        } else {
+            Color cError = new Color(rError, gError, bError);
+            if (jLabel4.getForeground().getRGB() == cError.getRGB()) {
+                if (FuncionesGenerales.sumarSiEstaVacio(jTextFieldCorreoPzas,1) == 0) {
+                    jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel4.setText("CORREO");
+                }
+            }
+            desaparecerEtiqueta(8);
         }
     }//GEN-LAST:event_jTextFieldCorreoKgKeyTyped
 
-    private void jTextFieldPersonas1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldPersonas1FocusGained
-        jTextFieldPersonas1.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldPersonas1FocusGained
-
-    private void jTextFieldPersonas2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldPersonas2FocusGained
-        jTextFieldPersonas2.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldPersonas2FocusGained
-
-    private void jTextFieldPersonas3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldPersonas3FocusGained
-        jTextFieldPersonas3.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldPersonas3FocusGained
-
-    private void jTextFieldPersonasTotalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldPersonasTotalFocusGained
-        jTextFieldPersonasTotal.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldPersonasTotalFocusGained
-
-    private void jTextFieldEquipajePzasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldEquipajePzasFocusGained
-        jTextFieldEquipajePzas.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldEquipajePzasFocusGained
-
-    private void jTextFieldEquipajeKgFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldEquipajeKgFocusGained
-        jTextFieldEquipajeKg.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldEquipajeKgFocusGained
-
-    private void jTextFieldCargaPzasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCargaPzasFocusGained
-        jTextFieldCargaPzas.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldCargaPzasFocusGained
-
-    private void jTextFieldCargaKgFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCargaKgFocusGained
-        jTextFieldCargaKg.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldCargaKgFocusGained
-
-    private void jTextFieldCorreoPzasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCorreoPzasFocusGained
-        jTextFieldCorreoPzas.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldCorreoPzasFocusGained
-
-    private void jTextFieldCorreoKgFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCorreoKgFocusGained
-        jTextFieldCorreoKg.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldCorreoKgFocusGained
-
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         int jTextFieldVacios = 0;
-        if (jTextFieldPersonas1.getText() == null || "".equals(jTextFieldPersonas1.getText())) {
-            jTextFieldVacios++;
-            jTextFieldPersonas1.setBackground(new java.awt.Color(255,0,0));
-        }
-        if (jTextFieldPersonas2.getText() == null || "".equals(jTextFieldPersonas2.getText())) {
-            jTextFieldVacios++;
-            jTextFieldPersonas2.setBackground(new java.awt.Color(255,0,0));
-        }
-        if (jTextFieldPersonas3.getText() == null || "".equals(jTextFieldPersonas3.getText())) {
-            jTextFieldVacios++;
-            jTextFieldPersonas3.setBackground(new java.awt.Color(255,0,0));
-        }
-        if (jTextFieldPersonasTotal.getText() == null || "".equals(jTextFieldPersonasTotal.getText())) {
-            jTextFieldVacios++;
-            jTextFieldPersonasTotal.setBackground(new java.awt.Color(255,0,0));
-        }
-        if (jTextFieldEquipajePzas.getText() == null || "".equals(jTextFieldEquipajePzas.getText())) {
-            jTextFieldVacios++;
-            jTextFieldEquipajePzas.setBackground(new java.awt.Color(255,0,0));
-        }
-        if (jTextFieldEquipajeKg.getText() == null || "".equals(jTextFieldEquipajeKg.getText())) {
-            jTextFieldVacios++;
-            jTextFieldEquipajeKg.setBackground(new java.awt.Color(255,0,0));
-        }
-        if (jTextFieldCargaPzas.getText() == null || "".equals(jTextFieldCargaPzas.getText())) {
-            jTextFieldVacios++;
-            jTextFieldCargaPzas.setBackground(new java.awt.Color(255,0,0));
-        }
-        if (jTextFieldCargaKg.getText() == null || "".equals(jTextFieldCargaKg.getText())) {
-            jTextFieldVacios++;
-            jTextFieldCargaKg.setBackground(new java.awt.Color(255,0,0));
-        }
-        if (jTextFieldCorreoPzas.getText() == null || "".equals(jTextFieldCorreoPzas.getText())) {
-            jTextFieldVacios++;
-            jTextFieldCorreoPzas.setBackground(new java.awt.Color(255,0,0));
-        }
-        if (jTextFieldCorreoKg.getText() == null || "".equals(jTextFieldCorreoKg.getText())) {
-            jTextFieldVacios++;
-            jTextFieldCorreoKg.setBackground(new java.awt.Color(255,0,0));
-        }
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas1,jLabel1,"PERSONAS*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas2,jLabel1,"PERSONAS*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas3,jLabel1,"PERSONAS*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldEquipajePzas,jLabel2,"EQUIPAJE*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldEquipajeKg,jLabel2,"EQUIPAJE*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldCargaPzas,jLabel3,"CARGA*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldCargaKg,jLabel3,"CARGA*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldCorreoPzas,jLabel4,"CORREO*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldCorreoKg,jLabel4,"CORREO*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldPersonasTotal,jLabel10,"Núm.*",1,rError,gError,bError);
         if (jTextFieldVacios == 0) {
             String [] desembarqueDeclarado = {
                 jTextFieldPersonasTotal.getText(),
-                jTextFieldPersonas1.getText() + "/" + jTextFieldPersonas2.getText() + "/" + jTextFieldPersonas3.getText(),
+                jTextFieldTtlPersonas1.getText() + "/" + jTextFieldTtlPersonas2.getText() + "/" + jTextFieldTtlPersonas3.getText(),
                 jTextFieldEquipajePzas.getText() + "/" + jTextFieldEquipajeKg.getText(),
                 jTextFieldCargaPzas.getText() + "/" + jTextFieldCargaKg.getText(),
                 jTextFieldCorreoPzas.getText() + "/" + jTextFieldCorreoKg.getText()
             };
-                       
             AJFrameVentanaCapturas.desembarque = desembarqueDeclarado;
             AJFrameVentanaCapturas.jLabel39.setEnabled(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(this,"Declaración de embarque incompleta","",JOptionPane.INFORMATION_MESSAGE);
+            jLabel17.setForeground(new java.awt.Color(rError, gError, bError));
         }
     }//GEN-LAST:event_botonAgregarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        FuncionesGenerales.ponerEnCeros(jTextFieldTtlPersonas1,jLabel1,"PERSONAS");
+        FuncionesGenerales.ponerEnCeros(jTextFieldTtlPersonas2,jLabel1,"PERSONAS");
+        FuncionesGenerales.ponerEnCeros(jTextFieldTtlPersonas3,jLabel1,"PERSONAS");
+        FuncionesGenerales.ponerEnCeros(jTextFieldEquipajePzas,jLabel2,"EQUIPAJE");
+        FuncionesGenerales.ponerEnCeros(jTextFieldEquipajeKg,jLabel2,"EQUIPAJE");
+        FuncionesGenerales.ponerEnCeros(jTextFieldCargaPzas,jLabel3,"CARGA");
+        FuncionesGenerales.ponerEnCeros(jTextFieldCargaKg,jLabel3,"CARGA");
+        FuncionesGenerales.ponerEnCeros(jTextFieldCorreoPzas,jLabel4,"CORREO");
+        FuncionesGenerales.ponerEnCeros(jTextFieldCorreoKg,jLabel4,"CORREO");
+        FuncionesGenerales.ponerEnCeros(jTextFieldPersonasTotal,jLabel10,"Núm.");
+        jLabel17.setForeground(new java.awt.Color(212, 208, 200));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -559,8 +566,10 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAgregar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -576,9 +585,45 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
     public javax.swing.JTextField jTextFieldCorreoPzas;
     public javax.swing.JTextField jTextFieldEquipajeKg;
     public javax.swing.JTextField jTextFieldEquipajePzas;
-    public javax.swing.JTextField jTextFieldPersonas1;
-    public javax.swing.JTextField jTextFieldPersonas2;
-    public javax.swing.JTextField jTextFieldPersonas3;
     public javax.swing.JTextField jTextFieldPersonasTotal;
+    public javax.swing.JTextField jTextFieldTtlPersonas1;
+    public javax.swing.JTextField jTextFieldTtlPersonas2;
+    public javax.swing.JTextField jTextFieldTtlPersonas3;
     // End of variables declaration//GEN-END:variables
+
+    private final int rError = 255;
+    private final int gError = 0;
+    private final int bError = 0;
+    JTextField [] camposTextos = new JTextField[10];
+    
+    public void arregloTextField() {
+        camposTextos [0] = jTextFieldTtlPersonas1;
+        camposTextos [1] = jTextFieldTtlPersonas2;
+        camposTextos [2] = jTextFieldTtlPersonas3;
+        camposTextos [3] = jTextFieldEquipajePzas;
+        camposTextos [4] = jTextFieldEquipajeKg;
+        camposTextos [5] = jTextFieldCargaPzas;
+        camposTextos [6] = jTextFieldCargaKg;
+        camposTextos [7] = jTextFieldCorreoPzas;
+        camposTextos [8] = jTextFieldCorreoKg;
+        camposTextos [9] = jTextFieldPersonasTotal;
+    }
+    
+    private void desaparecerEtiqueta(int indiceCajaTexto) {
+        Color cError = new Color(rError, gError, bError);
+        if (jLabel17.getForeground().getRGB() == cError.getRGB()) {
+            int camposVacios = 0;
+            for (int i = 0; i < camposTextos.length; i++) {
+                if (i != indiceCajaTexto) {
+                    JTextField campo = camposTextos[i];
+                    if ((campo.getText() == null || "".equals(campo.getText()))) {
+                        camposVacios++;
+                    }
+                }
+            }
+            if (camposVacios == 0) {
+                jLabel17.setForeground(new java.awt.Color(212,208,200));
+            }
+        }
+    }   
 }
