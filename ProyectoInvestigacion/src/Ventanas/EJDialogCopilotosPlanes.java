@@ -850,6 +850,7 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
             AJFrameVentanaCapturas.jTextField8.setText(jTextFieldSNombreCompleto.getText());
             AJFrameVentanaCapturas.jTextField9.setText(jTextFieldSLicencia.getText());
             AJFrameVentanaCapturas.jLabel38.setText(jLabelSTLicencia.getText());
+            AJFrameVentanaCapturas.botonBorrar.setEnabled(true);
             this.dispose();  
         }
     }

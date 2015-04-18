@@ -96,6 +96,11 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
             }
         });
         jTableSobrecargos.setComponentPopupMenu(jPopupMenu1);
+        jTableSobrecargos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableSobrecargosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableSobrecargos);
 
         botonAgregar.setText("AGREGAR");
@@ -234,6 +239,12 @@ public class NJDialogListaSobrecargos extends javax.swing.JDialog {
         }
         this.dispose();     
     }//GEN-LAST:event_botonGrabarActionPerformed
+
+    private void jTableSobrecargosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSobrecargosMouseClicked
+        if (evt.getClickCount() == 2) {
+            funcionSeleccionar();       
+        }
+    }//GEN-LAST:event_jTableSobrecargosMouseClicked
 
     /**
      * @param args the command line arguments

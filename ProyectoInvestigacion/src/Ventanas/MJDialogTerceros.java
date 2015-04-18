@@ -853,6 +853,7 @@ public class MJDialogTerceros extends javax.swing.JDialog {
             AJFrameVentanaCapturas.jTextField24.setText(jTextFieldSNombreCompleto.getText());
             AJFrameVentanaCapturas.jTextField25.setText(jTextFieldSLicencia.getText());
             AJFrameVentanaCapturas.jLabel52.setText(jLabelSTLicencia.getText());
+            AJFrameVentanaCapturas.botonBorrarTercero.setEnabled(true);
             this.dispose();  
         }
     }

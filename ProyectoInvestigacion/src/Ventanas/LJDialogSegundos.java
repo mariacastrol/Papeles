@@ -847,6 +847,7 @@ public class LJDialogSegundos extends javax.swing.JDialog {
             AJFrameVentanaCapturas.jTextField22.setText(jTextFieldSNombreCompleto.getText());
             AJFrameVentanaCapturas.jTextField23.setText(jTextFieldSLicencia.getText());
             AJFrameVentanaCapturas.jLabel51.setText(jLabelSTLicencia.getText());
+            AJFrameVentanaCapturas.botonBorrarSegundo.setEnabled(true);
             this.dispose();  
         }
     }
