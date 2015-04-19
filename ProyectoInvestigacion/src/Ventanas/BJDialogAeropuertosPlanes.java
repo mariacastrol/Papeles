@@ -7,7 +7,9 @@ package Ventanas;
 
 import Clases.ConexionMysql;
 import Clases.FuncionesGenerales;
+import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -517,6 +519,17 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
+            Color cError = new Color(rError, gError, bError);
+            if (jLabelObligatorios.getForeground().getRGB() == cError.getRGB()) {
+                int jTextFieldVacios = 0;
+                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldAAIATA,1);
+                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldAANombre,1);
+                if (jTextFieldVacios == 0) {
+                    jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel14.setText("OACI");
+                }
+            }
+            desaparecerEtiqueta(0);
         }
     }//GEN-LAST:event_jTextFieldAAOACIKeyTyped
 
@@ -529,6 +542,17 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
+            Color cError = new Color(rError, gError, bError);
+            if (jLabelObligatorios.getForeground().getRGB() == cError.getRGB()) {
+                int jTextFieldVacios = 0;
+                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldAAOACI,1);
+                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldAANombre,1);
+                if (jTextFieldVacios == 0) {
+                    jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel17.setText("IATA");
+                }
+            }
+            desaparecerEtiqueta(1);
         }
     }//GEN-LAST:event_jTextFieldAAIATAKeyTyped
 
@@ -541,6 +565,17 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
+            Color cError = new Color(rError, gError, bError);
+            if (jLabelObligatorios.getForeground().getRGB() == cError.getRGB()) {
+                int jTextFieldVacios = 0;
+                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldAAIATA,1);
+                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldAAOACI,1);
+                if (jTextFieldVacios == 0) {
+                    jLabel18.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel18.setText("NOMBRE");
+                }
+            }
+            desaparecerEtiqueta(2);
         }
     }//GEN-LAST:event_jTextFieldAANombreKeyTyped
 
@@ -745,4 +780,31 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("NOMBRE");
     }
+    
+    JTextField [] camposTextos = new JTextField[3];
+    
+    public void arregloTextField() {
+        camposTextos [0] = jTextFieldAAOACI;
+        camposTextos [1] = jTextFieldAAIATA;
+        camposTextos [2] = jTextFieldAANombre;     
+    }
+    
+    private void desaparecerEtiqueta(int indiceCajaTexto) {
+        Color cError = new Color(rError, gError, bError);
+        if (jLabelObligatorios.getForeground().getRGB() == cError.getRGB()) {
+            int camposVacios = 0;
+            for (int i = 0; i < camposTextos.length; i++) {
+                if (i != indiceCajaTexto) {
+                    JTextField campo = camposTextos[i];
+                    if ((campo.getText() == null || "".equals(campo.getText()))) {
+                        camposVacios++;
+                    }
+                }
+            }
+            if (camposVacios == 0) {
+                jLabelObligatorios.setForeground(new java.awt.Color(212,208,200));
+            }
+        }
+    }   
 }
+
