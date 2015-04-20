@@ -194,7 +194,6 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setForeground(new java.awt.Color(212, 208, 200));
         jLabel1.setText("SELECCIONE UN AEROPUERTO DE LA TABLA");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -295,7 +294,6 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
             }
         });
 
-        jLabelObligatorios.setForeground(new java.awt.Color(212, 208, 200));
         jLabelObligatorios.setText("* ESTOS CAMPOS SON OBLIGATORIOS");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -520,14 +518,9 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
             Color cError = new Color(rError, gError, bError);
-            if (jLabelObligatorios.getForeground().getRGB() == cError.getRGB()) {
-                int jTextFieldVacios = 0;
-                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldAAIATA,1);
-                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldAANombre,1);
-                if (jTextFieldVacios == 0) {
-                    jLabel14.setForeground(new java.awt.Color(0, 0, 0));
-                    jLabel14.setText("OACI");
-                }
+            if (jLabel14.getForeground().getRGB() == cError.getRGB()) {
+                jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel14.setText("OACI");
             }
             desaparecerEtiqueta(0);
         }
@@ -543,14 +536,9 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
             Color cError = new Color(rError, gError, bError);
-            if (jLabelObligatorios.getForeground().getRGB() == cError.getRGB()) {
-                int jTextFieldVacios = 0;
-                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldAAOACI,1);
-                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldAANombre,1);
-                if (jTextFieldVacios == 0) {
-                    jLabel17.setForeground(new java.awt.Color(0, 0, 0));
-                    jLabel17.setText("IATA");
-                }
+            if (jLabel17.getForeground().getRGB() == cError.getRGB()) {
+                jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel17.setText("IATA");
             }
             desaparecerEtiqueta(1);
         }
@@ -566,14 +554,9 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
             Color cError = new Color(rError, gError, bError);
-            if (jLabelObligatorios.getForeground().getRGB() == cError.getRGB()) {
-                int jTextFieldVacios = 0;
-                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldAAIATA,1);
-                jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldAAOACI,1);
-                if (jTextFieldVacios == 0) {
-                    jLabel18.setForeground(new java.awt.Color(0, 0, 0));
-                    jLabel18.setText("NOMBRE");
-                }
+            if (jLabel18.getForeground().getRGB() == cError.getRGB()) {
+                jLabel18.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel18.setText("NOMBRE");
             }
             desaparecerEtiqueta(2);
         }
@@ -702,12 +685,18 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
     private final int rError = 255;
     private final int gError = 0;
     private final int bError = 0;
+    JTextField [] camposTextos = new JTextField[3];
+    Color colorFondo;
     
     public void setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
         if (ping.conectarBD(sv,us,pw,dB)) {
             columnasTablaMysql = cTM;
             nombreTablaMysql = nTM;
             this.pK = pK;
+            arregloTextField();
+            colorFondo = jPanel1.getBackground();
+            jLabelObligatorios.setForeground(colorFondo);
+            jLabel1.setForeground(colorFondo);
             if(!ping.mostrarColumnasTablaMysqlSimple(jTableAeropuertosPlanes, nombreTablaMysql, columnasTablaMysql)){
                 JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA INFORMACIÓN DE LA TABLA",JOptionPane.ERROR_MESSAGE);
             }
@@ -742,7 +731,7 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
             jLabel12.setForeground(new java.awt.Color(0, 0, 0));
             jLabel16.setForeground(new java.awt.Color(0, 0, 0));
             jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel1.setForeground(new java.awt.Color(212, 208, 200));
+            jLabel1.setForeground(colorFondo);
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -772,7 +761,7 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
         jTextFieldAAOACI.setText(null);
         jTextFieldAAIATA.setText(null);
         jTextFieldAANombre.setText(null);
-        jLabelObligatorios.setForeground(new java.awt.Color(212, 208, 200));
+        jLabelObligatorios.setForeground(colorFondo);
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("OACI");
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
@@ -781,12 +770,10 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
         jLabel18.setText("NOMBRE");
     }
     
-    JTextField [] camposTextos = new JTextField[3];
-    
-    public void arregloTextField() {
+    private void arregloTextField() {
         camposTextos [0] = jTextFieldAAOACI;
         camposTextos [1] = jTextFieldAAIATA;
-        camposTextos [2] = jTextFieldAANombre;     
+        camposTextos [2] = jTextFieldAANombre;
     }
     
     private void desaparecerEtiqueta(int indiceCajaTexto) {
@@ -802,9 +789,10 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
                 }
             }
             if (camposVacios == 0) {
-                jLabelObligatorios.setForeground(new java.awt.Color(212,208,200));
+                jLabelObligatorios.setForeground(colorFondo);
             }
         }
-    }   
+    }  
+    
 }
 

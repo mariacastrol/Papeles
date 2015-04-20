@@ -357,9 +357,6 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="c8" green="d0" red="d4" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="SELECCIONE UN AEROPUERTO DE LA TABLA"/>
               </Properties>
             </Component>
@@ -458,7 +455,6 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldAAIATAFocusGained"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAAIATAKeyTyped"/>
               </Events>
             </Component>
@@ -467,7 +463,6 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldAAOACIFocusGained"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAAOACIKeyTyped"/>
               </Events>
             </Component>
@@ -483,7 +478,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAANombre">
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldAANombreFocusGained"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAANombreKeyTyped"/>
               </Events>
             </Component>
@@ -511,9 +505,6 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelObligatorios">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="c8" green="d0" red="d4" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="* ESTOS CAMPOS SON OBLIGATORIOS"/>
               </Properties>
             </Component>

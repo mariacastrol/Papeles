@@ -286,9 +286,6 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="c8" green="d0" red="d4" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="SELECCIONE UN COPILOTO DE LA TABLA"/>
               </Properties>
             </Component>
@@ -461,9 +458,6 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelObligatorios">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="c8" green="d0" red="d4" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="* ESTOS CAMPOS SON OBLIGATORIOS"/>
               </Properties>
             </Component>

@@ -180,7 +180,7 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="COMPA&#xd1;IA"/>
+                <TitledBorder title="COMPA&#xd1;&#xcd;A"/>
               </Border>
             </Property>
           </Properties>
@@ -281,9 +281,6 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="c8" green="d0" red="d4" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="SELECCIONE UNA COMPA&#xd1;&#xcd;A DE LA TABLA"/>
               </Properties>
             </Component>
@@ -406,9 +403,6 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelObligatorios">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="c8" green="d0" red="d4" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="* ESTOS CAMPOS SON OBLIGATORIOS"/>
               </Properties>
             </Component>
@@ -426,7 +420,7 @@
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="2" rowCount="0">
                     <Column editable="false" title="SIGLAS" type="java.lang.Object"/>
-                    <Column editable="false" title="COMPA&#xd1;IA" type="java.lang.Object"/>
+                    <Column editable="false" title="COMPA&#xd1;&#xcd;A" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

@@ -36,10 +36,10 @@ public class FuncionesGenerales {
     
     public static void nacionalExtranjera(JTextField cajaTextoLicencia, JLabel jLabelTipoLicencia) {
         int longitud = cajaTextoLicencia.getText().length();
-        if (longitud == 9) {
-            jLabelTipoLicencia.setText("NACIONAL");
-        } else {
+        if (longitud >= 7 && longitud < 9) {
             jLabelTipoLicencia.setText("EXTRANJERA");
+        } else if (longitud == 9) {
+            jLabelTipoLicencia.setText("NACIONAL");
         }
     }
     

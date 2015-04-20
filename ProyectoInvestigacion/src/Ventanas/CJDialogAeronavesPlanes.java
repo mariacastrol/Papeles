@@ -7,7 +7,9 @@ package Ventanas;
 
 import Clases.ConexionMysql;
 import Clases.FuncionesGenerales;
+import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -103,7 +105,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
             }
         });
 
-        jLabel19.setText("MATRICULA");
+        jLabel19.setText("MATRÍCULA");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -150,9 +152,8 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         jTextFieldSTipo.setEditable(false);
         jTextFieldSTipo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jLabel21.setText("MATRICULA");
+        jLabel21.setText("MATRÍCULA");
 
-        jLabel1.setForeground(new java.awt.Color(212, 208, 200));
         jLabel1.setText("SELECCIONE UNA AERONAVE DE LA TABLA");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -198,7 +199,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
                 .addComponent(botonVolver)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("AGREGAR/ACTUALIZAR AERONAVES"));
@@ -234,9 +235,8 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
 
         jLabel15.setText("TIPO");
 
-        jLabel20.setText("MATRICULA");
+        jLabel20.setText("MATRÍCULA");
 
-        jLabelObligatorios.setForeground(new java.awt.Color(212, 208, 200));
         jLabelObligatorios.setText("* ESTOS CAMPOS SON OBLIGATORIOS");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -297,7 +297,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
 
             },
             new String [] {
-                "MATRICULA", "TIPO"
+                "MATRÍCULA", "TIPO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -329,9 +329,8 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
@@ -371,7 +370,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         } else {
             int filasTabla = jTableAeronavesPlanes.getRowCount();
             if (filasTabla == 0) {
-                JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO LA MATRICULA","",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO LA MATRÍCULA","",JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }//GEN-LAST:event_botonBuscarActionPerformed
@@ -481,6 +480,12 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
+            Color cError = new Color(rError, gError, bError);
+            if (jLabel20.getForeground().getRGB() == cError.getRGB()) {
+                jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel20.setText("MATRÍCULA");
+            }
+            desaparecerEtiqueta(0);
         }
     }//GEN-LAST:event_jTextFieldAAMatriculaKeyTyped
 
@@ -493,6 +498,12 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
+            Color cError = new Color(rError, gError, bError);
+            if (jLabel15.getForeground().getRGB() == cError.getRGB()) {
+                jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel15.setText("TIPO");
+            }
+            desaparecerEtiqueta(1);
         }
     }//GEN-LAST:event_jTextFieldAATipoKeyTyped
 
@@ -711,12 +722,18 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     private final int rError = 255;
     private final int gError = 0;
     private final int bError = 0;
+    JTextField [] camposTextos = new JTextField[2];
+    Color colorFondo;
     
     public void setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
         if (ping.conectarBD(sv,us,pw,dB)) {
             columnasTablaMysql = cTM;
             nombreTablaMysql = nTM;
             this.pK = pK;
+            arregloTextField();
+            colorFondo = jPanel1.getBackground();
+            jLabelObligatorios.setForeground(colorFondo);
+            jLabel1.setForeground(colorFondo);
             if(!ping.mostrarColumnasTablaMysqlSimple(jTableAeronavesPlanes, nombreTablaMysql, columnasTablaMysql)){
                 JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA INFORMACIÓN DE LA TABLA",JOptionPane.ERROR_MESSAGE);
             }
@@ -734,7 +751,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
             jTextFieldSTipo.setText(celda1);       
             jLabel21.setForeground(new java.awt.Color(0, 0, 0));
             jLabel22.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel1.setForeground(new java.awt.Color(212, 208, 200));          
+            jLabel1.setForeground(colorFondo);          
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -771,10 +788,33 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     private void limpiarAA() {
         jTextFieldAAMatricula.setText(null);
         jTextFieldAATipo.setText(null);
-        jLabelObligatorios.setForeground(new java.awt.Color(212, 208, 200));
+        jLabelObligatorios.setForeground(colorFondo);
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("MATRÍCULA");
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("TIPO");
     }
+    
+    private void arregloTextField() {
+        camposTextos [0] = jTextFieldAAMatricula;
+        camposTextos [1] = jTextFieldAATipo;
+    }
+    
+    private void desaparecerEtiqueta(int indiceCajaTexto) {
+        Color cError = new Color(rError, gError, bError);
+        if (jLabelObligatorios.getForeground().getRGB() == cError.getRGB()) {
+            int camposVacios = 0;
+            for (int i = 0; i < camposTextos.length; i++) {
+                if (i != indiceCajaTexto) {
+                    JTextField campo = camposTextos[i];
+                    if ((campo.getText() == null || "".equals(campo.getText()))) {
+                        camposVacios++;
+                    }
+                }
+            }
+            if (camposVacios == 0) {
+                jLabelObligatorios.setForeground(colorFondo);
+            }
+        }
+    } 
 }

@@ -7,6 +7,7 @@ package Ventanas;
 
 import Clases.ConexionMysql;
 import Clases.FuncionesGenerales;
+import java.awt.Color;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -82,7 +83,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         botonGuardarPlanes = new javax.swing.JButton();
         jDateFecha = new com.toedter.calendar.JDateChooser();
-        jLabel22 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
@@ -158,8 +158,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         setTitle("CAPTURAS");
         setResizable(false);
 
-        jTabbedPane1.setMaximumSize(new java.awt.Dimension(960, 580));
-        jTabbedPane1.setMinimumSize(new java.awt.Dimension(960, 580));
         jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jTabbedPane1StateChanged(evt);
@@ -169,8 +167,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(955, 620));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel3.setPreferredSize(new java.awt.Dimension(935, 592));
+        jPanel3.setLayout(null);
 
         jLabel1.setText("TIPO DE OPERACIÓN");
+        jPanel3.add(jLabel1);
+        jLabel1.setBounds(32, 32, 173, 14);
 
         jComboBoxOperacionPlanes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APERTURA DE PLAN DE VUELO", "CIERRE DE PLAN DE VUELO" }));
         jComboBoxOperacionPlanes.addItemListener(new java.awt.event.ItemListener() {
@@ -178,10 +180,16 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 jComboBoxOperacionPlanesItemStateChanged(evt);
             }
         });
+        jPanel3.add(jComboBoxOperacionPlanes);
+        jComboBoxOperacionPlanes.setBounds(32, 52, 190, 20);
 
         jLabel2.setText("FECHA");
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(416, 32, 45, 14);
 
-        jLabel6.setText("HORA");
+        jLabel6.setText("HORA (UTC)");
+        jPanel3.add(jLabel6);
+        jLabel6.setBounds(688, 32, 135, 14);
 
         jSpinnerHorasUTC.setModel(new javax.swing.SpinnerNumberModel());
         jSpinnerHorasUTC.setEditor(new javax.swing.JSpinner.NumberEditor(jSpinnerHorasUTC, "00"));
@@ -190,8 +198,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 jSpinnerHorasUTCStateChanged(evt);
             }
         });
+        jPanel3.add(jSpinnerHorasUTC);
+        jSpinnerHorasUTC.setBounds(688, 52, 40, 20);
 
         jLabel7.setText(":");
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(732, 54, 4, 14);
 
         jSpinnerMinutosUTC.setModel(new javax.swing.SpinnerNumberModel());
         jSpinnerMinutosUTC.setEditor(new javax.swing.JSpinner.NumberEditor(jSpinnerMinutosUTC, "00"));
@@ -200,13 +212,17 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 jSpinnerMinutosUTCStateChanged(evt);
             }
         });
+        jPanel3.add(jSpinnerMinutosUTC);
+        jSpinnerMinutosUTC.setBounds(740, 52, 40, 20);
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("AEROPUERTO/AERODROMO DE DESTINO"));
 
         jTextField1.setEditable(false);
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jTextField2.setEditable(false);
+        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel8.setText("OACI");
@@ -214,6 +230,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jLabel9.setText("IATA");
 
         jTextField3.setEditable(false);
+        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         botonSeleccionarAeropuertoPlanes.setText("AGREGAR");
@@ -232,12 +249,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jTextField1)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jTextField2)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -266,14 +283,19 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel3.add(jPanel5);
+        jPanel5.setBounds(32, 112, 539, 114);
+
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("AERONAVE(S)"));
 
         jTextField4.setEditable(false);
+        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel10.setText("IDENTIFICACIÓN AERONAVE");
 
         jTextField5.setEditable(false);
+        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel11.setText("TIPO DE AERONAVE");
@@ -298,8 +320,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jTextField5)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(botonSeleccionarAeronavePlanes)))
@@ -321,13 +343,18 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel3.add(jPanel6);
+        jPanel6.setBounds(591, 112, 312, 114);
+
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("PERSONAL DE VUELO"));
 
         jTextField6.setEditable(false);
+        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel12.setText("PILOTO AL MANDO");
 
         jTextField7.setEditable(false);
+        jTextField7.setBackground(new java.awt.Color(255, 255, 255));
         jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel13.setText("N° DE LICENCIA");
@@ -403,10 +430,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                                     .addGroup(jPanel7Layout.createSequentialGroup()
                                         .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE))
+                                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel7Layout.createSequentialGroup()
                                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addGap(0, 63, Short.MAX_VALUE))))
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -455,6 +482,9 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                     .addComponent(botonBorrar))
                 .addContainerGap())
         );
+
+        jPanel3.add(jPanel7);
+        jPanel7.setBounds(32, 241, 445, 189);
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("PERSONAS A BORDO"));
 
@@ -511,6 +541,9 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel3.add(jPanel8);
+        jPanel8.setBounds(32, 445, 445, 88);
+
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("OTROS DATOS / OBSERVACIONES"));
 
         jTextArea1.setColumns(20);
@@ -528,7 +561,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -539,105 +572,23 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel3.add(jPanel9);
+        jPanel9.setBounds(497, 241, 406, 157);
+
         botonGuardarPlanes.setText("GUARDAR");
         botonGuardarPlanes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonGuardarPlanesActionPerformed(evt);
             }
         });
+        jPanel3.add(botonGuardarPlanes);
+        botonGuardarPlanes.setBounds(813, 556, 90, 23);
 
         jDateFecha.setDateFormatString("dd/MM/yyyy");
         jDateFecha.setMaxSelectableDate(new java.util.Date(1483250399000L));
         jDateFecha.setMinSelectableDate(new java.util.Date(1262325599000L));
-
-        jLabel22.setText("(UTC)");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonGuardarPlanes, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel22))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBoxOperacionPlanes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jSpinnerHorasUTC, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinnerMinutosUTC, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(30, 30, 30))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jSpinnerHorasUTC, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jSpinnerMinutosUTC, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel22)
-                        .addGap(20, 20, 20))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxOperacionPlanes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92)
-                        .addComponent(botonGuardarPlanes)))
-                .addContainerGap(53, Short.MAX_VALUE))
-        );
+        jPanel3.add(jDateFecha);
+        jDateFecha.setBounds(416, 52, 152, 20);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -645,7 +596,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
         );
         jPanel1Layout.setVerticalGroup(
@@ -659,8 +610,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jTabbedPane1.addTab("PLANES DE VUELO", jPanel1);
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel4.setLayout(null);
 
         jLabel20.setText("TIPO DE OPERACIÓN");
+        jPanel4.add(jLabel20);
+        jLabel20.setBounds(32, 32, 150, 14);
 
         jComboBoxOperacionManifiestos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MANIFIESTO DE SALIDA", "MANIFIESTO DE LLEGADA" }));
         jComboBoxOperacionManifiestos.addItemListener(new java.awt.event.ItemListener() {
@@ -668,14 +622,20 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 jComboBoxOperacionManifiestosItemStateChanged(evt);
             }
         });
+        jPanel4.add(jComboBoxOperacionManifiestos);
+        jComboBoxOperacionManifiestos.setBounds(32, 52, 190, 20);
 
         jLabel21.setText("FECHA");
+        jPanel4.add(jLabel21);
+        jLabel21.setBounds(416, 32, 33, 14);
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("AERONAVE"));
 
         jTextField11.setEditable(false);
+        jTextField11.setBackground(new java.awt.Color(255, 255, 255));
 
         jTextField12.setEditable(false);
+        jTextField12.setBackground(new java.awt.Color(255, 255, 255));
         jTextField12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel25.setText("COMPAÑÍA");
@@ -683,6 +643,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jLabel26.setText("SIGLAS");
 
         jTextField13.setEditable(false);
+        jTextField13.setBackground(new java.awt.Color(255, 255, 255));
         jTextField13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel27.setText("EQUIPO");
@@ -690,6 +651,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jLabel28.setText("MATRÍCULA");
 
         jTextField14.setEditable(false);
+        jTextField14.setBackground(new java.awt.Color(255, 255, 255));
         jTextField14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jTextField15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -780,15 +742,20 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel4.add(jPanel10);
+        jPanel10.setBounds(32, 112, 871, 114);
+
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("MOVIMIENTO DE OPERACIONES"));
 
         jTextField16.setEditable(false);
+        jTextField16.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel30.setText("DESTINO");
 
         jLabel32.setText("SIGLAS");
 
         jTextField18.setEditable(false);
+        jTextField18.setBackground(new java.awt.Color(255, 255, 255));
         jTextField18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         botonSeleccionarAeropuertoManifiestos.setText("AGREGAR");
@@ -830,6 +797,9 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel4.add(jPanel11);
+        jPanel11.setBounds(32, 241, 639, 94);
+
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("EMBARQUE"));
 
         botonDeclararEmDesembarque.setText("DECLARAR");
@@ -864,46 +834,59 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel4.add(jPanel13);
+        jPanel13.setBounds(698, 350, 205, 67);
+
         jButton6.setText("GUARDAR");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
+        jPanel4.add(jButton6);
+        jButton6.setBounds(813, 556, 90, 23);
 
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder("PERSONAL DE VUELO"));
 
         jTextField17.setEditable(false);
+        jTextField17.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel31.setText("COMANDANTE");
 
         jTextField19.setEditable(false);
+        jTextField19.setBackground(new java.awt.Color(255, 255, 255));
         jTextField19.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel33.setText("N° DE LICENCIA");
 
         jTextField20.setEditable(false);
+        jTextField20.setBackground(new java.awt.Color(255, 255, 255));
         jTextField20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel41.setText("N° DE LICENCIA");
 
         jTextField21.setEditable(false);
+        jTextField21.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel42.setText("1er. OFICIAL");
 
         jTextField22.setEditable(false);
+        jTextField22.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel43.setText("2do. OFICIAL");
 
         jLabel44.setText("N° DE LICENCIA");
 
         jTextField23.setEditable(false);
+        jTextField23.setBackground(new java.awt.Color(255, 255, 255));
 
         jTextField24.setEditable(false);
+        jTextField24.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel45.setText("3er. OFICIAL");
 
         jTextField25.setEditable(false);
+        jTextField25.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel46.setText("N° DE LICENCIA");
 
@@ -1082,6 +1065,9 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel4.add(jPanel14);
+        jPanel14.setBounds(32, 350, 639, 229);
+
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("SOBRECARGOS"));
 
         botonDeclararSobrecargos.setText("DECLARAR");
@@ -1116,11 +1102,18 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel4.add(jPanel15);
+        jPanel15.setBounds(698, 241, 205, 68);
+
         jDateChooser2.setDateFormatString("dd/MM/yyyy");
         jDateChooser2.setMaxSelectableDate(new java.util.Date(1483250399000L));
         jDateChooser2.setMinSelectableDate(new java.util.Date(1262325599000L));
+        jPanel4.add(jDateChooser2);
+        jDateChooser2.setBounds(416, 52, 152, 20);
 
         jLabel34.setText("HORA ITINERARIO");
+        jPanel4.add(jLabel34);
+        jLabel34.setBounds(688, 32, 100, 14);
 
         jSpinnerHoraItinerario.setModel(new javax.swing.SpinnerNumberModel());
         jSpinnerHoraItinerario.setEditor(new javax.swing.JSpinner.NumberEditor(jSpinnerHoraItinerario, "00"));
@@ -1129,8 +1122,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 jSpinnerHoraItinerarioStateChanged(evt);
             }
         });
+        jPanel4.add(jSpinnerHoraItinerario);
+        jSpinnerHoraItinerario.setBounds(688, 52, 40, 20);
 
         jLabel35.setText(":");
+        jPanel4.add(jLabel35);
+        jLabel35.setBounds(732, 54, 4, 14);
 
         jSpinnerMinutosItinerario.setModel(new javax.swing.SpinnerNumberModel());
         jSpinnerMinutosItinerario.setEditor(new javax.swing.JSpinner.NumberEditor(jSpinnerMinutosItinerario, "00"));
@@ -1139,8 +1136,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 jSpinnerMinutosItinerarioStateChanged(evt);
             }
         });
+        jPanel4.add(jSpinnerMinutosItinerario);
+        jSpinnerMinutosItinerario.setBounds(740, 52, 40, 20);
 
         jLabel36.setText("HORA REAL");
+        jPanel4.add(jLabel36);
+        jLabel36.setBounds(810, 32, 57, 14);
 
         jSpinnerHoraReal.setModel(new javax.swing.SpinnerNumberModel());
         jSpinnerHoraReal.setEditor(new javax.swing.JSpinner.NumberEditor(jSpinnerHoraReal, "00"));
@@ -1149,8 +1150,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 jSpinnerHoraRealStateChanged(evt);
             }
         });
+        jPanel4.add(jSpinnerHoraReal);
+        jSpinnerHoraReal.setBounds(810, 52, 40, 20);
 
         jLabel37.setText(":");
+        jPanel4.add(jLabel37);
+        jLabel37.setBounds(854, 54, 4, 14);
 
         jSpinnerMinutosReal.setModel(new javax.swing.SpinnerNumberModel());
         jSpinnerMinutosReal.setEditor(new javax.swing.JSpinner.NumberEditor(jSpinnerMinutosReal, "00"));
@@ -1159,114 +1164,23 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 jSpinnerMinutosRealStateChanged(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBoxOperacionManifiestos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel21)
-                                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(30, 30, 30)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel34)
-                                .addGroup(jPanel4Layout.createSequentialGroup()
-                                    .addComponent(jSpinnerHoraItinerario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel35)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jSpinnerMinutosItinerario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(30, 30, 30)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel36)
-                                .addGroup(jPanel4Layout.createSequentialGroup()
-                                    .addComponent(jSpinnerHoraReal, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel37)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jSpinnerMinutosReal, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(27, 27, 27)
-                            .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(jLabel20)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jComboBoxOperacionManifiestos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(jLabel21)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel34)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSpinnerMinutosItinerario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jSpinnerHoraItinerario, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel35))))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel36)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jSpinnerHoraReal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel37)
-                            .addComponent(jSpinnerMinutosReal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(40, 40, 40)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton6))
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 226, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        jPanel4.add(jSpinnerMinutosReal);
+        jSpinnerMinutosReal.setBounds(862, 52, 40, 20);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(10, 10, 10))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1286,14 +1200,14 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1)
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1586,9 +1500,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void botonGuardarPlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarPlanesActionPerformed
         int vacios = 0;
         if (jTextField1.getText() == null || "".equals(jTextField1.getText())) {
-            jTextField1.setBackground(new java.awt.Color(255,0,0));
-            jTextField2.setBackground(new java.awt.Color(255,0,0));
-            jTextField3.setBackground(new java.awt.Color(255,0,0));
+            jLabel8.setForeground(new java.awt.Color(rColor,gColor,bColor));
+            jLabel8.setText("OACI*");
             vacios++;
         }
         if (jTextField4.getText() == null || "".equals(jTextField4.getText())) {
@@ -1983,7 +1896,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -2076,6 +1988,9 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     static String listaSobrecargos;
     static String [] embarque;
     static String [] desembarque;
+    final int rColor = 255;
+    final int gColor = 0;
+    final int bColor = 0;
     
     private void limpiarManifiesto() {
         jTextField11.setBackground(new java.awt.Color(212,208,200));
