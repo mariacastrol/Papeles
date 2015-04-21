@@ -23,6 +23,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
      */
     public AJFrameVentanaCapturas() {
         initComponents();
+        colorFondo = jPanel1.getBackground();
+        jLabel3.setForeground(colorFondo);
     }
 
     /**
@@ -248,21 +250,23 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
-                .addGap(20, 20, 20)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonSeleccionarAeropuertoPlanes)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField2)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botonSeleccionarAeropuertoPlanes)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -406,7 +410,34 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 63, Short.MAX_VALUE))))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -417,36 +448,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                                 .addComponent(botonBorrar)
                                 .addGap(18, 18, 18)
-                                .addComponent(botonSeleccionarCopiloto))))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 63, Short.MAX_VALUE))))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))))
+                                .addComponent(botonSeleccionarCopiloto)))))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -489,11 +491,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("PERSONAS A BORDO"));
 
         jTextFieldPersonasPasajeros.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldPersonasPasajeros.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldPersonasPasajerosFocusGained(evt);
-            }
-        });
         jTextFieldPersonasPasajeros.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldPersonasPasajerosKeyTyped(evt);
@@ -511,7 +508,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jLabel19.setText("Se ha declaro una lista de pasajeros");
         jLabel19.setEnabled(false);
 
-        jLabel3.setText("*");
+        jLabel3.setText("PERSONAS A BORDO");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -519,11 +516,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextFieldPersonasPasajeros, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(botonListaPasajeros)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jTextFieldPersonasPasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonListaPasajeros))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
                 .addContainerGap())
@@ -587,6 +585,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jDateFecha.setDateFormatString("dd/MM/yyyy");
         jDateFecha.setMaxSelectableDate(new java.util.Date(1483250399000L));
         jDateFecha.setMinSelectableDate(new java.util.Date(1262325599000L));
+        jDateFecha.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateFechaPropertyChange(evt);
+            }
+        });
         jPanel3.add(jDateFecha);
         jDateFecha.setBounds(416, 52, 152, 20);
 
@@ -655,9 +658,9 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jTextField14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jTextField15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField15.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField15FocusGained(evt);
+        jTextField15.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField15KeyTyped(evt);
             }
         });
 
@@ -1108,6 +1111,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jDateChooser2.setDateFormatString("dd/MM/yyyy");
         jDateChooser2.setMaxSelectableDate(new java.util.Date(1483250399000L));
         jDateChooser2.setMinSelectableDate(new java.util.Date(1262325599000L));
+        jDateChooser2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooser2PropertyChange(evt);
+            }
+        });
         jPanel4.add(jDateChooser2);
         jDateChooser2.setBounds(416, 52, 152, 20);
 
@@ -1226,8 +1234,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             capturarAeropuerto.setTitle("AEROPUERTOS: CIERRE DE PLAN DE VUELO");
         }
         String [] cT = {"codigo_oaci","codigo_iata","nombre"};
-        capturarAeropuerto.setDatosConexion (sv,us,pw,dB,cT,"AEROPUERTOS_PLANES","codigo_oaci");
-        capturarAeropuerto.setVisible(true);
+        if (capturarAeropuerto.setDatosConexion (sv,us,pw,dB,cT,"AEROPUERTOS_PLANES","codigo_oaci")) {
+            capturarAeropuerto.setVisible(true);
+        } else {
+            capturarAeropuerto.dispose();
+        }    
     }//GEN-LAST:event_botonSeleccionarAeropuertoPlanesActionPerformed
 
     private void botonSeleccionarAeronavePlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarAeronavePlanesActionPerformed
@@ -1239,8 +1250,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             capturarAeronave.setTitle("AERONAVES: CIERRE DE PLAN DE VUELO");
         }
         String [] cT = {"identificacion_aeronave","tipo"};
-        capturarAeronave.setDatosConexion (sv,us,pw,dB,cT,"AERONAVES_PLANES","identificacion_aeronave");
-        capturarAeronave.setVisible(true);
+        if (capturarAeronave.setDatosConexion (sv,us,pw,dB,cT,"AERONAVES_PLANES","identificacion_aeronave")) {
+            capturarAeronave.setVisible(true);
+        } else {
+            capturarAeronave.dispose();
+        }
     }//GEN-LAST:event_botonSeleccionarAeronavePlanesActionPerformed
 
     private void botonSeleccionarPilotoPlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarPilotoPlanesActionPerformed
@@ -1252,16 +1266,23 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             capturarPiloto.setTitle("PILOTOS: CIERRE DE PLAN DE VUELO");
         }
         String [] cT = {"no_licencia","nombre","apellido_paterno","apellido_materno","tipo_licencia"};
-        capturarPiloto.setDatosConexion (sv,us,pw,dB,cT,"PILOTOS_PLANES","no_licencia");
-        capturarPiloto.setVisible(true);
+        if (capturarPiloto.setDatosConexion (sv,us,pw,dB,cT,"PILOTOS_PLANES","no_licencia")) {
+            capturarPiloto.setVisible(true);
+        } else {
+            capturarPiloto.dispose();
+        }
     }//GEN-LAST:event_botonSeleccionarPilotoPlanesActionPerformed
 
     private void botonSeleccionarCopilotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarCopilotoActionPerformed
         EJDialogCopilotosPlanes capturarCopiloto = new EJDialogCopilotosPlanes(this,true);
         capturarCopiloto.setTitle("COPILOTOS: CIERRE DE PLAN DE VUELO");
         String [] cT = {"no_licencia","nombre","apellido_paterno","apellido_materno","tipo_licencia"};
-        capturarCopiloto.setDatosConexion (sv,us,pw,dB,cT,"COPILOTOS","no_licencia");
-        capturarCopiloto.setVisible(true);
+        if (capturarCopiloto.setDatosConexion (sv,us,pw,dB,cT,"COPILOTOS","no_licencia")) {
+            capturarCopiloto.setVisible(true);
+        } else {
+            capturarCopiloto.dispose();
+        }
+       
     }//GEN-LAST:event_botonSeleccionarCopilotoActionPerformed
 
     private void botonSeleccionarCompaniaManifiestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarCompaniaManifiestosActionPerformed
@@ -1273,8 +1294,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             capturarCompania.setTitle("COMPAÑIAS: MANIFIESTO DE LLEGADA");
         }
         String [] cT = {"siglas","nombre"};
-        capturarCompania.setDatosConexion (sv,us,pw,dB,cT,"COMPANIAS","siglas");
-        capturarCompania.setVisible(true);
+        if (capturarCompania.setDatosConexion (sv,us,pw,dB,cT,"COMPANIAS","siglas")) {
+            capturarCompania.setVisible(true);
+        } else {
+            capturarCompania.dispose();
+        }
+        
     }//GEN-LAST:event_botonSeleccionarCompaniaManifiestosActionPerformed
 
     private void botonSeleccionarAeronaveManifiestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarAeronaveManifiestosActionPerformed
@@ -1286,8 +1311,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             capturarAeronave.setTitle("AERONAVES: MANIFIESTO DE LLEGADA");
         }
         String [] cT = {"matricula","equipo"};
-        capturarAeronave.setDatosConexion (sv,us,pw,dB,cT,"AERONAVES_MANIFIESTOS","matricula");
-        capturarAeronave.setVisible(true);
+        if (capturarAeronave.setDatosConexion (sv,us,pw,dB,cT,"AERONAVES_MANIFIESTOS","matricula")) {
+            capturarAeronave.setVisible(true);
+        } else {
+            capturarAeronave.dispose();
+        }
     }//GEN-LAST:event_botonSeleccionarAeronaveManifiestosActionPerformed
 
     private void botonSeleccionarAeropuertoManifiestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarAeropuertoManifiestosActionPerformed
@@ -1301,8 +1329,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             capturarAeropuerto.setTitle("AEROPUERTOS: MANIFIESTO DE LLEGADA");
         }
         String [] cT = {"codigo_iata","codigo_oaci","nombre"};
-        capturarAeropuerto.setDatosConexion (sv,us,pw,dB,cT,"AEROPUERTOS_MANIFIESTOS","codigo_iata");
-        capturarAeropuerto.setVisible(true);
+        if (capturarAeropuerto.setDatosConexion (sv,us,pw,dB,cT,"AEROPUERTOS_MANIFIESTOS","codigo_iata")) {
+            capturarAeropuerto.setVisible(true);
+        } else {
+            capturarAeropuerto.dispose();
+        }
     }//GEN-LAST:event_botonSeleccionarAeropuertoManifiestosActionPerformed
 
     private void botonSeleccionarComandanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarComandanteActionPerformed
@@ -1314,8 +1345,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             capturarComandate.setTitle("COMANDANTES: CIERRE DE PLAN DE VUELO");
         }
         String [] cT = {"no_licencia","nombre","apellido_paterno","apellido_materno","tipo_licencia"};
-        capturarComandate.setDatosConexion (sv,us,pw,dB,cT,"COMANDANTE","no_licencia");
-        capturarComandate.setVisible(true);
+        if (capturarComandate.setDatosConexion (sv,us,pw,dB,cT,"COMANDANTE","no_licencia")) {
+            capturarComandate.setVisible(true);
+        } else {
+            capturarComandate.dispose();
+        }
     }//GEN-LAST:event_botonSeleccionarComandanteActionPerformed
 
     private void botonSeleccionarPrimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarPrimerActionPerformed
@@ -1327,8 +1361,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             capturarPrimer.setTitle("PRIMEROS OFICIALES: CIERRE DE PLAN DE VUELO");
         }
         String [] cT = {"no_licencia","nombre","apellido_paterno","apellido_materno","tipo_licencia"};
-        capturarPrimer.setDatosConexion (sv,us,pw,dB,cT,"PRIMER_OFICIAL","no_licencia");
-        capturarPrimer.setVisible(true);
+        if (capturarPrimer.setDatosConexion (sv,us,pw,dB,cT,"PRIMER_OFICIAL","no_licencia")) {
+            capturarPrimer.setVisible(true);
+        } else {
+            capturarPrimer.dispose();
+        }
     }//GEN-LAST:event_botonSeleccionarPrimerActionPerformed
 
     private void botonSeleccionarSegundoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarSegundoActionPerformed
@@ -1340,8 +1377,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             capturarSegundo.setTitle("SEGUNDOS OFICIALES: CIERRE DE PLAN DE VUELO");
         }
         String [] cT = {"no_licencia","nombre","apellido_paterno","apellido_materno","tipo_licencia"};
-        capturarSegundo.setDatosConexion (sv,us,pw,dB,cT,"SEGUNDO_OFICIAL","no_licencia");
-        capturarSegundo.setVisible(true);
+        if (capturarSegundo.setDatosConexion (sv,us,pw,dB,cT,"SEGUNDO_OFICIAL","no_licencia")) {
+            capturarSegundo.setVisible(true);
+        } else {
+            capturarSegundo.dispose();
+        }
     }//GEN-LAST:event_botonSeleccionarSegundoActionPerformed
 
     private void botonSeleccionarTerceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarTerceroActionPerformed
@@ -1353,8 +1393,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             capturarTercero.setTitle("TERCEROS OFICIALES: CIERRE DE PLAN DE VUELO");
         }
         String [] cT = {"no_licencia","nombre","apellido_paterno","apellido_materno","tipo_licencia"};
-        capturarTercero.setDatosConexion (sv,us,pw,dB,cT,"TERCER_OFICIAL","no_licencia");
-        capturarTercero.setVisible(true);
+        if (capturarTercero.setDatosConexion (sv,us,pw,dB,cT,"TERCER_OFICIAL","no_licencia")) {
+            capturarTercero.setVisible(true);
+        } else {
+            capturarTercero.dispose();
+        }
     }//GEN-LAST:event_botonSeleccionarTerceroActionPerformed
 
     private void jSpinnerHorasUTCStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerHorasUTCStateChanged
@@ -1472,16 +1515,17 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonDeclararEmDesembarqueActionPerformed
 
-    private void jTextFieldPersonasPasajerosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldPersonasPasajerosFocusGained
-        jTextFieldPersonasPasajeros.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextFieldPersonasPasajerosFocusGained
-
     private void jTextFieldPersonasPasajerosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPersonasPasajerosKeyTyped
         int limite = 3;
         char caracterValidar = evt.getKeyChar();
         if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldPersonasPasajeros.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
+        } else {
+            Color cError = new Color(rError, gError, bError);
+            if (jLabel3.getForeground().getRGB() == cError.getRGB() && (jTextFieldPersonasPasajeros.getText() == null || jTextFieldPersonasPasajeros.getText().equals(""))) {
+                jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+            }
         }
     }//GEN-LAST:event_jTextFieldPersonasPasajerosKeyTyped
 
@@ -1499,28 +1543,36 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
     private void botonGuardarPlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarPlanesActionPerformed
         int vacios = 0;
-        if (jTextField1.getText() == null || "".equals(jTextField1.getText())) {
-            jLabel8.setForeground(new java.awt.Color(rColor,gColor,bColor));
-            jLabel8.setText("OACI*");
+        String mensaje = "NO HA ESPECIFICADO LOS SIGUIENTES CAMPOS OBLIGATORIOS:";
+        if (jDateFecha.getDate() == null) {
+            jLabel2.setForeground(new java.awt.Color(rError, gError, bError));
             vacios++;
+            mensaje += "\nFECHA";
+        }
+        if (jTextField1.getText() == null || "".equals(jTextField1.getText())) {
+            botonSeleccionarAeropuertoPlanes.setForeground(new java.awt.Color(rError, gError, bError));
+            vacios++;
+            mensaje += "\nAEROPUERTO";
         }
         if (jTextField4.getText() == null || "".equals(jTextField4.getText())) {
-            jTextField4.setBackground(new java.awt.Color(255,0,0));
-            jTextField5.setBackground(new java.awt.Color(255,0,0));
+            botonSeleccionarAeronavePlanes.setForeground(new java.awt.Color(rError, gError, bError));
             vacios++;
+            mensaje += "\nAERONAVE";
         }
         if (jTextField6.getText() == null || "".equals(jTextField6.getText())) {
-            jTextField6.setBackground(new java.awt.Color(255,0,0));
-            jTextField7.setBackground(new java.awt.Color(255,0,0));
+            botonSeleccionarPilotoPlanes.setForeground(new java.awt.Color(rError, gError, bError));
             vacios++;
+            mensaje += "\nPILOTO";
         }
         if (jTextFieldPersonasPasajeros.getText() == null || "".equals(jTextFieldPersonasPasajeros.getText())) {
-            jTextFieldPersonasPasajeros.setBackground(new java.awt.Color(255,0,0));
+            jLabel3.setForeground(new java.awt.Color(rError, gError, bError));
             vacios++;
-        }
-        if (jDateFecha.getDate() == null) {
-            JOptionPane.showMessageDialog(this,"NO HAS SELECCIONADO LA FECHA","",JOptionPane.ERROR_MESSAGE);
-            vacios++;
+            String aperturaCierre = jComboBoxOperacionPlanes.getSelectedItem().toString();
+            if (aperturaCierre.equals("APERTURA DE PLAN DE VUELO")) {
+                mensaje += "\nPERSONAS A BORDO";
+            } else {
+                mensaje += "\nNÚMERO DE PASAJEROS";
+            }
         }
         if (vacios == 0) {
             // CREACION DE LA CONEXION A MYSQL
@@ -1587,45 +1639,50 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                     limpiarPlan();
                 }
             } else {
-                JOptionPane.showMessageDialog(this, conexionPlanes.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
             }
-        }    
+        } else {
+            JOptionPane.showMessageDialog(this,mensaje,"INFORMACIÓN INCOMPLETA",JOptionPane.ERROR_MESSAGE);
+        }  
     }//GEN-LAST:event_botonGuardarPlanesActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         int vacios = 0;
-        if (jTextField11.getText() == null || "".equals(jTextField11.getText())) {
-            jTextField11.setBackground(new java.awt.Color(255,0,0));
-            jTextField12.setBackground(new java.awt.Color(255,0,0));
+        String mensaje = "NO HA ESPECIFICADO LOS SIGUIENTES CAMPOS OBLIGATORIOS:";
+        if (jDateChooser2.getDate() == null) {
+            jLabel21.setForeground(new java.awt.Color(rError, gError, bError));
             vacios++;
+            mensaje += "\nFECHA";
+        }
+        if (jTextField11.getText() == null || "".equals(jTextField11.getText())) {
+            botonSeleccionarCompaniaManifiestos.setForeground(new java.awt.Color(rError, gError, bError));
+            vacios++;
+            mensaje += "\nCOMPAÑÍA";
         }
         if (jTextField13.getText() == null || "".equals(jTextField13.getText())) {
-            jTextField13.setBackground(new java.awt.Color(255,0,0));
-            jTextField14.setBackground(new java.awt.Color(255,0,0));
+            botonSeleccionarAeronaveManifiestos.setForeground(new java.awt.Color(rError, gError, bError));
             vacios++;
+            mensaje += "\nEQUIPO";
         }
         if (jTextField15.getText() == null || "".equals(jTextField15.getText())) {
-            jTextField15.setBackground(new java.awt.Color(255,0,0));
+            jLabel29.setForeground(new java.awt.Color(rError, gError, bError));
             vacios++;
+            mensaje += "\nNo. DE VUELO";
         }
         if (jTextField16.getText() == null || "".equals(jTextField16.getText())) {
-            jTextField16.setBackground(new java.awt.Color(255,0,0));
-            jTextField18.setBackground(new java.awt.Color(255,0,0));
+            botonSeleccionarAeropuertoManifiestos.setForeground(new java.awt.Color(rError, gError, bError));
             vacios++;
+            mensaje += "\nAEROPUERTO";
         }
         if (jTextField17.getText() == null || "".equals(jTextField17.getText())) {
-            jTextField17.setBackground(new java.awt.Color(255,0,0));
-            jTextField19.setBackground(new java.awt.Color(255,0,0));
+            botonSeleccionarComandante.setForeground(new java.awt.Color(rError, gError, bError));
             vacios++;
+            mensaje += "\nCOMANDANTE";
         }
         if (jTextField21.getText() == null || "".equals(jTextField21.getText())) {
-            jTextField21.setBackground(new java.awt.Color(255,0,0));
-            jTextField20.setBackground(new java.awt.Color(255,0,0));
+            botonSeleccionarPrimer.setForeground(new java.awt.Color(rError, gError, bError));
             vacios++;
-        }
-        if (jDateChooser2.getDate() == null) {
-            JOptionPane.showMessageDialog(this,"NO HAS SELECCIONADO LA FECHA","",JOptionPane.ERROR_MESSAGE);
-            vacios++;
+            mensaje += "\n1er. OFICIAL";
         }
         if (vacios == 0) {
             ConexionMysql conexionPlanes= new ConexionMysql();
@@ -1717,7 +1774,9 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
             }
-        }    
+        } else {
+            JOptionPane.showMessageDialog(this,mensaje,"INFORMACIÓN INCOMPLETA",JOptionPane.ERROR_MESSAGE);
+        } 
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jComboBoxOperacionPlanesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxOperacionPlanesItemStateChanged
@@ -1733,7 +1792,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jLabel38.setEnabled(false);
             botonSeleccionarCopiloto.setEnabled(false);
             jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("OTROS DATOS / OBSERVACIONES"));
-            jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("PERSONAS A BORDO"));            
+            jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("PERSONAS A BORDO"));
+            jLabel3.setText("PERSONAS A BORDO");
         } else {
             jLabel6.setText("HORA DE LLEGADA");
             jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("PROCEDENCIA"));
@@ -1746,13 +1806,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             botonSeleccionarCopiloto.setEnabled(true);
             jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("OBSERVACIONES"));
             jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("PASAJEROS"));
+            jLabel3.setText("PASAJEROS");
         }
         limpiarPlan();
     }//GEN-LAST:event_jComboBoxOperacionPlanesItemStateChanged
-
-    private void jTextField15FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField15FocusGained
-        jTextField15.setBackground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_jTextField15FocusGained
 
     private void jComboBoxOperacionManifiestosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxOperacionManifiestosItemStateChanged
         String aperturaCierre = jComboBoxOperacionManifiestos.getSelectedItem().toString();
@@ -1791,6 +1848,36 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jTextField25.setText(null);
         botonBorrarTercero.setEnabled(false);
     }//GEN-LAST:event_botonBorrarTerceroActionPerformed
+
+    private void jDateFechaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateFechaPropertyChange
+        Color cError = new Color(rError, gError, bError);
+        if (jLabel2.getForeground().getRGB() == cError.getRGB() && jDateFecha.getDate() != null) {
+            jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        }
+    }//GEN-LAST:event_jDateFechaPropertyChange
+
+    private void jDateChooser2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooser2PropertyChange
+        Color cError = new Color(rError, gError, bError);
+        if (jLabel21.getForeground().getRGB() == cError.getRGB() && jDateChooser2.getDate() != null) {
+            jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        }
+    }//GEN-LAST:event_jDateChooser2PropertyChange
+
+    private void jTextField15KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyTyped
+        int limite = 7;
+        char caracterValidar = evt.getKeyChar();
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextField15.getText().length() < limite)){
+            getToolkit().beep(); 
+            evt.consume();
+        } else {
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);
+            Color cError = new Color(rError, gError, bError);
+            if (jLabel29.getForeground().getRGB() == cError.getRGB() && (jTextField1.getText() == null || jTextField15.getText().equals(""))) {
+                jLabel29.setForeground(new java.awt.Color(0, 0, 0));
+            }
+        }
+    }//GEN-LAST:event_jTextField15KeyTyped
 
     /**
      * @param args the command line arguments
@@ -1866,15 +1953,15 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JButton botonDeclararSobrecargos;
     private javax.swing.JButton botonGuardarPlanes;
     private javax.swing.JButton botonListaPasajeros;
-    private javax.swing.JButton botonSeleccionarAeronaveManifiestos;
-    private javax.swing.JButton botonSeleccionarAeronavePlanes;
-    private javax.swing.JButton botonSeleccionarAeropuertoManifiestos;
-    private javax.swing.JButton botonSeleccionarAeropuertoPlanes;
-    private javax.swing.JButton botonSeleccionarComandante;
-    private javax.swing.JButton botonSeleccionarCompaniaManifiestos;
+    public static javax.swing.JButton botonSeleccionarAeronaveManifiestos;
+    public static javax.swing.JButton botonSeleccionarAeronavePlanes;
+    public static javax.swing.JButton botonSeleccionarAeropuertoManifiestos;
+    public static javax.swing.JButton botonSeleccionarAeropuertoPlanes;
+    public static javax.swing.JButton botonSeleccionarComandante;
+    public static javax.swing.JButton botonSeleccionarCompaniaManifiestos;
     private javax.swing.JButton botonSeleccionarCopiloto;
-    private javax.swing.JButton botonSeleccionarPilotoPlanes;
-    private javax.swing.JButton botonSeleccionarPrimer;
+    public static javax.swing.JButton botonSeleccionarPilotoPlanes;
+    public static javax.swing.JButton botonSeleccionarPrimer;
     private javax.swing.JButton botonSeleccionarSegundo;
     private javax.swing.JButton botonSeleccionarTercero;
     private javax.swing.JButton jButton6;
@@ -1988,26 +2075,19 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     static String listaSobrecargos;
     static String [] embarque;
     static String [] desembarque;
-    final int rColor = 255;
-    final int gColor = 0;
-    final int bColor = 0;
+    final int rError = 255;
+    final int gError = 0;
+    final int bError = 0;
+    Color colorFondo;
     
     private void limpiarManifiesto() {
-        jTextField11.setBackground(new java.awt.Color(212,208,200));
-        jTextField12.setBackground(new java.awt.Color(212,208,200));
-        jTextField13.setBackground(new java.awt.Color(212,208,200));
-        jTextField14.setBackground(new java.awt.Color(212,208,200));
-        jTextField15.setBackground(new java.awt.Color(255,255,255));
-        jTextField16.setBackground(new java.awt.Color(212,208,200));
-        jTextField18.setBackground(new java.awt.Color(212,208,200));
-        jTextField17.setBackground(new java.awt.Color(212,208,200));
-        jTextField19.setBackground(new java.awt.Color(212,208,200));
-        jTextField21.setBackground(new java.awt.Color(212,208,200));
-        jTextField20.setBackground(new java.awt.Color(212,208,200));
-        jTextField22.setBackground(new java.awt.Color(212,208,200));
-        jTextField23.setBackground(new java.awt.Color(212,208,200));
-        jTextField24.setBackground(new java.awt.Color(212,208,200));
-        jTextField25.setBackground(new java.awt.Color(212,208,200));
+        botonSeleccionarCompaniaManifiestos.setForeground(new java.awt.Color(0, 0, 0));
+        botonSeleccionarAeronaveManifiestos.setForeground(new java.awt.Color(0, 0, 0));
+        botonSeleccionarAeropuertoManifiestos.setForeground(new java.awt.Color(0, 0, 0));
+        botonSeleccionarComandante.setForeground(new java.awt.Color(0, 0, 0));
+        botonSeleccionarPrimer.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jTextField11.setText(null);
         jTextField12.setText(null);
         jTextField13.setText(null);
@@ -2040,14 +2120,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     }
     
     private void limpiarPlan() {
-        jTextField1.setBackground(new java.awt.Color(212,208,200));
-        jTextField2.setBackground(new java.awt.Color(212,208,200));
-        jTextField3.setBackground(new java.awt.Color(212,208,200));
-        jTextField4.setBackground(new java.awt.Color(212,208,200));
-        jTextField5.setBackground(new java.awt.Color(212,208,200));
-        jTextField6.setBackground(new java.awt.Color(212,208,200));
-        jTextField7.setBackground(new java.awt.Color(212,208,200));
-        jTextFieldPersonasPasajeros.setBackground(new java.awt.Color(255,255,255));
+        botonSeleccionarAeropuertoPlanes.setForeground(new java.awt.Color(0, 0, 0));
+        botonSeleccionarAeronavePlanes.setForeground(new java.awt.Color(0, 0, 0));
+        botonSeleccionarPilotoPlanes.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(colorFondo);
         jTextField1.setText(null);
         jTextField2.setText(null);
         jTextField3.setText(null);
@@ -2065,8 +2142,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jSpinnerMinutosUTC.setValue(0);
         String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
         if (tipoOperacion.equals("CIERRE DE PLAN DE VUELO")) {
-            jTextField8.setBackground(new java.awt.Color(212,208,200));
-            jTextField9.setBackground(new java.awt.Color(212,208,200));
             jTextField8.setText(null);
             jTextField9.setText(null);
         }

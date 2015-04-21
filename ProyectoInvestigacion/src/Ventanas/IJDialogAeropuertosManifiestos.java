@@ -788,7 +788,7 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
     JTextField [] camposTextos = new JTextField[3];
     Color colorFondo;
     
-    public void setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
+    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
         if (ping.conectarBD(sv,us,pw,dB)) {
             columnasTablaMysql = cTM;
             nombreTablaMysql = nTM;
@@ -800,9 +800,11 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
             if(!ping.mostrarColumnasTablaMysqlSimple(jTableAeropuertosManifiestos, nombreTablaMysql, columnasTablaMysql)){
                 JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA INFORMACIÓN DE LA TABLA",JOptionPane.ERROR_MESSAGE);
             }
+            return true;
         } else {
             JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
         }
+        return false;
     }
     
     private void funcionSeleccionar() {
@@ -832,6 +834,7 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
         } else {
             AJFrameVentanaCapturas.jTextField18.setText(jTextFieldSIATA.getText());
             AJFrameVentanaCapturas.jTextField16.setText(jTextFieldSNombre.getText());
+            AJFrameVentanaCapturas.botonSeleccionarAeropuertoManifiestos.setForeground(new java.awt.Color(0, 0, 0));
             this.dispose();  
         }
     }
