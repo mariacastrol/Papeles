@@ -277,36 +277,34 @@ public class JJDialogComandantes extends javax.swing.JDialog {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jTextFieldAAMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(botonActualizar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(botonAgregar))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jTextFieldAALicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabelAATLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelObligatorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(30, 30, 30))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addComponent(botonActualizar)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(botonAgregar))
-                                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addComponent(jTextFieldAALicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabelAATLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabelObligatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel18)
-                                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextFieldAAPaterno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldAANombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(28, 28, 28))))
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldAAPaterno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldAANombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,7 +339,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
 
             },
             new String [] {
-                "LICENCIA", "NOMBRE(S)", "A PATERNO", "A MATERNO", "TIPO LICENCIA"
+                "LICENCIA", "NOMBRE(S)", "A PATERNO", "A MATERNO", "T LICENCIA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -353,6 +351,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
             }
         });
         jTableComandantes.setComponentPopupMenu(jPopupMenu1);
+        jTableComandantes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTableComandantes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableComandantesMouseClicked(evt);
@@ -457,7 +456,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         if (!estanVacios()) {
             String [] valores = {jTextFieldAALicencia.getText(),jTextFieldAANombre.getText(),jTextFieldAAPaterno.getText(),jTextFieldAAMaterno.getText(),jLabelAATLicencia.getText()};
-            String mensajeSiRepiteRegistro = "Ya existe este número de Licencia";
+            String mensajeSiRepiteRegistro = "YA EXISTE UN COMANDANTE CON ESTE NÚMERO DE LICENCIA";
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
@@ -543,9 +542,9 @@ public class JJDialogComandantes extends javax.swing.JDialog {
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel19.getForeground().getRGB() == cError.getRGB()) {
-                jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel19.setForeground(new java.awt.Color(0,0,0));
                 jLabel19.setText("N° DE LICENCIA");
             }
             desaparecerEtiqueta(1);
@@ -573,9 +572,9 @@ public class JJDialogComandantes extends javax.swing.JDialog {
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel17.getForeground().getRGB() == cError.getRGB()) {
-                jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel17.setForeground(new java.awt.Color(0,0,0));
                 jLabel17.setText("APELLIDO PATERNO");
             }
             desaparecerEtiqueta(0);
@@ -819,8 +818,8 @@ public class JJDialogComandantes extends javax.swing.JDialog {
     private final int rError = 255;
     private final int gError = 0;
     private final int bError = 0;
-    JTextField [] camposTextos = new JTextField[2];
-    Color colorFondo;
+    private JTextField [] camposTextos = new JTextField[2];
+    private Color colorFondo;
     
     public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
         if (ping.conectarBD(sv,us,pw,dB)) {
@@ -852,8 +851,8 @@ public class JJDialogComandantes extends javax.swing.JDialog {
             jTextFieldSNombreCompleto.setText(celda1 + " " + celda2 + " " + celda3);
             jTextFieldSLicencia.setText(celda);
             jLabelSTLicencia.setText(celda4);           
-            jLabel31.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel33.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel31.setForeground(new java.awt.Color(0,0,0));
+            jLabel33.setForeground(new java.awt.Color(0,0,0));
             jLabel1.setForeground(colorFondo);
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
@@ -862,14 +861,14 @@ public class JJDialogComandantes extends javax.swing.JDialog {
     
     private void funcionVolver() {
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldSNombreCompleto)) {
-            jLabel31.setForeground(new java.awt.Color(rError, gError, bError));
-            jLabel33.setForeground(new java.awt.Color(rError, gError, bError));
-            jLabel1.setForeground(new java.awt.Color(rError, gError, bError));      
+            jLabel31.setForeground(new java.awt.Color(rError,gError,bError));
+            jLabel33.setForeground(new java.awt.Color(rError,gError,bError));
+            jLabel1.setForeground(new java.awt.Color(rError,gError,bError));      
         } else {
             AJFrameVentanaCapturas.jTextField17.setText(jTextFieldSNombreCompleto.getText());
             AJFrameVentanaCapturas.jTextField19.setText(jTextFieldSLicencia.getText());
             AJFrameVentanaCapturas.jLabel18.setText(jLabelSTLicencia.getText());
-            AJFrameVentanaCapturas.botonSeleccionarComandante.setForeground(new java.awt.Color(0, 0, 0));
+            AJFrameVentanaCapturas.botonSeleccionarComandante.setForeground(new java.awt.Color(0,0,0));
             this.dispose();  
         }
     }
@@ -877,14 +876,14 @@ public class JJDialogComandantes extends javax.swing.JDialog {
     private boolean estanVacios() {
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
             if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia)) {
-                jLabel19.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel19.setForeground(new java.awt.Color(rError,gError,bError));
                 jLabel19.setText("N° DE LICENCIA*");
             }
             if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
-                jLabel17.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel17.setForeground(new java.awt.Color(rError,gError,bError));
                 jLabel17.setText("APELLIDO PATERNO*");
             }            
-            jLabelObligatorios.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabelObligatorios.setForeground(new java.awt.Color(rError,gError,bError));
             return true;
         }
         return false;
@@ -897,19 +896,19 @@ public class JJDialogComandantes extends javax.swing.JDialog {
         jTextFieldAAMaterno.setText(null);
         jLabelAATLicencia.setText(null);
         jLabelObligatorios.setForeground(colorFondo);
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setForeground(new java.awt.Color(0,0,0));
         jLabel19.setText("N° DE LICENCIA");
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setForeground(new java.awt.Color(0,0,0));
         jLabel17.setText("APELLIDO PATERNO");
     }
     
     private void arregloTextField() {
-        camposTextos [0] = jTextFieldAAPaterno;
-        camposTextos [1] = jTextFieldAALicencia;
+        camposTextos[0] = jTextFieldAAPaterno;
+        camposTextos[1] = jTextFieldAALicencia;
     }
     
     private void desaparecerEtiqueta(int indiceCajaTexto) {
-        Color cError = new Color(rError, gError, bError);
+        Color cError = new Color(rError,gError,bError);
         if (jLabelObligatorios.getForeground().getRGB() == cError.getRGB()) {
             int camposVacios = 0;
             for (int i = 0; i < camposTextos.length; i++) {

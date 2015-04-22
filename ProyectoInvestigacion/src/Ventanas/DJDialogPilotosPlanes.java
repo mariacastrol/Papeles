@@ -339,7 +339,7 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
 
             },
             new String [] {
-                "LICENCIA", "NOMBRE(S)", "A PATERNO", "A MATERNO", "TIPO LICENCIA"
+                "LICENCIA", "NOMBRE(S)", "A PATERNO", "A MATERNO", "T LICENCIA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -351,6 +351,7 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
             }
         });
         jTablePilotosPlanes.setComponentPopupMenu(jPopupMenu1);
+        jTablePilotosPlanes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTablePilotosPlanes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTablePilotosPlanesMouseClicked(evt);
@@ -455,7 +456,7 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         if (!estanVacios()) {
             String [] valores = {jTextFieldAALicencia.getText(),jTextFieldAANombre.getText(),jTextFieldAAPaterno.getText(),jTextFieldAAMaterno.getText(),jLabelAATLicencia.getText()};
-            String mensajeSiRepiteRegistro = "Ya existe este número de Licencia";
+            String mensajeSiRepiteRegistro = "YA EXISTE UN PILOTO CON ESTE NÚMERO DE LICENCIA";
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
@@ -541,9 +542,9 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel19.getForeground().getRGB() == cError.getRGB()) {
-                jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel19.setForeground(new java.awt.Color(0,0,0));
                 jLabel19.setText("N° DE LICENCIA");
             }
             desaparecerEtiqueta(1);
@@ -571,9 +572,9 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel17.getForeground().getRGB() == cError.getRGB()) {
-                jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel17.setForeground(new java.awt.Color(0,0,0));
                 jLabel17.setText("APELLIDO PATERNO");
             }
             desaparecerEtiqueta(0);
@@ -753,8 +754,8 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
     private final int rError = 255;
     private final int gError = 0;
     private final int bError = 0;
-    JTextField [] camposTextos = new JTextField[2];
-    Color colorFondo;
+    private JTextField [] camposTextos = new JTextField[2];
+    private Color colorFondo;
     
     public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
         if (ping.conectarBD(sv,us,pw,dB)) {
@@ -786,8 +787,8 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
             jTextFieldSNombreCompleto.setText(celda1 + " " + celda2 + " " + celda3);
             jTextFieldSLicencia.setText(celda);
             jLabelSTLicencia.setText(celda4);
-            jLabel31.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel33.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel31.setForeground(new java.awt.Color(0,0,0));
+            jLabel33.setForeground(new java.awt.Color(0,0,0));
             jLabel1.setForeground(colorFondo);
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
@@ -796,14 +797,14 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
     
     private void funcionVolver() {
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldSNombreCompleto)) {
-            jLabel31.setForeground(new java.awt.Color(rError, gError, bError));
-            jLabel33.setForeground(new java.awt.Color(rError, gError, bError));
-            jLabel1.setForeground(new java.awt.Color(rError, gError, bError));        
+            jLabel31.setForeground(new java.awt.Color(rError,gError,bError));
+            jLabel33.setForeground(new java.awt.Color(rError,gError,bError));
+            jLabel1.setForeground(new java.awt.Color(rError,gError,bError));        
         } else {
             AJFrameVentanaCapturas.jTextField6.setText(jTextFieldSNombreCompleto.getText());
             AJFrameVentanaCapturas.jTextField7.setText(jTextFieldSLicencia.getText());
             AJFrameVentanaCapturas.jLabel14.setText(jLabelSTLicencia.getText());
-            AJFrameVentanaCapturas.botonSeleccionarPilotoPlanes.setForeground(new java.awt.Color(0, 0, 0));
+            AJFrameVentanaCapturas.botonSeleccionarPilotoPlanes.setForeground(new java.awt.Color(0,0,0));
             this.dispose();  
         }
     }
@@ -811,14 +812,14 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
     private boolean estanVacios() {
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia) || FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
             if (FuncionesGenerales.estaVacioJTextField(jTextFieldAALicencia)) {
-                jLabel19.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel19.setForeground(new java.awt.Color(rError,gError,bError));
                 jLabel19.setText("N° DE LICENCIA*");
             }
             if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAPaterno)) {
-                jLabel17.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel17.setForeground(new java.awt.Color(rError,gError,bError));
                 jLabel17.setText("APELLIDO PATERNO*");
             }            
-            jLabelObligatorios.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabelObligatorios.setForeground(new java.awt.Color(rError,gError,bError));
             return true;
         }
         return false;
@@ -831,19 +832,19 @@ public class DJDialogPilotosPlanes extends javax.swing.JDialog {
         jTextFieldAAMaterno.setText(null);
         jLabelAATLicencia.setText(null);
         jLabelObligatorios.setForeground(colorFondo);
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setForeground(new java.awt.Color(0,0,0));
         jLabel19.setText("N° DE LICENCIA");
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setForeground(new java.awt.Color(0,0,0));
         jLabel17.setText("APELLIDO PATERNO");
     }
     
     private void arregloTextField() {
-        camposTextos [0] = jTextFieldAAPaterno;
-        camposTextos [1] = jTextFieldAALicencia;
+        camposTextos[0] = jTextFieldAAPaterno;
+        camposTextos[1] = jTextFieldAALicencia;
     }
     
     private void desaparecerEtiqueta(int indiceCajaTexto) {
-        Color cError = new Color(rError, gError, bError);
+        Color cError = new Color(rError,gError,bError);
         if (jLabelObligatorios.getForeground().getRGB() == cError.getRGB()) {
             int camposVacios = 0;
             for (int i = 0; i < camposTextos.length; i++) {

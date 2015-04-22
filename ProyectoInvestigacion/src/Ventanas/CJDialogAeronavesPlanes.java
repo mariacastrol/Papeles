@@ -309,6 +309,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
             }
         });
         jTableAeronavesPlanes.setComponentPopupMenu(jPopupMenu1);
+        jTableAeronavesPlanes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTableAeronavesPlanes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableAeronavesPlanesMouseClicked(evt);
@@ -401,7 +402,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         if (!estanVacios()) {
             String [] valores = {jTextFieldAAMatricula.getText(),jTextFieldAATipo.getText()};
-            String mensajeSiRepiteRegistro = "YA EXISTE UNA AERONAVE CON ESA MATRICULA";
+            String mensajeSiRepiteRegistro = "YA EXISTE UNA AERONAVE CON ESTA MATRÍCULA";
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
@@ -480,9 +481,9 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel20.getForeground().getRGB() == cError.getRGB()) {
-                jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel20.setForeground(new java.awt.Color(0,0,0));
                 jLabel20.setText("MATRÍCULA");
             }
             desaparecerEtiqueta(0);
@@ -498,9 +499,9 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel15.getForeground().getRGB() == cError.getRGB()) {
-                jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel15.setForeground(new java.awt.Color(0,0,0));
                 jLabel15.setText("TIPO");
             }
             desaparecerEtiqueta(1);
@@ -718,12 +719,12 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     private String [] columnasTablaMysql;
     private String nombreTablaMysql;
     private String pK;
-    private final String mensajeNoSeleccionado = "Primero de clic izquierdo sobre el elemento deseado de la tabla";
+    private final String mensajeNoSeleccionado = "PRIMERO HAGA CLIC IZQUIERDO SOBRE EL ELEMENTO DESEADO DE LA TABLA";
     private final int rError = 255;
     private final int gError = 0;
     private final int bError = 0;
-    JTextField [] camposTextos = new JTextField[2];
-    Color colorFondo;
+    private JTextField [] camposTextos = new JTextField[2];
+    private Color colorFondo;
     
     public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
         if (ping.conectarBD(sv,us,pw,dB)) {
@@ -751,8 +752,8 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
             String celda1 = jTableAeronavesPlanes.getValueAt(filaSeleccionada,1).toString();
             jTextFieldSMatricula.setText(celda);
             jTextFieldSTipo.setText(celda1);       
-            jLabel21.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel22.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel21.setForeground(new java.awt.Color(0,0,0));
+            jLabel22.setForeground(new java.awt.Color(0,0,0));
             jLabel1.setForeground(colorFondo);          
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
@@ -761,13 +762,13 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     
     private void funcionVolver() {
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldSMatricula)) {
-            jLabel21.setForeground(new java.awt.Color(rError, gError, bError));
-            jLabel22.setForeground(new java.awt.Color(rError, gError, bError));
-            jLabel1.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabel21.setForeground(new java.awt.Color(rError,gError,bError));
+            jLabel22.setForeground(new java.awt.Color(rError,gError,bError));
+            jLabel1.setForeground(new java.awt.Color(rError,gError,bError));
         } else {
             AJFrameVentanaCapturas.jTextField4.setText(jTextFieldSMatricula.getText());
             AJFrameVentanaCapturas.jTextField5.setText(jTextFieldSTipo.getText());
-            AJFrameVentanaCapturas.botonSeleccionarAeronavePlanes.setForeground(new java.awt.Color(0, 0, 0));
+            AJFrameVentanaCapturas.botonSeleccionarAeronavePlanes.setForeground(new java.awt.Color(0,0,0));
             this.dispose();  
         }
     }
@@ -775,14 +776,14 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     private boolean estanVacios() {
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAMatricula) || FuncionesGenerales.estaVacioJTextField(jTextFieldAATipo)) {
             if (FuncionesGenerales.estaVacioJTextField(jTextFieldAAMatricula)) {
-                jLabel20.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel20.setForeground(new java.awt.Color(rError,gError,bError));
                 jLabel20.setText("MATRÍCULA*");
             }
             if (FuncionesGenerales.estaVacioJTextField(jTextFieldAATipo)) {
-                jLabel15.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel15.setForeground(new java.awt.Color(rError,gError,bError));
                 jLabel15.setText("TIPO*");
             }
-            jLabelObligatorios.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabelObligatorios.setForeground(new java.awt.Color(rError,gError,bError));
             return true;
         }
         return false;
@@ -792,19 +793,19 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         jTextFieldAAMatricula.setText(null);
         jTextFieldAATipo.setText(null);
         jLabelObligatorios.setForeground(colorFondo);
-        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setForeground(new java.awt.Color(0,0,0));
         jLabel20.setText("MATRÍCULA");
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setForeground(new java.awt.Color(0,0,0));
         jLabel15.setText("TIPO");
     }
     
     private void arregloTextField() {
-        camposTextos [0] = jTextFieldAAMatricula;
-        camposTextos [1] = jTextFieldAATipo;
+        camposTextos[0] = jTextFieldAAMatricula;
+        camposTextos[1] = jTextFieldAATipo;
     }
     
     private void desaparecerEtiqueta(int indiceCajaTexto) {
-        Color cError = new Color(rError, gError, bError);
+        Color cError = new Color(rError,gError,bError);
         if (jLabelObligatorios.getForeground().getRGB() == cError.getRGB()) {
             int camposVacios = 0;
             for (int i = 0; i < camposTextos.length; i++) {
@@ -819,5 +820,6 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
                 jLabelObligatorios.setForeground(colorFondo);
             }
         }
-    } 
+    }
+    
 }

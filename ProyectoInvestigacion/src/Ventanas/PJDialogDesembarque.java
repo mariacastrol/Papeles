@@ -20,8 +20,7 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
      */
     public PJDialogDesembarque(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents();
-        arregloTextField();
+        initComponents();   
     }
 
     /**
@@ -160,7 +159,6 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
             }
         });
 
-        jLabel17.setForeground(new java.awt.Color(212, 208, 200));
         jLabel17.setText("* CAMPOS OBLIGATORIOS");
 
         jButton1.setText("CEROS");
@@ -285,13 +283,13 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
             getToolkit().beep(); 
             evt.consume();
         } else {
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel1.getForeground().getRGB() == cError.getRGB()) {
                 int jTextFieldVacios = 0;
                 jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas2,1);
                 jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas3,1);
                 if (jTextFieldVacios == 0) {
-                    jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel1.setForeground(new java.awt.Color(0,0,0));
                     jLabel1.setText("PERSONAS");
                 }
             }
@@ -306,13 +304,13 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
             getToolkit().beep(); 
             evt.consume();
         } else {
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel1.getForeground().getRGB() == cError.getRGB()) {
                 int jTextFieldVacios = 0;
                 jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas1,1);
                 jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas3,1);
                 if (jTextFieldVacios == 0) {
-                    jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel1.setForeground(new java.awt.Color(0,0,0));
                     jLabel1.setText("PERSONAS");
                 }
             }
@@ -327,13 +325,13 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
             getToolkit().beep(); 
             evt.consume();
         } else {
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel1.getForeground().getRGB() == cError.getRGB()) {
                 int jTextFieldVacios = 0;
                 jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas1,1);
                 jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas2,1);
                 if (jTextFieldVacios == 0) {
-                    jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel1.setForeground(new java.awt.Color(0,0,0));
                     jLabel1.setText("PERSONAS");
                 }
             }
@@ -348,9 +346,9 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
             getToolkit().beep(); 
             evt.consume();
         } else {
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel10.getForeground().getRGB() == cError.getRGB()) {
-                jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel10.setForeground(new java.awt.Color(0,0,0));
                 jLabel10.setText("Núm.");
             }
             desaparecerEtiqueta(9);
@@ -364,10 +362,10 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
             getToolkit().beep(); 
             evt.consume();
         } else {
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel2.getForeground().getRGB() == cError.getRGB()) {
                 if (FuncionesGenerales.sumarSiEstaVacio(jTextFieldEquipajeKg,1) == 0) {
-                    jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel2.setForeground(new java.awt.Color(0,0,0));
                     jLabel2.setText("EQUIPAJE");
                 }
             }
@@ -382,10 +380,10 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
             getToolkit().beep(); 
             evt.consume();
         }  else {
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel2.getForeground().getRGB() == cError.getRGB()) {
                 if (FuncionesGenerales.sumarSiEstaVacio(jTextFieldEquipajePzas,1) == 0) {
-                    jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel2.setForeground(new java.awt.Color(0,0,0));
                     jLabel2.setText("EQUIPAJE");
                 }
             }
@@ -400,10 +398,10 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
             getToolkit().beep(); 
             evt.consume();
         } else {
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel3.getForeground().getRGB() == cError.getRGB()) {
                 if (FuncionesGenerales.sumarSiEstaVacio(jTextFieldCargaKg,1) == 0) {
-                    jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel3.setForeground(new java.awt.Color(0,0,0));
                     jLabel3.setText("CARGA");
                 }
             }
@@ -418,10 +416,10 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
             getToolkit().beep(); 
             evt.consume();
         } else {
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel3.getForeground().getRGB() == cError.getRGB()) {
                 if (FuncionesGenerales.sumarSiEstaVacio(jTextFieldCargaPzas,1) == 0) {
-                    jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel3.setForeground(new java.awt.Color(0,0,0));
                     jLabel3.setText("CARGA");
                 }
             }
@@ -436,10 +434,10 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
             getToolkit().beep(); 
             evt.consume();
         }  else {
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel4.getForeground().getRGB() == cError.getRGB()) {
                 if (FuncionesGenerales.sumarSiEstaVacio(jTextFieldCorreoKg,1) == 0) {
-                    jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel4.setForeground(new java.awt.Color(0,0,0));
                     jLabel4.setText("CORREO");
                 }
             }
@@ -454,10 +452,10 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
             getToolkit().beep(); 
             evt.consume();
         } else {
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel4.getForeground().getRGB() == cError.getRGB()) {
                 if (FuncionesGenerales.sumarSiEstaVacio(jTextFieldCorreoPzas,1) == 0) {
-                    jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+                    jLabel4.setForeground(new java.awt.Color(0,0,0));
                     jLabel4.setText("CORREO");
                 }
             }
@@ -489,7 +487,7 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
             AJFrameVentanaCapturas.jLabel39.setEnabled(true);
             this.dispose();
         } else {
-            jLabel17.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabel17.setForeground(new java.awt.Color(rError,gError,bError));
         }
     }//GEN-LAST:event_botonAgregarActionPerformed
 
@@ -504,7 +502,7 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         FuncionesGenerales.ponerEnCeros(jTextFieldCorreoPzas,jLabel4,"CORREO");
         FuncionesGenerales.ponerEnCeros(jTextFieldCorreoKg,jLabel4,"CORREO");
         FuncionesGenerales.ponerEnCeros(jTextFieldPersonasTotal,jLabel10,"Núm.");
-        jLabel17.setForeground(new java.awt.Color(212, 208, 200));
+        jLabel17.setForeground(colorFondo);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -594,23 +592,26 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
     private final int rError = 255;
     private final int gError = 0;
     private final int bError = 0;
-    JTextField [] camposTextos = new JTextField[10];
+    private JTextField [] camposTextos = new JTextField[10];
+    private Color colorFondo;
     
     public void arregloTextField() {
-        camposTextos [0] = jTextFieldTtlPersonas1;
-        camposTextos [1] = jTextFieldTtlPersonas2;
-        camposTextos [2] = jTextFieldTtlPersonas3;
-        camposTextos [3] = jTextFieldEquipajePzas;
-        camposTextos [4] = jTextFieldEquipajeKg;
-        camposTextos [5] = jTextFieldCargaPzas;
-        camposTextos [6] = jTextFieldCargaKg;
-        camposTextos [7] = jTextFieldCorreoPzas;
-        camposTextos [8] = jTextFieldCorreoKg;
-        camposTextos [9] = jTextFieldPersonasTotal;
+        camposTextos[0] = jTextFieldTtlPersonas1;
+        camposTextos[1] = jTextFieldTtlPersonas2;
+        camposTextos[2] = jTextFieldTtlPersonas3;
+        camposTextos[3] = jTextFieldEquipajePzas;
+        camposTextos[4] = jTextFieldEquipajeKg;
+        camposTextos[5] = jTextFieldCargaPzas;
+        camposTextos[6] = jTextFieldCargaKg;
+        camposTextos[7] = jTextFieldCorreoPzas;
+        camposTextos[8] = jTextFieldCorreoKg;
+        camposTextos[9] = jTextFieldPersonasTotal;
+        colorFondo = jPanel1.getBackground();
+        jLabel17.setForeground(colorFondo);
     }
     
     private void desaparecerEtiqueta(int indiceCajaTexto) {
-        Color cError = new Color(rError, gError, bError);
+        Color cError = new Color(rError,gError,bError);
         if (jLabel17.getForeground().getRGB() == cError.getRGB()) {
             int camposVacios = 0;
             for (int i = 0; i < camposTextos.length; i++) {
@@ -622,7 +623,7 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
                 }
             }
             if (camposVacios == 0) {
-                jLabel17.setForeground(new java.awt.Color(212,208,200));
+                jLabel17.setForeground(colorFondo);
             }
         }
     }   

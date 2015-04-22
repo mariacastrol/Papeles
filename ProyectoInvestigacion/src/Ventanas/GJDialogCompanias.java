@@ -306,6 +306,7 @@ public class GJDialogCompanias extends javax.swing.JDialog {
             }
         });
         jTableCompaniasManifiestos.setComponentPopupMenu(jPopupMenu1);
+        jTableCompaniasManifiestos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTableCompaniasManifiestos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableCompaniasManifiestosMouseClicked(evt);
@@ -398,7 +399,7 @@ public class GJDialogCompanias extends javax.swing.JDialog {
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         if (!estanVacios()) {
             String [] valores = {jTextFieldAASiglas.getText(),jTextFieldAACompania.getText()};
-            String mensajeSiRepiteRegistro = "Ya existe una compañia con esas siglas";
+            String mensajeSiRepiteRegistro = "YA EXISTE UNA COMPAÑÍA CON ESTAS SIGLAS";
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
@@ -435,9 +436,9 @@ public class GJDialogCompanias extends javax.swing.JDialog {
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel29.getForeground().getRGB() == cError.getRGB()) {
-                jLabel29.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel29.setForeground(new java.awt.Color(0,0,0));
                 jLabel29.setText("SIGLAS");
             }
             desaparecerEtiqueta(0);
@@ -453,9 +454,9 @@ public class GJDialogCompanias extends javax.swing.JDialog {
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
-            Color cError = new Color(rError, gError, bError);
+            Color cError = new Color(rError,gError,bError);
             if (jLabel30.getForeground().getRGB() == cError.getRGB()) {
-                jLabel30.setForeground(new java.awt.Color(0, 0, 0));
+                jLabel30.setForeground(new java.awt.Color(0,0,0));
                 jLabel30.setText("COMPAÑÍA");
             }
             desaparecerEtiqueta(1);
@@ -719,8 +720,8 @@ public class GJDialogCompanias extends javax.swing.JDialog {
     private final int rError = 255;
     private final int gError = 0;
     private final int bError = 0;
-    JTextField [] camposTextos = new JTextField[2];
-    Color colorFondo;
+    private JTextField [] camposTextos = new JTextField[2];
+    private Color colorFondo;
     
     public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
         if (ping.conectarBD(sv,us,pw,dB)) {
@@ -748,8 +749,8 @@ public class GJDialogCompanias extends javax.swing.JDialog {
             String celda1 = jTableCompaniasManifiestos.getValueAt(filaSeleccionada,1).toString();
             jTextFieldSSiglas.setText(celda);
             jTextFieldSCompania.setText(celda1);
-            jLabel31.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel32.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel31.setForeground(new java.awt.Color(0,0,0));
+            jLabel32.setForeground(new java.awt.Color(0,0,0));
             jLabel1.setForeground(colorFondo);
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
@@ -758,13 +759,13 @@ public class GJDialogCompanias extends javax.swing.JDialog {
     
     private void funcionVolver() {
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldSSiglas)) {
-            jLabel31.setForeground(new java.awt.Color(rError, gError, bError));
-            jLabel32.setForeground(new java.awt.Color(rError, gError, bError));
-            jLabel1.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabel31.setForeground(new java.awt.Color(rError,gError,bError));
+            jLabel32.setForeground(new java.awt.Color(rError,gError,bError));
+            jLabel1.setForeground(new java.awt.Color(rError,gError,bError));
         } else {
             AJFrameVentanaCapturas.jTextField12.setText(jTextFieldSSiglas.getText());
             AJFrameVentanaCapturas.jTextField11.setText(jTextFieldSCompania.getText());
-            AJFrameVentanaCapturas.botonSeleccionarCompaniaManifiestos.setForeground(new java.awt.Color(0, 0, 0));
+            AJFrameVentanaCapturas.botonSeleccionarCompaniaManifiestos.setForeground(new java.awt.Color(0,0,0));
             this.dispose();  
         }
     }
@@ -772,14 +773,14 @@ public class GJDialogCompanias extends javax.swing.JDialog {
     private boolean estanVacios() {
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldAASiglas) || FuncionesGenerales.estaVacioJTextField(jTextFieldAACompania)) {
             if (FuncionesGenerales.estaVacioJTextField(jTextFieldAASiglas)) {
-                jLabel29.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel29.setForeground(new java.awt.Color(rError,gError,bError));
                 jLabel29.setText("SIGLAS*");
             }
             if (FuncionesGenerales.estaVacioJTextField(jTextFieldAACompania)) {
-                jLabel30.setForeground(new java.awt.Color(rError, gError, bError));
+                jLabel30.setForeground(new java.awt.Color(rError,gError,bError));
                 jLabel30.setText("COMPAÑÍA*");
             }
-            jLabelObligatorios.setForeground(new java.awt.Color(rError, gError, bError));
+            jLabelObligatorios.setForeground(new java.awt.Color(rError,gError,bError));
             return true;
         }
         return false;
@@ -789,19 +790,19 @@ public class GJDialogCompanias extends javax.swing.JDialog {
         jTextFieldAASiglas.setText(null);
         jTextFieldAACompania.setText(null);
         jLabelObligatorios.setForeground(colorFondo);
-        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel29.setForeground(new java.awt.Color(0,0,0));
         jLabel29.setText("SIGLAS");
-        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel30.setForeground(new java.awt.Color(0,0,0));
         jLabel30.setText("COMPAÑÍA");
     }
     
     private void arregloTextField() {
-        camposTextos [0] = jTextFieldAASiglas;
-        camposTextos [1] = jTextFieldAACompania;
+        camposTextos[0] = jTextFieldAASiglas;
+        camposTextos[1] = jTextFieldAACompania;
     }
     
     private void desaparecerEtiqueta(int indiceCajaTexto) {
-        Color cError = new Color(rError, gError, bError);
+        Color cError = new Color(rError,gError,bError);
         if (jLabelObligatorios.getForeground().getRGB() == cError.getRGB()) {
             int camposVacios = 0;
             for (int i = 0; i < camposTextos.length; i++) {

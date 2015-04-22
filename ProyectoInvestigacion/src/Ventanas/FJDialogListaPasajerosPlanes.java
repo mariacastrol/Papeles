@@ -103,6 +103,7 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
             }
         });
         jTableListaPasajeros.setComponentPopupMenu(jPopupMenu1);
+        jTableListaPasajeros.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTableListaPasajeros.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableListaPasajerosMouseClicked(evt);
@@ -259,7 +260,7 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
                 };
             FuncionesGenerales.agregarFila(jTableListaPasajeros,filaAInsertar);
         } else {
-            JOptionPane.showMessageDialog(this,"Seleccione una nacionalidad","",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this,"SELECCIONE DE LA LISTA LA NACIONALIDAD DE LA PERSONA","",JOptionPane.INFORMATION_MESSAGE);
         }
         jTextFieldNombre.setText(null);
         jTextFieldAPaterno.setText(null);
@@ -269,12 +270,12 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         int filaAEliminar = jTableListaPasajeros.getSelectedRow();
         if (filaAEliminar != -1) {           
-            FuncionesGenerales.eliminarFila(jTableListaPasajeros, filaAEliminar);
+            FuncionesGenerales.eliminarFila(jTableListaPasajeros,filaAEliminar);
             for (int i = filaAEliminar; i < jTableListaPasajeros.getRowCount(); i++) {
                 jTableListaPasajeros.setValueAt(FuncionesGenerales.integerFormat((i+1)),i,0);
             }
         } else {
-            JOptionPane.showMessageDialog(this,"Seleccione el pasajero a eliminar","",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this,"SELECCIONE EL PASAJERO A ELIMINAR","",JOptionPane.INFORMATION_MESSAGE);
         }      
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -298,7 +299,7 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
             botonGrabar.setEnabled(true);
             botonModificar.setEnabled(false);
         } else {
-            JOptionPane.showMessageDialog(this,"Seleccione una nacionalidad","",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this,"SELECCIONE DE LA LISTA LA NACIONALIDAD DE LA PERSONA","",JOptionPane.INFORMATION_MESSAGE);
         }    
     }//GEN-LAST:event_botonModificarActionPerformed
 
@@ -455,7 +456,7 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
     
-    int filaAModificar;
+    private int filaAModificar;
     
     private void funcionSeleccionar() {
         filaAModificar = jTableListaPasajeros.getSelectedRow();
@@ -475,7 +476,8 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
             botonGrabar.setEnabled(false);
             botonModificar.setEnabled(true);
         } else {
-            JOptionPane.showMessageDialog(this,"Seleccione el pasajero a modificar","",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this,"SELECCIONE EL PASAJERO A MODIFICAR INFORMACIÓN","",JOptionPane.INFORMATION_MESSAGE);
         } 
     }
+    
 }
