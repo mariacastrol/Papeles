@@ -183,7 +183,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jComboBoxOperacionPlanes);
-        jComboBoxOperacionPlanes.setBounds(32, 52, 190, 20);
+        jComboBoxOperacionPlanes.setBounds(32, 52, 190, 22);
 
         jLabel2.setText("FECHA");
         jPanel3.add(jLabel2);
@@ -201,7 +201,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jSpinnerHorasUTC);
-        jSpinnerHorasUTC.setBounds(688, 52, 40, 20);
+        jSpinnerHorasUTC.setBounds(688, 52, 40, 18);
 
         jLabel7.setText(":");
         jPanel3.add(jLabel7);
@@ -215,7 +215,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jSpinnerMinutosUTC);
-        jSpinnerMinutosUTC.setBounds(740, 52, 40, 20);
+        jSpinnerMinutosUTC.setBounds(740, 52, 40, 18);
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("AEROPUERTO/AERODROMO DE DESTINO"));
 
@@ -288,7 +288,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel5);
-        jPanel5.setBounds(32, 112, 539, 114);
+        jPanel5.setBounds(32, 112, 539, 113);
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("AERONAVE(S)"));
 
@@ -348,7 +348,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel6);
-        jPanel6.setBounds(591, 112, 312, 114);
+        jPanel6.setBounds(591, 112, 312, 113);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("PERSONAL DE VUELO"));
 
@@ -366,16 +366,14 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
 
         jTextField8.setEditable(false);
-        jTextField8.setEnabled(false);
+        jTextField8.setBackground(new java.awt.Color(255, 255, 255));
 
         jTextField9.setEditable(false);
-        jTextField9.setEnabled(false);
+        jTextField9.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel15.setText("COPILOTO");
-        jLabel15.setEnabled(false);
 
         jLabel16.setText("N° DE LICENCIA");
-        jLabel16.setEnabled(false);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
 
@@ -387,7 +385,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         });
 
         botonSeleccionarCopiloto.setText("AGREGAR");
-        botonSeleccionarCopiloto.setEnabled(false);
         botonSeleccionarCopiloto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSeleccionarCopilotoActionPerformed(evt);
@@ -395,7 +392,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         });
 
         jLabel38.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        jLabel38.setEnabled(false);
 
         botonBorrar.setText("BORRAR");
         botonBorrar.setEnabled(false);
@@ -486,7 +482,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel7);
-        jPanel7.setBounds(32, 241, 445, 189);
+        jPanel7.setBounds(32, 241, 445, 188);
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("PERSONAS A BORDO"));
 
@@ -540,7 +536,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel8);
-        jPanel8.setBounds(32, 445, 445, 88);
+        jPanel8.setBounds(32, 445, 447, 87);
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("OTROS DATOS / OBSERVACIONES"));
 
@@ -571,7 +567,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel9);
-        jPanel9.setBounds(497, 241, 406, 157);
+        jPanel9.setBounds(497, 241, 406, 156);
 
         botonGuardarPlanes.setText("GUARDAR");
         botonGuardarPlanes.addActionListener(new java.awt.event.ActionListener() {
@@ -626,7 +622,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jComboBoxOperacionManifiestos);
-        jComboBoxOperacionManifiestos.setBounds(32, 52, 190, 20);
+        jComboBoxOperacionManifiestos.setBounds(32, 52, 190, 22);
 
         jLabel21.setText("FECHA");
         jPanel4.add(jLabel21);
@@ -746,7 +742,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel10);
-        jPanel10.setBounds(32, 112, 871, 114);
+        jPanel10.setBounds(32, 112, 871, 113);
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("MOVIMIENTO DE OPERACIONES"));
 
@@ -801,7 +797,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel11);
-        jPanel11.setBounds(32, 241, 639, 94);
+        jPanel11.setBounds(32, 241, 639, 93);
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("EMBARQUE"));
 
@@ -838,7 +834,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel13);
-        jPanel13.setBounds(698, 350, 205, 67);
+        jPanel13.setBounds(698, 350, 205, 66);
 
         jButton6.setText("GUARDAR");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -1069,7 +1065,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel14);
-        jPanel14.setBounds(32, 350, 639, 229);
+        jPanel14.setBounds(32, 350, 639, 228);
 
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("SOBRECARGOS"));
 
@@ -1106,7 +1102,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel15);
-        jPanel15.setBounds(698, 241, 205, 68);
+        jPanel15.setBounds(698, 241, 205, 67);
 
         jDateChooser2.setDateFormatString("dd/MM/yyyy");
         jDateChooser2.setMaxSelectableDate(new java.util.Date(1483250399000L));
@@ -1131,7 +1127,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jSpinnerHoraItinerario);
-        jSpinnerHoraItinerario.setBounds(688, 52, 40, 20);
+        jSpinnerHoraItinerario.setBounds(688, 52, 40, 18);
 
         jLabel35.setText(":");
         jPanel4.add(jLabel35);
@@ -1145,7 +1141,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jSpinnerMinutosItinerario);
-        jSpinnerMinutosItinerario.setBounds(740, 52, 40, 20);
+        jSpinnerMinutosItinerario.setBounds(740, 52, 40, 18);
 
         jLabel36.setText("HORA REAL");
         jPanel4.add(jLabel36);
@@ -1159,7 +1155,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jSpinnerHoraReal);
-        jSpinnerHoraReal.setBounds(810, 52, 40, 20);
+        jSpinnerHoraReal.setBounds(810, 52, 40, 18);
 
         jLabel37.setText(":");
         jPanel4.add(jLabel37);
@@ -1173,7 +1169,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jSpinnerMinutosReal);
-        jSpinnerMinutosReal.setBounds(862, 52, 40, 20);
+        jSpinnerMinutosReal.setBounds(862, 52, 40, 18);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1275,7 +1271,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
     private void botonSeleccionarCopilotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarCopilotoActionPerformed
         EJDialogCopilotosPlanes capturarCopiloto = new EJDialogCopilotosPlanes(this,true);
-        capturarCopiloto.setTitle("COPILOTOS: CIERRE DE PLAN DE VUELO");
+        String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
+        if (tipoOperacion.equals("APERTURA DE PLAN DE VUELO")) {
+            capturarCopiloto.setTitle("COPILOTOS: APERTURA DE PLAN DE VUELO");
+        } else {
+            capturarCopiloto.setTitle("COPILOTOS: CIERRE DE PLAN DE VUELO");
+        }
         String [] cT = {"no_licencia","nombre","apellido_paterno","apellido_materno","tipo_licencia"};
         if (capturarCopiloto.setDatosConexion (sv,us,pw,dB,cT,"COPILOTOS","no_licencia")) {
             capturarCopiloto.setVisible(true);
@@ -1597,10 +1598,15 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
                 } else {
                     if (!jTextField8.getText().equals("") && jTextField8.getText() != null) {
-                        String copilotosCierre [] = {"fecha","copiloto"};
-                        String [] valores2 = {fechaCompleta,jTextField9.getText()};
+                        String copilotos [] = {"fecha","copiloto"};
+                        String [] valores = {fechaCompleta,jTextField9.getText()};
+                        String nombreTabla = "COPILOTOS_CIERRES";
                         String mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"COPILOTOS_CIERRES\"";
-                        if(!conexionPlanes.insertarFilaEnTabla("COPILOTOS_CIERRES",copilotosCierre,valores2,mensajeSiRepiteRegistro)){
+                        if (tipoOperacion.equals("APERTURA DE PLAN DE VUELO")) {
+                            nombreTabla = "COPILOTOS_PLANES";
+                            mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"COPILOTOS_PLANES\"";
+                        }
+                        if(!conexionPlanes.insertarFilaEnTabla(nombreTabla,copilotos,valores,mensajeSiRepiteRegistro)){
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
                         }
                     }
@@ -1772,12 +1778,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jLabel6.setText("HORA");
             jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("AEROPUERTO/AERODROMO DE DESTINO"));
             jLabel10.setText("IDENTIFICACIÓN AERONAVE");
-            jTextField8.setEnabled(false);
-            jTextField9.setEnabled(false);
-            jLabel15.setEnabled(false);
-            jLabel16.setEnabled(false);
-            jLabel38.setEnabled(false);
-            botonSeleccionarCopiloto.setEnabled(false);
             jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("OTROS DATOS / OBSERVACIONES"));
             jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("PERSONAS A BORDO"));
             jLabel3.setText("PERSONAS A BORDO");
@@ -1785,12 +1785,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jLabel6.setText("HORA DE LLEGADA");
             jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("PROCEDENCIA"));
             jLabel10.setText("MATRÍCULA");
-            jTextField8.setEnabled(true);
-            jTextField9.setEnabled(true);
-            jLabel15.setEnabled(true);
-            jLabel16.setEnabled(true);
-            jLabel38.setEnabled(true);
-            botonSeleccionarCopiloto.setEnabled(true);
             jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("OBSERVACIONES"));
             jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("PASAJEROS"));
             jLabel3.setText("PASAJEROS");
@@ -2127,11 +2121,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jDateFecha.setDate(null);
         jSpinnerHorasUTC.setValue(0);
         jSpinnerMinutosUTC.setValue(0);
-        String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
-        if (tipoOperacion.equals("CIERRE DE PLAN DE VUELO")) {
-            jTextField8.setText(null);
-            jTextField9.setText(null);
-        }
+        jTextField8.setText(null);
+        jTextField9.setText(null);
         listaPasajeros = null;
     }
     
