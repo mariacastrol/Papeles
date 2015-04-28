@@ -250,6 +250,42 @@ public class ConexionMysql {
         }
     }
     ///*******************************************
+    public boolean mostrarColumnasTablaMysqlCompuesta(JTable tabla, String consulta, String [] columnasTablas, int numeroColumnas, int longColumna) {
+        limpiarTablaCompletamente(tabla);
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        for (int i = 0; i < numeroColumnas; i++) {
+            modelo.addColumn(columnasTablas[i]);
+            tabla.getColumnModel().getColumn(i).setMinWidth(longColumna);
+            //tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
+            //tabla.getColumnModel().getColumn(i).setMaxWidth(200);
+        }
+        String [] datosFila = new String [numeroColumnas];
+        try {
+            Statement instruccionSt = con.createStatement();
+            ResultSet conjuntoResultados = instruccionSt.executeQuery(consulta);
+            while (conjuntoResultados.next()) {
+                for (int j = 0; j < numeroColumnas; j++) {
+                    datosFila[j] = conjuntoResultados.getString(j + 1);
+                }
+                modelo.addRow(datosFila);
+            }
+            return true;
+        } catch (Exception e) {
+            mensajesError = "CLASE: ConexionMsql";
+            mensajesError += "\nMETODO: mostrarColumnasTablaMysqlCompuesta\nERROR: ";
+            mensajesError += e.getMessage();
+            return false;
+        }
+    }
+    ///*******************************************
+    private void limpiarTablaCompletamente(JTable tablaALimpiar) {
+        DefaultTableModel modelo = (DefaultTableModel) tablaALimpiar.getModel();
+        modelo.setRowCount(0);
+        modelo.setColumnCount(0);
+    }
+    
+    
+    
     
     
     

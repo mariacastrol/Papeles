@@ -280,6 +280,11 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         );
 
         jButton1.setText("ACEPTAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jPanel16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -288,6 +293,11 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         jRadioButton15.setText("LICENCIA PILOTO");
         jRadioButton15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jRadioButton15.setEnabled(false);
+        jRadioButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton15ActionPerformed(evt);
+            }
+        });
 
         jTextField15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField15.setText("123456789");
@@ -556,6 +566,37 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
             jTextField13.setText(null);
              }
     }//GEN-LAST:event_jCheckBox1ItemStateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int checkPaneles = 0;
+        String fecha = "";
+        String pasajero = "";
+        String personal = "";
+        String aeronave = "";
+        String aeropuerto = "";
+        if (jCheckBox4.isSelected()) {
+            checkPaneles++;
+            if (jRadioButton11.isSelected()) {
+                //fecha += jD
+            }
+        }
+        if (jCheckBox1.isSelected()) {
+            checkPaneles++;
+        }
+        if (jCheckBox6.isSelected()) {
+            checkPaneles++;
+        }
+        if (jCheckBox3.isSelected()) {
+            checkPaneles++;
+        }
+        if (jCheckBox5.isSelected()) {
+            checkPaneles++;
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton15ActionPerformed
 
     /**
      * @param args the command line arguments
