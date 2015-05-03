@@ -12,12 +12,12 @@ import java.text.SimpleDateFormat;
  *
  * @author ADOLFO
  */
-public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
+public class BDJDialogBusquedaManifiestos extends javax.swing.JDialog {
 
     /**
      * Creates new form JDialogBusquedaPlanes
      */
-    public BBJDialogBusquedaPlanes(java.awt.Frame parent, boolean modal) {
+    public BDJDialogBusquedaManifiestos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -36,14 +36,6 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         buttonGroupAeropuerto = new javax.swing.ButtonGroup();
         buttonGroupFecha = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jPanel13 = new javax.swing.JPanel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
         jCheckBox5 = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
         jPanel14 = new javax.swing.JPanel();
@@ -61,17 +53,25 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jDateChooser3 = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
-        jPanel16 = new javax.swing.JPanel();
-        jRadioButton15 = new javax.swing.JRadioButton();
-        jTextField15 = new javax.swing.JTextField();
-        jRadioButton17 = new javax.swing.JRadioButton();
-        jTextField17 = new javax.swing.JTextField();
-        jCheckBox6 = new javax.swing.JCheckBox();
         jPanel17 = new javax.swing.JPanel();
         jRadioButton18 = new javax.swing.JRadioButton();
         jRadioButton19 = new javax.swing.JRadioButton();
         jTextField20 = new javax.swing.JTextField();
         jTextField21 = new javax.swing.JTextField();
+        jCheckBox6 = new javax.swing.JCheckBox();
+        jPanel16 = new javax.swing.JPanel();
+        jRadioButton15 = new javax.swing.JRadioButton();
+        jTextField15 = new javax.swing.JTextField();
+        jRadioButton17 = new javax.swing.JRadioButton();
+        jTextField17 = new javax.swing.JTextField();
+        jTextField16 = new javax.swing.JTextField();
+        jRadioButton16 = new javax.swing.JRadioButton();
+        jRadioButton20 = new javax.swing.JRadioButton();
+        jTextField18 = new javax.swing.JTextField();
+        jCheckBox7 = new javax.swing.JCheckBox();
+        jPanel18 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CRITERIOS DE BUSQUEDA");
@@ -79,96 +79,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jCheckBox1.setText("PASAJERO");
-        jCheckBox1.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jCheckBox1ItemStateChanged(evt);
-            }
-        });
-
-        jPanel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jTextField7.setEnabled(false);
-        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField7KeyTyped(evt);
-            }
-        });
-
-        jTextField13.setEnabled(false);
-        jTextField13.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField13KeyTyped(evt);
-            }
-        });
-
-        jTextField14.setEnabled(false);
-        jTextField14.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField14KeyTyped(evt);
-            }
-        });
-
-        jCheckBox2.setText("NOMBRE(S)");
-        jCheckBox2.setEnabled(false);
-        jCheckBox2.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jCheckBox2ItemStateChanged(evt);
-            }
-        });
-
-        jCheckBox7.setText("APELLIDO PATERNO");
-        jCheckBox7.setEnabled(false);
-        jCheckBox7.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jCheckBox7ItemStateChanged(evt);
-            }
-        });
-
-        jCheckBox8.setText("APELLIDO MATERNO");
-        jCheckBox8.setEnabled(false);
-        jCheckBox8.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jCheckBox8ItemStateChanged(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox8)
-                    .addComponent(jCheckBox7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField13)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox7)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox8)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10))
-        );
-
-        jCheckBox5.setText("AEROPUERTO/AERODROMO DE DESTINO");
+        jCheckBox5.setText("DESTINO");
         jCheckBox5.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jCheckBox5ItemStateChanged(evt);
@@ -185,7 +96,6 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         jPanel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         buttonGroupAeronave.add(jRadioButton9);
-        jRadioButton9.setSelected(true);
         jRadioButton9.setText("MATRÍCULA");
         jRadioButton9.setEnabled(false);
         jRadioButton9.addItemListener(new java.awt.event.ItemListener() {
@@ -220,16 +130,16 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addComponent(jRadioButton9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addComponent(jRadioButton10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField12)))
-                .addGap(10, 10, 10))
+                        .addComponent(jTextField12))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(jRadioButton9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField11)))
+                .addContainerGap())
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,7 +148,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton9)
                     .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton10)
                     .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -305,7 +215,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                                 .addGap(21, 21, 21)
                                 .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jRadioButton11))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,77 +241,6 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-
-        jPanel16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        buttonGroupPersonalVuelo.add(jRadioButton15);
-        jRadioButton15.setSelected(true);
-        jRadioButton15.setText("LICENCIA PILOTO");
-        jRadioButton15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jRadioButton15.setEnabled(false);
-        jRadioButton15.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jRadioButton15ItemStateChanged(evt);
-            }
-        });
-
-        jTextField15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField15.setEnabled(false);
-        jTextField15.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField15KeyTyped(evt);
-            }
-        });
-
-        buttonGroupPersonalVuelo.add(jRadioButton17);
-        jRadioButton17.setText("LICENCIA COPILOTO");
-        jRadioButton17.setEnabled(false);
-
-        jTextField17.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField17.setEnabled(false);
-        jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField17KeyTyped(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(jRadioButton17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(jRadioButton15)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10))
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton15)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton17)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10))
-        );
-
-        jCheckBox6.setText("PERSONAL DE VUELO");
-        jCheckBox6.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jCheckBox6ItemStateChanged(evt);
             }
         });
 
@@ -446,9 +285,9 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButton19)
                     .addComponent(jRadioButton18))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField20, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
                     .addComponent(jTextField21))
                 .addContainerGap())
         );
@@ -466,59 +305,225 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                 .addGap(10, 10, 10))
         );
 
+        jCheckBox6.setText("PERSONAL DE VUELO");
+        jCheckBox6.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox6ItemStateChanged(evt);
+            }
+        });
+
+        jPanel16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        buttonGroupPersonalVuelo.add(jRadioButton15);
+        jRadioButton15.setSelected(true);
+        jRadioButton15.setText("LICENCIA \nCOMANDANTE");
+        jRadioButton15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButton15.setEnabled(false);
+        jRadioButton15.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButton15ItemStateChanged(evt);
+            }
+        });
+
+        jTextField15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField15.setEnabled(false);
+        jTextField15.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField15KeyTyped(evt);
+            }
+        });
+
+        buttonGroupPersonalVuelo.add(jRadioButton17);
+        jRadioButton17.setText("LICENCIA 1er. OFICIAL");
+        jRadioButton17.setEnabled(false);
+        jRadioButton17.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButton17ItemStateChanged(evt);
+            }
+        });
+
+        jTextField17.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField17.setEnabled(false);
+        jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField17KeyTyped(evt);
+            }
+        });
+
+        jTextField16.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField16.setEnabled(false);
+        jTextField16.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField16KeyTyped(evt);
+            }
+        });
+
+        buttonGroupPersonalVuelo.add(jRadioButton16);
+        jRadioButton16.setText("LICENCIA 2o. OFICIAL");
+        jRadioButton16.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButton16.setEnabled(false);
+        jRadioButton16.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButton16ItemStateChanged(evt);
+            }
+        });
+
+        buttonGroupPersonalVuelo.add(jRadioButton20);
+        jRadioButton20.setText("LICENCIA 3er. OFICIAL");
+        jRadioButton20.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButton20.setEnabled(false);
+        jRadioButton20.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButton20ItemStateChanged(evt);
+            }
+        });
+
+        jTextField18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField18.setEnabled(false);
+        jTextField18.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField18KeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton15)
+                    .addComponent(jRadioButton17)
+                    .addComponent(jRadioButton16)
+                    .addComponent(jRadioButton20))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField16)
+                    .addComponent(jTextField17)
+                    .addComponent(jTextField18)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton15)
+                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton17)
+                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton16)
+                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton20)
+                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        jCheckBox7.setText("COMPAÑÍA");
+        jCheckBox7.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox7ItemStateChanged(evt);
+            }
+        });
+
+        jPanel18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.setEnabled(false);
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
+
+        jLabel3.setText("SIGLAS");
+        jLabel3.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextField1)
+                .addContainerGap())
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox6)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBox4)
+                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBox3)
-                            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(jCheckBox1)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCheckBox7))))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCheckBox6)
+                        .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(20, 20, 20))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox5)
-                            .addComponent(jCheckBox3))
-                        .addGap(7, 7, 7)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jCheckBox4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
+                        .addComponent(jCheckBox3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jCheckBox6)
                         .addGap(7, 7, 7)
-                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jCheckBox5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jCheckBox7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(20, 20, 20))
         );
 
@@ -530,9 +535,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -569,17 +572,25 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         if (jCheckBox6.isSelected()) {
             jRadioButton15.setSelected(true);
             jRadioButton15.setEnabled(true);
-            jRadioButton17.setEnabled(true);        
+            jRadioButton17.setEnabled(true); 
+            jRadioButton16.setEnabled(true);
+            jRadioButton20.setEnabled(true); 
             jTextField15.setEnabled(true);
             jTextField15.requestFocus();
         } else {
             jRadioButton15.setSelected(true);
             jRadioButton15.setEnabled(false);
-            jRadioButton17.setEnabled(false);        
+            jRadioButton17.setEnabled(false); 
+            jRadioButton16.setEnabled(false);
+            jRadioButton20.setEnabled(false);
             jTextField15.setEnabled(false);
             jTextField17.setEnabled(false);
+            jTextField16.setEnabled(false);
+            jTextField18.setEnabled(false);
             jTextField15.setText(null);
             jTextField17.setText(null);
+            jTextField16.setText(null);
+            jTextField18.setText(null);
         }
     }//GEN-LAST:event_jCheckBox6ItemStateChanged
 
@@ -619,38 +630,17 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jCheckBox5ItemStateChanged
 
-    private void jCheckBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox1ItemStateChanged
-        if (jCheckBox1.isSelected()) {
-            jCheckBox2.setEnabled(true);
-            jCheckBox7.setEnabled(true); 
-            jCheckBox8.setEnabled(true);    
-        } else {
-            jCheckBox2.setEnabled(false);
-            jCheckBox7.setEnabled(false); 
-            jCheckBox8.setEnabled(false);    
-            jCheckBox2.setSelected(false);
-            jCheckBox7.setSelected(false);
-            jCheckBox8.setSelected(false);
-            jTextField7.setEnabled(false);
-            jTextField14.setEnabled(false);
-            jTextField13.setEnabled(false);
-            jTextField7.setText(null);
-            jTextField14.setText(null);
-            jTextField13.setText(null);
-        }
-    }//GEN-LAST:event_jCheckBox1ItemStateChanged
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String fecha = "";
-        String pasajero [] = new String [3];
+        /*String fecha = "";
         String personal = "";
         String aeronave = "";
         String aeropuerto = "";
+        String empresa = "";
         int totalFecha = 0;
-        int totalPasajero = 0;
         int totalPersonal = 0;
         int totalAeronave = 0;
         int totalAeropuerto = 0;
+        int totalEmpresa = 0;
                 
         if (jCheckBox4.isSelected()) {
             SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
@@ -660,26 +650,6 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
             } else if (jRadioButton12.isSelected() && jDateChooser2.getDate() != null && jDateChooser1.getDate() != null) {
                 totalFecha++;
                 fecha = "PLANES_DE_VUELO.fecha_hora BETWEEN '" + formatoFecha.format(jDateChooser1.getDate()) + "' AND '" + formatoFecha.format(jDateChooser3.getDate()) + "'";
-            }
-        }
-        if (jCheckBox1.isSelected()) {
-            if (jCheckBox2.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField7)) {
-                totalPasajero++;
-                pasajero[0] = "PASAJEROS_PLANES.nombre LIKE '%" + jTextField7.getText() + "%'";
-            } else {
-                pasajero[0] = null;
-            }
-            if (jCheckBox7.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField14)) {
-                totalPasajero++;
-                pasajero[1] = "PASAJEROS_PLANES.apellido_paterno LIKE '%" + jTextField14.getText() + "%'";
-            } else {
-                pasajero[1] = null;
-            }
-            if (jCheckBox8.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField13)) {
-                totalPasajero++;
-                pasajero[2] = "PASAJEROS_PLANES.apellido_materno LIKE '%" + jTextField13.getText() + "%'";
-            } else {
-                pasajero[2] = null;
             }
         }
         if (jCheckBox6.isSelected()) {
@@ -788,48 +758,8 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         } else {
             BAJFrameVentanaConsultas.criteriosPlanes = null;
         }
-        this.dispose();
+        this.dispose();*/
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jCheckBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox2ItemStateChanged
-        if (jCheckBox2.isSelected()) {
-            jTextField7.setEnabled(true);
-            jTextField7.requestFocus();
-        } else {
-            jTextField7.setEnabled(false);
-            jTextField7.setText(null);
-            if (!jCheckBox7.isSelected() && !jCheckBox8.isSelected()) {
-                jCheckBox1.setSelected(false);
-            }
-        }
-        
-    }//GEN-LAST:event_jCheckBox2ItemStateChanged
-
-    private void jCheckBox7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox7ItemStateChanged
-        if (jCheckBox7.isSelected()) {
-            jTextField14.setEnabled(true);
-            jTextField14.requestFocus();
-        } else {
-            jTextField14.setEnabled(false);
-            jTextField14.setText(null);
-            if (!jCheckBox2.isSelected() && !jCheckBox8.isSelected()) {
-                jCheckBox1.setSelected(false);
-            }
-        }
-    }//GEN-LAST:event_jCheckBox7ItemStateChanged
-
-    private void jCheckBox8ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox8ItemStateChanged
-        if (jCheckBox8.isSelected()) {
-            jTextField13.setEnabled(true);
-            jTextField13.requestFocus();
-        } else {
-            jTextField13.setEnabled(false);
-            jTextField13.setText(null);
-            if (!jCheckBox2.isSelected() && !jCheckBox7.isSelected()) {
-                jCheckBox1.setSelected(false);
-            }
-        }
-    }//GEN-LAST:event_jCheckBox8ItemStateChanged
 
     private void jRadioButton11ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton11ItemStateChanged
         if (jRadioButton11.isSelected()) {
@@ -856,11 +786,10 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
             jTextField15.requestFocus();
             jTextField17.setEnabled(false);
             jTextField17.setText(null);
-        } else {
-            jTextField17.setEnabled(true);
-            jTextField17.requestFocus();
-            jTextField15.setEnabled(false);
-            jTextField15.setText(null);
+            jTextField16.setEnabled(false);
+            jTextField16.setText(null);
+            jTextField18.setEnabled(false);
+            jTextField18.setText(null);        
         }
     }//GEN-LAST:event_jRadioButton15ItemStateChanged
 
@@ -964,41 +893,92 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jTextField21KeyTyped
 
-    private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
-        int limite = 50;
+    private void jTextField16KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField16KeyTyped
+        int limite = 9;
         char caracterValidar = evt.getKeyChar();
-        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextField7.getText().length() < limite)) {
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextField16.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
         }
-    }//GEN-LAST:event_jTextField7KeyTyped
+    }//GEN-LAST:event_jTextField16KeyTyped
 
-    private void jTextField14KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField14KeyTyped
-        int limite = 20;
-        char caracterValidar = evt.getKeyChar();
-        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextField14.getText().length() < limite)){
-            getToolkit().beep(); 
-            evt.consume();
-        } else {
-            char caracterMayuscula = Character.toUpperCase(caracterValidar);
-            evt.setKeyChar(caracterMayuscula);
+    private void jRadioButton16ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton16ItemStateChanged
+        if (jRadioButton16.isSelected()) {
+            jTextField16.setEnabled(true);
+            jTextField16.requestFocus();
+            jTextField15.setEnabled(false);
+            jTextField15.setText(null);
+            jTextField17.setEnabled(false);
+            jTextField17.setText(null);
+            jTextField18.setEnabled(false);
+            jTextField18.setText(null);        
         }
-    }//GEN-LAST:event_jTextField14KeyTyped
+    }//GEN-LAST:event_jRadioButton16ItemStateChanged
 
-    private void jTextField13KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField13KeyTyped
-        int limite = 20;
+    private void jTextField18KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField18KeyTyped
+        int limite = 9;
         char caracterValidar = evt.getKeyChar();
-        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextField13.getText().length() < limite)){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextField18.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {
             char caracterMayuscula = Character.toUpperCase(caracterValidar);
             evt.setKeyChar(caracterMayuscula);
         }
-    }//GEN-LAST:event_jTextField13KeyTyped
+    }//GEN-LAST:event_jTextField18KeyTyped
+
+    private void jRadioButton20ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton20ItemStateChanged
+        if (jRadioButton20.isSelected()) {
+            jTextField18.setEnabled(true);
+            jTextField18.requestFocus();
+            jTextField15.setEnabled(false);
+            jTextField15.setText(null);
+            jTextField16.setEnabled(false);
+            jTextField16.setText(null);
+            jTextField17.setEnabled(false);
+            jTextField17.setText(null);        
+        }
+    }//GEN-LAST:event_jRadioButton20ItemStateChanged
+
+    private void jCheckBox7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox7ItemStateChanged
+        if (jCheckBox7.isSelected()) {
+            jLabel3.setEnabled(true);
+            jTextField1.setEnabled(true);
+            jTextField1.requestFocus();
+        } else {
+            jLabel3.setEnabled(false);
+            jTextField1.setEnabled(false);
+            jTextField1.setText(null);
+        }
+    }//GEN-LAST:event_jCheckBox7ItemStateChanged
+
+    private void jRadioButton17ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton17ItemStateChanged
+        if (jRadioButton17.isSelected()) {
+            jTextField17.setEnabled(true);
+            jTextField17.requestFocus();
+            jTextField15.setEnabled(false);
+            jTextField15.setText(null);
+            jTextField16.setEnabled(false);
+            jTextField16.setText(null);
+            jTextField18.setEnabled(false);
+            jTextField18.setText(null);        
+        }
+    }//GEN-LAST:event_jRadioButton17ItemStateChanged
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        int limite = 3;
+        char caracterValidar = evt.getKeyChar();
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextField1.getText().length() < limite)){
+            getToolkit().beep(); 
+            evt.consume();
+        } else {
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);
+        }
+    }//GEN-LAST:event_jTextField1KeyTyped
 
     /**
      * @param args the command line arguments
@@ -1017,14 +997,126 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BBJDialogBusquedaPlanes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BDJDialogBusquedaManifiestos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BBJDialogBusquedaPlanes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BDJDialogBusquedaManifiestos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BBJDialogBusquedaPlanes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BDJDialogBusquedaManifiestos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BBJDialogBusquedaPlanes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BDJDialogBusquedaManifiestos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1045,7 +1137,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                BBJDialogBusquedaPlanes dialog = new BBJDialogBusquedaPlanes(new javax.swing.JFrame(), true);
+                BDJDialogBusquedaManifiestos dialog = new BDJDialogBusquedaManifiestos(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -1063,41 +1155,41 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
     private javax.swing.ButtonGroup buttonGroupFecha;
     private javax.swing.ButtonGroup buttonGroupPersonalVuelo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton11;
     private javax.swing.JRadioButton jRadioButton12;
     private javax.swing.JRadioButton jRadioButton15;
+    private javax.swing.JRadioButton jRadioButton16;
     private javax.swing.JRadioButton jRadioButton17;
     private javax.swing.JRadioButton jRadioButton18;
     private javax.swing.JRadioButton jRadioButton19;
+    private javax.swing.JRadioButton jRadioButton20;
     private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }

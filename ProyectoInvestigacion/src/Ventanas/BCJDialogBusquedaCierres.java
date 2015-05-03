@@ -12,12 +12,12 @@ import java.text.SimpleDateFormat;
  *
  * @author ADOLFO
  */
-public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
+public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
 
     /**
      * Creates new form JDialogBusquedaPlanes
      */
-    public BBJDialogBusquedaPlanes(java.awt.Frame parent, boolean modal) {
+    public BCJDialogBusquedaCierres(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -168,7 +168,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                 .addGap(10, 10, 10))
         );
 
-        jCheckBox5.setText("AEROPUERTO/AERODROMO DE DESTINO");
+        jCheckBox5.setText("AEROPUERTO/AERODROMO DE SALIDA");
         jCheckBox5.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jCheckBox5ItemStateChanged(evt);
@@ -656,28 +656,28 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
             SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
             if (jRadioButton11.isSelected() && jDateChooser3.getDate() != null) {
                 totalFecha++;
-                fecha = "PLANES_DE_VUELO.fecha_hora = '" + formatoFecha.format(jDateChooser3.getDate()) + "'";
+                fecha = "CIERRES_DE_PLAN.fecha_hora = '" + formatoFecha.format(jDateChooser3.getDate()) + "'";
             } else if (jRadioButton12.isSelected() && jDateChooser2.getDate() != null && jDateChooser1.getDate() != null) {
                 totalFecha++;
-                fecha = "PLANES_DE_VUELO.fecha_hora BETWEEN '" + formatoFecha.format(jDateChooser1.getDate()) + "' AND '" + formatoFecha.format(jDateChooser3.getDate()) + "'";
+                fecha = "CIERRES_DE_PLAN.fecha_hora BETWEEN '" + formatoFecha.format(jDateChooser1.getDate()) + "' AND '" + formatoFecha.format(jDateChooser3.getDate()) + "'";
             }
         }
         if (jCheckBox1.isSelected()) {
             if (jCheckBox2.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField7)) {
                 totalPasajero++;
-                pasajero[0] = "PASAJEROS_PLANES.nombre LIKE '%" + jTextField7.getText() + "%'";
+                pasajero[0] = "PASAJEROS_CIERRES.nombre LIKE '%" + jTextField7.getText() + "%'";
             } else {
                 pasajero[0] = null;
             }
             if (jCheckBox7.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField14)) {
                 totalPasajero++;
-                pasajero[1] = "PASAJEROS_PLANES.apellido_paterno LIKE '%" + jTextField14.getText() + "%'";
+                pasajero[1] = "PASAJEROS_CIERRES.apellido_paterno LIKE '%" + jTextField14.getText() + "%'";
             } else {
                 pasajero[1] = null;
             }
             if (jCheckBox8.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField13)) {
                 totalPasajero++;
-                pasajero[2] = "PASAJEROS_PLANES.apellido_materno LIKE '%" + jTextField13.getText() + "%'";
+                pasajero[2] = "PASAJEROS_CIERRES.apellido_materno LIKE '%" + jTextField13.getText() + "%'";
             } else {
                 pasajero[2] = null;
             }
@@ -1017,14 +1017,30 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BBJDialogBusquedaPlanes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BCJDialogBusquedaCierres.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BBJDialogBusquedaPlanes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BCJDialogBusquedaCierres.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BBJDialogBusquedaPlanes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BCJDialogBusquedaCierres.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BBJDialogBusquedaPlanes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BCJDialogBusquedaCierres.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1045,7 +1061,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                BBJDialogBusquedaPlanes dialog = new BBJDialogBusquedaPlanes(new javax.swing.JFrame(), true);
+                BCJDialogBusquedaCierres dialog = new BCJDialogBusquedaCierres(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

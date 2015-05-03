@@ -524,7 +524,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
     private void jTextFieldBuscarLicenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarLicenciaKeyTyped
         int limite = 9;
         char caracterValidar = evt.getKeyChar();
-        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldBuscarLicencia.getText().length() < limite)){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldBuscarLicencia.getText().length() < limite)) {
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -536,7 +536,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
     private void jTextFieldAALicenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAALicenciaKeyTyped
         int limite = 9;
         char caracterValidar = evt.getKeyChar();
-        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAALicencia.getText().length() < limite)){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAALicencia.getText().length() < limite)) {
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -554,7 +554,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
     private void jTextFieldAANombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAANombreKeyTyped
         int limite = 50;
         char caracterValidar = evt.getKeyChar();
-        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAANombre.getText().length() < limite)){
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAANombre.getText().length() < limite)) {
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -566,7 +566,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
     private void jTextFieldAAPaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAPaternoKeyTyped
         int limite = 20;
         char caracterValidar = evt.getKeyChar();
-        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAAPaterno.getText().length() < limite)){
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAAPaterno.getText().length() < limite)) {
             getToolkit().beep(); 
             evt.consume();
         } else {
@@ -584,7 +584,7 @@ public class JJDialogComandantes extends javax.swing.JDialog {
     private void jTextFieldAAMaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAAMaternoKeyTyped
         int limite = 20;
         char caracterValidar = evt.getKeyChar();
-        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAAMaterno.getText().length() < limite)){
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextFieldAAMaterno.getText().length() < limite)) {
             getToolkit().beep(); 
             evt.consume();
         } else {
