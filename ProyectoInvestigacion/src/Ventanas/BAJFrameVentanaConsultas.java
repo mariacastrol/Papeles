@@ -574,6 +574,11 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
         jButton10.setText("ESTABLECER");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel26.setText("FECHA");
@@ -631,72 +636,117 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         );
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("CAMPOS A MOSTRAR EN LA CONSULTA"));
+        jPanel10.setEnabled(false);
 
         jCheckBox45.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox45.setSelected(true);
         jCheckBox45.setText("FECHA/HORA");
+        jCheckBox45.setEnabled(false);
 
         jCheckBox46.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox46.setSelected(true);
         jCheckBox46.setText("PILOTO (LICENCIA)");
+        jCheckBox46.setEnabled(false);
 
         jCheckBox47.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox47.setSelected(true);
         jCheckBox47.setText("PILOTO (NOMBRE(S)");
+        jCheckBox47.setEnabled(false);
 
         jCheckBox48.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox48.setSelected(true);
         jCheckBox48.setText("PILOTO (A. PATERNO)");
+        jCheckBox48.setEnabled(false);
 
         jCheckBox49.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox49.setSelected(true);
         jCheckBox49.setText("PILOTO (A. MATERNO)");
+        jCheckBox49.setEnabled(false);
 
         jCheckBox50.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox50.setSelected(true);
         jCheckBox50.setText("PILOTO (TIPO LICENCIA)");
+        jCheckBox50.setEnabled(false);
 
         jCheckBox62.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox62.setSelected(true);
         jCheckBox62.setText("COPILOTO (LICENCIA)");
+        jCheckBox62.setEnabled(false);
 
         jCheckBox63.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox63.setSelected(true);
         jCheckBox63.setText("COPILOTO (NOMBRE(S)");
+        jCheckBox63.setEnabled(false);
 
         jCheckBox64.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox64.setSelected(true);
         jCheckBox64.setText("COPILOTO (A. PATERNO)");
+        jCheckBox64.setEnabled(false);
 
         jCheckBox65.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox65.setSelected(true);
         jCheckBox65.setText("COPILOTO (A. MATERNO)");
+        jCheckBox65.setEnabled(false);
 
         jCheckBox66.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox66.setSelected(true);
         jCheckBox66.setText("COPILOTO (TIPO LICENCIA)");
+        jCheckBox66.setEnabled(false);
 
         jCheckBox56.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox56.setSelected(true);
         jCheckBox56.setText("OBSERVACIONES");
+        jCheckBox56.setEnabled(false);
 
         jCheckBox51.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox51.setSelected(true);
         jCheckBox51.setText("AEROPUERTO (OACI)");
+        jCheckBox51.setEnabled(false);
 
         jCheckBox52.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox52.setSelected(true);
         jCheckBox52.setText("AEROPUERTO (IATA)");
+        jCheckBox52.setEnabled(false);
 
         jCheckBox53.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox53.setSelected(true);
         jCheckBox53.setText("AEROPUERTO (NOMBRE)");
+        jCheckBox53.setEnabled(false);
 
         jCheckBox54.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox54.setSelected(true);
         jCheckBox54.setText("AERONAVE (MATRÍCULA)");
+        jCheckBox54.setEnabled(false);
 
         jCheckBox55.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox55.setSelected(true);
         jCheckBox55.setText("AERONAVE (TIPO)");
+        jCheckBox55.setEnabled(false);
 
         jCheckBox57.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox57.setSelected(true);
         jCheckBox57.setText("PASAJEROS");
+        jCheckBox57.setEnabled(false);
 
         jCheckBox58.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox58.setSelected(true);
         jCheckBox58.setText("PASAJERO (NOMBRE)");
+        jCheckBox58.setEnabled(false);
 
         jCheckBox59.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox59.setSelected(true);
         jCheckBox59.setText("PASAJERO (A. PATERNO)");
+        jCheckBox59.setEnabled(false);
 
         jCheckBox60.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox60.setSelected(true);
         jCheckBox60.setText("PASAJERO (A. MATERNO)");
+        jCheckBox60.setEnabled(false);
 
         jCheckBox61.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox61.setSelected(true);
         jCheckBox61.setText("PASAJERO (NACIONALIDAD)");
+        jCheckBox61.setEnabled(false);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -1819,9 +1869,13 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        BBJDialogBusquedaPlanes criterios = new BBJDialogBusquedaPlanes(this,true);
-        criterios.setVisible(true);
+        BBJDialogBusquedaPlanes cPlanes = new BBJDialogBusquedaPlanes(this,true);
+        cPlanes.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2236,11 +2290,11 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox97;
     private javax.swing.JCheckBox jCheckBox98;
     private javax.swing.JCheckBox jCheckBox99;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
+    public static javax.swing.JLabel jLabel21;
+    public static javax.swing.JLabel jLabel22;
+    public static javax.swing.JLabel jLabel23;
+    public static javax.swing.JLabel jLabel24;
+    public static javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -2293,5 +2347,5 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     
     static String criteriosPlanes;
-
+    static String criteriosCierres;
 }
