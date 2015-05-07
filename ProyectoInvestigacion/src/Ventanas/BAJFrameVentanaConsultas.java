@@ -6,6 +6,10 @@
 package Ventanas;
 
 import Clases.ConexionMysql;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -34,10 +38,10 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        jTablePlanes = new javax.swing.JTable();
+        botonBuscarPlanes = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
-        jButton9 = new javax.swing.JButton();
+        botonCriteriosPlanes = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -70,10 +74,10 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
+        jTableCierres = new javax.swing.JTable();
+        botonBuscarCierres = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
-        jButton10 = new javax.swing.JButton();
+        botonCriteriosCierres = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -214,7 +218,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePlanes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -222,22 +226,22 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
             }
         ));
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jScrollPane1.setViewportView(jTable1);
+        jTablePlanes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jScrollPane1.setViewportView(jTablePlanes);
 
-        jButton2.setText("BUSCAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonBuscarPlanes.setText("BUSCAR");
+        botonBuscarPlanes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonBuscarPlanesActionPerformed(evt);
             }
         });
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
-        jButton9.setText("ESTABLECER");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        botonCriteriosPlanes.setText("ESTABLECER");
+        botonCriteriosPlanes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                botonCriteriosPlanesActionPerformed(evt);
             }
         });
 
@@ -268,7 +272,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton9)
+                    .addComponent(botonCriteriosPlanes)
                     .addComponent(jLabel25)
                     .addComponent(jLabel24)
                     .addComponent(jLabel23)
@@ -280,7 +284,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton9)
+                .addComponent(botonCriteriosPlanes)
                 .addGap(10, 10, 10)
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -519,7 +523,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton12)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
+                        .addComponent(botonBuscarPlanes)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -533,7 +537,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(botonBuscarPlanes)
                     .addComponent(jButton12))
                 .addGap(0, 11, Short.MAX_VALUE))
         );
@@ -559,7 +563,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCierres.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -567,16 +571,21 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jTableCierres);
 
-        jButton4.setText("BUSCAR");
+        botonBuscarCierres.setText("BUSCAR");
+        botonBuscarCierres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarCierresActionPerformed(evt);
+            }
+        });
 
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
-        jButton10.setText("ESTABLECER");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        botonCriteriosCierres.setText("ESTABLECER");
+        botonCriteriosCierres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                botonCriteriosCierresActionPerformed(evt);
             }
         });
 
@@ -610,7 +619,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton10)
+                            .addComponent(botonCriteriosCierres)
                             .addComponent(jLabel29)
                             .addComponent(jLabel28)
                             .addComponent(jLabel27)
@@ -621,7 +630,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton10)
+                .addComponent(botonCriteriosCierres)
                 .addGap(10, 10, 10)
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -852,7 +861,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton11)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4))
+                        .addComponent(botonBuscarCierres))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -874,7 +883,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
+                    .addComponent(botonBuscarCierres)
                     .addComponent(jButton11))
                 .addContainerGap())
         );
@@ -915,6 +924,11 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
         jButton13.setText("ESTABLECER");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel31.setText("FECHA");
@@ -950,13 +964,15 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton13)
-                            .addComponent(jLabel34)
-                            .addComponent(jLabel33)
-                            .addComponent(jLabel32)
-                            .addComponent(jLabel31)
-                            .addComponent(jLabel36))
-                        .addContainerGap(105, Short.MAX_VALUE))))
+                            .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel16Layout.createSequentialGroup()
+                                .addComponent(jButton13)
+                                .addGap(0, 100, Short.MAX_VALUE))
+                            .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1711,7 +1727,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void botonBuscarPlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarPlanesActionPerformed
         String preconsulta = "SELECT ";
         int pilotos = 0;
         int copilotos = 0;
@@ -1857,25 +1873,310 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         }
         System.out.println(consulta);
         if (columnas != 0) {
-           ConexionMysql conexionConsultaPlan = new ConexionMysql();
+            ConexionMysql conexionConsultaPlan = new ConexionMysql();
             if (conexionConsultaPlan.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
-                if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTable1,consulta,nombresColumnas,columnas,200)) {
+                if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas,200)) {
                     JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
+                } else {
+                    jPanel11.setEnabled(true);
+                    jCheckBox67.setEnabled(true);
+                    jCheckBox68.setEnabled(true);
+                    jCheckBox69.setEnabled(true);
+                    jCheckBox70.setEnabled(true);
+                    jCheckBox71.setEnabled(true);
+                    jCheckBox72.setEnabled(true);
+                    jCheckBox73.setEnabled(true);
+                    jCheckBox74.setEnabled(true);
+                    jCheckBox75.setEnabled(true);
+                    jCheckBox76.setEnabled(true);
+                    jCheckBox77.setEnabled(true);
+                    jCheckBox84.setEnabled(true);
+                    jCheckBox85.setEnabled(true);
+                    jCheckBox86.setEnabled(true);
+                    jCheckBox87.setEnabled(true);
+                    jCheckBox88.setEnabled(true);
+                    jCheckBox94.setEnabled(true);
+                    jCheckBox95.setEnabled(true);
+                    jCheckBox96.setEnabled(true);
+                    jCheckBox97.setEnabled(true);
+                    jCheckBox98.setEnabled(true);
+                    jCheckBox99.setEnabled(true);
                 }
+            } else {
+                JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this,"SELECCIONE LOS CAMPOS A MOSTRAR EN LA CONSULTA","",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_botonBuscarPlanesActionPerformed
+
+    private void botonCriteriosPlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCriteriosPlanesActionPerformed
+        BBJDialogBusquedaPlanes cPlanes = new BBJDialogBusquedaPlanes(this,true);
+        cPlanes.setVisible(true);
+    }//GEN-LAST:event_botonCriteriosPlanesActionPerformed
+
+    private void botonCriteriosCierresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCriteriosCierresActionPerformed
+        BCJDialogBusquedaCierres cCierres = new BCJDialogBusquedaCierres(this,true);
+        cCierres.setVisible(true);
+    }//GEN-LAST:event_botonCriteriosCierresActionPerformed
+
+    private void botonBuscarCierresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarCierresActionPerformed
+        String preconsulta = "SELECT ";
+        int pilotos = 0;
+        int copilotos = 0;
+        int aeronaves = 0;
+        int aeropuertos = 0;
+        int pasajeros = 0;
+        String [] nombresColumnas = new String [22];
+        int columnas = 0;
+        
+        if (jCheckBox45.isSelected()) {
+            preconsulta += "CIERRES_DE_PLAN.fecha_hora, ";
+            nombresColumnas[columnas++] = "FECHA";
+        }   
+        if (jCheckBox46.isSelected()) {
+            preconsulta += "PILOTOS_PLANES.no_licencia, ";
+            pilotos++;
+            nombresColumnas[columnas++] = "PILOTO - LICENCIA";
+        }
+        if (jCheckBox47.isSelected()) {
+            preconsulta += "PILOTOS_PLANES.nombre, ";
+            pilotos++;
+            nombresColumnas[columnas++] = "PILOTO - NOMBRE(S)";
+        }
+        if (jCheckBox48.isSelected()) {
+            preconsulta += "PILOTOS_PLANES.apellido_paterno, ";
+            pilotos++;
+            nombresColumnas[columnas++] = "PILOTO - A PATERNO";
+        }
+        if (jCheckBox49.isSelected()) {
+            preconsulta += "PILOTOS_PLANES.apellido_materno, ";
+            pilotos++;
+            nombresColumnas[columnas++] = "PILOTO - A MATERNO";
+        }
+        if (jCheckBox50.isSelected()) {
+            preconsulta += "PILOTOS_PLANES.tipo_licencia, ";
+            pilotos++;
+            nombresColumnas[columnas++] = "PILOTO - T LICENCIA";
+        }
+        if (jCheckBox62.isSelected()) {
+            preconsulta += "COPILOTOS.no_licencia, ";
+            copilotos++;
+            nombresColumnas[columnas++] = "COPILOTO - LICENCIA";
+        }
+        if (jCheckBox63.isSelected()) {
+            preconsulta += "COPILOTOS.nombre, ";
+            copilotos++;
+            nombresColumnas[columnas++] = "COPILOTO - NOMBRE(S)";
+        }
+        if (jCheckBox64.isSelected()) {
+            preconsulta += "COPILOTOS.apellido_paterno, ";
+            copilotos++;
+            nombresColumnas[columnas++] = "COPILOTO - A PATERNO";
+        }
+        if (jCheckBox65.isSelected()) {
+            preconsulta += "COPILOTOS.apellido_materno, ";
+            copilotos++;
+            nombresColumnas[columnas++] = "COPILOTO - A MATERNO";
+        }
+        if (jCheckBox66.isSelected()) {
+            preconsulta += "COPILOTOS.tipo_licencia, ";
+            copilotos++;
+            nombresColumnas[columnas++] = "COPILOTO - T LICENCIA";
+        }
+        if (jCheckBox51.isSelected()) {
+            preconsulta += "AEROPUERTOS_PLANES.codigo_oaci, ";
+            aeropuertos++;
+            nombresColumnas[columnas++] = "AEROPUERTO - OACI";
+        }
+        if (jCheckBox52.isSelected()) {
+            preconsulta += "AEROPUERTOS_PLANES.codigo_iata, ";
+            aeropuertos++;
+            nombresColumnas[columnas++] = "AEROPUERTO - IATA";
+        }
+        if (jCheckBox53.isSelected()) {
+            preconsulta += "AEROPUERTOS_PLANES.nombre, ";
+            aeropuertos++;
+            nombresColumnas[columnas++] = "AEROPUERTO - NOMBRE";
+        }
+        if (jCheckBox54.isSelected()) {
+            preconsulta += "AERONAVES_PLANES.identificacion_aeronave, ";
+            aeronaves++;
+            nombresColumnas[columnas++] = "AERONAVE - MATRÍCULA";
+        }
+        if (jCheckBox55.isSelected()) {
+            preconsulta += "AERONAVES_PLANES.tipo, ";
+            aeronaves++;
+            nombresColumnas[columnas++] = "AERONAVE - TIPO";
+        }
+        if (jCheckBox56.isSelected()) {
+            preconsulta += "CIERRES_DE_PLAN.observaciones, ";
+            nombresColumnas[columnas++] = "OBSERVACIONES";
+        }
+        if (jCheckBox57.isSelected()) {
+            preconsulta += "CIERRES_DE_PLAN.no_pasajeros, ";
+            nombresColumnas[columnas++] = "No DE PASAJEROS";
+        }
+        if (jCheckBox58.isSelected()) {
+            preconsulta += "PASAJEROS_CIERRES.nombre, ";
+            pasajeros++;
+            nombresColumnas[columnas++] = "PASAJERO - NOMBRE(S)";
+        }
+        if (jCheckBox59.isSelected()) {
+            preconsulta += "PASAJEROS_CIERRES.apellido_paterno, ";
+            pasajeros++;
+            nombresColumnas[columnas++] = "PASAJERO - A PATERNO";
+        }
+        if (jCheckBox60.isSelected()) {
+            preconsulta += "PASAJEROS_CIERRES.apellido_materno, ";
+            pasajeros++;
+            nombresColumnas[columnas++] = "PASAJERO - A MATERNO";
+        }
+        if (jCheckBox61.isSelected()) {
+            preconsulta += "PASAJEROS_CIERRES.nacionalidad, ";
+            pasajeros++;
+            nombresColumnas[columnas++] = "PASAJERO - NACIONALIDAD";
+        }
+        String consulta = preconsulta.substring(0, preconsulta.length() - 2); 
+        consulta += " FROM CIERRES_DE_PLAN\n";
+        if (pilotos != 0) {
+            consulta += "LEFT JOIN PILOTOS_PLANES\n" +
+            "ON PILOTOS_PLANES.no_licencia = CIERRES_DE_PLAN.piloto\n";           
+        } 
+        if (copilotos != 0) {
+            consulta += "LEFT JOIN COPILOTOS_CIERRES\n" +
+            "ON COPILOTOS_CIERRES.fecha = CIERRES_DE_PLAN.fecha_hora\n" +
+            "LEFT JOIN COPILOTOS\n" +
+            "ON COPILOTOS_CIERRES.copiloto = COPILOTOS.no_licencia\n";           
+        }
+        if (aeropuertos !=0 ) {
+            consulta += "LEFT JOIN AEROPUERTOS_PLANES\n" +
+            "ON AEROPUERTOS_PLANES.codigo_oaci = CIERRES_DE_PLAN.aeropuerto_origen\n";           
+        }
+        if (aeronaves !=0 ) {
+            consulta += "LEFT JOIN AERONAVES_PLANES\n" +
+            "ON AERONAVES_PLANES.identificacion_aeronave = CIERRES_DE_PLAN.aeronave\n";           
+        }
+        if (pasajeros != 0) {
+            consulta += "LEFT JOIN PASAJEROS_CIERRES\n" +
+            "ON PASAJEROS_CIERRES.fecha = CIERRES_DE_PLAN.fecha_hora\n";           
+        }
+        if (criteriosPlanes != null) {
+            consulta += criteriosPlanes;
+        }
+        System.out.println(consulta);
+        if (columnas != 0) {
+           ConexionMysql conexionConsultaCierre = new ConexionMysql();
+            if (conexionConsultaCierre.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
+                if (!conexionConsultaCierre.mostrarColumnasTablaMysqlCompuesta(jTableCierres,consulta,nombresColumnas,columnas,200)) {
+                    JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
+                } else {
+                    jPanel10.setEnabled(true);
+                    jCheckBox45.setEnabled(true);
+                    jCheckBox46.setEnabled(true);
+                    jCheckBox47.setEnabled(true);
+                    jCheckBox48.setEnabled(true);
+                    jCheckBox49.setEnabled(true);
+                    jCheckBox50.setEnabled(true);
+                    jCheckBox51.setEnabled(true);
+                    jCheckBox52.setEnabled(true);
+                    jCheckBox53.setEnabled(true);
+                    jCheckBox54.setEnabled(true);
+                    jCheckBox55.setEnabled(true);
+                    jCheckBox56.setEnabled(true);
+                    jCheckBox57.setEnabled(true);
+                    jCheckBox58.setEnabled(true);
+                    jCheckBox59.setEnabled(true);
+                    jCheckBox60.setEnabled(true);
+                    jCheckBox61.setEnabled(true);
+                    jCheckBox62.setEnabled(true);
+                    jCheckBox63.setEnabled(true);
+                    jCheckBox64.setEnabled(true);
+                    jCheckBox65.setEnabled(true);
+                    jCheckBox66.setEnabled(true);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } 
         } else {
             JOptionPane.showMessageDialog(this,"SELECCIONE LOS CAMPOS A MOSTRAR EN LA CONSULTA","",JOptionPane.INFORMATION_MESSAGE);
         }   
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botonBuscarCierresActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        BBJDialogBusquedaPlanes cPlanes = new BBJDialogBusquedaPlanes(this,true);
-        cPlanes.setVisible(true);
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        
-    }//GEN-LAST:event_jButton10ActionPerformed
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        limpiarCriteriosManifiestosSalida();
+        BDJDialogBusquedaManifiestos cManifiestosSalida = new BDJDialogBusquedaManifiestos(this,true);
+        if (primeraVezMSalida == false) {
+            if (rBFechaMSalida != 0) {
+                cManifiestosSalida.jCheckBox4.setSelected(true);
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+                if (rBFechaMSalida == 11) {
+                    try {
+                        cManifiestosSalida.jDateChooser3.setDate(formatoFecha.parse(fecha1MSalida));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(BAJFrameVentanaConsultas.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    cManifiestosSalida.jRadioButton12.setSelected(true);
+                    try {
+                        cManifiestosSalida.jDateChooser2.setDate(formatoFecha.parse(fecha2MSalida));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(BAJFrameVentanaConsultas.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    try {
+                        cManifiestosSalida.jDateChooser1.setDate(formatoFecha.parse(fecha3MSalida));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(BAJFrameVentanaConsultas.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+            if (rBPersonalMSalida != 0) {
+                cManifiestosSalida.jCheckBox6.setSelected(true);
+                if (rBFechaMSalida == 15) {
+                    cManifiestosSalida.jRadioButton15.setSelected(true);
+                    cManifiestosSalida.jTextField15.setText(licenciaMSalida);
+                } else if (rBFechaMSalida == 17) {
+                    cManifiestosSalida.jRadioButton17.setSelected(true);
+                    cManifiestosSalida.jTextField17.setText(licenciaMSalida);
+                } else if (rBFechaMSalida == 16) {
+                    cManifiestosSalida.jRadioButton16.setSelected(true);
+                    cManifiestosSalida.jTextField16.setText(licenciaMSalida);
+                } else {
+                    cManifiestosSalida.jRadioButton20.setSelected(true);
+                    cManifiestosSalida.jTextField18.setText(licenciaMSalida);
+                }
+            }
+            if (rBAeronaveMSalida != 0) {
+                cManifiestosSalida.jCheckBox3.setSelected(true);
+                if (rBFechaMSalida == 9) {
+                    cManifiestosSalida.jRadioButton9.setSelected(true);
+                    cManifiestosSalida.jTextField11.setText(aeronaveMSalida);
+                } else {
+                    cManifiestosSalida.jRadioButton10.setSelected(true);
+                    cManifiestosSalida.jTextField12.setText(aeronaveMSalida);
+                }
+            }
+            if (rBDestinoMSalida != 0) {
+                cManifiestosSalida.jCheckBox5.setSelected(true);
+                if (rBFechaMSalida == 18) {
+                    cManifiestosSalida.jRadioButton18.setSelected(true);
+                    cManifiestosSalida.jTextField20.setText(destinoMSalida);
+                } else {
+                    cManifiestosSalida.jRadioButton19.setSelected(true);
+                    cManifiestosSalida.jTextField21.setText(destinoMSalida);
+                }
+            }
+            if (aerolineaMSalida != null) {
+                cManifiestosSalida.jCheckBox7.setSelected(true);
+                cManifiestosSalida.jTextField1.setText(aerolineaMSalida);
+            }
+            if (vueloMSalida != null) {
+                cManifiestosSalida.jCheckBox8.setSelected(true);
+                cManifiestosSalida.jTextField2.setText(vueloMSalida);
+            }
+        }
+        cManifiestosSalida.setVisible(true);
+    }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2168,18 +2469,18 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
+    private javax.swing.JButton botonBuscarCierres;
+    private javax.swing.JButton botonBuscarPlanes;
+    private javax.swing.JButton botonCriteriosCierres;
+    private javax.swing.JButton botonCriteriosPlanes;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox112;
     private javax.swing.JCheckBox jCheckBox113;
     private javax.swing.JCheckBox jCheckBox114;
@@ -2295,17 +2596,17 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel23;
     public static javax.swing.JLabel jLabel24;
     public static javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
+    public static javax.swing.JLabel jLabel26;
+    public static javax.swing.JLabel jLabel27;
+    public static javax.swing.JLabel jLabel28;
+    public static javax.swing.JLabel jLabel29;
+    public static javax.swing.JLabel jLabel30;
+    public static javax.swing.JLabel jLabel31;
+    public static javax.swing.JLabel jLabel32;
+    public static javax.swing.JLabel jLabel33;
+    public static javax.swing.JLabel jLabel34;
+    public static javax.swing.JLabel jLabel35;
+    public static javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
@@ -2340,12 +2641,54 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTableCierres;
+    private javax.swing.JTable jTablePlanes;
     // End of variables declaration//GEN-END:variables
     
-    static String criteriosPlanes;
-    static String criteriosCierres;
+    static String criteriosPlanes = null;
+    static String criteriosCierres = null;
+    static String criteriosManifiestosSalida = null;
+    
+    static int rBFechaMSalida = 0;
+    static String fecha1MSalida = null;
+    static String fecha2MSalida = null;
+    static String fecha3MSalida = null;
+    static int rBPersonalMSalida = 0;
+    static String licenciaMSalida = null;
+    static int rBAeronaveMSalida = 0;
+    static String aeronaveMSalida = null;
+    static int rBDestinoMSalida = 0;
+    static String destinoMSalida = null;
+    static String aerolineaMSalida = null;
+    static String vueloMSalida = null;
+    static boolean primeraVezMSalida = true;
+    
+    private void limpiarCriteriosManifiestosSalida () {
+        /*rBFechaMSalida = 0;
+        fecha1MSalida = null;
+        fecha2MSalida = null;
+        fecha3MSalida = null;
+        rBPersonalMSalida = 0;
+        licenciaMSalida = null;
+        rBAeronaveMSalida = 0;
+        aeronaveMSalida = null;
+        rBDestinoMSalida = 0;
+        destinoMSalida = null;
+        aerolineaMSalida = null;
+        vueloMSalida = null;*/
+        jLabel31.setText("FECHA");
+        jLabel31.setEnabled(false);
+        jLabel32.setText("PERSONAL DE VUELO");
+        jLabel32.setEnabled(false);
+        jLabel33.setText("COMPAÑÍA");
+        jLabel33.setEnabled(false);
+        jLabel34.setText("AERONAVE");
+        jLabel34.setEnabled(false);
+        jLabel35.setText("DESTINO");
+        jLabel35.setEnabled(false);
+        jLabel36.setText("NO. DE VUELO");
+        jLabel36.setEnabled(false);
+    }
 }
