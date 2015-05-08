@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author ADOLFO
  */
-public class BDJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
+public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
 
     /**
      * Creates new form JDialogBusquedaPlanes
      */
-    public BDJDialogBusquedaManifiestosLlegada(java.awt.Frame parent, boolean modal) {
+    public BEJDialogBusquedaManifiestosLlegada(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -85,7 +85,7 @@ public class BDJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jCheckBox5.setText("DESTINO");
+        jCheckBox5.setText("ORIGEN");
         jCheckBox5.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jCheckBox5ItemStateChanged(evt);
@@ -733,10 +733,10 @@ public class BDJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                     jLabel2.setForeground(new java.awt.Color(rError,gError,bError)); 
                 }
             } else {
-                BAJFrameVentanaConsultas.rBFechaMSalida = 0;
-                BAJFrameVentanaConsultas.fecha1MSalida = null;
-                BAJFrameVentanaConsultas.fecha2MSalida = null;
-                BAJFrameVentanaConsultas.fecha3MSalida = null;
+                BAJFrameVentanaConsultas.rBFechaMLlegada = 0;
+                BAJFrameVentanaConsultas.fecha1MLlegada = null;
+                BAJFrameVentanaConsultas.fecha2MLlegada = null;
+                BAJFrameVentanaConsultas.fecha3MLlegada = null;
             }
             if (jCheckBox6.isSelected()) {
                 if (jRadioButton15.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField15)) {
@@ -757,8 +757,8 @@ public class BDJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                     jRadioButton20.setForeground(new java.awt.Color(rError,gError,bError));
                 }
             } else {
-                BAJFrameVentanaConsultas.rBPersonalMSalida = 0;
-                BAJFrameVentanaConsultas.licenciaMSalida = null;
+                BAJFrameVentanaConsultas.rBPersonalMLlegada = 0;
+                BAJFrameVentanaConsultas.licenciaMLlegada = null;
             }
             if (jCheckBox3.isSelected()) {
                 if (jRadioButton9.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField11)) {
@@ -771,8 +771,8 @@ public class BDJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                     jRadioButton10.setForeground(new java.awt.Color(rError,gError,bError));
                 }
             } else {
-                BAJFrameVentanaConsultas.rBAeronaveMSalida = 0;
-                BAJFrameVentanaConsultas.aeronaveMSalida = null;
+                BAJFrameVentanaConsultas.rBAeronaveMLlegada = 0;
+                BAJFrameVentanaConsultas.aeronaveMLlegada = null;
             }
             if (jCheckBox5.isSelected()) {
                 if (jRadioButton18.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField20)) {
@@ -785,22 +785,22 @@ public class BDJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                     jRadioButton19.setForeground(new java.awt.Color(rError,gError,bError)); 
                 }
             } else {
-                BAJFrameVentanaConsultas.rBDestinoMSalida = 0;
-                BAJFrameVentanaConsultas.destinoMSalida = null;
+                BAJFrameVentanaConsultas.rBDestinoMLlegada = 0;
+                BAJFrameVentanaConsultas.destinoMLlegada = null;
             }
             if (jCheckBox7.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField1)) {
                 totalVacios++;
                 jCheckBox7.setForeground(new java.awt.Color(rError,gError,bError));
                 jLabel3.setForeground(new java.awt.Color(rError,gError,bError));   
             } else if (!jCheckBox7.isSelected()) {
-                BAJFrameVentanaConsultas.aerolineaMSalida = null;
+                BAJFrameVentanaConsultas.aerolineaMLlegada = null;
             }
             if (jCheckBox8.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField2)) {
                 totalVacios++;
                 jCheckBox8.setForeground(new java.awt.Color(rError,gError,bError));
                 jLabel4.setForeground(new java.awt.Color(rError,gError,bError));   
             } else if (!jCheckBox8.isSelected()) {
-                BAJFrameVentanaConsultas.vueloMSalida = null;
+                BAJFrameVentanaConsultas.vueloMLlegada = null;
             }
             if (totalVacios != 0) {
                 JOptionPane.showMessageDialog(this,"NO DEJE CAMPOS VACIOS","",JOptionPane.INFORMATION_MESSAGE);
@@ -811,27 +811,27 @@ public class BDJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                     String fecha = "";
                     if (jRadioButton11.isSelected()) {
                         String fechaft1 = formatoFecha.format(jDateChooser3.getDate());
-                        fecha = "DATE(MANIFIESTOS_SALIDA.fecha_hora_itinerario) = '" + fechaft1 + "'";
-                        BAJFrameVentanaConsultas.rBFechaMSalida = 11;
-                        BAJFrameVentanaConsultas.fecha1MSalida = fechaft1;
-                        BAJFrameVentanaConsultas.fecha2MSalida = null;
-                        BAJFrameVentanaConsultas.fecha3MSalida = null;
-                        BAJFrameVentanaConsultas.jLabel31.setText(fechaft1);
+                        fecha = "DATE(MANIFIESTOS_LLEGADA.fecha_hora_itinerario) = '" + fechaft1 + "'";
+                        BAJFrameVentanaConsultas.rBFechaMLlegada = 11;
+                        BAJFrameVentanaConsultas.fecha1MLlegada = fechaft1;
+                        BAJFrameVentanaConsultas.fecha2MLlegada = null;
+                        BAJFrameVentanaConsultas.fecha3MLlegada = null;
+                        BAJFrameVentanaConsultas.jLabel37.setText(fechaft1);
                     } else {
                         String fechaft2 = formatoFecha.format(jDateChooser2.getDate());
                         String fechaft3 = formatoFecha.format(jDateChooser1.getDate());
-                        fecha = "MANIFIESTOS_SALIDA.fecha_hora_itinerario BETWEEN '" + fechaft2 + "' AND '" + fechaft3 + "'";
-                        BAJFrameVentanaConsultas.rBFechaMSalida = 12;
-                        BAJFrameVentanaConsultas.fecha2MSalida = fechaft2;
-                        BAJFrameVentanaConsultas.fecha3MSalida = fechaft3;
-                        BAJFrameVentanaConsultas.jLabel31.setText("'" + fechaft2 + "' - '" + fechaft3 + "'");
+                        fecha = "MANIFIESTOS_LLEGADA.fecha_hora_itinerario BETWEEN '" + fechaft2 + "' AND '" + fechaft3 + "'";
+                        BAJFrameVentanaConsultas.rBFechaMLlegada = 12;
+                        BAJFrameVentanaConsultas.fecha2MLlegada = fechaft2;
+                        BAJFrameVentanaConsultas.fecha3MLlegada = fechaft3;
+                        BAJFrameVentanaConsultas.jLabel37.setText("'" + fechaft2 + "' - '" + fechaft3 + "'");
                     }
                     if (!criterioBusqueda.equals("")) {
                         criterioBusqueda += "AND " + fecha + "\n";
                     } else {
                         criterioBusqueda += "WHERE " + fecha + "\n";
                     }
-                    BAJFrameVentanaConsultas.jLabel31.setEnabled(true);
+                    BAJFrameVentanaConsultas.jLabel37.setEnabled(true);
                 }
                 if (jCheckBox6.isSelected()) {
                     String personal = "";
@@ -839,111 +839,111 @@ public class BDJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                     if (jRadioButton15.isSelected()) {
                         licencia = jTextField15.getText();
                         personal = "COMANDANTE.no_licencia = '" + licencia + "'";
-                        BAJFrameVentanaConsultas.rBPersonalMSalida = 15;
-                        BAJFrameVentanaConsultas.licenciaMSalida = licencia;
-                        BAJFrameVentanaConsultas.jLabel32.setText("COMANDANTE: " + licencia);
+                        BAJFrameVentanaConsultas.rBPersonalMLlegada = 15;
+                        BAJFrameVentanaConsultas.licenciaMLlegada = licencia;
+                        BAJFrameVentanaConsultas.jLabel38.setText("COMANDANTE: " + licencia);
                     } else if (jRadioButton17.isSelected()) {
                         licencia = jTextField17.getText();
                         personal = "PRIMER_OFICIAL.no_licencia = '" + licencia + "'";
-                        BAJFrameVentanaConsultas.rBPersonalMSalida = 17;
-                        BAJFrameVentanaConsultas.licenciaMSalida = licencia;
-                        BAJFrameVentanaConsultas.jLabel32.setText("1er. OFICIAL: " + licencia);
+                        BAJFrameVentanaConsultas.rBPersonalMLlegada = 17;
+                        BAJFrameVentanaConsultas.licenciaMLlegada = licencia;
+                        BAJFrameVentanaConsultas.jLabel38.setText("1er. OFICIAL: " + licencia);
                     } else if (jRadioButton16.isSelected()) {
                         licencia = jTextField16.getText();
                         personal = "SEGUNDO_OFICIAL.no_licencia = '" + licencia + "'";
-                        BAJFrameVentanaConsultas.rBPersonalMSalida = 16;
-                        BAJFrameVentanaConsultas.licenciaMSalida = licencia;
-                        BAJFrameVentanaConsultas.jLabel32.setText("2o. OFICIAL: " + licencia);
+                        BAJFrameVentanaConsultas.rBPersonalMLlegada = 16;
+                        BAJFrameVentanaConsultas.licenciaMLlegada = licencia;
+                        BAJFrameVentanaConsultas.jLabel38.setText("2o. OFICIAL: " + licencia);
                     } else {
                         licencia = jTextField18.getText();
                         personal = "TERCER_OFICIAL.no_licencia = '" + licencia + "'";
-                        BAJFrameVentanaConsultas.rBPersonalMSalida = 20;
-                        BAJFrameVentanaConsultas.licenciaMSalida = licencia;
-                        BAJFrameVentanaConsultas.jLabel32.setText("3er. OFICIAL: " + licencia);
+                        BAJFrameVentanaConsultas.rBPersonalMLlegada = 20;
+                        BAJFrameVentanaConsultas.licenciaMLlegada = licencia;
+                        BAJFrameVentanaConsultas.jLabel38.setText("3er. OFICIAL: " + licencia);
                     }
                     if (!criterioBusqueda.equals("")) {
                         criterioBusqueda += "AND " + personal + "\n";
                     } else {
                         criterioBusqueda += "WHERE " + personal + "\n";
                     }
-                    BAJFrameVentanaConsultas.jLabel32.setEnabled(true);
+                    BAJFrameVentanaConsultas.jLabel38.setEnabled(true);
                 }
                 if (jCheckBox3.isSelected()) {
                     String aeronave = "";
                     if (jRadioButton9.isSelected()) {
                         String matricula = jTextField11.getText();
                         aeronave = "AERONAVES_MANIFIESTOS.matricula = '" + matricula + "'";
-                        BAJFrameVentanaConsultas.rBAeronaveMSalida = 9;
-                        BAJFrameVentanaConsultas.aeronaveMSalida = matricula;
-                        BAJFrameVentanaConsultas.jLabel34.setText("MATRÍCULA: " + matricula);
+                        BAJFrameVentanaConsultas.rBAeronaveMLlegada = 9;
+                        BAJFrameVentanaConsultas.aeronaveMLlegada = matricula;
+                        BAJFrameVentanaConsultas.jLabel40.setText("MATRÍCULA: " + matricula);
                     } else {
                         String equipo = jTextField12.getText();
                         aeronave = "AERONAVES_MANIFIESTOS.equipo = '" + equipo + "'";
-                        BAJFrameVentanaConsultas.rBAeronaveMSalida = 10;
-                        BAJFrameVentanaConsultas.aeronaveMSalida = equipo;
-                        BAJFrameVentanaConsultas.jLabel34.setText("EQUIPO: " + equipo);
+                        BAJFrameVentanaConsultas.rBAeronaveMLlegada = 10;
+                        BAJFrameVentanaConsultas.aeronaveMLlegada = equipo;
+                        BAJFrameVentanaConsultas.jLabel40.setText("EQUIPO: " + equipo);
                     }
                     if (!criterioBusqueda.equals("")) {
                         criterioBusqueda += "AND " + aeronave + "\n";
                     } else {
                         criterioBusqueda += "WHERE " + aeronave + "\n";
                     }
-                    BAJFrameVentanaConsultas.jLabel34.setEnabled(true);
+                    BAJFrameVentanaConsultas.jLabel40.setEnabled(true);
                 }
                 if (jCheckBox5.isSelected()) {
                     String aeropuerto = "";
                     if (jRadioButton18.isSelected()) {
                         String iata = jTextField20.getText();
                         aeropuerto = "AEROPUERTOS_MANIFIESTOS.codigo_iata = '" + iata + "'";
-                        BAJFrameVentanaConsultas.rBDestinoMSalida = 18;
-                        BAJFrameVentanaConsultas.destinoMSalida = iata;
-                        BAJFrameVentanaConsultas.jLabel35.setText("IATA: " + iata);
+                        BAJFrameVentanaConsultas.rBDestinoMLlegada = 18;
+                        BAJFrameVentanaConsultas.destinoMLlegada = iata;
+                        BAJFrameVentanaConsultas.jLabel41.setText("IATA: " + iata);
                     } else {
                         String oaci = jTextField21.getText();
                         aeropuerto = "AEROPUERTOS_MANIFIESTOS.codigo_oaci = '" + oaci + "'";
-                        BAJFrameVentanaConsultas.rBDestinoMSalida = 19;
-                        BAJFrameVentanaConsultas.destinoMSalida = oaci;
-                        BAJFrameVentanaConsultas.jLabel35.setText("OACI: " + oaci);
+                        BAJFrameVentanaConsultas.rBDestinoMLlegada = 19;
+                        BAJFrameVentanaConsultas.destinoMLlegada = oaci;
+                        BAJFrameVentanaConsultas.jLabel41.setText("OACI: " + oaci);
                     }
                     if (!criterioBusqueda.equals("")) {
                         criterioBusqueda += "AND " + aeropuerto + "\n";
                     } else {
                         criterioBusqueda += "WHERE " + aeropuerto + "\n";
                     }
-                    BAJFrameVentanaConsultas.jLabel35.setEnabled(true);
+                    BAJFrameVentanaConsultas.jLabel41.setEnabled(true);
                 }
                 if (jCheckBox7.isSelected()) {
                     String siglas = jTextField1.getText();
                     String compania = "COMPANIAS.siglas = '" + siglas + "'";
-                    BAJFrameVentanaConsultas.aerolineaMSalida = siglas;
-                    BAJFrameVentanaConsultas.jLabel33.setText("COMPAÑÍA: " + siglas);
+                    BAJFrameVentanaConsultas.aerolineaMLlegada = siglas;
+                    BAJFrameVentanaConsultas.jLabel39.setText("COMPAÑÍA: " + siglas);
                     if (!criterioBusqueda.equals("")) {
                         criterioBusqueda += "AND " + compania + "\n";
                     } else {
                         criterioBusqueda += "WHERE " + compania + "\n";
                     }
-                    BAJFrameVentanaConsultas.jLabel33.setEnabled(true);
+                    BAJFrameVentanaConsultas.jLabel39.setEnabled(true);
                 }
                 if (jCheckBox8.isSelected()) {
                     String no = jTextField2.getText();
-                    String nVuelo = "MANIFIESTOS_SALIDA.no_de_vuelo = '" + no + "'";
-                    BAJFrameVentanaConsultas.vueloMSalida = no;
-                    BAJFrameVentanaConsultas.jLabel36.setText("NO. DE VUELO: " + no);
+                    String nVuelo = "MANIFIESTOS_LLEGADA.no_de_vuelo = '" + no + "'";
+                    BAJFrameVentanaConsultas.vueloMLlegada = no;
+                    BAJFrameVentanaConsultas.jLabel42.setText("NO. DE VUELO: " + no);
                     if (!criterioBusqueda.equals("")) {
                         criterioBusqueda += "AND " + nVuelo + "\n";
                     } else {
                         criterioBusqueda += "WHERE " + nVuelo + "\n";
                     }
-                    BAJFrameVentanaConsultas.jLabel36.setEnabled(true);
+                    BAJFrameVentanaConsultas.jLabel42.setEnabled(true);
                 }
-                BAJFrameVentanaConsultas.criteriosManifiestosSalida = criterioBusqueda;
+                BAJFrameVentanaConsultas.criteriosManifiestosLlegada = criterioBusqueda;
                 System.out.println(criterioBusqueda);
-                BAJFrameVentanaConsultas.primeraVezMSalida = false;
+                BAJFrameVentanaConsultas.primeraVezMLlegada = false;
                 this.dispose();
             }
         } else {
-            BAJFrameVentanaConsultas.criteriosManifiestosSalida = null;
-            BAJFrameVentanaConsultas.primeraVezMSalida = true;
+            BAJFrameVentanaConsultas.criteriosManifiestosLlegada = null;
+            BAJFrameVentanaConsultas.primeraVezMLlegada = true;
             this.dispose();
         }    
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -1312,14 +1312,270 @@ public class BDJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BDJDialogBusquedaManifiestosLlegada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BEJDialogBusquedaManifiestosLlegada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BDJDialogBusquedaManifiestosLlegada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BEJDialogBusquedaManifiestosLlegada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BDJDialogBusquedaManifiestosLlegada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BEJDialogBusquedaManifiestosLlegada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BDJDialogBusquedaManifiestosLlegada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BEJDialogBusquedaManifiestosLlegada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1580,7 +1836,7 @@ public class BDJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                BDJDialogBusquedaManifiestosLlegada dialog = new BDJDialogBusquedaManifiestosLlegada(new javax.swing.JFrame(), true);
+                BEJDialogBusquedaManifiestosLlegada dialog = new BEJDialogBusquedaManifiestosLlegada(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

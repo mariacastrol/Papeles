@@ -962,17 +962,15 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel16Layout.createSequentialGroup()
-                                .addComponent(jButton13)
-                                .addGap(0, 100, Short.MAX_VALUE))
-                            .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                        .addComponent(jButton13)
+                        .addGap(0, 100, Short.MAX_VALUE))
+                    .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1324,6 +1322,11 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
         jButton15.setText("ESTABLECER");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
 
         jLabel37.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel37.setText("FECHA");
@@ -1356,16 +1359,16 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton15)
-                            .addComponent(jLabel40)
-                            .addComponent(jLabel39)
-                            .addComponent(jLabel38)
-                            .addComponent(jLabel37)
-                            .addComponent(jLabel42))
-                        .addContainerGap(105, Short.MAX_VALUE))))
+                        .addComponent(jButton15)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2178,6 +2181,81 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         cManifiestosSalida.setVisible(true);
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        limpiarCriteriosManifiestosLlegada();
+        BEJDialogBusquedaManifiestosLlegada cManifiestosLlegada = new BEJDialogBusquedaManifiestosLlegada(this,true);
+        if (primeraVezMLlegada == false) {
+            if (rBFechaMLlegada != 0) {
+                cManifiestosLlegada.jCheckBox4.setSelected(true);
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+                if (rBFechaMLlegada == 11) {
+                    try {
+                        cManifiestosLlegada.jDateChooser3.setDate(formatoFecha.parse(fecha1MLlegada));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(BAJFrameVentanaConsultas.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    cManifiestosLlegada.jRadioButton12.setSelected(true);
+                    try {
+                        cManifiestosLlegada.jDateChooser2.setDate(formatoFecha.parse(fecha2MLlegada));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(BAJFrameVentanaConsultas.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    try {
+                        cManifiestosLlegada.jDateChooser1.setDate(formatoFecha.parse(fecha3MLlegada));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(BAJFrameVentanaConsultas.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+            if (rBPersonalMLlegada != 0) {
+                cManifiestosLlegada.jCheckBox6.setSelected(true);
+                if (rBFechaMLlegada == 15) {
+                    cManifiestosLlegada.jRadioButton15.setSelected(true);
+                    cManifiestosLlegada.jTextField15.setText(licenciaMLlegada);
+                } else if (rBFechaMLlegada == 17) {
+                    cManifiestosLlegada.jRadioButton17.setSelected(true);
+                    cManifiestosLlegada.jTextField17.setText(licenciaMLlegada);
+                } else if (rBFechaMLlegada == 16) {
+                    cManifiestosLlegada.jRadioButton16.setSelected(true);
+                    cManifiestosLlegada.jTextField16.setText(licenciaMLlegada);
+                } else {
+                    cManifiestosLlegada.jRadioButton20.setSelected(true);
+                    cManifiestosLlegada.jTextField18.setText(licenciaMLlegada);
+                }
+            }
+            if (rBAeronaveMLlegada != 0) {
+                cManifiestosLlegada.jCheckBox3.setSelected(true);
+                if (rBFechaMLlegada == 9) {
+                    cManifiestosLlegada.jRadioButton9.setSelected(true);
+                    cManifiestosLlegada.jTextField11.setText(aeronaveMLlegada);
+                } else {
+                    cManifiestosLlegada.jRadioButton10.setSelected(true);
+                    cManifiestosLlegada.jTextField12.setText(aeronaveMLlegada);
+                }
+            }
+            if (rBDestinoMLlegada != 0) {
+                cManifiestosLlegada.jCheckBox5.setSelected(true);
+                if (rBFechaMLlegada == 18) {
+                    cManifiestosLlegada.jRadioButton18.setSelected(true);
+                    cManifiestosLlegada.jTextField20.setText(destinoMLlegada);
+                } else {
+                    cManifiestosLlegada.jRadioButton19.setSelected(true);
+                    cManifiestosLlegada.jTextField21.setText(destinoMLlegada);
+                }
+            }
+            if (aerolineaMLlegada != null) {
+                cManifiestosLlegada.jCheckBox7.setSelected(true);
+                cManifiestosLlegada.jTextField1.setText(aerolineaMLlegada);
+            }
+            if (vueloMLlegada != null) {
+                cManifiestosLlegada.jCheckBox8.setSelected(true);
+                cManifiestosLlegada.jTextField2.setText(vueloMLlegada);
+            }
+        }
+        cManifiestosLlegada.setVisible(true);
+    }//GEN-LAST:event_jButton15ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2607,12 +2685,12 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel34;
     public static javax.swing.JLabel jLabel35;
     public static javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
+    public static javax.swing.JLabel jLabel37;
+    public static javax.swing.JLabel jLabel38;
+    public static javax.swing.JLabel jLabel39;
+    public static javax.swing.JLabel jLabel40;
+    public static javax.swing.JLabel jLabel41;
+    public static javax.swing.JLabel jLabel42;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -2650,6 +2728,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     static String criteriosPlanes = null;
     static String criteriosCierres = null;
     static String criteriosManifiestosSalida = null;
+    static String criteriosManifiestosLlegada = null;
     
     static int rBFechaMSalida = 0;
     static String fecha1MSalida = null;
@@ -2691,4 +2770,34 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jLabel36.setText("NO. DE VUELO");
         jLabel36.setEnabled(false);
     }
+    
+    static int rBFechaMLlegada = 0;
+    static String fecha1MLlegada = null;
+    static String fecha2MLlegada = null;
+    static String fecha3MLlegada = null;
+    static int rBPersonalMLlegada = 0;
+    static String licenciaMLlegada = null;
+    static int rBAeronaveMLlegada = 0;
+    static String aeronaveMLlegada = null;
+    static int rBDestinoMLlegada = 0;
+    static String destinoMLlegada = null;
+    static String aerolineaMLlegada = null;
+    static String vueloMLlegada = null;
+    static boolean primeraVezMLlegada = true;
+    
+    private void limpiarCriteriosManifiestosLlegada () {
+        jLabel37.setText("FECHA");
+        jLabel37.setEnabled(false);
+        jLabel38.setText("PERSONAL DE VUELO");
+        jLabel38.setEnabled(false);
+        jLabel39.setText("COMPAÑÍA");
+        jLabel39.setEnabled(false);
+        jLabel40.setText("AERONAVE");
+        jLabel40.setEnabled(false);
+        jLabel41.setText("ORIGEN");
+        jLabel41.setEnabled(false);
+        jLabel42.setText("NO. DE VUELO");
+        jLabel42.setEnabled(false);
+    }
+    
 }
