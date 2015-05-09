@@ -822,6 +822,7 @@ public class BDJDialogBusquedaManifiestos extends javax.swing.JDialog {
                         String fechaft3 = formatoFecha.format(jDateChooser1.getDate());
                         fecha = "MANIFIESTOS_SALIDA.fecha_hora_itinerario BETWEEN '" + fechaft2 + "' AND '" + fechaft3 + "'";
                         BAJFrameVentanaConsultas.rBFechaMSalida = 12;
+                        BAJFrameVentanaConsultas.fecha1MSalida = null;
                         BAJFrameVentanaConsultas.fecha2MSalida = fechaft2;
                         BAJFrameVentanaConsultas.fecha3MSalida = fechaft3;
                         BAJFrameVentanaConsultas.jLabel31.setText("'" + fechaft2 + "' - '" + fechaft3 + "'");
