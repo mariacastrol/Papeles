@@ -781,11 +781,11 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                 } 
             }  else {
                 BAJFrameVentanaConsultas.rBAeropuertoPlanes = 0;
-                BAJFrameVentanaConsultas.AeropuertoPlanes = null;
+                BAJFrameVentanaConsultas.aeropuertoPlanes = null;
             }
             if (totalVacios != 0) {
                 JOptionPane.showMessageDialog(this,"HAY CAMPOS VACIOS","",JOptionPane.INFORMATION_MESSAGE);
-            }  else {
+            } else {
                 String criterioBusqueda = "";
                 if (jCheckBox4.isSelected()) {
                     SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
@@ -946,13 +946,13 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                         String oaci = jTextField20.getText();
                         aeropuerto = "AEROPUERTOS_PLANES.codigo_oaci = '" + oaci + "'";
                         BAJFrameVentanaConsultas.rBAeropuertoPlanes = 18;
-                        BAJFrameVentanaConsultas.AeropuertoPlanes = oaci;
+                        BAJFrameVentanaConsultas.aeropuertoPlanes = oaci;
                         BAJFrameVentanaConsultas.jLabel25.setText("OACI: " + oaci);
                     } else {
                         String iata = jTextField21.getText();
                         aeropuerto = "AEROPUERTOS_PLANES.codigo_iata = '" + iata + "'";
                         BAJFrameVentanaConsultas.rBAeropuertoPlanes = 19;
-                        BAJFrameVentanaConsultas.AeropuertoPlanes = iata;
+                        BAJFrameVentanaConsultas.aeropuertoPlanes = iata;
                         BAJFrameVentanaConsultas.jLabel25.setText("IATA: " + iata);
                     }
                     if (!criterioBusqueda.equals("")) {
@@ -981,11 +981,11 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         } else {
             jTextField7.setEnabled(false);
             jTextField7.setText(null);
+            jCheckBox2.setForeground(new java.awt.Color(0,0,0));
             if (!jCheckBox7.isSelected() && !jCheckBox8.isSelected()) {
                 jCheckBox1.setSelected(false);
             }
-        }
-        
+        }    
     }//GEN-LAST:event_jCheckBox2ItemStateChanged
 
     private void jCheckBox7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox7ItemStateChanged
@@ -995,6 +995,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         } else {
             jTextField14.setEnabled(false);
             jTextField14.setText(null);
+            jCheckBox7.setForeground(new java.awt.Color(0,0,0));
             if (!jCheckBox2.isSelected() && !jCheckBox8.isSelected()) {
                 jCheckBox1.setSelected(false);
             }
@@ -1008,6 +1009,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
         } else {
             jTextField13.setEnabled(false);
             jTextField13.setText(null);
+            jCheckBox8.setForeground(new java.awt.Color(0,0,0));
             if (!jCheckBox2.isSelected() && !jCheckBox7.isSelected()) {
                 jCheckBox1.setSelected(false);
             }

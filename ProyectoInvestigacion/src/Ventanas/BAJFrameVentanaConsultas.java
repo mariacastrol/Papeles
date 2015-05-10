@@ -1979,10 +1979,10 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 cPlanes.jCheckBox5.setSelected(true);
                 if (rBAeropuertoPlanes == 18) {
                     cPlanes.jRadioButton18.setSelected(true);
-                    cPlanes.jTextField20.setText(AeropuertoPlanes);
+                    cPlanes.jTextField20.setText(aeropuertoPlanes);
                 } else  {
                     cPlanes.jRadioButton19.setSelected(true);
-                    cPlanes.jTextField21.setText(AeropuertoPlanes);
+                    cPlanes.jTextField21.setText(aeropuertoPlanes);
                 }
             }
         }
@@ -2055,10 +2055,10 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 cCierres.jCheckBox5.setSelected(true);
                 if (rBAeropuertoCierres == 18) {
                     cCierres.jRadioButton18.setSelected(true);
-                    cCierres.jTextField20.setText(AeropuertoCierres);
+                    cCierres.jTextField20.setText(aeropuertoCierres);
                 } else  {
                     cCierres.jRadioButton19.setSelected(true);
-                    cCierres.jTextField21.setText(AeropuertoCierres);
+                    cCierres.jTextField21.setText(aeropuertoCierres);
                 }
             }
         }
@@ -2887,18 +2887,6 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     static boolean primeraVezMSalida = true;
     
     private void limpiarCriteriosManifiestosSalida () {
-        /*rBFechaMSalida = 0;
-        fecha1MSalida = null;
-        fecha2MSalida = null;
-        fecha3MSalida = null;
-        rBPersonalMSalida = 0;
-        licenciaMSalida = null;
-        rBAeronaveMSalida = 0;
-        aeronaveMSalida = null;
-        rBDestinoMSalida = 0;
-        destinoMSalida = null;
-        aerolineaMSalida = null;
-        vueloMSalida = null;*/
         jLabel31.setText("FECHA");
         jLabel31.setEnabled(false);
         jLabel32.setText("PERSONAL DE VUELO");
@@ -2957,7 +2945,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     static int rBAeronavePlanes = 0;
     static String aeronavePlanes = null;
     static int rBAeropuertoPlanes = 0;
-    static String AeropuertoPlanes = null;
+    static String aeropuertoPlanes = null;
     static boolean primeraVezPlanes = true;
     
     private void limpiarCriteriosPlanes () {
@@ -2988,7 +2976,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     static int rBAeronaveCierres = 0;
     static String aeronaveCierres = null;
     static int rBAeropuertoCierres = 0;
-    static String AeropuertoCierres = null;
+    static String aeropuertoCierres = null;
     static boolean primeraVezCierres = true;
     
     private void limpiarCriteriosCierres () {
