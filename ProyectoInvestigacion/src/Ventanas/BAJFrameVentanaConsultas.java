@@ -617,14 +617,12 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botonCriteriosCierres)
-                            .addComponent(jLabel29)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel27)
-                            .addComponent(jLabel26))
-                        .addContainerGap(105, Short.MAX_VALUE))))
+                    .addComponent(botonCriteriosCierres)
+                    .addComponent(jLabel29)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26))
+                .addGap(10, 10, 10))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -634,7 +632,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel27)
+                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel28)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -792,12 +790,12 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     .addComponent(jCheckBox60, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckBox61, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckBox59, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(7, 7, 7)
+                .addGap(5, 5, 5)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -881,7 +879,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonBuscarCierres)
                     .addComponent(jButton11))
@@ -963,13 +961,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(jButton13)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton13)
+                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel16Layout.setVerticalGroup(
@@ -1360,14 +1359,15 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(jButton15)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton15)
+                            .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel17Layout.setVerticalGroup(
@@ -1990,7 +1990,78 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCriteriosPlanesActionPerformed
 
     private void botonCriteriosCierresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCriteriosCierresActionPerformed
-        BCJDialogBusquedaCierres cCierres = new BCJDialogBusquedaCierres(this,true);
+        limpiarCriteriosCierres();
+        BBJDialogBusquedaCierres cCierres = new BBJDialogBusquedaCierres(this,true);
+        if (primeraVezCierres == false) {
+            if (rBFechaCierres != 0) {
+                cCierres.jCheckBox4.setSelected(true);
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+                if (rBFechaCierres  == 11) {
+                    try {
+                        cCierres.jDateChooser3.setDate(formatoFecha.parse(fecha1Cierres));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(BAJFrameVentanaConsultas.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    cCierres.jRadioButton12.setSelected(true);
+                    try {
+                        cCierres.jDateChooser2.setDate(formatoFecha.parse(fecha2Cierres));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(BAJFrameVentanaConsultas.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    try {
+                        cCierres.jDateChooser1.setDate(formatoFecha.parse(fecha3Cierres));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(BAJFrameVentanaConsultas.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+            if (cBPasajeros1Cierres != 0 || cBPasajeros2Cierres != 0 || cBPasajeros3Cierres != 0) {
+                cCierres.jCheckBox1.setSelected(true);
+                if (cBPasajeros1Cierres == 2) {
+                    cCierres.jCheckBox2.setSelected(true);
+                    cCierres.jTextField7.setText(pasajero1Cierres);
+                }
+                if (cBPasajeros2Cierres == 7) {
+                    cCierres.jCheckBox7.setSelected(true);
+                    cCierres.jTextField14.setText(pasajero2Cierres);
+                }
+                if (cBPasajeros3Cierres == 8) {
+                    cCierres.jCheckBox8.setSelected(true);
+                    cCierres.jTextField13.setText(pasajero3Cierres);
+                }
+            }
+            if (rBPersonalCierres  != 0) {
+                cCierres.jCheckBox6.setSelected(true);
+                if (rBPersonalCierres == 15) {
+                    cCierres.jRadioButton15.setSelected(true);
+                    cCierres.jTextField15.setText(licenciaCierres);
+                } else  {
+                    cCierres.jRadioButton17.setSelected(true);
+                    cCierres.jTextField17.setText(licenciaCierres);
+                }
+            }
+            if (rBAeronaveCierres != 0) {
+                cCierres.jCheckBox3.setSelected(true);
+                if (rBAeronaveCierres == 9) {
+                    cCierres.jRadioButton9.setSelected(true);
+                    cCierres.jTextField11.setText(aeronaveCierres);
+                } else  {
+                    cCierres.jRadioButton10.setSelected(true);
+                    cCierres.jTextField12.setText(aeronaveCierres);
+                }
+            }
+            if (rBAeropuertoCierres != 0) {
+                cCierres.jCheckBox5.setSelected(true);
+                if (rBAeropuertoCierres == 18) {
+                    cCierres.jRadioButton18.setSelected(true);
+                    cCierres.jTextField20.setText(AeropuertoCierres);
+                } else  {
+                    cCierres.jRadioButton19.setSelected(true);
+                    cCierres.jTextField21.setText(AeropuertoCierres);
+                }
+            }
+        }
         cCierres.setVisible(true);
     }//GEN-LAST:event_botonCriteriosCierresActionPerformed
 
@@ -2902,4 +2973,34 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jLabel25.setEnabled(false);
     }
     
+    static int rBFechaCierres = 0;
+    static String fecha1Cierres = null;
+    static String fecha2Cierres = null;
+    static String fecha3Cierres = null;
+    static int cBPasajeros1Cierres = 0;
+    static String pasajero1Cierres = null;
+    static int cBPasajeros2Cierres = 0;
+    static String pasajero2Cierres = null;
+    static int cBPasajeros3Cierres = 0;
+    static String pasajero3Cierres = null;
+    static int rBPersonalCierres = 0;
+    static String licenciaCierres = null;
+    static int rBAeronaveCierres = 0;
+    static String aeronaveCierres = null;
+    static int rBAeropuertoCierres = 0;
+    static String AeropuertoCierres = null;
+    static boolean primeraVezCierres = true;
+    
+    private void limpiarCriteriosCierres () {
+        jLabel26.setText("FECHA");
+        jLabel26.setEnabled(false);
+        jLabel27.setText("PERSONAL DE VUELO");
+        jLabel27.setEnabled(false);
+        jLabel28.setText("PASAJERO");
+        jLabel28.setEnabled(false);
+        jLabel29.setText("AERONAVE");
+        jLabel29.setEnabled(false);
+        jLabel30.setText("AEROPUERTO/AERÓDROMO DE SALIDA");
+        jLabel30.setEnabled(false);
+    }
 }
