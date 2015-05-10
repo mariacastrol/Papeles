@@ -1991,7 +1991,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void botonCriteriosCierresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCriteriosCierresActionPerformed
         limpiarCriteriosCierres();
-        BBJDialogBusquedaCierres cCierres = new BBJDialogBusquedaCierres(this,true);
+        BCJDialogBusquedaCierres cCierres = new BCJDialogBusquedaCierres(this,true);
         if (primeraVezCierres == false) {
             if (rBFechaCierres != 0) {
                 cCierres.jCheckBox4.setSelected(true);

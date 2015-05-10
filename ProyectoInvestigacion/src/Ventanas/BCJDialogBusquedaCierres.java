@@ -276,6 +276,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
         jLabel2.setText("A");
         jLabel2.setEnabled(false);
 
+        jDateChooser1.setDateFormatString("yyyy/MM/dd");
         jDateChooser1.setEnabled(false);
         jDateChooser1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -283,6 +284,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
             }
         });
 
+        jDateChooser2.setDateFormatString("yyyy/MM/dd");
         jDateChooser2.setEnabled(false);
         jDateChooser2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -290,6 +292,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
             }
         });
 
+        jDateChooser3.setDateFormatString("yyyy/MM/dd");
         jDateChooser3.setEnabled(false);
         jDateChooser3.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -681,239 +684,294 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
     }//GEN-LAST:event_jCheckBox1ItemStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String fecha = "";
-        String pasajero [] = new String [3];
-        String personal = "";
-        String aeronave = "";
-        String aeropuerto = "";
-        int totalVacios = 0;
-        int totalFecha = 0;
-        int totalPasajero = 0;
-        int totalPersonal = 0;
-        int totalAeronave = 0;
-        int totalAeropuerto = 0;
-                
-        if (jCheckBox4.isSelected()) {
-            int fechaVacio = 0;
-            if (jRadioButton11.isSelected() && jDateChooser3.getDate() == null) {
-                totalVacios++;
-                fechaVacio--;
-                jRadioButton11.setForeground(new java.awt.Color(rError,gError,bError));
-                jCheckBox4.setForeground(new java.awt.Color(rError,gError,bError));
-            }
-            if (jRadioButton12.isSelected() && jDateChooser2.getDate() == null) {
-                totalVacios++;
-                fechaVacio--;
-                jRadioButton12.setForeground(new java.awt.Color(rError,gError,bError));
-                jCheckBox4.setForeground(new java.awt.Color(rError,gError,bError));
-                jLabel1.setForeground(new java.awt.Color(rError,gError,bError));
-            }
-            if (jRadioButton12.isSelected() && jDateChooser1.getDate() == null) {
-                totalVacios++;
-                fechaVacio--;
-                jRadioButton12.setForeground(new java.awt.Color(rError,gError,bError));
-                jCheckBox4.setForeground(new java.awt.Color(rError,gError,bError));
-                jLabel2.setForeground(new java.awt.Color(rError,gError,bError)); 
-            } 
-            if (fechaVacio == 0) {
-                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-                if (jRadioButton11.isSelected() && jDateChooser3.getDate() != null) {
-                    totalFecha++;
-                    fecha = "CIERRES_DE_PLAN.fecha_hora = '" + formatoFecha.format(jDateChooser3.getDate()) + "'";
-                } else if (jRadioButton12.isSelected() && jDateChooser2.getDate() != null && jDateChooser1.getDate() != null) {
-                    totalFecha++;
-                    fecha = "CIERRES_DE_PLAN.fecha_hora BETWEEN '" + formatoFecha.format(jDateChooser1.getDate()) + "' AND '" + formatoFecha.format(jDateChooser3.getDate()) + "'";
+        if (jCheckBox4.isSelected() || jCheckBox1.isSelected() || jCheckBox6.isSelected() || jCheckBox3.isSelected() || jCheckBox5.isSelected()) {
+            int totalVacios = 0;
+            if (jCheckBox4.isSelected()) {
+                if (jRadioButton11.isSelected() && jDateChooser3.getDate() == null) {
+                    totalVacios++;
+                    jRadioButton11.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox4.setForeground(new java.awt.Color(rError,gError,bError));
                 }
-                BAJFrameVentanaConsultas.jLabel26.setEnabled(true);
-            }
-        }
-        if (jCheckBox1.isSelected()) {
-            int pasajeroVacio = 0;
-            if (jCheckBox2.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField7)) {
-                totalVacios++;
-                pasajeroVacio--;
-                jCheckBox1.setForeground(new java.awt.Color(rError,gError,bError));
-                jCheckBox2.setForeground(new java.awt.Color(rError,gError,bError));
-            }
-            if (jCheckBox7.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField14)) {
-                totalVacios++;
-                pasajeroVacio--;
-                jCheckBox1.setForeground(new java.awt.Color(rError,gError,bError));
-                jCheckBox7.setForeground(new java.awt.Color(rError,gError,bError));
-            }
-            if (jCheckBox8.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField13)) {
-                totalVacios++;
-                pasajeroVacio--;
-                jCheckBox1.setForeground(new java.awt.Color(rError,gError,bError));
-                jCheckBox8.setForeground(new java.awt.Color(rError,gError,bError));
-            }
-            if (!jCheckBox2.isSelected() && !jCheckBox7.isSelected() && !jCheckBox8.isSelected()) {
-                totalVacios++;
-                pasajeroVacio--;
-                jCheckBox1.setForeground(new java.awt.Color(rError,gError,bError));
-                jCheckBox2.setForeground(new java.awt.Color(rError,gError,bError));
-                jCheckBox7.setForeground(new java.awt.Color(rError,gError,bError));
-                jCheckBox8.setForeground(new java.awt.Color(rError,gError,bError));
-            }
-            if (pasajeroVacio == 0) {
-                if (jCheckBox2.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField7)) {
-                    totalPasajero++;
-                    pasajero[0] = "PASAJEROS_CIERRES.nombre LIKE '%" + jTextField7.getText() + "%'";
+                if (jRadioButton12.isSelected() && jDateChooser2.getDate() == null) {
+                    totalVacios++;
+                    jRadioButton12.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox4.setForeground(new java.awt.Color(rError,gError,bError));
+                    jLabel1.setForeground(new java.awt.Color(rError,gError,bError));
                 }
-                if (jCheckBox7.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField14)) {
-                    totalPasajero++;
-                    pasajero[1] = "PASAJEROS_CIERRES.apellido_paterno LIKE '%" + jTextField14.getText() + "%'";
+                if (jRadioButton12.isSelected() && jDateChooser1.getDate() == null) {
+                    totalVacios++;
+                    jRadioButton12.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox4.setForeground(new java.awt.Color(rError,gError,bError));
+                    jLabel2.setForeground(new java.awt.Color(rError,gError,bError));
                 }
-                if (jCheckBox8.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField13)) {
-                    totalPasajero++;
-                    pasajero[2] = "PASAJEROS_CIERRES.apellido_materno LIKE '%" + jTextField13.getText() + "%'";
-                }
-                BAJFrameVentanaConsultas.jLabel28.setEnabled(true);
-            }
-        }
-        if (jCheckBox6.isSelected()) {
-            if (jRadioButton15.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField15)) {
-                totalVacios++;
-                jCheckBox6.setForeground(new java.awt.Color(rError,gError,bError));
-                jRadioButton15.setForeground(new java.awt.Color(rError,gError,bError));
-            } else if (jRadioButton17.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField17)) {
-                totalVacios++;
-                jCheckBox6.setForeground(new java.awt.Color(rError,gError,bError));
-                jRadioButton17.setForeground(new java.awt.Color(rError,gError,bError));
             } else {
-                if (jRadioButton15.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField15)) {
-                    totalPersonal++;
-                    personal = "PILOTOS_PLANES.no_licencia = '" + jTextField15.getText() + "'";
-                } else if (jRadioButton17.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField17)) {
-                    totalPersonal++;
-                    personal = "COPILOTOS.no_licencia = '" + jTextField17.getText() + "'";
-                }
-                BAJFrameVentanaConsultas.jLabel27.setEnabled(true);
+                BAJFrameVentanaConsultas.rBFechaCierres = 0;
+                BAJFrameVentanaConsultas.fecha1Cierres = null;
+                BAJFrameVentanaConsultas.fecha2Cierres = null;
+                BAJFrameVentanaConsultas.fecha3Cierres = null;
             }
-        }
-        if (jCheckBox3.isSelected()) {
-            if (jRadioButton9.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField11)) {
-                totalVacios++;
-                jCheckBox3.setForeground(new java.awt.Color(rError,gError,bError));
-                jRadioButton9.setForeground(new java.awt.Color(rError,gError,bError));
-            } else if (jRadioButton10.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField12)) {
-                totalVacios++;
-                jCheckBox3.setForeground(new java.awt.Color(rError,gError,bError));
-                jRadioButton10.setForeground(new java.awt.Color(rError,gError,bError));
+            if (jCheckBox1.isSelected()) {
+                if (jCheckBox2.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField7)) {
+                    totalVacios++;
+                    jCheckBox1.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox2.setForeground(new java.awt.Color(rError,gError,bError));
+                }
+                if (jCheckBox7.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField14)) {
+                    totalVacios++;
+                    jCheckBox1.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox7.setForeground(new java.awt.Color(rError,gError,bError));
+                }
+                if (jCheckBox8.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField13)) {
+                    totalVacios++;
+                    jCheckBox1.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox8.setForeground(new java.awt.Color(rError,gError,bError));
+                }
+                if (!jCheckBox2.isSelected() && !jCheckBox7.isSelected() && !jCheckBox8.isSelected()) {
+                    totalVacios++;
+                    jCheckBox1.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox2.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox7.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox8.setForeground(new java.awt.Color(rError,gError,bError));
+                }
             } else {
-                if (jRadioButton9.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField11)) {
-                    totalAeronave++;
-                    aeronave = "AERONAVES_PLANES.identificacion_aeronave = '" + jTextField11.getText() + "'";
-                } else if (jRadioButton10.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField12)) {
-                    totalAeronave++;
-                    aeronave = "AERONAVES_PLANES.tipo = '" + jTextField12.getText() + "'";
-                }
-                BAJFrameVentanaConsultas.jLabel29.setEnabled(true);
+                BAJFrameVentanaConsultas.cBPasajeros1Cierres = 0;
+                BAJFrameVentanaConsultas.pasajero1Cierres = null;
+                BAJFrameVentanaConsultas.cBPasajeros2Cierres = 0;
+                BAJFrameVentanaConsultas.pasajero2Cierres = null;
+                BAJFrameVentanaConsultas.cBPasajeros3Cierres = 0;
+                BAJFrameVentanaConsultas.pasajero3Cierres = null;
             }
-        }
-        if (jCheckBox5.isSelected()) {
-            if (jRadioButton18.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField20)) {
-                totalVacios++;
-                jCheckBox5.setForeground(new java.awt.Color(rError,gError,bError));
-                jRadioButton18.setForeground(new java.awt.Color(rError,gError,bError));   
-            } else if (jRadioButton19.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField21)) {
-                totalVacios++;
-                jCheckBox5.setForeground(new java.awt.Color(rError,gError,bError));
-                jRadioButton19.setForeground(new java.awt.Color(rError,gError,bError)); 
+            if (jCheckBox6.isSelected()) {
+                if (jRadioButton15.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField15)) {
+                    totalVacios++;
+                    jCheckBox6.setForeground(new java.awt.Color(rError,gError,bError));
+                    jRadioButton15.setForeground(new java.awt.Color(rError,gError,bError));
+                } else if (jRadioButton17.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField17)) {
+                    totalVacios++;
+                    jCheckBox6.setForeground(new java.awt.Color(rError,gError,bError));
+                    jRadioButton17.setForeground(new java.awt.Color(rError,gError,bError));
+                }
+            }  else {
+                BAJFrameVentanaConsultas.rBPersonalCierres = 0;
+                BAJFrameVentanaConsultas.licenciaCierres = null;
+            }
+            if (jCheckBox3.isSelected()) {
+                if (jRadioButton9.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField11)) {
+                    totalVacios++;
+                    jCheckBox3.setForeground(new java.awt.Color(rError,gError,bError));
+                    jRadioButton9.setForeground(new java.awt.Color(rError,gError,bError));
+                } else if (jRadioButton10.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField12)) {
+                    totalVacios++;
+                    jCheckBox3.setForeground(new java.awt.Color(rError,gError,bError));
+                    jRadioButton10.setForeground(new java.awt.Color(rError,gError,bError));
+                }
             } else {
-                if (jRadioButton18.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField20)) {
-                    totalAeropuerto++;
-                    aeropuerto = "AEROPUERTOS_PLANES.codigo_oaci = '" + jTextField20.getText() + "'";
-                } else if (jRadioButton19.isSelected() && !FuncionesGenerales.estaVacioJTextField(jTextField21)) {
-                    totalAeropuerto++;
-                    aeropuerto = "AEROPUERTOS_PLANES.codigo_iata = '" + jTextField21.getText() + "'";
-                }
-                BAJFrameVentanaConsultas.jLabel30.setEnabled(true);
+                BAJFrameVentanaConsultas.rBAeronaveCierres = 0;
+                BAJFrameVentanaConsultas.aeronaveCierres = null;
             }
-        }
-        int totalCamposSeleccionados = totalFecha + totalPasajero + totalPersonal + totalAeronave + totalAeropuerto;
-        if (totalCamposSeleccionados != 0 && totalVacios == 0) {
-            String criterioBusqueda = "";
-            if (totalFecha != 0) {
-                if (!criterioBusqueda.equals("")) {
-                    criterioBusqueda += "AND " + fecha + "\n";
-                } else {
-                    criterioBusqueda += "WHERE " + fecha + "\n";
-                }
+            if (jCheckBox5.isSelected()) {
+                if (jRadioButton18.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField20)) {
+                    totalVacios++;
+                    jCheckBox5.setForeground(new java.awt.Color(rError,gError,bError));
+                    jRadioButton18.setForeground(new java.awt.Color(rError,gError,bError));   
+                } else if (jRadioButton19.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField21)) {
+                    totalVacios++;
+                    jCheckBox5.setForeground(new java.awt.Color(rError,gError,bError));
+                    jRadioButton19.setForeground(new java.awt.Color(rError,gError,bError)); 
+                } 
+            }  else {
+                BAJFrameVentanaConsultas.rBAeropuertoCierres = 0;
+                BAJFrameVentanaConsultas.AeropuertoCierres = null;
             }
-            if (totalPasajero != 0) {
-                if (!criterioBusqueda.equals("")) {
-                    if (pasajero[0] != null) {
-                        criterioBusqueda += "AND " + pasajero[0] + "\n";
+            if (totalVacios != 0) {
+                JOptionPane.showMessageDialog(this,"HAY CAMPOS VACIOS","",JOptionPane.INFORMATION_MESSAGE);
+            }  else {
+                String criterioBusqueda = "";
+                if (jCheckBox4.isSelected()) {
+                    SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+                    String fecha = "";
+                    if (jRadioButton11.isSelected()) {
+                        String fechaft1 = formatoFecha.format(jDateChooser3.getDate());
+                        fecha = "DATE(CIERRES_DE_PLAN.fecha_hora) = '" + fechaft1 + "'";
+                        BAJFrameVentanaConsultas.rBFechaCierres = 11;
+                        BAJFrameVentanaConsultas.fecha1Cierres = fechaft1;
+                        BAJFrameVentanaConsultas.fecha2Cierres = null;
+                        BAJFrameVentanaConsultas.fecha3Cierres = null;
+                        BAJFrameVentanaConsultas.jLabel26.setText(fechaft1);
+                    } else {
+                        String fechaft2 = formatoFecha.format(jDateChooser2.getDate());
+                        String fechaft3 = formatoFecha.format(jDateChooser1.getDate());
+                        fecha = "CIERRES_DE_PLAN.fecha_hora BETWEEN '" + fechaft2 + "' AND '" + fechaft3 + "'";
+                        BAJFrameVentanaConsultas.rBFechaCierres = 12;
+                        BAJFrameVentanaConsultas.fecha1Cierres = null;
+                        BAJFrameVentanaConsultas.fecha2Cierres = fechaft2;
+                        BAJFrameVentanaConsultas.fecha3Cierres = fechaft3;
+                        BAJFrameVentanaConsultas.jLabel26.setText("'" + fechaft2 + "' - '" + fechaft3 + "'");
                     }
-                    if (pasajero[1] != null) {
-                        criterioBusqueda += "AND " + pasajero[1] + "\n";
+                    if (!criterioBusqueda.equals("")) {
+                        criterioBusqueda += "AND " + fecha + "\n";
+                    } else {
+                        criterioBusqueda += "WHERE " + fecha + "\n";
                     }
-                    if (pasajero[2] != null) {
-                        criterioBusqueda += "AND " + pasajero[2] + "\n";
+                    BAJFrameVentanaConsultas.jLabel26.setEnabled(true);
+                }
+                if (jCheckBox1.isSelected()) {
+                    String pasajero [] = new String [3];
+                    String nombreCompleto = "";
+                    if (jCheckBox2.isSelected()) {
+                        String nombre = jTextField7.getText();
+                        pasajero[0] = "PASAJEROS_CIERRES.nombre LIKE '%" + nombre + "%'";
+                        BAJFrameVentanaConsultas.cBPasajeros1Cierres = 2;
+                        BAJFrameVentanaConsultas.pasajero1Cierres = nombre;
+                        nombreCompleto += nombre + " ";
+                    } else {
+                        pasajero[0] = null;
+                        BAJFrameVentanaConsultas.cBPasajeros1Cierres = 0;
+                        BAJFrameVentanaConsultas.pasajero1Cierres = null;
                     }
-                } else {
-                    boolean bandera = false;
-                    if (pasajero[0] != null && !bandera) {
-                        criterioBusqueda += "WHERE " + pasajero[0] + "\n";
-                        bandera = true;
-                        if (pasajero[1] != null) {
-                            criterioBusqueda += "AND " + pasajero[1] + "\n";
-                        }
-                        if (pasajero[2] != null) {
-                            criterioBusqueda += "AND " + pasajero[2] + "\n";
-                        }
+                    if (jCheckBox7.isSelected()) {
+                        String apaterno = jTextField14.getText();
+                        pasajero[1] = "PASAJEROS_CIERRES.apellido_paterno LIKE '%" + apaterno + "%'";
+                        BAJFrameVentanaConsultas.cBPasajeros2Cierres = 7;
+                        BAJFrameVentanaConsultas.pasajero2Cierres = apaterno;
+                        nombreCompleto += apaterno + " ";
+                    } else {
+                        pasajero[1] = null;
+                        BAJFrameVentanaConsultas.cBPasajeros2Cierres = 0;
+                        BAJFrameVentanaConsultas.pasajero2Cierres = null;
                     }
-                    if (pasajero[1] != null && !bandera) {
-                        criterioBusqueda += "WHERE " + pasajero[1] + "\n";
-                        bandera = true;
-                        if (pasajero[0] != null) {
-                            criterioBusqueda += "AND " + pasajero[0] + "\n";
-                        }
-                        if (pasajero[2] != null) {
-                            criterioBusqueda += "AND " + pasajero[2] + "\n";
-                        }
+                    if (jCheckBox8.isSelected()) {
+                        String amaterno = jTextField13.getText();
+                        pasajero[2] = "PASAJEROS_CIERRES.apellido_materno LIKE '%" + amaterno + "%'";
+                        BAJFrameVentanaConsultas.cBPasajeros3Cierres = 8;
+                        BAJFrameVentanaConsultas.pasajero3Cierres = amaterno;
+                        nombreCompleto += amaterno + " ";
+                    } else {
+                        pasajero[2] = null;
+                        BAJFrameVentanaConsultas.cBPasajeros3Cierres = 0;
+                        BAJFrameVentanaConsultas.pasajero3Cierres = null;
                     }
-                    if (pasajero[2] != null && !bandera) {
-                        criterioBusqueda += "WHERE " + pasajero[2] + "\n";
+                    BAJFrameVentanaConsultas.jLabel28.setText(nombreCompleto);
+                    if (!criterioBusqueda.equals("")) {
                         if (pasajero[0] != null) {
                             criterioBusqueda += "AND " + pasajero[0] + "\n";
                         }
                         if (pasajero[1] != null) {
                             criterioBusqueda += "AND " + pasajero[1] + "\n";
                         }
+                        if (pasajero[2] != null) {
+                            criterioBusqueda += "AND " + pasajero[2] + "\n";
+                        }
+                    } else {
+                        boolean bandera = false;
+                        if (pasajero[0] != null && !bandera) {
+                            criterioBusqueda += "WHERE " + pasajero[0] + "\n";
+                            bandera = true;
+                            if (pasajero[1] != null) {
+                                criterioBusqueda += "AND " + pasajero[1] + "\n";
+                            }
+                            if (pasajero[2] != null) {
+                                criterioBusqueda += "AND " + pasajero[2] + "\n";
+                            }
+                        }
+                        if (pasajero[1] != null && !bandera) {
+                            criterioBusqueda += "WHERE " + pasajero[1] + "\n";
+                            bandera = true;
+                            if (pasajero[0] != null) {
+                                criterioBusqueda += "AND " + pasajero[0] + "\n";
+                            }
+                            if (pasajero[2] != null) {
+                                criterioBusqueda += "AND " + pasajero[2] + "\n";
+                            }
+                        }
+                        if (pasajero[2] != null && !bandera) {
+                            criterioBusqueda += "WHERE " + pasajero[2] + "\n";
+                            if (pasajero[0] != null) {
+                                criterioBusqueda += "AND " + pasajero[0] + "\n";
+                            }
+                            if (pasajero[1] != null) {
+                                criterioBusqueda += "AND " + pasajero[1] + "\n";
+                            }
+                        }
                     }
+                    BAJFrameVentanaConsultas.jLabel28.setEnabled(true);
                 }
-            }
-            if (totalPersonal != 0) {
-                if (!criterioBusqueda.equals("")) {
-                    criterioBusqueda += "AND " + personal + "\n";
-                } else {
-                    criterioBusqueda += "WHERE " + personal + "\n";
+                if (jCheckBox6.isSelected()) {
+                    String personal = "";
+                    if (jRadioButton15.isSelected()) {
+                        String licenciaPiloto = jTextField15.getText();
+                        personal = "PILOTOS_PLANES.no_licencia = '" + licenciaPiloto + "'";
+                        BAJFrameVentanaConsultas.rBPersonalCierres = 15;
+                        BAJFrameVentanaConsultas.licenciaCierres = licenciaPiloto;
+                        BAJFrameVentanaConsultas.jLabel27.setText("PILOTO: " + licenciaPiloto);
+                    } else {
+                        String licenciaCopiloto = jTextField17.getText();
+                        personal = "COPILOTOS.no_licencia = '" + licenciaCopiloto + "'";
+                        BAJFrameVentanaConsultas.rBPersonalCierres = 17;
+                        BAJFrameVentanaConsultas.licenciaCierres = licenciaCopiloto;
+                        BAJFrameVentanaConsultas.jLabel27.setText("COPILOTO: " + licenciaCopiloto);
+                    }
+                    if (!criterioBusqueda.equals("")) {
+                        criterioBusqueda += "AND " + personal + "\n";
+                    } else {
+                        criterioBusqueda += "WHERE " + personal + "\n";
+                    }
+                    BAJFrameVentanaConsultas.jLabel27.setEnabled(true);
                 }
-            }   
-            if (totalAeronave != 0) {
-                if (!criterioBusqueda.equals("")) {
-                    criterioBusqueda += "AND " + aeronave + "\n";
-                } else {
-                    criterioBusqueda += "WHERE " + aeronave + "\n";
+                if (jCheckBox3.isSelected()) {
+                    String aeronave = "";
+                    if (jRadioButton9.isSelected()) {
+                        String identificacion = jTextField11.getText();
+                        aeronave = "AERONAVES_PLANES.identificacion_aeronave = '" + identificacion + "'";
+                        BAJFrameVentanaConsultas.rBAeronaveCierres = 9;
+                        BAJFrameVentanaConsultas.aeronaveCierres = identificacion;
+                        BAJFrameVentanaConsultas.jLabel29.setText("IDENTIFACIÓN DE AERONAVE: " + identificacion);
+                    } else {
+                        String tipo = jTextField12.getText();
+                        aeronave = "AERONAVES_PLANES.tipo = '" + tipo + "'";
+                        BAJFrameVentanaConsultas.rBAeronaveCierres = 10;
+                        BAJFrameVentanaConsultas.aeronaveCierres = tipo;
+                        BAJFrameVentanaConsultas.jLabel29.setText("TIPO: " + tipo);
+                    }
+                    if (!criterioBusqueda.equals("")) {
+                        criterioBusqueda += "AND " + aeronave + "\n";
+                    } else {
+                        criterioBusqueda += "WHERE " + aeronave + "\n";
+                    }
+                    BAJFrameVentanaConsultas.jLabel29.setEnabled(true);
                 }
-            }
-            if (totalAeropuerto != 0) {
-                if (!criterioBusqueda.equals("")) {
-                    criterioBusqueda += "AND " + aeropuerto + "\n";
-                } else {
-                    criterioBusqueda += "WHERE " + aeropuerto + "\n";
+                if (jCheckBox5.isSelected()) {
+                    String aeropuerto = "";
+                    if (jRadioButton18.isSelected()) {
+                        String oaci = jTextField20.getText();
+                        aeropuerto = "AEROPUERTOS_PLANES.codigo_oaci = '" + oaci + "'";
+                        BAJFrameVentanaConsultas.rBAeropuertoCierres = 18;
+                        BAJFrameVentanaConsultas.AeropuertoCierres = oaci;
+                        BAJFrameVentanaConsultas.jLabel30.setText("OACI: " + oaci);
+                    } else {
+                        String iata = jTextField21.getText();
+                        aeropuerto = "AEROPUERTOS_PLANES.codigo_iata = '" + iata + "'";
+                        BAJFrameVentanaConsultas.rBAeropuertoCierres = 19;
+                        BAJFrameVentanaConsultas.AeropuertoCierres = iata;
+                        BAJFrameVentanaConsultas.jLabel30.setText("IATA: " + iata);
+                    }
+                    if (!criterioBusqueda.equals("")) {
+                        criterioBusqueda += "AND " + aeropuerto + "\n";
+                    } else {
+                        criterioBusqueda += "WHERE " + aeropuerto + "\n";
+                    }
+                    BAJFrameVentanaConsultas.jLabel30.setEnabled(true);
                 }
-            }
-            BAJFrameVentanaConsultas.criteriosCierres = criterioBusqueda;
-            this.dispose();
-        } else if (totalVacios != 0) {
-            JOptionPane.showMessageDialog(this,"NO DEJE CAMPOS VACIOS","",JOptionPane.INFORMATION_MESSAGE);
+                BAJFrameVentanaConsultas.criteriosCierres = criterioBusqueda;
+                System.out.println(criterioBusqueda);
+                BAJFrameVentanaConsultas.primeraVezCierres = false;
+                this.dispose();
+            }    
         } else {
             BAJFrameVentanaConsultas.criteriosCierres = null;
+            BAJFrameVentanaConsultas.primeraVezCierres = true;
             this.dispose();
-        }   
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox2ItemStateChanged
@@ -926,7 +984,8 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
             if (!jCheckBox7.isSelected() && !jCheckBox8.isSelected()) {
                 jCheckBox1.setSelected(false);
             }
-        }    
+        }
+        
     }//GEN-LAST:event_jCheckBox2ItemStateChanged
 
     private void jCheckBox7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox7ItemStateChanged
@@ -1267,6 +1326,38 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1289,42 +1380,42 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
     private javax.swing.ButtonGroup buttonGroupFecha;
     private javax.swing.ButtonGroup buttonGroupPersonalVuelo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
-    private com.toedter.calendar.JDateChooser jDateChooser3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    public javax.swing.JCheckBox jCheckBox1;
+    public javax.swing.JCheckBox jCheckBox2;
+    public javax.swing.JCheckBox jCheckBox3;
+    public javax.swing.JCheckBox jCheckBox4;
+    public javax.swing.JCheckBox jCheckBox5;
+    public javax.swing.JCheckBox jCheckBox6;
+    public javax.swing.JCheckBox jCheckBox7;
+    public javax.swing.JCheckBox jCheckBox8;
+    public com.toedter.calendar.JDateChooser jDateChooser1;
+    public com.toedter.calendar.JDateChooser jDateChooser2;
+    public com.toedter.calendar.JDateChooser jDateChooser3;
+    public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton11;
-    private javax.swing.JRadioButton jRadioButton12;
-    private javax.swing.JRadioButton jRadioButton15;
-    private javax.swing.JRadioButton jRadioButton17;
-    private javax.swing.JRadioButton jRadioButton18;
-    private javax.swing.JRadioButton jRadioButton19;
-    private javax.swing.JRadioButton jRadioButton9;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField7;
+    public javax.swing.JRadioButton jRadioButton10;
+    public javax.swing.JRadioButton jRadioButton11;
+    public javax.swing.JRadioButton jRadioButton12;
+    public javax.swing.JRadioButton jRadioButton15;
+    public javax.swing.JRadioButton jRadioButton17;
+    public javax.swing.JRadioButton jRadioButton18;
+    public javax.swing.JRadioButton jRadioButton19;
+    public javax.swing.JRadioButton jRadioButton9;
+    public javax.swing.JTextField jTextField11;
+    public javax.swing.JTextField jTextField12;
+    public javax.swing.JTextField jTextField13;
+    public javax.swing.JTextField jTextField14;
+    public javax.swing.JTextField jTextField15;
+    public javax.swing.JTextField jTextField17;
+    public javax.swing.JTextField jTextField20;
+    public javax.swing.JTextField jTextField21;
+    public javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 
     private int rError = 250;
