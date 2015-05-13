@@ -785,8 +785,8 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                     jRadioButton19.setForeground(new java.awt.Color(rError,gError,bError)); 
                 }
             } else {
-                BAJFrameVentanaConsultas.rBDestinoMLlegada = 0;
-                BAJFrameVentanaConsultas.destinoMLlegada = null;
+                BAJFrameVentanaConsultas.rBOrigenMLlegada = 0;
+                BAJFrameVentanaConsultas.origenMLlegada = null;
             }
             if (jCheckBox7.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField1)) {
                 totalVacios++;
@@ -803,7 +803,7 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                 BAJFrameVentanaConsultas.vueloMLlegada = null;
             }
             if (totalVacios != 0) {
-                JOptionPane.showMessageDialog(this,"NO DEJE CAMPOS VACIOS","",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this,"HAY CAMPOS VACIOS","",JOptionPane.INFORMATION_MESSAGE);
             } else {
                 String criterioBusqueda = "";
                 if (jCheckBox4.isSelected()) {
@@ -895,14 +895,14 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                     if (jRadioButton18.isSelected()) {
                         String iata = jTextField20.getText();
                         aeropuerto = "AEROPUERTOS_MANIFIESTOS.codigo_iata = '" + iata + "'";
-                        BAJFrameVentanaConsultas.rBDestinoMLlegada = 18;
-                        BAJFrameVentanaConsultas.destinoMLlegada = iata;
+                        BAJFrameVentanaConsultas.rBOrigenMLlegada = 18;
+                        BAJFrameVentanaConsultas.origenMLlegada = iata;
                         BAJFrameVentanaConsultas.jLabel41.setText("IATA: " + iata);
                     } else {
                         String oaci = jTextField21.getText();
                         aeropuerto = "AEROPUERTOS_MANIFIESTOS.codigo_oaci = '" + oaci + "'";
-                        BAJFrameVentanaConsultas.rBDestinoMLlegada = 19;
-                        BAJFrameVentanaConsultas.destinoMLlegada = oaci;
+                        BAJFrameVentanaConsultas.rBOrigenMLlegada = 19;
+                        BAJFrameVentanaConsultas.origenMLlegada = oaci;
                         BAJFrameVentanaConsultas.jLabel41.setText("OACI: " + oaci);
                     }
                     if (!criterioBusqueda.equals("")) {

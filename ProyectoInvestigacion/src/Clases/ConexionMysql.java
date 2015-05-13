@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -250,24 +251,132 @@ public class ConexionMysql {
         }
     }
     ///*******************************************
-    public boolean mostrarColumnasTablaMysqlCompuesta(JTable tabla, String consulta, String [] columnasTablas, int numeroColumnas, int longColumna) {
+    public boolean mostrarColumnasTablaMysqlCompuesta(JTable tabla, String consulta, String [] [] columnasTablas, int numeroColumnas) {
         limpiarTablaCompletamente(tabla);
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         for (int i = 0; i < numeroColumnas; i++) {
-            modelo.addColumn(columnasTablas[i]);
-            tabla.getColumnModel().getColumn(i).setMinWidth(longColumna);
-            //tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
-            //tabla.getColumnModel().getColumn(i).setMaxWidth(200);
+            modelo.addColumn(columnasTablas[i][0]);
+        }
+        int columnaFechaPrincipal = -1;
+        int columnaOtros = -1;
+        int columnaNombrePasajero = -1;
+        int columnaAPaternoPasajero = -1;
+        int columnaAMaternoPasajero = -1;
+        int columnaNacionalidadPasajero = -1;
+        for (int i = 0; i < numeroColumnas; i++) {
+            if (columnasTablas[i][1].equals("fechaPrincipal")) {
+               columnaFechaPrincipal = i; 
+            }
+        }
+        for (int i = 0; i < numeroColumnas; i++) {
+            if (columnasTablas[i][1].equals("variosRenglones")) {
+               columnaOtros = i; 
+            }
+        }
+        for (int i = 0; i < numeroColumnas; i++) {
+            if (columnasTablas[i][1].equals("pasajeroN")) {
+               columnaNombrePasajero = i; 
+            }
+        }
+        for (int i = 0; i < numeroColumnas; i++) {
+            if (columnasTablas[i][1].equals("pasajeroAP")) {
+               columnaAPaternoPasajero = i; 
+            }
+        }
+        for (int i = 0; i < numeroColumnas; i++) {
+            if (columnasTablas[i][1].equals("pasajeroAM")) {
+               columnaAMaternoPasajero = i; 
+            }
+        }
+        for (int i = 0; i < numeroColumnas; i++) {
+            if (columnasTablas[i][1].equals("pasajeroNa")) {
+               columnaNacionalidadPasajero = i; 
+            }
         }
         String [] datosFila = new String [numeroColumnas];
         try {
             Statement instruccionSt = con.createStatement();
             ResultSet conjuntoResultados = instruccionSt.executeQuery(consulta);
+            String fechaGuia = "";
+            
+            String [] renglonesObsOtros = null;
+            int totalRenglonesObstros = 0;
+            int filaDondeIniciaRegistro = 0;
+            int registrosFechas = 0;
+            int totalPasajeros = 0;
             while (conjuntoResultados.next()) {
-                for (int j = 0; j < numeroColumnas; j++) {
-                    datosFila[j] = conjuntoResultados.getString(j + 1);
+                String fechaTemporal = "";
+                if (columnaFechaPrincipal != -1) {
+                    SimpleDateFormat fecha = new SimpleDateFormat("yyyy-MM-dd  HH:mm");
+                    fechaTemporal = fecha.format(conjuntoResultados.getTimestamp(columnaFechaPrincipal + 1));
                 }
-                modelo.addRow(datosFila);
+                
+                if (!fechaTemporal.equals(fechaGuia)) {
+                    if (registrosFechas > 0 && columnaOtros != -1) {
+                        if (totalRenglonesObstros > totalPasajeros) {
+                            String [] filasEnBlanco = new String [numeroColumnas];
+                            for (int j = 0; j < (totalRenglonesObstros - totalPasajeros); j++) {
+                                modelo.addRow(filasEnBlanco);
+                            }
+                        }
+                        for (int k = 0; k < totalRenglonesObstros; k++) {
+                            modelo.setValueAt(renglonesObsOtros[k],filaDondeIniciaRegistro++,columnaOtros);
+                        }
+                    }
+                    for (int j = 0; j < numeroColumnas; j++) {
+                        if (j == columnaFechaPrincipal) {
+                            datosFila[j] = fechaTemporal;
+                            fechaGuia = fechaTemporal;
+                        } else if (j == columnaOtros) {
+                            String obstros = conjuntoResultados.getString(columnaOtros + 1);
+                            if (obstros.contains("\n")) {
+                                renglonesObsOtros = obstros.split("\n");
+                                totalRenglonesObstros = renglonesObsOtros.length;
+                                datosFila[j] = null;
+                            } else {
+                                renglonesObsOtros = new String [1];
+                                renglonesObsOtros[0] = obstros;
+                                totalRenglonesObstros = 1; 
+                            }
+                        } else {
+                            datosFila[j] = conjuntoResultados.getString(j + 1);
+                        }
+                    }
+                    modelo.addRow(datosFila);
+                    filaDondeIniciaRegistro = modelo.getRowCount() - 1;
+                    registrosFechas++;
+                    totalPasajeros = 1;
+                } else {
+                    for (int j = 0; j < numeroColumnas; j++) {
+                        if (j == columnaNombrePasajero) {
+                            datosFila[j] = conjuntoResultados.getString(j + 1);
+                        } else if (j == columnaAPaternoPasajero) {
+                            datosFila[j] = conjuntoResultados.getString(j + 1);
+                        } else if (j == columnaAMaternoPasajero) {
+                            datosFila[j] = conjuntoResultados.getString(j + 1);
+                        } else if (j == columnaNacionalidadPasajero) {
+                            datosFila[j] = conjuntoResultados.getString(j + 1);
+                        } else {
+                            datosFila[j] = null;
+                        }
+                    }
+                    modelo.addRow(datosFila);
+                    totalPasajeros++;
+                }
+            }
+            if (totalRenglonesObstros > totalPasajeros) {
+                String [] filasEnBlanco = new String [numeroColumnas];
+                for (int j = 0; j < (totalRenglonesObstros - totalPasajeros); j++) {
+                    modelo.addRow(filasEnBlanco);
+                }
+            }
+            for (int k = 0; k < totalRenglonesObstros; k++) {
+                modelo.setValueAt(renglonesObsOtros[k],filaDondeIniciaRegistro++,columnaOtros);
+            }
+            for (int i = 0; i < numeroColumnas; i++) {
+                tabla.getColumnModel().getColumn(i).setMinWidth(Integer.parseInt(columnasTablas[i][2]));
+                //tabla.getColumnModel().getColumn(i).setPreferredWidth(Integer.parseInt(columnasTablas[i][2]));
+                //tabla.getColumnModel().getColumn(i).setMaxWidth(Integer.parseInt(columnasTablas[i][2]));
             }
             return true;
         } catch (Exception e) {

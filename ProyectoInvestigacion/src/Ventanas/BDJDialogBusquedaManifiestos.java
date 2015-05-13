@@ -803,7 +803,7 @@ public class BDJDialogBusquedaManifiestos extends javax.swing.JDialog {
                 BAJFrameVentanaConsultas.vueloMSalida = null;
             }
             if (totalVacios != 0) {
-                JOptionPane.showMessageDialog(this,"NO DEJE CAMPOS VACIOS","",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this,"HAY CAMPOS VACIOS","",JOptionPane.INFORMATION_MESSAGE);
             } else {
                 String criterioBusqueda = "";
                 if (jCheckBox4.isSelected()) {

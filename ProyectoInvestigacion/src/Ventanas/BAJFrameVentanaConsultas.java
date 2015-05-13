@@ -918,6 +918,11 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable3);
 
         jButton6.setText("BUSCAR");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
@@ -1737,115 +1742,159 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         int aeronaves = 0;
         int aeropuertos = 0;
         int pasajeros = 0;
-        String [] nombresColumnas = new String [22];
+        String [] [] nombresColumnas = new String [22][3];
         int columnas = 0;
         
         if (jCheckBox67.isSelected()) {
             preconsulta += "PLANES_DE_VUELO.fecha_hora, ";
-            nombresColumnas[columnas++] = "FECHA";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "fechaPrincipal";
+            nombresColumnas[columnas++][0] = "FECHA";
         }   
         if (jCheckBox68.isSelected()) {
             preconsulta += "PILOTOS_PLANES.no_licencia, ";
             pilotos++;
-            nombresColumnas[columnas++] = "PILOTO - LICENCIA";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "PILOTO - LICENCIA";
         }
         if (jCheckBox69.isSelected()) {
             preconsulta += "PILOTOS_PLANES.nombre, ";
             pilotos++;
-            nombresColumnas[columnas++] = "PILOTO - NOMBRE(S)";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "PILOTO - NOMBRE(S)";
         }
         if (jCheckBox70.isSelected()) {
             preconsulta += "PILOTOS_PLANES.apellido_paterno, ";
             pilotos++;
-            nombresColumnas[columnas++] = "PILOTO - A PATERNO";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "PILOTO - A PATERNO";
         }
         if (jCheckBox71.isSelected()) {
             preconsulta += "PILOTOS_PLANES.apellido_materno, ";
             pilotos++;
-            nombresColumnas[columnas++] = "PILOTO - A MATERNO";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "PILOTO - A MATERNO";
         }
         if (jCheckBox72.isSelected()) {
             preconsulta += "PILOTOS_PLANES.tipo_licencia, ";
             pilotos++;
-            nombresColumnas[columnas++] = "PILOTO - T LICENCIA";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "PILOTO - T LICENCIA";
         }
         if (jCheckBox73.isSelected()) {
             preconsulta += "COPILOTOS.no_licencia, ";
             copilotos++;
-            nombresColumnas[columnas++] = "COPILOTO - LICENCIA";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "COPILOTO - LICENCIA";
         }
         if (jCheckBox74.isSelected()) {
             preconsulta += "COPILOTOS.nombre, ";
             copilotos++;
-            nombresColumnas[columnas++] = "COPILOTO - NOMBRE(S)";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "COPILOTO - NOMBRE(S)";
         }
         if (jCheckBox75.isSelected()) {
             preconsulta += "COPILOTOS.apellido_paterno, ";
             copilotos++;
-            nombresColumnas[columnas++] = "COPILOTO - A PATERNO";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "COPILOTO - A PATERNO";
         }
         if (jCheckBox76.isSelected()) {
             preconsulta += "COPILOTOS.apellido_materno, ";
             copilotos++;
-            nombresColumnas[columnas++] = "COPILOTO - A MATERNO";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "COPILOTO - A MATERNO";
         }
         if (jCheckBox77.isSelected()) {
             preconsulta += "COPILOTOS.tipo_licencia, ";
             copilotos++;
-            nombresColumnas[columnas++] = "COPILOTO - T LICENCIA";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "COPILOTO - T LICENCIA";
         }
         if (jCheckBox85.isSelected()) {
             preconsulta += "AEROPUERTOS_PLANES.codigo_oaci, ";
             aeropuertos++;
-            nombresColumnas[columnas++] = "AEROPUERTO - OACI";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "AEROPUERTO - OACI";
         }
         if (jCheckBox86.isSelected()) {
             preconsulta += "AEROPUERTOS_PLANES.codigo_iata, ";
             aeropuertos++;
-            nombresColumnas[columnas++] = "AEROPUERTO - IATA";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "AEROPUERTO - IATA";
         }
         if (jCheckBox87.isSelected()) {
             preconsulta += "AEROPUERTOS_PLANES.nombre, ";
             aeropuertos++;
-            nombresColumnas[columnas++] = "AEROPUERTO - NOMBRE";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "AEROPUERTO - NOMBRE";
         }
         if (jCheckBox88.isSelected()) {
             preconsulta += "AERONAVES_PLANES.identificacion_aeronave, ";
             aeronaves++;
-            nombresColumnas[columnas++] = "AERONAVE - MATRÍCULA";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "AERONAVE - MATRÍCULA";
         }
         if (jCheckBox94.isSelected()) {
             preconsulta += "AERONAVES_PLANES.tipo, ";
             aeronaves++;
-            nombresColumnas[columnas++] = "AERONAVE - TIPO";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "AERONAVE - TIPO";
         }
         if (jCheckBox84.isSelected()) {
             preconsulta += "PLANES_DE_VUELO.otros_datos, ";
-            nombresColumnas[columnas++] = "OTROS DATOS";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "variosRenglones";
+            nombresColumnas[columnas++][0] = "OTROS DATOS";
         }
         if (jCheckBox95.isSelected()) {
             preconsulta += "PLANES_DE_VUELO.no_personas_a_bordo, ";
-            nombresColumnas[columnas++] = "PERSONAS A BORDO";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "-1";
+            nombresColumnas[columnas++][0] = "PERSONAS A BORDO";
         }
         if (jCheckBox96.isSelected()) {
             preconsulta += "PASAJEROS_PLANES.nombre, ";
             pasajeros++;
-            nombresColumnas[columnas++] = "PASAJERO - NOMBRE(S)";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "pasajeroN";
+            nombresColumnas[columnas++][0] = "PASAJERO - NOMBRE(S)";
         }
         if (jCheckBox97.isSelected()) {
             preconsulta += "PASAJEROS_PLANES.apellido_paterno, ";
             pasajeros++;
-            nombresColumnas[columnas++] = "PASAJERO - A PATERNO";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "pasajeroAP";
+            nombresColumnas[columnas++][0] = "PASAJERO - A PATERNO";
         }
         if (jCheckBox98.isSelected()) {
             preconsulta += "PASAJEROS_PLANES.apellido_materno, ";
             pasajeros++;
-            nombresColumnas[columnas++] = "PASAJERO - A MATERNO";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "pasajeroAM";
+            nombresColumnas[columnas++][0] = "PASAJERO - A MATERNO";
         }
         if (jCheckBox99.isSelected()) {
             preconsulta += "PASAJEROS_PLANES.nacionalidad, ";
             pasajeros++;
-            nombresColumnas[columnas++] = "PASAJERO - NACIONALIDAD";
+            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][1] = "pasajeroNa";
+            nombresColumnas[columnas++][0] = "PASAJERO - NACIONALIDAD";
         }
         String consulta = preconsulta.substring(0, preconsulta.length() - 2); 
         consulta += " FROM PLANES_DE_VUELO\n";
@@ -1878,7 +1927,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         if (columnas != 0) {
             ConexionMysql conexionConsultaPlan = new ConexionMysql();
             if (conexionConsultaPlan.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
-                if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas,200)) {
+                if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas)) {
                     JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
                 } else {
                     jPanel11.setEnabled(true);
@@ -2066,7 +2115,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCriteriosCierresActionPerformed
 
     private void botonBuscarCierresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarCierresActionPerformed
-        String preconsulta = "SELECT ";
+        /*String preconsulta = "SELECT ";
         int pilotos = 0;
         int copilotos = 0;
         int aeronaves = 0;
@@ -2206,8 +2255,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             consulta += "LEFT JOIN PASAJEROS_CIERRES\n" +
             "ON PASAJEROS_CIERRES.fecha = CIERRES_DE_PLAN.fecha_hora\n";           
         }
-        if (criteriosPlanes != null) {
-            consulta += criteriosPlanes;
+        if (criteriosCierres != null) {
+            consulta += criteriosCierres;
         }
         System.out.println(consulta);
         if (columnas != 0) {
@@ -2245,7 +2294,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             } 
         } else {
             JOptionPane.showMessageDialog(this,"SELECCIONE LOS CAMPOS A MOSTRAR EN LA CONSULTA","",JOptionPane.INFORMATION_MESSAGE);
-        }   
+        }   */
     }//GEN-LAST:event_botonBuscarCierresActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -2277,13 +2326,13 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             }
             if (rBPersonalMSalida != 0) {
                 cManifiestosSalida.jCheckBox6.setSelected(true);
-                if (rBFechaMSalida == 15) {
+                if (rBPersonalMSalida == 15) {
                     cManifiestosSalida.jRadioButton15.setSelected(true);
                     cManifiestosSalida.jTextField15.setText(licenciaMSalida);
-                } else if (rBFechaMSalida == 17) {
+                } else if (rBPersonalMSalida == 17) {
                     cManifiestosSalida.jRadioButton17.setSelected(true);
                     cManifiestosSalida.jTextField17.setText(licenciaMSalida);
-                } else if (rBFechaMSalida == 16) {
+                } else if (rBPersonalMSalida == 16) {
                     cManifiestosSalida.jRadioButton16.setSelected(true);
                     cManifiestosSalida.jTextField16.setText(licenciaMSalida);
                 } else {
@@ -2293,7 +2342,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             }
             if (rBAeronaveMSalida != 0) {
                 cManifiestosSalida.jCheckBox3.setSelected(true);
-                if (rBFechaMSalida == 9) {
+                if (rBAeronaveMSalida == 9) {
                     cManifiestosSalida.jRadioButton9.setSelected(true);
                     cManifiestosSalida.jTextField11.setText(aeronaveMSalida);
                 } else {
@@ -2303,7 +2352,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             }
             if (rBDestinoMSalida != 0) {
                 cManifiestosSalida.jCheckBox5.setSelected(true);
-                if (rBFechaMSalida == 18) {
+                if (rBDestinoMSalida == 18) {
                     cManifiestosSalida.jRadioButton18.setSelected(true);
                     cManifiestosSalida.jTextField20.setText(destinoMSalida);
                 } else {
@@ -2352,13 +2401,13 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             }
             if (rBPersonalMLlegada != 0) {
                 cManifiestosLlegada.jCheckBox6.setSelected(true);
-                if (rBFechaMLlegada == 15) {
+                if (rBPersonalMLlegada == 15) {
                     cManifiestosLlegada.jRadioButton15.setSelected(true);
                     cManifiestosLlegada.jTextField15.setText(licenciaMLlegada);
-                } else if (rBFechaMLlegada == 17) {
+                } else if (rBPersonalMLlegada == 17) {
                     cManifiestosLlegada.jRadioButton17.setSelected(true);
                     cManifiestosLlegada.jTextField17.setText(licenciaMLlegada);
-                } else if (rBFechaMLlegada == 16) {
+                } else if (rBPersonalMLlegada == 16) {
                     cManifiestosLlegada.jRadioButton16.setSelected(true);
                     cManifiestosLlegada.jTextField16.setText(licenciaMLlegada);
                 } else {
@@ -2368,7 +2417,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             }
             if (rBAeronaveMLlegada != 0) {
                 cManifiestosLlegada.jCheckBox3.setSelected(true);
-                if (rBFechaMLlegada == 9) {
+                if (rBAeronaveMLlegada == 9) {
                     cManifiestosLlegada.jRadioButton9.setSelected(true);
                     cManifiestosLlegada.jTextField11.setText(aeronaveMLlegada);
                 } else {
@@ -2376,14 +2425,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     cManifiestosLlegada.jTextField12.setText(aeronaveMLlegada);
                 }
             }
-            if (rBDestinoMLlegada != 0) {
+            if (rBOrigenMLlegada != 0) {
                 cManifiestosLlegada.jCheckBox5.setSelected(true);
-                if (rBFechaMLlegada == 18) {
+                if (rBOrigenMLlegada == 18) {
                     cManifiestosLlegada.jRadioButton18.setSelected(true);
-                    cManifiestosLlegada.jTextField20.setText(destinoMLlegada);
+                    cManifiestosLlegada.jTextField20.setText(origenMLlegada);
                 } else {
                     cManifiestosLlegada.jRadioButton19.setSelected(true);
-                    cManifiestosLlegada.jTextField21.setText(destinoMLlegada);
+                    cManifiestosLlegada.jTextField21.setText(origenMLlegada);
                 }
             }
             if (aerolineaMLlegada != null) {
@@ -2397,6 +2446,193 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         }
         cManifiestosLlegada.setVisible(true);
     }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        /*//////////////////////////
+        String preconsulta = "SELECT ";
+        int comandantes = 0;
+        int primerosOficial = 0;
+        int segundosOficial = 0;
+        int tercerosOficial = 0;
+        int companias = 0;
+        int aeropuertos = 0;
+        int pasajeros = 0;
+        String [] nombresColumnas = new String [33];
+        int columnas = 0;
+        
+        if (jCheckBox67.isSelected()) {
+            preconsulta += "MANIFIESTOS_SALIDA.fecha_hora_itinerario, ";
+            nombresColumnas[columnas++] = "FECHA";
+        }   
+        if (jCheckBox68.isSelected()) {
+            preconsulta += "PILOTOS_PLANES.no_licencia, ";
+            pilotos++;
+            nombresColumnas[columnas++] = "PILOTO - LICENCIA";
+        }
+        if (jCheckBox69.isSelected()) {
+            preconsulta += "PILOTOS_PLANES.nombre, ";
+            pilotos++;
+            nombresColumnas[columnas++] = "PILOTO - NOMBRE(S)";
+        }
+        if (jCheckBox70.isSelected()) {
+            preconsulta += "PILOTOS_PLANES.apellido_paterno, ";
+            pilotos++;
+            nombresColumnas[columnas++] = "PILOTO - A PATERNO";
+        }
+        if (jCheckBox71.isSelected()) {
+            preconsulta += "PILOTOS_PLANES.apellido_materno, ";
+            pilotos++;
+            nombresColumnas[columnas++] = "PILOTO - A MATERNO";
+        }
+        if (jCheckBox72.isSelected()) {
+            preconsulta += "PILOTOS_PLANES.tipo_licencia, ";
+            pilotos++;
+            nombresColumnas[columnas++] = "PILOTO - T LICENCIA";
+        }
+        if (jCheckBox73.isSelected()) {
+            preconsulta += "COPILOTOS.no_licencia, ";
+            copilotos++;
+            nombresColumnas[columnas++] = "COPILOTO - LICENCIA";
+        }
+        if (jCheckBox74.isSelected()) {
+            preconsulta += "COPILOTOS.nombre, ";
+            copilotos++;
+            nombresColumnas[columnas++] = "COPILOTO - NOMBRE(S)";
+        }
+        if (jCheckBox75.isSelected()) {
+            preconsulta += "COPILOTOS.apellido_paterno, ";
+            copilotos++;
+            nombresColumnas[columnas++] = "COPILOTO - A PATERNO";
+        }
+        if (jCheckBox76.isSelected()) {
+            preconsulta += "COPILOTOS.apellido_materno, ";
+            copilotos++;
+            nombresColumnas[columnas++] = "COPILOTO - A MATERNO";
+        }
+        if (jCheckBox77.isSelected()) {
+            preconsulta += "COPILOTOS.tipo_licencia, ";
+            copilotos++;
+            nombresColumnas[columnas++] = "COPILOTO - T LICENCIA";
+        }
+        if (jCheckBox85.isSelected()) {
+            preconsulta += "AEROPUERTOS_PLANES.codigo_oaci, ";
+            aeropuertos++;
+            nombresColumnas[columnas++] = "AEROPUERTO - OACI";
+        }
+        if (jCheckBox86.isSelected()) {
+            preconsulta += "AEROPUERTOS_PLANES.codigo_iata, ";
+            aeropuertos++;
+            nombresColumnas[columnas++] = "AEROPUERTO - IATA";
+        }
+        if (jCheckBox87.isSelected()) {
+            preconsulta += "AEROPUERTOS_PLANES.nombre, ";
+            aeropuertos++;
+            nombresColumnas[columnas++] = "AEROPUERTO - NOMBRE";
+        }
+        if (jCheckBox88.isSelected()) {
+            preconsulta += "AERONAVES_PLANES.identificacion_aeronave, ";
+            aeronaves++;
+            nombresColumnas[columnas++] = "AERONAVE - MATRÍCULA";
+        }
+        if (jCheckBox94.isSelected()) {
+            preconsulta += "AERONAVES_PLANES.tipo, ";
+            aeronaves++;
+            nombresColumnas[columnas++] = "AERONAVE - TIPO";
+        }
+        if (jCheckBox84.isSelected()) {
+            preconsulta += "PLANES_DE_VUELO.otros_datos, ";
+            nombresColumnas[columnas++] = "OTROS DATOS";
+        }
+        if (jCheckBox95.isSelected()) {
+            preconsulta += "PLANES_DE_VUELO.no_personas_a_bordo, ";
+            nombresColumnas[columnas++] = "PERSONAS A BORDO";
+        }
+        if (jCheckBox96.isSelected()) {
+            preconsulta += "PASAJEROS_PLANES.nombre, ";
+            pasajeros++;
+            nombresColumnas[columnas++] = "PASAJERO - NOMBRE(S)";
+        }
+        if (jCheckBox97.isSelected()) {
+            preconsulta += "PASAJEROS_PLANES.apellido_paterno, ";
+            pasajeros++;
+            nombresColumnas[columnas++] = "PASAJERO - A PATERNO";
+        }
+        if (jCheckBox98.isSelected()) {
+            preconsulta += "PASAJEROS_PLANES.apellido_materno, ";
+            pasajeros++;
+            nombresColumnas[columnas++] = "PASAJERO - A MATERNO";
+        }
+        if (jCheckBox99.isSelected()) {
+            preconsulta += "PASAJEROS_PLANES.nacionalidad, ";
+            pasajeros++;
+            nombresColumnas[columnas++] = "PASAJERO - NACIONALIDAD";
+        }
+        String consulta = preconsulta.substring(0, preconsulta.length() - 2); 
+        consulta += " FROM PLANES_DE_VUELO\n";
+        if (pilotos != 0) {
+            consulta += "LEFT JOIN PILOTOS_PLANES\n" +
+            "ON PILOTOS_PLANES.no_licencia = PLANES_DE_VUELO.piloto\n";           
+        } 
+        if (copilotos != 0) {
+            consulta += "LEFT JOIN COPILOTOS_PLANES\n" +
+            "ON COPILOTOS_PLANES.fecha = PLANES_DE_VUELO.fecha_hora\n" +
+            "LEFT JOIN COPILOTOS\n" +
+            "ON COPILOTOS_PLANES.copiloto = COPILOTOS.no_licencia\n";           
+        }
+        if (aeropuertos !=0 ) {
+            consulta += "LEFT JOIN AEROPUERTOS_PLANES\n" +
+            "ON AEROPUERTOS_PLANES.codigo_oaci = PLANES_DE_VUELO.aeropuerto_destino\n";           
+        }
+        if (aeronaves !=0 ) {
+            consulta += "LEFT JOIN AERONAVES_PLANES\n" +
+            "ON AERONAVES_PLANES.identificacion_aeronave = PLANES_DE_VUELO.aeronave\n";           
+        }
+        if (pasajeros != 0) {
+            consulta += "LEFT JOIN PASAJEROS_PLANES\n" +
+            "ON PASAJEROS_PLANES.fecha = PLANES_DE_VUELO.fecha_hora\n";           
+        }
+        if (criteriosPlanes != null) {
+            consulta += criteriosPlanes;
+        }
+        System.out.println(consulta);
+        if (columnas != 0) {
+            ConexionMysql conexionConsultaPlan = new ConexionMysql();
+            if (conexionConsultaPlan.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
+                if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas,200)) {
+                    JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
+                } else {
+                    jPanel11.setEnabled(true);
+                    jCheckBox67.setEnabled(true);
+                    jCheckBox68.setEnabled(true);
+                    jCheckBox69.setEnabled(true);
+                    jCheckBox70.setEnabled(true);
+                    jCheckBox71.setEnabled(true);
+                    jCheckBox72.setEnabled(true);
+                    jCheckBox73.setEnabled(true);
+                    jCheckBox74.setEnabled(true);
+                    jCheckBox75.setEnabled(true);
+                    jCheckBox76.setEnabled(true);
+                    jCheckBox77.setEnabled(true);
+                    jCheckBox84.setEnabled(true);
+                    jCheckBox85.setEnabled(true);
+                    jCheckBox86.setEnabled(true);
+                    jCheckBox87.setEnabled(true);
+                    jCheckBox88.setEnabled(true);
+                    jCheckBox94.setEnabled(true);
+                    jCheckBox95.setEnabled(true);
+                    jCheckBox96.setEnabled(true);
+                    jCheckBox97.setEnabled(true);
+                    jCheckBox98.setEnabled(true);
+                    jCheckBox99.setEnabled(true);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this,"SELECCIONE LOS CAMPOS A MOSTRAR EN LA CONSULTA","",JOptionPane.INFORMATION_MESSAGE);
+        }
+        /////////////////////*/
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2909,8 +3145,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     static String licenciaMLlegada = null;
     static int rBAeronaveMLlegada = 0;
     static String aeronaveMLlegada = null;
-    static int rBDestinoMLlegada = 0;
-    static String destinoMLlegada = null;
+    static int rBOrigenMLlegada = 0;
+    static String origenMLlegada = null;
     static String aerolineaMLlegada = null;
     static String vueloMLlegada = null;
     static boolean primeraVezMLlegada = true;
