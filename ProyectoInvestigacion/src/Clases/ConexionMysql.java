@@ -308,7 +308,7 @@ public class ConexionMysql {
                 String fechaTemporal = "";
                 if (columnaFechaPrincipal != -1) {
                     SimpleDateFormat fecha = new SimpleDateFormat("yyyy-MM-dd  HH:mm");
-                    fechaTemporal = fecha.format(conjuntoResultados.getTimestamp(columnaFechaPrincipal + 1));
+                    fechaTemporal = fecha.format(conjuntoResultados.getTimestamp(columnaFechaPrincipal));
                 }
                 
                 if (!fechaTemporal.equals(fechaGuia)) {
@@ -323,12 +323,12 @@ public class ConexionMysql {
                             modelo.setValueAt(renglonesObsOtros[k],filaDondeIniciaRegistro++,columnaOtros);
                         }
                     }
-                    for (int j = 0; j < numeroColumnas; j++) {
+                    for (int j = 1; j < numeroColumnas; j++) {
                         if (j == columnaFechaPrincipal) {
                             datosFila[j] = fechaTemporal;
                             fechaGuia = fechaTemporal;
                         } else if (j == columnaOtros) {
-                            String obstros = conjuntoResultados.getString(columnaOtros + 1);
+                            String obstros = conjuntoResultados.getString(columnaOtros);
                             if (obstros.contains("\n")) {
                                 renglonesObsOtros = obstros.split("\n");
                                 totalRenglonesObstros = renglonesObsOtros.length;
@@ -339,7 +339,7 @@ public class ConexionMysql {
                                 totalRenglonesObstros = 1; 
                             }
                         } else {
-                            datosFila[j] = conjuntoResultados.getString(j + 1);
+                            datosFila[j] = conjuntoResultados.getString(j);
                         }
                     }
                     modelo.addRow(datosFila);
@@ -347,15 +347,15 @@ public class ConexionMysql {
                     registrosFechas++;
                     totalPasajeros = 1;
                 } else {
-                    for (int j = 0; j < numeroColumnas; j++) {
+                    for (int j = 1; j < numeroColumnas; j++) {
                         if (j == columnaNombrePasajero) {
-                            datosFila[j] = conjuntoResultados.getString(j + 1);
+                            datosFila[j] = conjuntoResultados.getString(j);
                         } else if (j == columnaAPaternoPasajero) {
-                            datosFila[j] = conjuntoResultados.getString(j + 1);
+                            datosFila[j] = conjuntoResultados.getString(j);
                         } else if (j == columnaAMaternoPasajero) {
-                            datosFila[j] = conjuntoResultados.getString(j + 1);
+                            datosFila[j] = conjuntoResultados.getString(j);
                         } else if (j == columnaNacionalidadPasajero) {
-                            datosFila[j] = conjuntoResultados.getString(j + 1);
+                            datosFila[j] = conjuntoResultados.getString(j);
                         } else {
                             datosFila[j] = null;
                         }
@@ -373,11 +373,25 @@ public class ConexionMysql {
             for (int k = 0; k < totalRenglonesObstros; k++) {
                 modelo.setValueAt(renglonesObsOtros[k],filaDondeIniciaRegistro++,columnaOtros);
             }
-            for (int i = 0; i < numeroColumnas; i++) {
-                tabla.getColumnModel().getColumn(i).setMinWidth(Integer.parseInt(columnasTablas[i][2]));
-                //tabla.getColumnModel().getColumn(i).setPreferredWidth(Integer.parseInt(columnasTablas[i][2]));
-                //tabla.getColumnModel().getColumn(i).setMaxWidth(Integer.parseInt(columnasTablas[i][2]));
+            int grupo = 1;
+            modelo.setValueAt(1,0,0);
+            for (int i = 1; i < modelo.getRowCount(); i++) {
+                String fecha = (String) modelo.getValueAt(i,columnaFechaPrincipal);
+                if (!(fecha == null)) {
+                    grupo++;
+                }
+                modelo.setValueAt(grupo,i,0);
             }
+            tabla.getColumnModel().getColumn(0).setMinWidth(Integer.parseInt(columnasTablas[0][2]));
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(Integer.parseInt(columnasTablas[0][2]));
+            tabla.getColumnModel().getColumn(0).setMaxWidth(Integer.parseInt(columnasTablas[0][2]));
+            for (int i = 1; i < numeroColumnas; i++) {
+                tabla.getColumnModel().getColumn(i).setMinWidth(Integer.parseInt(columnasTablas[i][2]));
+                tabla.getColumnModel().getColumn(i).setPreferredWidth(Integer.parseInt(columnasTablas[i][2]));
+                tabla.getColumnModel().getColumn(i).setMaxWidth(Integer.parseInt(columnasTablas[i][2]));
+            }
+            FormatoFilasTabla ft = new FormatoFilasTabla();
+            tabla.setDefaultRenderer (Object.class,ft);
             return true;
         } catch (Exception e) {
             mensajesError = "CLASE: ConexionMsql";
@@ -385,7 +399,7 @@ public class ConexionMysql {
             mensajesError += e.getMessage();
             return false;
         }
-    }
+    }  
     ///*******************************************
     private void limpiarTablaCompletamente(JTable tablaALimpiar) {
         DefaultTableModel modelo = (DefaultTableModel) tablaALimpiar.getModel();

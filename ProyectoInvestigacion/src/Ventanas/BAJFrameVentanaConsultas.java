@@ -6,6 +6,8 @@
 package Ventanas;
 
 import Clases.ConexionMysql;
+import Clases.FormatoFilasTabla;
+import Clases.FuncionesGenerales;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
@@ -300,6 +302,11 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
         jButton12.setText("LIMPIAR");
         jButton12.setEnabled(false);
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("CAMPOS A MOSTRAR EN LA CONSULTA"));
         jPanel11.setEnabled(false);
@@ -308,111 +315,221 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox67.setSelected(true);
         jCheckBox67.setText("FECHA/HORA");
         jCheckBox67.setEnabled(false);
+        jCheckBox67.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox67ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox68.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox68.setSelected(true);
         jCheckBox68.setText("PILOTO (LICENCIA)");
         jCheckBox68.setEnabled(false);
+        jCheckBox68.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox68ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox69.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox69.setSelected(true);
         jCheckBox69.setText("PILOTO (NOMBRE(S)");
         jCheckBox69.setEnabled(false);
+        jCheckBox69.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox69ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox70.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox70.setSelected(true);
         jCheckBox70.setText("PILOTO (A. PATERNO)");
         jCheckBox70.setEnabled(false);
+        jCheckBox70.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox70ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox71.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox71.setSelected(true);
         jCheckBox71.setText("PILOTO (A. MATERNO)");
         jCheckBox71.setEnabled(false);
+        jCheckBox71.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox71ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox72.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox72.setSelected(true);
         jCheckBox72.setText("PILOTO (TIPO LICENCIA)");
         jCheckBox72.setEnabled(false);
+        jCheckBox72.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox72ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox73.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox73.setSelected(true);
         jCheckBox73.setText("COPILOTO (LICENCIA)");
         jCheckBox73.setEnabled(false);
+        jCheckBox73.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox73ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox74.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox74.setSelected(true);
         jCheckBox74.setText("COPILOTO (NOMBRE(S)");
         jCheckBox74.setEnabled(false);
+        jCheckBox74.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox74ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox75.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox75.setSelected(true);
         jCheckBox75.setText("COPILOTO (A. PATERNO)");
         jCheckBox75.setEnabled(false);
+        jCheckBox75.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox75ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox76.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox76.setSelected(true);
         jCheckBox76.setText("COPILOTO (A. MATERNO)");
         jCheckBox76.setEnabled(false);
+        jCheckBox76.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox76ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox77.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox77.setSelected(true);
         jCheckBox77.setText("COPILOTO (TIPO LICENCIA)");
         jCheckBox77.setEnabled(false);
+        jCheckBox77.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox77ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox84.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox84.setSelected(true);
         jCheckBox84.setText("OTROS DATOS");
         jCheckBox84.setEnabled(false);
+        jCheckBox84.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox84ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox85.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox85.setSelected(true);
         jCheckBox85.setText("AEROPUERTO (OACI)");
         jCheckBox85.setEnabled(false);
+        jCheckBox85.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox85ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox86.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox86.setSelected(true);
         jCheckBox86.setText("AEROPUERTO (IATA)");
         jCheckBox86.setEnabled(false);
+        jCheckBox86.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox86ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox87.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox87.setSelected(true);
         jCheckBox87.setText("AEROPUERTO (NOMBRE)");
         jCheckBox87.setEnabled(false);
+        jCheckBox87.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox87ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox88.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox88.setSelected(true);
         jCheckBox88.setText("AERONAVE (MATRÍCULA)");
         jCheckBox88.setEnabled(false);
+        jCheckBox88.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox88ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox94.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox94.setSelected(true);
         jCheckBox94.setText("AERONAVE (TIPO)");
         jCheckBox94.setEnabled(false);
+        jCheckBox94.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox94ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox95.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox95.setSelected(true);
         jCheckBox95.setText("PERSONAS A BORDO");
         jCheckBox95.setEnabled(false);
+        jCheckBox95.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox95ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox96.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox96.setSelected(true);
         jCheckBox96.setText("PASAJERO (NOMBRE)");
         jCheckBox96.setEnabled(false);
+        jCheckBox96.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox96ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox97.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox97.setSelected(true);
         jCheckBox97.setText("PASAJERO (A. PATERNO)");
         jCheckBox97.setEnabled(false);
+        jCheckBox97.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox97ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox98.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox98.setSelected(true);
         jCheckBox98.setText("PASAJERO (A. MATERNO)");
         jCheckBox98.setEnabled(false);
+        jCheckBox98.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox98ItemStateChanged(evt);
+            }
+        });
 
         jCheckBox99.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jCheckBox99.setSelected(true);
         jCheckBox99.setText("PASAJERO (NACIONALIDAD)");
         jCheckBox99.setEnabled(false);
+        jCheckBox99.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox99ItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1736,229 +1853,172 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonBuscarPlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarPlanesActionPerformed
+        jCheckBox67.setSelected(true);
+        jCheckBox68.setSelected(true);
+        jCheckBox69.setSelected(true);
+        jCheckBox70.setSelected(true);
+        jCheckBox71.setSelected(true);
+        jCheckBox72.setSelected(true);
+        jCheckBox73.setSelected(true);
+        jCheckBox74.setSelected(true);
+        jCheckBox75.setSelected(true);
+        jCheckBox76.setSelected(true);
+        jCheckBox77.setSelected(true);
+        jCheckBox84.setSelected(true);
+        jCheckBox85.setSelected(true);
+        jCheckBox86.setSelected(true);
+        jCheckBox87.setSelected(true);
+        jCheckBox88.setSelected(true);
+        jCheckBox94.setSelected(true);
+        jCheckBox95.setSelected(true);
+        jCheckBox96.setSelected(true);
+        jCheckBox97.setSelected(true);
+        jCheckBox98.setSelected(true);
+        jCheckBox99.setSelected(true);
         String preconsulta = "SELECT ";
-        int pilotos = 0;
-        int copilotos = 0;
-        int aeronaves = 0;
-        int aeropuertos = 0;
-        int pasajeros = 0;
-        String [] [] nombresColumnas = new String [22][3];
+        String [] [] nombresColumnas = new String [50][3];
         int columnas = 0;
-        
-        if (jCheckBox67.isSelected()) {
-            preconsulta += "PLANES_DE_VUELO.fecha_hora, ";
+        nombresColumnas[columnas][2] = "0";
+        nombresColumnas[columnas][1] = "-0";
+        nombresColumnas[columnas++][0] = "";
+        preconsulta += "PLANES_DE_VUELO.fecha_hora, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "fechaPrincipal";
             nombresColumnas[columnas++][0] = "FECHA";
-        }   
-        if (jCheckBox68.isSelected()) {
-            preconsulta += "PILOTOS_PLANES.no_licencia, ";
-            pilotos++;
+        preconsulta += "PILOTOS_PLANES.no_licencia, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - LICENCIA";
-        }
-        if (jCheckBox69.isSelected()) {
-            preconsulta += "PILOTOS_PLANES.nombre, ";
-            pilotos++;
+        preconsulta += "PILOTOS_PLANES.nombre, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - NOMBRE(S)";
-        }
-        if (jCheckBox70.isSelected()) {
-            preconsulta += "PILOTOS_PLANES.apellido_paterno, ";
-            pilotos++;
+        preconsulta += "PILOTOS_PLANES.apellido_paterno, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - A PATERNO";
-        }
-        if (jCheckBox71.isSelected()) {
-            preconsulta += "PILOTOS_PLANES.apellido_materno, ";
-            pilotos++;
+        preconsulta += "PILOTOS_PLANES.apellido_materno, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - A MATERNO";
-        }
-        if (jCheckBox72.isSelected()) {
-            preconsulta += "PILOTOS_PLANES.tipo_licencia, ";
-            pilotos++;
+        preconsulta += "PILOTOS_PLANES.tipo_licencia, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - T LICENCIA";
-        }
-        if (jCheckBox73.isSelected()) {
-            preconsulta += "COPILOTOS.no_licencia, ";
-            copilotos++;
+        preconsulta += "COPILOTOS.no_licencia, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - LICENCIA";
-        }
-        if (jCheckBox74.isSelected()) {
-            preconsulta += "COPILOTOS.nombre, ";
-            copilotos++;
+        preconsulta += "COPILOTOS.nombre, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - NOMBRE(S)";
-        }
-        if (jCheckBox75.isSelected()) {
-            preconsulta += "COPILOTOS.apellido_paterno, ";
-            copilotos++;
+        preconsulta += "COPILOTOS.apellido_paterno, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - A PATERNO";
-        }
-        if (jCheckBox76.isSelected()) {
-            preconsulta += "COPILOTOS.apellido_materno, ";
-            copilotos++;
+        preconsulta += "COPILOTOS.apellido_materno, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - A MATERNO";
-        }
-        if (jCheckBox77.isSelected()) {
-            preconsulta += "COPILOTOS.tipo_licencia, ";
-            copilotos++;
+        preconsulta += "COPILOTOS.tipo_licencia, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - T LICENCIA";
-        }
-        if (jCheckBox85.isSelected()) {
-            preconsulta += "AEROPUERTOS_PLANES.codigo_oaci, ";
-            aeropuertos++;
+        preconsulta += "AEROPUERTOS_PLANES.codigo_oaci, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - OACI";
-        }
-        if (jCheckBox86.isSelected()) {
-            preconsulta += "AEROPUERTOS_PLANES.codigo_iata, ";
-            aeropuertos++;
+        preconsulta += "AEROPUERTOS_PLANES.codigo_iata, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - IATA";
-        }
-        if (jCheckBox87.isSelected()) {
-            preconsulta += "AEROPUERTOS_PLANES.nombre, ";
-            aeropuertos++;
+        preconsulta += "AEROPUERTOS_PLANES.nombre, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - NOMBRE";
-        }
-        if (jCheckBox88.isSelected()) {
-            preconsulta += "AERONAVES_PLANES.identificacion_aeronave, ";
-            aeronaves++;
+        preconsulta += "AERONAVES_PLANES.identificacion_aeronave, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AERONAVE - MATRÍCULA";
-        }
-        if (jCheckBox94.isSelected()) {
-            preconsulta += "AERONAVES_PLANES.tipo, ";
-            aeronaves++;
+        preconsulta += "AERONAVES_PLANES.tipo, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AERONAVE - TIPO";
-        }
-        if (jCheckBox84.isSelected()) {
-            preconsulta += "PLANES_DE_VUELO.otros_datos, ";
+        preconsulta += "PLANES_DE_VUELO.otros_datos, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "variosRenglones";
             nombresColumnas[columnas++][0] = "OTROS DATOS";
-        }
-        if (jCheckBox95.isSelected()) {
-            preconsulta += "PLANES_DE_VUELO.no_personas_a_bordo, ";
+        preconsulta += "PLANES_DE_VUELO.no_personas_a_bordo, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PERSONAS A BORDO";
-        }
-        if (jCheckBox96.isSelected()) {
-            preconsulta += "PASAJEROS_PLANES.nombre, ";
-            pasajeros++;
+        preconsulta += "PASAJEROS_PLANES.nombre, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "pasajeroN";
             nombresColumnas[columnas++][0] = "PASAJERO - NOMBRE(S)";
-        }
-        if (jCheckBox97.isSelected()) {
-            preconsulta += "PASAJEROS_PLANES.apellido_paterno, ";
-            pasajeros++;
+        preconsulta += "PASAJEROS_PLANES.apellido_paterno, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "pasajeroAP";
             nombresColumnas[columnas++][0] = "PASAJERO - A PATERNO";
-        }
-        if (jCheckBox98.isSelected()) {
-            preconsulta += "PASAJEROS_PLANES.apellido_materno, ";
-            pasajeros++;
+        preconsulta += "PASAJEROS_PLANES.apellido_materno, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "pasajeroAM";
             nombresColumnas[columnas++][0] = "PASAJERO - A MATERNO";
-        }
-        if (jCheckBox99.isSelected()) {
-            preconsulta += "PASAJEROS_PLANES.nacionalidad, ";
-            pasajeros++;
+        preconsulta += "PASAJEROS_PLANES.nacionalidad, ";
             nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "pasajeroNa";
             nombresColumnas[columnas++][0] = "PASAJERO - NACIONALIDAD";
-        }
         String consulta = preconsulta.substring(0, preconsulta.length() - 2); 
         consulta += " FROM PLANES_DE_VUELO\n";
-        if (pilotos != 0) {
-            consulta += "LEFT JOIN PILOTOS_PLANES\n" +
+        consulta += "LEFT JOIN PILOTOS_PLANES\n" +
             "ON PILOTOS_PLANES.no_licencia = PLANES_DE_VUELO.piloto\n";           
-        } 
-        if (copilotos != 0) {
-            consulta += "LEFT JOIN COPILOTOS_PLANES\n" +
+        consulta += "LEFT JOIN COPILOTOS_PLANES\n" +
             "ON COPILOTOS_PLANES.fecha = PLANES_DE_VUELO.fecha_hora\n" +
             "LEFT JOIN COPILOTOS\n" +
             "ON COPILOTOS_PLANES.copiloto = COPILOTOS.no_licencia\n";           
-        }
-        if (aeropuertos !=0 ) {
-            consulta += "LEFT JOIN AEROPUERTOS_PLANES\n" +
+        consulta += "LEFT JOIN AEROPUERTOS_PLANES\n" +
             "ON AEROPUERTOS_PLANES.codigo_oaci = PLANES_DE_VUELO.aeropuerto_destino\n";           
-        }
-        if (aeronaves !=0 ) {
-            consulta += "LEFT JOIN AERONAVES_PLANES\n" +
+        consulta += "LEFT JOIN AERONAVES_PLANES\n" +
             "ON AERONAVES_PLANES.identificacion_aeronave = PLANES_DE_VUELO.aeronave\n";           
-        }
-        if (pasajeros != 0) {
-            consulta += "LEFT JOIN PASAJEROS_PLANES\n" +
+        consulta += "LEFT JOIN PASAJEROS_PLANES\n" +
             "ON PASAJEROS_PLANES.fecha = PLANES_DE_VUELO.fecha_hora\n";           
-        }
         if (criteriosPlanes != null) {
             consulta += criteriosPlanes;
         }
         System.out.println(consulta);
-        if (columnas != 0) {
-            ConexionMysql conexionConsultaPlan = new ConexionMysql();
-            if (conexionConsultaPlan.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
-                if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas)) {
-                    JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
-                } else {
-                    jPanel11.setEnabled(true);
-                    jCheckBox67.setEnabled(true);
-                    jCheckBox68.setEnabled(true);
-                    jCheckBox69.setEnabled(true);
-                    jCheckBox70.setEnabled(true);
-                    jCheckBox71.setEnabled(true);
-                    jCheckBox72.setEnabled(true);
-                    jCheckBox73.setEnabled(true);
-                    jCheckBox74.setEnabled(true);
-                    jCheckBox75.setEnabled(true);
-                    jCheckBox76.setEnabled(true);
-                    jCheckBox77.setEnabled(true);
-                    jCheckBox84.setEnabled(true);
-                    jCheckBox85.setEnabled(true);
-                    jCheckBox86.setEnabled(true);
-                    jCheckBox87.setEnabled(true);
-                    jCheckBox88.setEnabled(true);
-                    jCheckBox94.setEnabled(true);
-                    jCheckBox95.setEnabled(true);
-                    jCheckBox96.setEnabled(true);
-                    jCheckBox97.setEnabled(true);
-                    jCheckBox98.setEnabled(true);
-                    jCheckBox99.setEnabled(true);
-                }
-            } else {
+        ConexionMysql conexionConsultaPlan = new ConexionMysql();
+        if (conexionConsultaPlan.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
+            if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
+            } else {
+                jPanel11.setEnabled(true);
+                jCheckBox67.setEnabled(true);
+                jCheckBox68.setEnabled(true);
+                jCheckBox69.setEnabled(true);
+                jCheckBox70.setEnabled(true);
+                jCheckBox71.setEnabled(true);
+                jCheckBox72.setEnabled(true);
+                jCheckBox73.setEnabled(true);
+                jCheckBox74.setEnabled(true);
+                jCheckBox75.setEnabled(true);
+                jCheckBox76.setEnabled(true);
+                jCheckBox77.setEnabled(true);
+                jCheckBox84.setEnabled(true);
+                jCheckBox85.setEnabled(true);
+                jCheckBox86.setEnabled(true);
+                jCheckBox87.setEnabled(true);
+                jCheckBox88.setEnabled(true);
+                jCheckBox94.setEnabled(true);
+                jCheckBox95.setEnabled(true);
+                jCheckBox96.setEnabled(true);
+                jCheckBox97.setEnabled(true);
+                jCheckBox98.setEnabled(true);
+                jCheckBox99.setEnabled(true);
+                jButton12.setEnabled(true);
             }
         } else {
-            JOptionPane.showMessageDialog(this,"SELECCIONE LOS CAMPOS A MOSTRAR EN LA CONSULTA","",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_botonBuscarPlanesActionPerformed
 
@@ -2633,6 +2693,249 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         }
         /////////////////////*/
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jCheckBox67ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox67ItemStateChanged
+        if (jCheckBox67.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,1,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,1);
+        }
+    }//GEN-LAST:event_jCheckBox67ItemStateChanged
+
+    private void jCheckBox68ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox68ItemStateChanged
+        if (jCheckBox68.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,2,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,2);
+        }
+    }//GEN-LAST:event_jCheckBox68ItemStateChanged
+
+    private void jCheckBox69ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox69ItemStateChanged
+        if (jCheckBox69.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,3,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,3);
+        }
+    }//GEN-LAST:event_jCheckBox69ItemStateChanged
+
+    private void jCheckBox70ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox70ItemStateChanged
+        if (jCheckBox70.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,4,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,4);
+        }
+    }//GEN-LAST:event_jCheckBox70ItemStateChanged
+
+    private void jCheckBox71ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox71ItemStateChanged
+        if (jCheckBox71.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,5,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,5);
+        }
+    }//GEN-LAST:event_jCheckBox71ItemStateChanged
+
+    private void jCheckBox72ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox72ItemStateChanged
+        if (jCheckBox72.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,6,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,6);
+        }
+    }//GEN-LAST:event_jCheckBox72ItemStateChanged
+
+    private void jCheckBox73ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox73ItemStateChanged
+        if (jCheckBox73.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,7,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,7);
+        }
+    }//GEN-LAST:event_jCheckBox73ItemStateChanged
+
+    private void jCheckBox74ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox74ItemStateChanged
+        if (jCheckBox74.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,8,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,8);
+        }
+    }//GEN-LAST:event_jCheckBox74ItemStateChanged
+
+    private void jCheckBox75ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox75ItemStateChanged
+        if (jCheckBox75.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,9,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,9);
+        }
+    }//GEN-LAST:event_jCheckBox75ItemStateChanged
+
+    private void jCheckBox76ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox76ItemStateChanged
+        if (jCheckBox76.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,10,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,10);
+        }
+    }//GEN-LAST:event_jCheckBox76ItemStateChanged
+
+    private void jCheckBox77ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox77ItemStateChanged
+        if (jCheckBox77.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,11,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,11);
+        }
+    }//GEN-LAST:event_jCheckBox77ItemStateChanged
+
+    private void jCheckBox84ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox84ItemStateChanged
+        if (jCheckBox84.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,17,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,17);
+        }
+    }//GEN-LAST:event_jCheckBox84ItemStateChanged
+
+    private void jCheckBox85ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox85ItemStateChanged
+        if (jCheckBox85.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,12,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,12);
+        }
+    }//GEN-LAST:event_jCheckBox85ItemStateChanged
+
+    private void jCheckBox86ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox86ItemStateChanged
+        if (jCheckBox86.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,13,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,13);
+        }
+    }//GEN-LAST:event_jCheckBox86ItemStateChanged
+
+    private void jCheckBox87ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox87ItemStateChanged
+        if (jCheckBox87.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,14,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,14);
+        }
+    }//GEN-LAST:event_jCheckBox87ItemStateChanged
+
+    private void jCheckBox88ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox88ItemStateChanged
+        if (jCheckBox88.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,15,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,15);
+        }
+    }//GEN-LAST:event_jCheckBox88ItemStateChanged
+
+    private void jCheckBox94ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox94ItemStateChanged
+        if (jCheckBox94.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,16,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,16);
+        }
+    }//GEN-LAST:event_jCheckBox94ItemStateChanged
+
+    private void jCheckBox95ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox95ItemStateChanged
+        if (jCheckBox95.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,18,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,18);
+        }
+    }//GEN-LAST:event_jCheckBox95ItemStateChanged
+
+    private void jCheckBox96ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox96ItemStateChanged
+        if (jCheckBox96.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,19,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,19);
+        }
+    }//GEN-LAST:event_jCheckBox96ItemStateChanged
+
+    private void jCheckBox97ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox97ItemStateChanged
+        if (jCheckBox97.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,20,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,20);
+        }
+    }//GEN-LAST:event_jCheckBox97ItemStateChanged
+
+    private void jCheckBox98ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox98ItemStateChanged
+        if (jCheckBox98.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,21,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,21);
+        }
+    }//GEN-LAST:event_jCheckBox98ItemStateChanged
+
+    private void jCheckBox99ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox99ItemStateChanged
+        if (jCheckBox99.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,22,200);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,22);
+        }
+    }//GEN-LAST:event_jCheckBox99ItemStateChanged
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        FuncionesGenerales.limpiarTablaCompletamente(jTablePlanes);
+        jCheckBox67.setSelected(true);
+        jCheckBox68.setSelected(true);
+        jCheckBox69.setSelected(true);
+        jCheckBox70.setSelected(true);
+        jCheckBox71.setSelected(true);
+        jCheckBox72.setSelected(true);
+        jCheckBox73.setSelected(true);
+        jCheckBox74.setSelected(true);
+        jCheckBox75.setSelected(true);
+        jCheckBox76.setSelected(true);
+        jCheckBox77.setSelected(true);
+        jCheckBox84.setSelected(true);
+        jCheckBox85.setSelected(true);
+        jCheckBox86.setSelected(true);
+        jCheckBox87.setSelected(true);
+        jCheckBox88.setSelected(true);
+        jCheckBox94.setSelected(true);
+        jCheckBox95.setSelected(true);
+        jCheckBox96.setSelected(true);
+        jCheckBox97.setSelected(true);
+        jCheckBox98.setSelected(true);
+        jCheckBox99.setSelected(true);
+        jPanel11.setEnabled(false);
+        jCheckBox67.setEnabled(false);
+        jCheckBox68.setEnabled(false);
+        jCheckBox69.setEnabled(false);
+        jCheckBox70.setEnabled(false);
+        jCheckBox71.setEnabled(false);
+        jCheckBox72.setEnabled(false);
+        jCheckBox73.setEnabled(false);
+        jCheckBox74.setEnabled(false);
+        jCheckBox75.setEnabled(false);
+        jCheckBox76.setEnabled(false);
+        jCheckBox77.setEnabled(false);
+        jCheckBox84.setEnabled(false);
+        jCheckBox85.setEnabled(false);
+        jCheckBox86.setEnabled(false);
+        jCheckBox87.setEnabled(false);
+        jCheckBox88.setEnabled(false);
+        jCheckBox94.setEnabled(false);
+        jCheckBox95.setEnabled(false);
+        jCheckBox96.setEnabled(false);
+        jCheckBox97.setEnabled(false);
+        jCheckBox98.setEnabled(false);
+        jCheckBox99.setEnabled(false);
+        limpiarCriteriosPlanes();
+        rBFechaPlanes = 0;
+        fecha1Planes = null;
+        fecha2Planes = null;
+        fecha3Planes = null;
+        cBPasajeros1Planes = 0;
+        pasajero1Planes = null;
+        cBPasajeros2Planes = 0;
+        pasajero2Planes = null;
+        cBPasajeros3Planes = 0;
+        pasajero3Planes = null;
+        rBPersonalPlanes = 0;
+        licenciaPlanes = null;
+        rBAeronavePlanes = 0;
+        aeronavePlanes = null;
+        rBAeropuertoPlanes = 0;
+        aeropuertoPlanes = null;
+        primeraVezPlanes = true;
+    }//GEN-LAST:event_jButton12ActionPerformed
 
     /**
      * @param args the command line arguments

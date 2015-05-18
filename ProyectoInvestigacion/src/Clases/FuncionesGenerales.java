@@ -98,6 +98,23 @@ public class FuncionesGenerales {
         }
         return 0;
     }
+     public static void eliminarColumnaTemporal (JTable tablaBusqueda, int columnaAEliminar){   
+        tablaBusqueda.getColumnModel().getColumn(columnaAEliminar).setMinWidth(0);
+        tablaBusqueda.getColumnModel().getColumn(columnaAEliminar).setPreferredWidth(0);
+        tablaBusqueda.getColumnModel().getColumn(columnaAEliminar).setMaxWidth(0);   
+    }
+    public static void mostrarColumnaEliminada (JTable tablaBusqueda, int columnaAMostrar, int anchoColumna){   
+        for (int i = columnaAMostrar; i <= tablaBusqueda.getColumnCount(); i++) {
+            tablaBusqueda.getColumnModel().getColumn(columnaAMostrar).setMinWidth(anchoColumna);
+            tablaBusqueda.getColumnModel().getColumn(columnaAMostrar).setPreferredWidth(anchoColumna);
+            tablaBusqueda.getColumnModel().getColumn(columnaAMostrar).setMaxWidth(anchoColumna);   
+        }  
+    }
+    public static void limpiarTablaCompletamente(JTable tablaALimpiar) {
+        DefaultTableModel modelo = (DefaultTableModel) tablaALimpiar.getModel();
+        modelo.setRowCount(0);
+        modelo.setColumnCount(0);
+    }
     //!Character.isDigit(caracterValidar) && !Character.isAlphabetic(caracterValidar) && !Character.isISOControl(caracterValidar)) || cajaTextoAValidar.getText().length() == maxCaracteres
     //JTextField cajaTextoAValidar, int maxCaracteres, char caracterValidar
 }

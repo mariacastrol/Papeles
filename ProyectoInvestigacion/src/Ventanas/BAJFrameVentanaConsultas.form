@@ -307,6 +307,9 @@
                     <Property name="text" type="java.lang.String" value="LIMPIAR"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton12ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JPanel" name="jPanel11">
                   <Properties>
@@ -433,6 +436,9 @@
                         <Property name="text" type="java.lang.String" value="FECHA/HORA"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox67ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox68">
                       <Properties>
@@ -443,6 +449,9 @@
                         <Property name="text" type="java.lang.String" value="PILOTO (LICENCIA)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox68ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox69">
                       <Properties>
@@ -453,6 +462,9 @@
                         <Property name="text" type="java.lang.String" value="PILOTO (NOMBRE(S)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox69ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox70">
                       <Properties>
@@ -463,6 +475,9 @@
                         <Property name="text" type="java.lang.String" value="PILOTO (A. PATERNO)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox70ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox71">
                       <Properties>
@@ -473,6 +488,9 @@
                         <Property name="text" type="java.lang.String" value="PILOTO (A. MATERNO)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox71ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox72">
                       <Properties>
@@ -483,6 +501,9 @@
                         <Property name="text" type="java.lang.String" value="PILOTO (TIPO LICENCIA)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox72ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox73">
                       <Properties>
@@ -493,6 +514,9 @@
                         <Property name="text" type="java.lang.String" value="COPILOTO (LICENCIA)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox73ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox74">
                       <Properties>
@@ -503,6 +527,9 @@
                         <Property name="text" type="java.lang.String" value="COPILOTO (NOMBRE(S)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox74ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox75">
                       <Properties>
@@ -513,6 +540,9 @@
                         <Property name="text" type="java.lang.String" value="COPILOTO (A. PATERNO)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox75ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox76">
                       <Properties>
@@ -523,6 +553,9 @@
                         <Property name="text" type="java.lang.String" value="COPILOTO (A. MATERNO)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox76ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox77">
                       <Properties>
@@ -533,6 +566,9 @@
                         <Property name="text" type="java.lang.String" value="COPILOTO (TIPO LICENCIA)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox77ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox84">
                       <Properties>
@@ -543,6 +579,9 @@
                         <Property name="text" type="java.lang.String" value="OTROS DATOS"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox84ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox85">
                       <Properties>
@@ -553,6 +592,9 @@
                         <Property name="text" type="java.lang.String" value="AEROPUERTO (OACI)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox85ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox86">
                       <Properties>
@@ -563,6 +605,9 @@
                         <Property name="text" type="java.lang.String" value="AEROPUERTO (IATA)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox86ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox87">
                       <Properties>
@@ -573,6 +618,9 @@
                         <Property name="text" type="java.lang.String" value="AEROPUERTO (NOMBRE)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox87ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox88">
                       <Properties>
@@ -583,6 +631,9 @@
                         <Property name="text" type="java.lang.String" value="AERONAVE (MATR&#xcd;CULA)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox88ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox94">
                       <Properties>
@@ -593,6 +644,9 @@
                         <Property name="text" type="java.lang.String" value="AERONAVE (TIPO)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox94ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox95">
                       <Properties>
@@ -603,6 +657,9 @@
                         <Property name="text" type="java.lang.String" value="PERSONAS A BORDO"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox95ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox96">
                       <Properties>
@@ -613,6 +670,9 @@
                         <Property name="text" type="java.lang.String" value="PASAJERO (NOMBRE)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox96ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox97">
                       <Properties>
@@ -623,6 +683,9 @@
                         <Property name="text" type="java.lang.String" value="PASAJERO (A. PATERNO)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox97ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox98">
                       <Properties>
@@ -633,6 +696,9 @@
                         <Property name="text" type="java.lang.String" value="PASAJERO (A. MATERNO)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox98ItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox99">
                       <Properties>
@@ -643,6 +709,9 @@
                         <Property name="text" type="java.lang.String" value="PASAJERO (NACIONALIDAD)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox99ItemStateChanged"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
