@@ -8,6 +8,9 @@ package Ventanas;
 import Clases.FuncionesGenerales;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -62,6 +65,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jDateChooser3 = new com.toedter.calendar.JDateChooser();
+        jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jRadioButton15 = new javax.swing.JRadioButton();
@@ -300,6 +304,14 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
             }
         });
 
+        jButton2.setText("RESTABLECER");
+        jButton2.setEnabled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
@@ -317,7 +329,10 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
                                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jRadioButton12)))
+                            .addGroup(jPanel15Layout.createSequentialGroup()
+                                .addComponent(jRadioButton12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton2))))
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,7 +350,9 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton12)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton12)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
@@ -582,13 +599,10 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
             jDateChooser1.setDate(null);
             jDateChooser2.setDate(null);
             jDateChooser3.setDate(null);
-            Color cN = new Color(0,0,0);
-            jCheckBox4.setForeground(cN);
-            jRadioButton11.setForeground(cN);
-            jRadioButton12.setForeground(cN);
-            jLabel1.setForeground(cN);
-            jLabel2.setForeground(cN);
+            setLimitesFechas();
+            jButton2.setEnabled(false);
         }
+        setColorPanelFecha();
     }//GEN-LAST:event_jCheckBox4ItemStateChanged
 
     private void jCheckBox6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox6ItemStateChanged
@@ -606,10 +620,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
             jTextField17.setEnabled(false);
             jTextField15.setText(null);
             jTextField17.setText(null);
-            Color cN = new Color(0,0,0);
-            jCheckBox6.setForeground(cN);
-            jRadioButton15.setForeground(cN);
-            jRadioButton17.setForeground(cN);
+            setColorPanelPersonal();
         }
     }//GEN-LAST:event_jCheckBox6ItemStateChanged
 
@@ -628,10 +639,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
             jTextField12.setEnabled(false);
             jTextField11.setText(null);
             jTextField12.setText(null);
-            Color cN = new Color(0,0,0);
-            jCheckBox3.setForeground(cN);
-            jRadioButton9.setForeground(cN);
-            jRadioButton10.setForeground(cN);
+            setColorPanelAeronave();
         }
     }//GEN-LAST:event_jCheckBox3ItemStateChanged
 
@@ -650,10 +658,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
             jTextField21.setEnabled(false);
             jTextField20.setText(null);
             jTextField21.setText(null);
-            Color cN = new Color(0,0,0);
-            jCheckBox5.setForeground(cN);
-            jRadioButton18.setForeground(cN);
-            jRadioButton19.setForeground(cN);
+            setColorPanelAeropuerto();
         }
     }//GEN-LAST:event_jCheckBox5ItemStateChanged
 
@@ -1025,6 +1030,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
             jDateChooser2.setDate(null);
             jLabel1.setEnabled(false);
             jLabel2.setEnabled(false);
+            jButton2.setEnabled(false);
         } else {
             jDateChooser3.setEnabled(false);
             jDateChooser3.setDate(null);
@@ -1032,7 +1038,10 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
             jDateChooser2.setEnabled(true);
             jLabel1.setEnabled(true);
             jLabel2.setEnabled(true);
+            jButton2.setEnabled(true);
         }
+        setColorPanelFecha();
+        setLimitesFechas();
     }//GEN-LAST:event_jRadioButton11ItemStateChanged
 
     private void jRadioButton15ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton15ItemStateChanged
@@ -1047,6 +1056,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
             jTextField15.setEnabled(false);
             jTextField15.setText(null);
         }
+        setColorPanelPersonal();
     }//GEN-LAST:event_jRadioButton15ItemStateChanged
 
     private void jRadioButton9ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton9ItemStateChanged
@@ -1061,6 +1071,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
             jTextField11.setEnabled(false);
             jTextField11.setText(null);
         }
+        setColorPanelAeronave();
     }//GEN-LAST:event_jRadioButton9ItemStateChanged
 
     private void jRadioButton18ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton18ItemStateChanged
@@ -1075,6 +1086,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
             jTextField20.setEnabled(false);
             jTextField20.setText(null);
         }
+        setColorPanelAeropuerto();
     }//GEN-LAST:event_jRadioButton18ItemStateChanged
 
     private void jTextField15KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyTyped
@@ -1257,6 +1269,15 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
                 jRadioButton12.setForeground(cN);
             }
         }
+        if (jDateChooser1.getDate() == null && jDateChooser2.getDate() != null) {
+            GregorianCalendar calendario = new GregorianCalendar();
+            calendario.setTime(jDateChooser2.getDate());
+            calendario.roll(Calendar.DAY_OF_YEAR,true);
+            Date fechaUp = calendario.getTime();
+            jDateChooser1.setMinSelectableDate(fechaUp);
+            jDateChooser1.setDate(fechaUp);
+            jDateChooser2.setEnabled(false);
+        }
     }//GEN-LAST:event_jDateChooser2PropertyChange
 
     private void jDateChooser1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooser1PropertyChange
@@ -1269,7 +1290,24 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
                 jRadioButton12.setForeground(cN);
             }
         }
+        if (jDateChooser2.getDate() == null && jDateChooser1.getDate() != null) {
+            GregorianCalendar calendario = new GregorianCalendar();
+            calendario.setTime(jDateChooser1.getDate());
+            calendario.roll(Calendar.DAY_OF_YEAR,false);
+            Date fechaDown = calendario.getTime();
+            jDateChooser2.setMaxSelectableDate(fechaDown);
+            jDateChooser2.setDate(fechaDown);
+            jDateChooser1.setEnabled(false);
+        }
     }//GEN-LAST:event_jDateChooser1PropertyChange
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        setLimitesFechas();
+        jDateChooser2.setDate(null);
+        jDateChooser1.setDate(null);
+        jDateChooser2.setEnabled(true);
+        jDateChooser1.setEnabled(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1382,6 +1420,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
     private javax.swing.ButtonGroup buttonGroupFecha;
     private javax.swing.ButtonGroup buttonGroupPersonalVuelo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     public javax.swing.JCheckBox jCheckBox1;
     public javax.swing.JCheckBox jCheckBox2;
     public javax.swing.JCheckBox jCheckBox3;
@@ -1423,5 +1462,49 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
     private int rError = 250;
     private int gError = 0;
     private int bError = 0;
+    private String fechaMinima = "2005/01/01";
+    private String fechaMaxima = "2030/12/31";
+    
+    private void setLimitesFechas() {
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
+        try {
+            jDateChooser1.setMaxSelectableDate(formatoFecha.parse(fechaMaxima));
+            jDateChooser2.setMaxSelectableDate(formatoFecha.parse(fechaMaxima));
+            jDateChooser3.setMaxSelectableDate(formatoFecha.parse(fechaMaxima));
+            jDateChooser1.setMinSelectableDate(formatoFecha.parse(fechaMinima));
+            jDateChooser2.setMinSelectableDate(formatoFecha.parse(fechaMinima));
+            jDateChooser3.setMinSelectableDate(formatoFecha.parse(fechaMinima));
+        } catch (Exception e) {}
+    }
+    
+    private void setColorPanelFecha() {
+        Color cN = new Color(0,0,0);
+        jCheckBox4.setForeground(cN);
+        jRadioButton11.setForeground(cN);
+        jRadioButton12.setForeground(cN);
+        jLabel1.setForeground(cN);
+        jLabel2.setForeground(cN);
+    }
+    
+    private void setColorPanelPersonal() {
+        Color cN = new Color(0,0,0);
+        jCheckBox6.setForeground(cN);
+        jRadioButton15.setForeground(cN);
+        jRadioButton17.setForeground(cN);
+    }
+    
+    private void setColorPanelAeronave() {
+        Color cN = new Color(0,0,0);
+        jCheckBox3.setForeground(cN);
+        jRadioButton9.setForeground(cN);
+        jRadioButton10.setForeground(cN);
+    }
 
+    private void setColorPanelAeropuerto() {
+        Color cN = new Color(0,0,0);
+        jCheckBox5.setForeground(cN);
+        jRadioButton18.setForeground(cN);
+        jRadioButton19.setForeground(cN);
+    }
+    
 }

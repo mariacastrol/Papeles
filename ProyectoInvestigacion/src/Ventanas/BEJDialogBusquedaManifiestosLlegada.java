@@ -8,6 +8,9 @@ package Ventanas;
 import Clases.FuncionesGenerales;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -54,6 +57,7 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jDateChooser3 = new com.toedter.calendar.JDateChooser();
+        jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
         jRadioButton18 = new javax.swing.JRadioButton();
@@ -192,39 +196,61 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
 
         jDateChooser1.setDateFormatString("yyyy/MM/dd");
         jDateChooser1.setEnabled(false);
+        jDateChooser1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooser1PropertyChange(evt);
+            }
+        });
 
         jDateChooser2.setDateFormatString("yyyy/MM/dd");
         jDateChooser2.setEnabled(false);
+        jDateChooser2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooser2PropertyChange(evt);
+            }
+        });
 
         jDateChooser3.setDateFormatString("yyyy/MM/dd");
         jDateChooser3.setEnabled(false);
+
+        jButton2.setText("RESTABLECER");
+        jButton2.setEnabled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel15Layout.createSequentialGroup()
-                                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jRadioButton12)))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel15Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jRadioButton11))))
+                        .addComponent(jRadioButton12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2)))
                 .addContainerGap())
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jDateChooser3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(jRadioButton11)
+                        .addGap(175, 175, 175))))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,7 +260,9 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton12)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton12)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
@@ -626,13 +654,10 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
             jDateChooser1.setDate(null);
             jDateChooser2.setDate(null);
             jDateChooser3.setDate(null);
-            Color cN = new Color(0,0,0);
-            jCheckBox4.setForeground(cN);
-            jRadioButton11.setForeground(cN);
-            jRadioButton12.setForeground(cN);
-            jLabel1.setForeground(cN);
-            jLabel2.setForeground(cN);
+            setColorPanelFecha();
+            jButton2.setEnabled(false);
         }
+        setLimitesFechas();
     }//GEN-LAST:event_jCheckBox4ItemStateChanged
 
     private void jCheckBox6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox6ItemStateChanged
@@ -658,12 +683,7 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
             jTextField17.setText(null);
             jTextField16.setText(null);
             jTextField18.setText(null);
-            Color cN = new Color(0,0,0);
-            jCheckBox6.setForeground(cN);
-            jRadioButton15.setForeground(cN);
-            jRadioButton17.setForeground(cN);
-            jRadioButton16.setForeground(cN);
-            jRadioButton20.setForeground(cN);
+            setColorPanelPersonal();
         }
     }//GEN-LAST:event_jCheckBox6ItemStateChanged
 
@@ -682,10 +702,7 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
             jTextField12.setEnabled(false);
             jTextField11.setText(null);
             jTextField12.setText(null);
-            Color cN = new Color(0,0,0);
-            jCheckBox3.setForeground(cN);
-            jRadioButton9.setForeground(cN);
-            jRadioButton10.setForeground(cN);
+            setColorPanelAeronave();
         }
     }//GEN-LAST:event_jCheckBox3ItemStateChanged
 
@@ -704,10 +721,7 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
             jTextField21.setEnabled(false);
             jTextField20.setText(null);
             jTextField21.setText(null);
-            Color cN = new Color(0,0,0);
-            jCheckBox5.setForeground(cN);
-            jRadioButton18.setForeground(cN);
-            jRadioButton19.setForeground(cN);
+            setColorPanelAeropuerto();
         }
     }//GEN-LAST:event_jCheckBox5ItemStateChanged
 
@@ -949,12 +963,7 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jRadioButton11ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton11ItemStateChanged
-        Color cN = new Color(0,0,0);
-        jCheckBox4.setForeground(cN);
-        jRadioButton11.setForeground(cN);
-        jRadioButton12.setForeground(cN);
-        jLabel1.setForeground(cN);
-        jLabel2.setForeground(cN);
+        setColorPanelFecha();
         if (jRadioButton11.isSelected()) {
             jDateChooser3.setEnabled(true);
             jDateChooser1.setEnabled(false);
@@ -963,6 +972,7 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
             jDateChooser2.setDate(null);
             jLabel1.setEnabled(false);
             jLabel2.setEnabled(false);
+            jButton2.setEnabled(false);
         } else {
             jDateChooser3.setEnabled(false);
             jDateChooser3.setDate(null);
@@ -970,16 +980,13 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
             jDateChooser2.setEnabled(true);
             jLabel1.setEnabled(true);
             jLabel2.setEnabled(true);
+            setLimitesFechas();
+            jButton2.setEnabled(true);
         }
     }//GEN-LAST:event_jRadioButton11ItemStateChanged
 
     private void jRadioButton15ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton15ItemStateChanged
-        Color cN = new Color(0,0,0);
-        jCheckBox6.setForeground(cN);
-        jRadioButton15.setForeground(cN);
-        jRadioButton17.setForeground(cN);
-        jRadioButton16.setForeground(cN);
-        jRadioButton20.setForeground(cN);
+        setColorPanelPersonal();
         if (jRadioButton15.isSelected()) {
             jTextField15.setEnabled(true);
             jTextField15.requestFocus();
@@ -993,10 +1000,7 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
     }//GEN-LAST:event_jRadioButton15ItemStateChanged
 
     private void jRadioButton9ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton9ItemStateChanged
-        Color cN = new Color(0,0,0);
-        jCheckBox3.setForeground(cN);
-        jRadioButton9.setForeground(cN);
-        jRadioButton10.setForeground(cN);
+        setColorPanelAeronave();
         if (jRadioButton9.isSelected()) {
             jTextField11.setEnabled(true);
             jTextField11.requestFocus();
@@ -1011,10 +1015,7 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
     }//GEN-LAST:event_jRadioButton9ItemStateChanged
 
     private void jRadioButton18ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton18ItemStateChanged
-        Color cN = new Color(0,0,0);
-        jCheckBox5.setForeground(cN);
-        jRadioButton18.setForeground(cN);
-        jRadioButton19.setForeground(cN);
+        setColorPanelAeropuerto();
         if (jRadioButton18.isSelected()) {
             jTextField20.setEnabled(true);
             jTextField20.requestFocus();
@@ -1155,12 +1156,7 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextField16KeyTyped
 
     private void jRadioButton16ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton16ItemStateChanged
-        Color cN = new Color(0,0,0);
-        jCheckBox6.setForeground(cN);
-        jRadioButton15.setForeground(cN);
-        jRadioButton17.setForeground(cN);
-        jRadioButton16.setForeground(cN);
-        jRadioButton20.setForeground(cN);
+        setColorPanelPersonal();
         if (jRadioButton16.isSelected()) {
             jTextField16.setEnabled(true);
             jTextField16.requestFocus();
@@ -1192,12 +1188,7 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextField18KeyTyped
 
     private void jRadioButton20ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton20ItemStateChanged
-        Color cN = new Color(0,0,0);
-        jCheckBox6.setForeground(cN);
-        jRadioButton15.setForeground(cN);
-        jRadioButton17.setForeground(cN);
-        jRadioButton16.setForeground(cN);
-        jRadioButton20.setForeground(cN);
+        setColorPanelPersonal();
         if (jRadioButton20.isSelected()) {
             jTextField18.setEnabled(true);
             jTextField18.requestFocus();
@@ -1226,12 +1217,7 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
     }//GEN-LAST:event_jCheckBox7ItemStateChanged
 
     private void jRadioButton17ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton17ItemStateChanged
-        Color cN = new Color(0,0,0);
-        jCheckBox6.setForeground(cN);
-        jRadioButton15.setForeground(cN);
-        jRadioButton17.setForeground(cN);
-        jRadioButton16.setForeground(cN);
-        jRadioButton20.setForeground(cN);
+        setColorPanelPersonal();
         if (jRadioButton17.isSelected()) {
             jTextField17.setEnabled(true);
             jTextField17.requestFocus();
@@ -1294,6 +1280,56 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_jTextField2KeyTyped
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        setLimitesFechas();
+        jDateChooser2.setDate(null);
+        jDateChooser1.setDate(null);
+        jDateChooser2.setEnabled(true);
+        jDateChooser1.setEnabled(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jDateChooser2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooser2PropertyChange
+        Color cError = new Color(rError,gError,bError);
+        if (jRadioButton12.getForeground().getRGB() == cError.getRGB() && jDateChooser2.getDate() != null) {
+            Color cN = new Color(0,0,0);
+            jLabel1.setForeground(cN);
+            if (jLabel2.getForeground().getRGB() == cN.getRGB()) {
+                jCheckBox4.setForeground(cN);
+                jRadioButton12.setForeground(cN);
+            }
+        }
+        if (jDateChooser1.getDate() == null && jDateChooser2.getDate() != null) {
+            GregorianCalendar calendario = new GregorianCalendar();
+            calendario.setTime(jDateChooser2.getDate());
+            calendario.roll(Calendar.DAY_OF_YEAR,true);
+            Date fechaUp = calendario.getTime();
+            jDateChooser1.setMinSelectableDate(fechaUp);
+            jDateChooser1.setDate(fechaUp);
+            jDateChooser2.setEnabled(false);
+        }
+    }//GEN-LAST:event_jDateChooser2PropertyChange
+
+    private void jDateChooser1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooser1PropertyChange
+        Color cError = new Color(rError,gError,bError);
+        if (jRadioButton12.getForeground().getRGB() == cError.getRGB() && jDateChooser2.getDate() != null) {
+            Color cN = new Color(0,0,0);
+            jLabel2.setForeground(cN);
+            if (jLabel1.getForeground().getRGB() == cN.getRGB()) {
+                jCheckBox4.setForeground(cN);
+                jRadioButton12.setForeground(cN);
+            }
+        }
+        if (jDateChooser2.getDate() == null && jDateChooser1.getDate() != null) {
+            GregorianCalendar calendario = new GregorianCalendar();
+            calendario.setTime(jDateChooser1.getDate());
+            calendario.roll(Calendar.DAY_OF_YEAR,false);
+            Date fechaDown = calendario.getTime();
+            jDateChooser2.setMaxSelectableDate(fechaDown);
+            jDateChooser2.setDate(fechaDown);
+            jDateChooser1.setEnabled(false);
+        }
+    }//GEN-LAST:event_jDateChooser1PropertyChange
 
     /**
      * @param args the command line arguments
@@ -1854,6 +1890,7 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
     private javax.swing.ButtonGroup buttonGroupFecha;
     private javax.swing.ButtonGroup buttonGroupPersonalVuelo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     public javax.swing.JCheckBox jCheckBox3;
     public javax.swing.JCheckBox jCheckBox4;
     public javax.swing.JCheckBox jCheckBox5;
@@ -1899,4 +1936,50 @@ public class BEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
     private int rError = 250;
     private int gError = 0;
     private int bError = 0;
+    private String fechaMinima = "2005/01/01";
+    private String fechaMaxima = "2030/12/31";
+    
+    private void setLimitesFechas() {
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
+        try {
+            jDateChooser1.setMaxSelectableDate(formatoFecha.parse(fechaMaxima));
+            jDateChooser2.setMaxSelectableDate(formatoFecha.parse(fechaMaxima));
+            jDateChooser3.setMaxSelectableDate(formatoFecha.parse(fechaMaxima));
+            jDateChooser1.setMinSelectableDate(formatoFecha.parse(fechaMinima));
+            jDateChooser2.setMinSelectableDate(formatoFecha.parse(fechaMinima));
+            jDateChooser3.setMinSelectableDate(formatoFecha.parse(fechaMinima));
+        } catch (Exception e) {}
+    }
+    
+    private void setColorPanelFecha() {
+        Color cN = new Color(0,0,0);
+        jCheckBox4.setForeground(cN);
+        jRadioButton11.setForeground(cN);
+        jRadioButton12.setForeground(cN);
+        jLabel1.setForeground(cN);
+        jLabel2.setForeground(cN);
+    }
+    
+    private void setColorPanelPersonal() {
+        Color cN = new Color(0,0,0);
+        jCheckBox6.setForeground(cN);
+        jRadioButton15.setForeground(cN);
+        jRadioButton17.setForeground(cN);
+        jRadioButton16.setForeground(cN);
+        jRadioButton20.setForeground(cN);
+    }
+    
+    private void setColorPanelAeronave() {
+        Color cN = new Color(0,0,0);
+        jCheckBox3.setForeground(cN);
+        jRadioButton9.setForeground(cN);
+        jRadioButton10.setForeground(cN);
+    }
+    
+    private void setColorPanelAeropuerto() {
+        Color cN = new Color(0,0,0);
+        jCheckBox5.setForeground(cN);
+        jRadioButton18.setForeground(cN);
+        jRadioButton19.setForeground(cN);
+    }
 }

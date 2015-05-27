@@ -603,9 +603,9 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
             jDateChooser2.setDate(null);
             jDateChooser3.setDate(null);
             setColorPanelFecha();
-            setLimitesFechas();
             jButton2.setEnabled(false);
         }
+        setLimitesFechas();
     }//GEN-LAST:event_jCheckBox4ItemStateChanged
 
     private void jCheckBox6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox6ItemStateChanged
@@ -1044,7 +1044,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
             setLimitesFechas();
             jButton2.setEnabled(true);
         }
-        setColorPanelFecha();
+        setColorPanelFecha();    
     }//GEN-LAST:event_jRadioButton11ItemStateChanged
 
     private void jRadioButton15ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton15ItemStateChanged

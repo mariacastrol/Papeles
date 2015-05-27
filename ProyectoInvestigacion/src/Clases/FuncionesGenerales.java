@@ -115,6 +115,35 @@ public class FuncionesGenerales {
         modelo.setRowCount(0);
         modelo.setColumnCount(0);
     }
+    public static int [] celdasTabla(JTable tabla, int filaActual) {
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        int filas = modelo.getRowCount();
+        Object [] InicioFin = new Object [filas];
+        int [] [] separador = new int [filas] [2];
+        for (int i = 0; filas > i; i++) {
+            InicioFin [i] = modelo.getValueAt(i, 1);
+            System.out.println("---" + InicioFin [i]);
+        }
+        int inicio = 0;
+        int fin = 0;
+        for (int j = 0; filas > j; j++) {
+            if (InicioFin [j] != null ) {
+                fin = inicio;
+                separador [inicio++] [0]  = j;
+                separador [fin] [1] = j;
+            } else {
+                separador [fin] [1]  = j;
+            }
+        }
+        int limites [] = new int [2];
+        for (int k = 0; inicio > k; k++) {
+            if (separador [k] [1] >= filaActual && filaActual >= separador [k] [0]) {
+                limites [1] = separador [k] [1];
+                limites [0] = separador [k] [0];
+            }
+        }
+        return limites;
+    }
     //!Character.isDigit(caracterValidar) && !Character.isAlphabetic(caracterValidar) && !Character.isISOControl(caracterValidar)) || cajaTextoAValidar.getText().length() == maxCaracteres
     //JTextField cajaTextoAValidar, int maxCaracteres, char caracterValidar
 }

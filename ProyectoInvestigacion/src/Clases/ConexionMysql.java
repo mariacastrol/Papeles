@@ -258,6 +258,8 @@ public class ConexionMysql {
             modelo.addColumn(columnasTablas[i][0]);
         }
         int columnaFechaPrincipal = -1;
+        int columnaHorarioItinerario = -1;
+        int columnaHorarioReal = -1;
         int columnaOtros = -1;
         int columnaNombrePasajero = -1;
         int columnaAPaternoPasajero = -1;
@@ -266,6 +268,16 @@ public class ConexionMysql {
         for (int i = 0; i < numeroColumnas; i++) {
             if (columnasTablas[i][1].equals("fechaPrincipal")) {
                columnaFechaPrincipal = i; 
+            }
+        }
+        for (int i = 0; i < numeroColumnas; i++) {
+            if (columnasTablas[i][1].equals("hi")) {
+               columnaHorarioItinerario = i; 
+            }
+        }
+        for (int i = 0; i < numeroColumnas; i++) {
+            if (columnasTablas[i][1].equals("hr")) {
+               columnaHorarioReal = i; 
             }
         }
         for (int i = 0; i < numeroColumnas; i++) {
@@ -307,8 +319,13 @@ public class ConexionMysql {
             while (conjuntoResultados.next()) {
                 String fechaTemporal = "";
                 if (columnaFechaPrincipal != -1) {
-                    SimpleDateFormat fecha = new SimpleDateFormat("yyyy-MM-dd  HH:mm");
-                    fechaTemporal = fecha.format(conjuntoResultados.getTimestamp(columnaFechaPrincipal));
+                    if (columnaHorarioItinerario != -1) {
+                        SimpleDateFormat fecha = new SimpleDateFormat("yyyy-MM-dd");
+                        fechaTemporal = fecha.format(conjuntoResultados.getTimestamp(columnaFechaPrincipal));
+                    } else {
+                        SimpleDateFormat fecha = new SimpleDateFormat("yyyy-MM-dd  HH:mm");
+                        fechaTemporal = fecha.format(conjuntoResultados.getTimestamp(columnaFechaPrincipal));
+                    }
                 }
                 
                 if (!fechaTemporal.equals(fechaGuia)) {
@@ -338,8 +355,18 @@ public class ConexionMysql {
                                 renglonesObsOtros[0] = obstros;
                                 totalRenglonesObstros = 1; 
                             }
+                        } else if (j == columnaHorarioItinerario ) {
+                            SimpleDateFormat fecha = new SimpleDateFormat("HH:mm");
+                            datosFila[j] = fecha.format(conjuntoResultados.getTimestamp(columnaFechaPrincipal));
+                        } else if (j == columnaHorarioReal ) {
+                            SimpleDateFormat fecha = new SimpleDateFormat("HH:mm");
+                            datosFila[j] = fecha.format(conjuntoResultados.getTimestamp(j-1));
                         } else {
-                            datosFila[j] = conjuntoResultados.getString(j);
+                            if (columnaHorarioItinerario != -1) {
+                                datosFila[j] = conjuntoResultados.getString(j-1);
+                            } else {
+                                datosFila[j] = conjuntoResultados.getString(j);
+                            }
                         }
                     }
                     modelo.addRow(datosFila);

@@ -22,7 +22,10 @@ public class FormatoFilasTabla extends DefaultTableCellRenderer {
         if((int) table.getValueAt(row,0) % 2 == 0) {                   //Checamos el número de la fila para aplicar un color
             comp.setBackground(new java.awt.Color(204,204,255));
         }else{                              //En caso de que la condición resulte diferente aplicara otro color a la fila
-            comp.setBackground(Color.white);
+            comp.setBackground(new java.awt.Color(200,200,200));
+        }
+        if(isSelected){
+            comp.setBackground(Color.red);
         }
         return comp;
     }
