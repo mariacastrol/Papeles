@@ -8,8 +8,11 @@ package Ventanas;
 import Clases.ConexionMysql;
 import Clases.FuncionesGenerales;
 import java.awt.Color;
+import java.io.File;
 import java.text.SimpleDateFormat;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -85,6 +88,9 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         botonGuardarPlanes = new javax.swing.JButton();
         jDateFecha = new com.toedter.calendar.JDateChooser();
+        jPanel12 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
@@ -588,6 +594,43 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         });
         jPanel3.add(jDateFecha);
         jDateFecha.setBounds(416, 52, 152, 20);
+
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder("PDF DEL PLAN DE VUELO (OPCIONAL)"));
+
+        jButton1.setText("SELECCIONAR ARCHIVO");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel4.setText("Se ha especificado un archivo PDF");
+        jLabel4.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel3.add(jPanel12);
+        jPanel12.setBounds(497, 412, 406, 67);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1278,7 +1321,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             capturarCopiloto.setTitle("COPILOTOS: CIERRE DE PLAN DE VUELO");
         }
         String [] cT = {"no_licencia","nombre","apellido_paterno","apellido_materno","tipo_licencia"};
-        if (capturarCopiloto.setDatosConexion (sv,us,pw,dB,cT,"COPILOTOS","no_licencia")) {
+        if (capturarCopiloto.setDatosConexion (sv,us,pw,dB,cT,"COPILOTOS_PLANES","no_licencia")) {
             capturarCopiloto.setVisible(true);
         } else {
             capturarCopiloto.dispose();
@@ -1584,7 +1627,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 String fechaCompleta = formato.format(jDateFecha.getDate()) + " " + horas + ":" + minutos + ":00";
                 String [] valores1= {fechaCompleta,jTextField7.getText(),jTextField1.getText(),jTextField4.getText(),jTextArea1.getText(),jTextFieldPersonasPasajeros.getText()};
                 String columnasAC [] = {"fecha_hora","piloto","aeropuerto_destino","aeronave","otros_datos","no_personas_a_bordo"};
-                String tablaAC = "PLANES_DE_VUELO";
+                String tablaAC = "APERTURAS_DE_VUELO";
                 String mensajeSiRepiteAC = "YA EXISTE EN LA BASE DE DATOS UN PLAN DE VUELO CON ESTA FECHA Y HORA";
                 String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
                 if (tipoOperacion.equals("CIERRE DE PLAN DE VUELO")) {
@@ -1600,22 +1643,22 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                     if (!jTextField8.getText().equals("") && jTextField8.getText() != null) {
                         String copilotos [] = {"fecha","copiloto"};
                         String [] valores = {fechaCompleta,jTextField9.getText()};
-                        String nombreTabla = "COPILOTOS_CIERRES";
-                        String mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"COPILOTOS_CIERRES\"";
+                        String nombreTabla = "COPILOTOS_CIERRE";
+                        String mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"COPILOTOS_CIERRE\"";
                         if (tipoOperacion.equals("APERTURA DE PLAN DE VUELO")) {
-                            nombreTabla = "COPILOTOS_PLANES";
-                            mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"COPILOTOS_PLANES\"";
+                            nombreTabla = "COPILOTOS_APERTURA";
+                            mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"COPILOTOS_APERTURA\"";
                         }
                         if(!conexionPlanes.insertarFilaEnTabla(nombreTabla,copilotos,valores,mensajeSiRepiteRegistro)){
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
                         }
                     }
                     if (jLabel19.isEnabled()) {
-                        String tablaPasajeros = "PASAJEROS_PLANES";
-                        String mensajeSiRepiteRegistros = "REGISTROS DUPLICADOS EN TABLA \"PASAJEROS_PLANES\"";
+                        String tablaPasajeros = "PASAJEROS_APERTURA";
+                        String mensajeSiRepiteRegistros = "REGISTROS DUPLICADOS EN TABLA \"PASAJEROS_APERTURA\"";
                         if (tipoOperacion.equals("CIERRE DE PLAN DE VUELO")) {
-                            tablaPasajeros = "PASAJEROS_CIERRES";
-                            mensajeSiRepiteRegistros = "REGISTROS DUPLICADOS EN TABLA \"PASAJEROS_CIERRES\"";
+                            tablaPasajeros = "PASAJEROS_CIERRE";
+                            mensajeSiRepiteRegistros = "REGISTROS DUPLICADOS EN TABLA \"PASAJEROS_CIERRE\"";
                         }
                         String columnasTablasPasajeros [] = {"id_pasajero","nombre","apellido_paterno","apellido_materno","nacionalidad","fecha"};
                         SimpleDateFormat formato2 = new SimpleDateFormat("yyyyMMdd");   
@@ -1860,6 +1903,26 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField15KeyTyped
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        FileNameExtensionFilter filtroPDF = new FileNameExtensionFilter("Archivos pdf","pdf");
+        //File file;
+        String root;
+        JFileChooser fc = new JFileChooser();
+        fc.setMultiSelectionEnabled(false);
+        //fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fc.setFileFilter(filtroPDF);
+        fc.setApproveButtonText("Seleccionar");
+        
+        int fileValue = fc.showOpenDialog(this);
+        
+        if (fileValue == JFileChooser.APPROVE_OPTION){
+            //file = fc.getSelectedFile
+            //root = file.getAbsolutePath();
+            root = fc.getSelectedFile().getAbsolutePath();
+            //jTextField2.setText(root);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1945,6 +2008,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     public static javax.swing.JButton botonSeleccionarPrimer;
     private javax.swing.JButton botonSeleccionarSegundo;
     private javax.swing.JButton botonSeleccionarTercero;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox jComboBoxOperacionManifiestos;
     private javax.swing.JComboBox jComboBoxOperacionPlanes;
@@ -1981,6 +2045,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     public static javax.swing.JLabel jLabel38;
     public static javax.swing.JLabel jLabel39;
+    public static javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
@@ -2001,6 +2066,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
@@ -2056,6 +2122,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     static String listaSobrecargos;
     static String [] embarque;
     static String [] desembarque;
+    static String rutaPDF;
     final int rError = 255;
     final int gError = 0;
     final int bError = 0;
