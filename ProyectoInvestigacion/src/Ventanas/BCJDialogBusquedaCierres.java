@@ -825,7 +825,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
                     String nombreCompleto = "";
                     if (jCheckBox2.isSelected()) {
                         String nombre = jTextField7.getText();
-                        pasajero[0] = "PASAJEROS_CIERRES.nombre LIKE '%" + nombre + "%'";
+                        pasajero[0] = "PASAJEROS_CIERRE.nombre LIKE '%" + nombre + "%'";
                         BAJFrameVentanaConsultas.cBPasajeros1Cierres = 2;
                         BAJFrameVentanaConsultas.pasajero1Cierres = nombre;
                         nombreCompleto += nombre + " ";
@@ -836,7 +836,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
                     }
                     if (jCheckBox7.isSelected()) {
                         String apaterno = jTextField14.getText();
-                        pasajero[1] = "PASAJEROS_CIERRES.apellido_paterno LIKE '%" + apaterno + "%'";
+                        pasajero[1] = "PASAJEROS_CIERRE.apellido_paterno LIKE '%" + apaterno + "%'";
                         BAJFrameVentanaConsultas.cBPasajeros2Cierres = 7;
                         BAJFrameVentanaConsultas.pasajero2Cierres = apaterno;
                         nombreCompleto += apaterno + " ";
@@ -847,7 +847,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
                     }
                     if (jCheckBox8.isSelected()) {
                         String amaterno = jTextField13.getText();
-                        pasajero[2] = "PASAJEROS_CIERRES.apellido_materno LIKE '%" + amaterno + "%'";
+                        pasajero[2] = "PASAJEROS_CIERRE.apellido_materno LIKE '%" + amaterno + "%'";
                         BAJFrameVentanaConsultas.cBPasajeros3Cierres = 8;
                         BAJFrameVentanaConsultas.pasajero3Cierres = amaterno;
                         nombreCompleto += amaterno + " ";
@@ -911,7 +911,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
                         BAJFrameVentanaConsultas.jLabel27.setText("PILOTO: " + licenciaPiloto);
                     } else {
                         String licenciaCopiloto = jTextField17.getText();
-                        personal = "COPILOTOS.no_licencia = '" + licenciaCopiloto + "'";
+                        personal = "COPILOTOS_PLANES.no_licencia = '" + licenciaCopiloto + "'";
                         BAJFrameVentanaConsultas.rBPersonalCierres = 17;
                         BAJFrameVentanaConsultas.licenciaCierres = licenciaCopiloto;
                         BAJFrameVentanaConsultas.jLabel27.setText("COPILOTO: " + licenciaCopiloto);

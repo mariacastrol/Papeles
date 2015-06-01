@@ -800,7 +800,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                     String fecha = "";
                     if (jRadioButton11.isSelected()) {
                         String fechaft1 = formatoFecha.format(jDateChooser3.getDate());
-                        fecha = "DATE(PLANES_DE_VUELO.fecha_hora) = '" + fechaft1 + "'";
+                        fecha = "DATE(APERTURAS_DE_VUELO.fecha_hora) = '" + fechaft1 + "'";
                         BAJFrameVentanaConsultas.rBFechaPlanes = 11;
                         BAJFrameVentanaConsultas.fecha1Planes = fechaft1;
                         BAJFrameVentanaConsultas.fecha2Planes = null;
@@ -809,7 +809,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                     } else {
                         String fechaft2 = formatoFecha.format(jDateChooser2.getDate());
                         String fechaft3 = formatoFecha.format(jDateChooser1.getDate());
-                        fecha = "PLANES_DE_VUELO.fecha_hora BETWEEN '" + fechaft2 + "' AND '" + fechaft3 + "'";
+                        fecha = "APERTURAS_DE_VUELO.fecha_hora BETWEEN '" + fechaft2 + "' AND '" + fechaft3 + "'";
                         BAJFrameVentanaConsultas.rBFechaPlanes = 12;
                         BAJFrameVentanaConsultas.fecha1Planes = null;
                         BAJFrameVentanaConsultas.fecha2Planes = fechaft2;
@@ -828,7 +828,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                     String nombreCompleto = "";
                     if (jCheckBox2.isSelected()) {
                         String nombre = jTextField7.getText();
-                        pasajero[0] = "PASAJEROS_PLANES.nombre LIKE '%" + nombre + "%'";
+                        pasajero[0] = "PASAJEROS_APERTURA.nombre LIKE '%" + nombre + "%'";
                         BAJFrameVentanaConsultas.cBPasajeros1Planes = 2;
                         BAJFrameVentanaConsultas.pasajero1Planes = nombre;
                         nombreCompleto += nombre + " ";
@@ -839,7 +839,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                     }
                     if (jCheckBox7.isSelected()) {
                         String apaterno = jTextField14.getText();
-                        pasajero[1] = "PASAJEROS_PLANES.apellido_paterno LIKE '%" + apaterno + "%'";
+                        pasajero[1] = "PASAJEROS_APERTURA.apellido_paterno LIKE '%" + apaterno + "%'";
                         BAJFrameVentanaConsultas.cBPasajeros2Planes = 7;
                         BAJFrameVentanaConsultas.pasajero2Planes = apaterno;
                         nombreCompleto += apaterno + " ";
@@ -850,7 +850,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                     }
                     if (jCheckBox8.isSelected()) {
                         String amaterno = jTextField13.getText();
-                        pasajero[2] = "PASAJEROS_PLANES.apellido_materno LIKE '%" + amaterno + "%'";
+                        pasajero[2] = "PASAJEROS_APERTURA.apellido_materno LIKE '%" + amaterno + "%'";
                         BAJFrameVentanaConsultas.cBPasajeros3Planes = 8;
                         BAJFrameVentanaConsultas.pasajero3Planes = amaterno;
                         nombreCompleto += amaterno + " ";
@@ -914,7 +914,7 @@ public class BBJDialogBusquedaPlanes extends javax.swing.JDialog {
                         BAJFrameVentanaConsultas.jLabel22.setText("PILOTO: " + licenciaPiloto);
                     } else {
                         String licenciaCopiloto = jTextField17.getText();
-                        personal = "COPILOTOS.no_licencia = '" + licenciaCopiloto + "'";
+                        personal = "COPILOTOS_PLANES.no_licencia = '" + licenciaCopiloto + "'";
                         BAJFrameVentanaConsultas.rBPersonalPlanes = 17;
                         BAJFrameVentanaConsultas.licenciaPlanes = licenciaCopiloto;
                         BAJFrameVentanaConsultas.jLabel22.setText("COPILOTO: " + licenciaCopiloto);

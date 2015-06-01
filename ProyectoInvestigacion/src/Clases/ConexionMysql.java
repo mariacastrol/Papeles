@@ -317,18 +317,21 @@ public class ConexionMysql {
             int registrosFechas = 0;
             int totalPasajeros = 0;
             while (conjuntoResultados.next()) {
-                String fechaTemporal = "";
+                String fechaTemporal = ""; //***************
+                String cambioFecha = "";
                 if (columnaFechaPrincipal != -1) {
                     if (columnaHorarioItinerario != -1) {
                         SimpleDateFormat fecha = new SimpleDateFormat("yyyy-MM-dd");
-                        fechaTemporal = fecha.format(conjuntoResultados.getTimestamp(columnaFechaPrincipal));
+                        fechaTemporal = fecha.format(conjuntoResultados.getTimestamp(columnaFechaPrincipal));//***************
                     } else {
                         SimpleDateFormat fecha = new SimpleDateFormat("yyyy-MM-dd  HH:mm");
-                        fechaTemporal = fecha.format(conjuntoResultados.getTimestamp(columnaFechaPrincipal));
+                        fechaTemporal = fecha.format(conjuntoResultados.getTimestamp(columnaFechaPrincipal));//***************
                     }
+                    SimpleDateFormat fecha = new SimpleDateFormat("yyyy-MM-dd  HH:mm");
+                    cambioFecha = fecha.format(conjuntoResultados.getTimestamp(columnaFechaPrincipal));
                 }
                 
-                if (!fechaTemporal.equals(fechaGuia)) {
+                if (!cambioFecha.equals(fechaGuia)) { //***************
                     if (registrosFechas > 0 && columnaOtros != -1) {
                         if (totalRenglonesObstros > totalPasajeros) {
                             String [] filasEnBlanco = new String [numeroColumnas];
@@ -342,8 +345,8 @@ public class ConexionMysql {
                     }
                     for (int j = 1; j < numeroColumnas; j++) {
                         if (j == columnaFechaPrincipal) {
-                            datosFila[j] = fechaTemporal;
-                            fechaGuia = fechaTemporal;
+                            datosFila[j] = fechaTemporal;   //***************
+                            fechaGuia = cambioFecha;//***************
                         } else if (j == columnaOtros) {
                             String obstros = conjuntoResultados.getString(columnaOtros);
                             if (obstros.contains("\n")) {
