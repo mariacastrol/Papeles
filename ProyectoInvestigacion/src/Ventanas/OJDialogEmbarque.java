@@ -751,7 +751,7 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
                 jTextFieldCorreoPzas.getText() + "/" + jTextFieldCorreoKg.getText()
             };          
             AJFrameVentanaCapturas.embarque = embarqueDeclarado;
-            AJFrameVentanaCapturas.jLabel39.setEnabled(true);
+            AJFrameVentanaCapturas.jLabel40.setEnabled(true);
             this.dispose();
         } else {
             jLabel17.setForeground(new java.awt.Color(rError,gError,bError));

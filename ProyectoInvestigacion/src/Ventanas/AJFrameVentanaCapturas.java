@@ -116,7 +116,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jTextField18 = new javax.swing.JTextField();
         botonSeleccionarAeropuertoManifiestos = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
-        botonDeclararEmDesembarque = new javax.swing.JButton();
+        botonDeclararPDF = new javax.swing.JButton();
         jLabel39 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
@@ -158,6 +158,9 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jSpinnerHoraReal = new javax.swing.JSpinner();
         jLabel37 = new javax.swing.JLabel();
         jSpinnerMinutosReal = new javax.swing.JSpinner();
+        jPanel16 = new javax.swing.JPanel();
+        botonDeclararEmDesembarque1 = new javax.swing.JButton();
+        jLabel40 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -842,12 +845,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jPanel4.add(jPanel11);
         jPanel11.setBounds(32, 241, 639, 93);
 
-        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("EMBARQUE"));
+        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("PDF (OPCIONAL)"));
 
-        botonDeclararEmDesembarque.setText("DECLARAR");
-        botonDeclararEmDesembarque.addActionListener(new java.awt.event.ActionListener() {
+        botonDeclararPDF.setText("DECLARAR");
+        botonDeclararPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonDeclararEmDesembarqueActionPerformed(evt);
+                botonDeclararPDFActionPerformed(evt);
             }
         });
 
@@ -861,7 +864,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(botonDeclararEmDesembarque)
+                .addComponent(botonDeclararPDF)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -871,13 +874,13 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonDeclararEmDesembarque)
+                    .addComponent(botonDeclararPDF)
                     .addComponent(jLabel39))
                 .addContainerGap())
         );
 
         jPanel4.add(jPanel13);
-        jPanel13.setBounds(698, 350, 205, 66);
+        jPanel13.setBounds(698, 459, 205, 66);
 
         jButton6.setText("GUARDAR");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -1214,6 +1217,43 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jPanel4.add(jSpinnerMinutosReal);
         jSpinnerMinutosReal.setBounds(862, 52, 40, 18);
 
+        jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("EMBARQUE"));
+
+        botonDeclararEmDesembarque1.setText("DECLARAR");
+        botonDeclararEmDesembarque1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonDeclararEmDesembarque1ActionPerformed(evt);
+            }
+        });
+
+        jLabel40.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel40.setText("Declarado");
+        jLabel40.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botonDeclararEmDesembarque1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonDeclararEmDesembarque1)
+                    .addComponent(jLabel40))
+                .addContainerGap())
+        );
+
+        jPanel4.add(jPanel16);
+        jPanel16.setBounds(698, 350, 205, 66);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -1508,56 +1548,24 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         capturarListaSobrecargos.setVisible(true); 
     }//GEN-LAST:event_botonDeclararSobrecargosActionPerformed
 
-    private void botonDeclararEmDesembarqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDeclararEmDesembarqueActionPerformed
+    private void botonDeclararPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDeclararPDFActionPerformed
+        RJDialogPDFManifiestos capturarPDFManifiestos = new RJDialogPDFManifiestos(this,true);
         String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
+        String nombreTabla = "PDFS_MANIFIESTOS";
         if (tipoOperacion.contains("MANIFIESTO DE SALIDA")) {
-            OJDialogEmbarque emb = new OJDialogEmbarque(this, true);
-            if (jLabel39.isEnabled()) {
-                emb.jTextFieldTI.setText(embarque[0]);
-                emb.jTextFieldEN.setText(embarque[1]);
-                emb.jTextFieldInt.setText(embarque[2]);
-                emb.jTextFieldEI.setText(embarque[3]);
-                emb.jTextFieldInf.setText(embarque[4]);
-                emb.jTextFieldT.setText(embarque[5]);
-                emb.jTextFieldTotal.setText(embarque[6]);
-                String [] personas = embarque[7].split("/");
-                emb.jTextFieldTtlPersonas1.setText(personas[0]);
-                emb.jTextFieldTtlPersonas2.setText(personas[1]);
-                emb.jTextFieldTtlPersonas3.setText(personas[2]);
-                String [] equipaje = embarque[8].split("/");
-                emb.jTextFieldEquipajePzas.setText(equipaje[0]);
-                emb.jTextFieldEquipajeKg.setText(equipaje[1]);
-                String [] carga = embarque[9].split("/");
-                emb.jTextFieldCargaPzas.setText(carga[0]);
-                emb.jTextFieldCargaKg.setText(carga[1]);
-                String [] correo = embarque[10].split("/");
-                emb.jTextFieldCorreoPzas.setText(correo[0]);
-                emb.jTextFieldCorreoKg.setText(correo[1]);
-            }
-            emb.arregloTextField();
-            emb.setVisible(true);
+            capturarPDFManifiestos.setTitle("PDF'S: MANIFIESTO DE SALIDA");
+            capturarPDFManifiestos.jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("PDF DEL MANIFIESTO DE SALIDA"));
         } else {
-            PJDialogDesembarque desemb = new PJDialogDesembarque(this, true);
-            if (jLabel39.isEnabled()) {
-                desemb.jTextFieldPersonasTotal.setText(desembarque[0]);
-                String [] personas = desembarque[1].split("/");
-                desemb.jTextFieldTtlPersonas1.setText(personas[0]);
-                desemb.jTextFieldTtlPersonas2.setText(personas[1]);
-                desemb.jTextFieldTtlPersonas3.setText(personas[2]);
-                String [] equipaje = desembarque[2].split("/");
-                desemb.jTextFieldEquipajePzas.setText(equipaje[0]);
-                desemb.jTextFieldEquipajeKg.setText(equipaje[1]);
-                String [] carga = desembarque[3].split("/");
-                desemb.jTextFieldCargaPzas.setText(carga[0]);
-                desemb.jTextFieldCargaKg.setText(carga[1]);
-                String [] correo = desembarque[4].split("/");
-                desemb.jTextFieldCorreoPzas.setText(correo[0]);
-                desemb.jTextFieldCorreoKg.setText(correo[1]);
-            }
-            desemb.arregloTextField();
-            desemb.setVisible(true);
+            capturarPDFManifiestos.setTitle("PDF'S: MANIFIESTO DE LLEGADA");
+            capturarPDFManifiestos.jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("PDF DEL MANIFIESTO DE LLEGADA"));
         }
-    }//GEN-LAST:event_botonDeclararEmDesembarqueActionPerformed
+        String [] cT = {"ruta_pdf","nombre"};
+        if (capturarPDFManifiestos.setDatosConexion (sv,us,pw,dB,cT,nombreTabla,"ruta_pdf")) {
+            capturarPDFManifiestos.setVisible(true);
+        } else {
+            capturarPDFManifiestos.dispose();
+        }                       
+    }//GEN-LAST:event_botonDeclararPDFActionPerformed
 
     private void jTextFieldPersonasPasajerosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPersonasPasajerosKeyTyped
         int limite = 3;
@@ -1672,6 +1680,21 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
                         }
                     }
+                    //
+                    if (jLabel4.isEnabled()) {
+                        String tablaPDF = "RELACION_PDF_APERTURAS";
+                        String mensajeSiRepiteRegistros = "REGISTROS DUPLICADOS EN TABLA \"RELACION_PDF_APERTURAS\"";
+                        if (tipoOperacion.equals("CIERRE DE PLAN DE VUELO")) {
+                            tablaPDF = "RELACION_PDF_CIERRES";
+                            mensajeSiRepiteRegistros = "REGISTROS DUPLICADOS EN TABLA \"RELACION_PDF_CIERRES\"";
+                        }
+                        String[] columnasTablaRelacionPDF = {"fecha","pdf"};
+                        String[] datosAInsertar = {fechaCompleta,rutaPDF};
+                        if(!conexionPlanes.insertarFilaEnTabla(tablaPDF,columnasTablaRelacionPDF,datosAInsertar,mensajeSiRepiteRegistros)){
+                            JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    //
                     limpiarPlan();
                 }
             } else {
@@ -1736,7 +1759,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 String mensajeSiRepiteSL = "YA EXISTE EN LA BASE DE DATOS UN MANIFIESTO DE SALIDA CON ESTA FECHA Y HORA";
                 String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
                 if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
-                    if (jLabel39.isEnabled()) {
+                    if (jLabel40.isEnabled()) {
                         valoresAInsertar[9] = embarque[0];
                         valoresAInsertar[10] = embarque[1];
                         valoresAInsertar[11] = embarque[2];
@@ -1756,7 +1779,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                     String [] valoresML = {fechaCompletaM,tiempoReal,jTextField15.getText(),jTextField12.getText(),jTextField14.getText(),jTextField19.getText(),jTextField20.getText(),"",jTextField18.getText(),"0","0/0/0","0/0/0","0/0/0","0/0/0"};
                     valoresAInsertar = valoresML;
                     mensajeSiRepiteSL = "YA EXISTE EN LA BASE DE DATOS UN MANIFIESTO DE LLEGADA CON ESTA FECHA Y HORA";
-                    if (jLabel39.isEnabled()) {
+                    if (jLabel40.isEnabled()) {
                         valoresAInsertar[9] = desembarque[0];
                         valoresAInsertar[10] = desembarque[1];
                         valoresAInsertar[11] = desembarque[2];
@@ -1803,6 +1826,19 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                             if(!conexionPlanes.insertarFilaEnTabla("TERCERO_LLEGADA",columnasTL,datosTercero,mensajeSiRepiteRegistro)){
                                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
                             }
+                        }
+                    }
+                    if (jLabel39.isEnabled()) {
+                        String tablaPDF = "PDFS_SALIDA";
+                        String mensajeSiRepiteRegistros = "REGISTROS DUPLICADOS EN TABLA \"PDFS_SALIDA\"";
+                        if (tipoOperacion.equals("MANIFIESTO DE LLEGADA")) {
+                            tablaPDF = "PDFS_LLEGADA";
+                            mensajeSiRepiteRegistros = "REGISTROS DUPLICADOS EN TABLA \"PDFS_LLEGADA\"";
+                        }
+                        String[] columnasTablaRelacionPDF = {"fecha","pdf"};
+                        String[] datosAInsertar = {fechaCompletaM,rutaPDF};
+                        if(!conexionPlanes.insertarFilaEnTabla(tablaPDF,columnasTablaRelacionPDF,datosAInsertar,mensajeSiRepiteRegistros)){
+                            JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
                         }
                     }
                 }
@@ -1904,24 +1940,75 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField15KeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FileNameExtensionFilter filtroPDF = new FileNameExtensionFilter("Archivos pdf","pdf");
-        //File file;
-        String root;
-        JFileChooser fc = new JFileChooser();
-        fc.setMultiSelectionEnabled(false);
-        //fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        fc.setFileFilter(filtroPDF);
-        fc.setApproveButtonText("Seleccionar");
-        
-        int fileValue = fc.showOpenDialog(this);
-        
-        if (fileValue == JFileChooser.APPROVE_OPTION){
-            //file = fc.getSelectedFile
-            //root = file.getAbsolutePath();
-            root = fc.getSelectedFile().getAbsolutePath();
-            //jTextField2.setText(root);
+        QJDialogPDFPlanes capturarPDFPlanes = new QJDialogPDFPlanes(this,true);
+        String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
+        String nombreTabla = "PDFS_APERTURA";
+        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
+            capturarPDFPlanes.setTitle("PDF'S: APERTURA DE PLAN DE VUELO");
+            capturarPDFPlanes.jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("PDF DEL PLAN DE VUELO"));
+        } else {
+            capturarPDFPlanes.setTitle("PDF'S: CIERRE DE PLAN DE VUELO");
+            nombreTabla = "PDFS_CIERRE";
+            capturarPDFPlanes.jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("PDF DEL CIERRE DE PLAN DE VUELO"));
+        }
+        String [] cT = {"ruta_pdf","nombre"};
+        if (capturarPDFPlanes.setDatosConexion (sv,us,pw,dB,cT,nombreTabla,"ruta_pdf")) {
+            capturarPDFPlanes.setVisible(true);
+        } else {
+            capturarPDFPlanes.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void botonDeclararEmDesembarque1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDeclararEmDesembarque1ActionPerformed
+        String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
+        if (tipoOperacion.contains("MANIFIESTO DE SALIDA")) {
+            OJDialogEmbarque emb = new OJDialogEmbarque(this, true);
+            if (jLabel40.isEnabled()) {
+                emb.jTextFieldTI.setText(embarque[0]);
+                emb.jTextFieldEN.setText(embarque[1]);
+                emb.jTextFieldInt.setText(embarque[2]);
+                emb.jTextFieldEI.setText(embarque[3]);
+                emb.jTextFieldInf.setText(embarque[4]);
+                emb.jTextFieldT.setText(embarque[5]);
+                emb.jTextFieldTotal.setText(embarque[6]);
+                String [] personas = embarque[7].split("/");
+                emb.jTextFieldTtlPersonas1.setText(personas[0]);
+                emb.jTextFieldTtlPersonas2.setText(personas[1]);
+                emb.jTextFieldTtlPersonas3.setText(personas[2]);
+                String [] equipaje = embarque[8].split("/");
+                emb.jTextFieldEquipajePzas.setText(equipaje[0]);
+                emb.jTextFieldEquipajeKg.setText(equipaje[1]);
+                String [] carga = embarque[9].split("/");
+                emb.jTextFieldCargaPzas.setText(carga[0]);
+                emb.jTextFieldCargaKg.setText(carga[1]);
+                String [] correo = embarque[10].split("/");
+                emb.jTextFieldCorreoPzas.setText(correo[0]);
+                emb.jTextFieldCorreoKg.setText(correo[1]);
+            }
+            emb.arregloTextField();
+            emb.setVisible(true);
+        } else {
+            PJDialogDesembarque desemb = new PJDialogDesembarque(this, true);
+            if (jLabel40.isEnabled()) {
+                desemb.jTextFieldPersonasTotal.setText(desembarque[0]);
+                String [] personas = desembarque[1].split("/");
+                desemb.jTextFieldTtlPersonas1.setText(personas[0]);
+                desemb.jTextFieldTtlPersonas2.setText(personas[1]);
+                desemb.jTextFieldTtlPersonas3.setText(personas[2]);
+                String [] equipaje = desembarque[2].split("/");
+                desemb.jTextFieldEquipajePzas.setText(equipaje[0]);
+                desemb.jTextFieldEquipajeKg.setText(equipaje[1]);
+                String [] carga = desembarque[3].split("/");
+                desemb.jTextFieldCargaPzas.setText(carga[0]);
+                desemb.jTextFieldCargaKg.setText(carga[1]);
+                String [] correo = desembarque[4].split("/");
+                desemb.jTextFieldCorreoPzas.setText(correo[0]);
+                desemb.jTextFieldCorreoKg.setText(correo[1]);
+            }
+            desemb.arregloTextField();
+            desemb.setVisible(true);
+        }
+    }//GEN-LAST:event_botonDeclararEmDesembarque1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1993,7 +2080,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     public static javax.swing.JButton botonBorrar;
     public static javax.swing.JButton botonBorrarSegundo;
     public static javax.swing.JButton botonBorrarTercero;
-    private javax.swing.JButton botonDeclararEmDesembarque;
+    private javax.swing.JButton botonDeclararEmDesembarque1;
+    private javax.swing.JButton botonDeclararPDF;
     private javax.swing.JButton botonDeclararSobrecargos;
     private javax.swing.JButton botonGuardarPlanes;
     private javax.swing.JButton botonListaPasajeros;
@@ -2046,6 +2134,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel38;
     public static javax.swing.JLabel jLabel39;
     public static javax.swing.JLabel jLabel4;
+    public static javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
@@ -2070,6 +2159,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2157,6 +2247,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jLabel52.setText(null);
         jLabel48.setEnabled(false);
         jLabel39.setEnabled(false);
+        jLabel40.setEnabled(false);
         jDateChooser2.setDate(null);
         jSpinnerHoraItinerario.setValue(0);
         jSpinnerMinutosItinerario.setValue(0);
@@ -2165,6 +2256,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         listaSobrecargos = null;
         embarque = null;
         desembarque = null;
+        rutaPDF = null;
     }
     
     private void limpiarPlan() {
@@ -2184,6 +2276,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jTextArea1.setText(null);
         jLabel14.setText(null);
         jLabel38.setText(null);
+        jLabel4.setEnabled(false);
         jLabel19.setEnabled(false);
         jDateFecha.setDate(null);
         jSpinnerHorasUTC.setValue(0);
@@ -2191,6 +2284,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jTextField8.setText(null);
         jTextField9.setText(null);
         listaPasajeros = null;
+        rutaPDF = null;
     }
     
 }
