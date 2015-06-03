@@ -8,6 +8,8 @@ package Ventanas;
 import Clases.ConexionMysql;
 import Clases.FuncionesGenerales;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import javax.swing.JFileChooser;
@@ -167,6 +169,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CAPTURAS");
+        setIconImage(getIconImage());
         setResizable(false);
 
         jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -2285,6 +2288,13 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jTextField9.setText(null);
         listaPasajeros = null;
         rutaPDF = null;
+    }
+    
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+        getImage(ClassLoader.getSystemResource("Necesarios/iconoP.png"));
+        return retValue;
     }
     
 }

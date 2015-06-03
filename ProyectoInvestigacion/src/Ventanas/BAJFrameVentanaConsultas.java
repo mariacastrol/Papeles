@@ -8,6 +8,8 @@ package Ventanas;
 import Clases.ConexionMysql;
 import Clases.FormatoFilasTabla;
 import Clases.FuncionesGenerales;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
@@ -215,6 +217,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CONSULTAS");
+        setIconImage(getIconImage());
         setMinimumSize(new java.awt.Dimension(1000, 650));
         setResizable(false);
 
@@ -664,7 +667,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonBuscarPlanes)
                     .addComponent(jButton12))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -697,6 +700,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             }
         ));
         jTableCierres.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableCierres.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCierresMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTableCierresMousePressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTableCierres);
 
         botonBuscarCierres.setText("BUSCAR");
@@ -1157,6 +1168,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             }
         ));
         jTableMS.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableMS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableMSMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTableMSMousePressed(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTableMS);
 
         jButton6.setText("BUSCAR");
@@ -1765,6 +1784,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             }
         ));
         jTableML.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableML.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableMLMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTableMLMousePressed(evt);
+            }
+        });
         jScrollPane4.setViewportView(jTableML);
 
         jButton8.setText("BUSCAR");
@@ -2543,7 +2570,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             nombresColumnas[columnas][1] = "pasajeroNa";
             nombresColumnas[columnas++][0] = "PASAJERO - NACIONALIDAD";
         preconsulta += "PDFS_APERTURA.ruta_pdf, ";
-            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][2] = "0";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PDF - RUTA";
         preconsulta += "PDFS_APERTURA.nombre, ";
@@ -2881,7 +2908,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             nombresColumnas[columnas][1] = "pasajeroNa";
             nombresColumnas[columnas++][0] = "PASAJERO - NACIONALIDAD";
         preconsulta += "PDFS_CIERRE.ruta_pdf, ";
-            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][2] = "0";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PDF - RUTA";
         preconsulta += "PDFS_CIERRE.nombre, ";
@@ -3313,7 +3340,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TOTAL - CORREO";
         preconsulta += "PDFS_MANIFIESTOS.ruta_pdf, ";
-            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][2] = "0";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PDF - RUTA";
         preconsulta += "PDFS_MANIFIESTOS.nombre, ";
@@ -4444,7 +4471,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TOTAL - CORREO";
         preconsulta += "PDFS_MANIFIESTOS.ruta_pdf, ";
-            nombresColumnas[columnas][2] = "200";
+            nombresColumnas[columnas][2] = "0";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PDF - RUTA";
         preconsulta += "PDFS_MANIFIESTOS.nombre, ";
@@ -4900,8 +4927,81 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             int fila = jTablePlanes.getSelectedRow();
             int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTablePlanes,fila);
             jTablePlanes.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
+            if (FuncionesGenerales.celdaPDFSeleccionada(jTablePlanes, "PDF - NOMBRE")) {
+                int columna = jTablePlanes.getSelectedColumn();
+                String mensaje = FuncionesGenerales.abrirPDFSeleccionada(jTablePlanes,"PDF - RUTA", fila, columna);
+                if (mensaje.contains("ERROR")) {
+                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENT","ERROR",JOptionPane.ERROR_MESSAGE);
+                }
+            }
         }
     }//GEN-LAST:event_jTablePlanesMousePressed
+
+    private void jTableCierresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCierresMouseClicked
+        if(!evt.isMetaDown() && jTablePlanes.getSelectedRow() == -1){
+            int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTableCierres,0);
+            jTableCierres.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
+        }
+    }//GEN-LAST:event_jTableCierresMouseClicked
+
+    private void jTableCierresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCierresMousePressed
+        if(!evt.isMetaDown()){
+            int fila = jTableCierres.getSelectedRow();
+            int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTableCierres,fila);
+            jTableCierres.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
+            if (FuncionesGenerales.celdaPDFSeleccionada(jTableCierres, "PDF - NOMBRE")) {
+                int columna = jTableCierres.getSelectedColumn();
+                String mensaje = FuncionesGenerales.abrirPDFSeleccionada(jTableCierres,"PDF - RUTA", fila, columna);
+                if (mensaje.contains("ERROR")) {
+                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENT","ERROR",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }//GEN-LAST:event_jTableCierresMousePressed
+
+    private void jTableMSMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMSMousePressed
+        if(!evt.isMetaDown()){
+            int fila = jTableMS.getSelectedRow();
+            int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTableMS,fila);
+            jTableMS.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
+            if (FuncionesGenerales.celdaPDFSeleccionada(jTableMS, "PDF - NOMBRE")) {
+                int columna = jTableMS.getSelectedColumn();
+                String mensaje = FuncionesGenerales.abrirPDFSeleccionada(jTableMS,"PDF - RUTA", fila, columna);
+                if (mensaje.contains("ERROR")) {
+                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENT","ERROR",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }//GEN-LAST:event_jTableMSMousePressed
+
+    private void jTableMLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMLMousePressed
+        if(!evt.isMetaDown()){
+            int fila = jTableML.getSelectedRow();
+            int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTableML,fila);
+            jTableML.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
+            if (FuncionesGenerales.celdaPDFSeleccionada(jTableML, "PDF - NOMBRE")) {
+                int columna = jTableML.getSelectedColumn();
+                String mensaje = FuncionesGenerales.abrirPDFSeleccionada(jTableML,"PDF - RUTA", fila, columna);
+                if (mensaje.contains("ERROR")) {
+                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENT","ERROR",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }//GEN-LAST:event_jTableMLMousePressed
+
+    private void jTableMSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMSMouseClicked
+        if(!evt.isMetaDown() && jTableMS.getSelectedRow() == -1){
+            int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTableMS,0);
+            jTableMS.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
+        }
+    }//GEN-LAST:event_jTableMSMouseClicked
+
+    private void jTableMLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMLMouseClicked
+        if(!evt.isMetaDown() && jTableML.getSelectedRow() == -1){
+            int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTableML,0);
+            jTableML.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
+        }
+    }//GEN-LAST:event_jTableMLMouseClicked
 
     /**
      * @param args the command line arguments
@@ -5495,5 +5595,12 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jLabel29.setEnabled(false);
         jLabel30.setText("AEROPUERTO/AERÓDROMO DE SALIDA");
         jLabel30.setEnabled(false);
+    }
+    
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+        getImage(ClassLoader.getSystemResource("Necesarios/iconoP.png"));
+        return retValue;
     }
 }

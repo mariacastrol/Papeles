@@ -19,13 +19,14 @@ public class FormatoFilasTabla extends DefaultTableCellRenderer {
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         comp = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-        if((int) table.getValueAt(row,0) % 2 == 0) {                   //Checamos el número de la fila para aplicar un color
+        if((int) table.getValueAt(row,0) % 2 == 0) {
             comp.setBackground(new java.awt.Color(204,204,255));
-        }else{                              //En caso de que la condición resulte diferente aplicara otro color a la fila
-            comp.setBackground(new java.awt.Color(200,200,200));
+        }else{
+            comp.setBackground(new java.awt.Color(255,255,255));
         }
         if(isSelected){
-            comp.setBackground(Color.red);
+            comp.setBackground(new java.awt.Color(78,190,231));
+            comp.setForeground(Color.BLACK);
         }
         return comp;
     }

@@ -5,6 +5,9 @@
  */
 package Clases;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
@@ -98,11 +101,13 @@ public class FuncionesGenerales {
         }
         return 0;
     }
-     public static void eliminarColumnaTemporal (JTable tablaBusqueda, int columnaAEliminar){   
+    
+    public static void eliminarColumnaTemporal (JTable tablaBusqueda, int columnaAEliminar){   
         tablaBusqueda.getColumnModel().getColumn(columnaAEliminar).setMinWidth(0);
         tablaBusqueda.getColumnModel().getColumn(columnaAEliminar).setPreferredWidth(0);
         tablaBusqueda.getColumnModel().getColumn(columnaAEliminar).setMaxWidth(0);   
     }
+    
     public static void mostrarColumnaEliminada (JTable tablaBusqueda, int columnaAMostrar, int anchoColumna){   
         for (int i = columnaAMostrar; i <= tablaBusqueda.getColumnCount(); i++) {
             tablaBusqueda.getColumnModel().getColumn(columnaAMostrar).setMinWidth(anchoColumna);
@@ -110,11 +115,13 @@ public class FuncionesGenerales {
             tablaBusqueda.getColumnModel().getColumn(columnaAMostrar).setMaxWidth(anchoColumna);   
         }  
     }
+    
     public static void limpiarTablaCompletamente(JTable tablaALimpiar) {
         DefaultTableModel modelo = (DefaultTableModel) tablaALimpiar.getModel();
         modelo.setRowCount(0);
         modelo.setColumnCount(0);
     }
+    
     public static int [] celdasTabla(JTable tabla, int filaActual) {
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         int filas = modelo.getRowCount();
@@ -143,6 +150,36 @@ public class FuncionesGenerales {
             }
         }
         return limites;
+    }
+    
+    public static boolean celdaPDFSeleccionada(JTable tabla, String nombreColumnaPDF) {
+        String columnaSeleccionada = tabla.getColumnName(tabla.getSelectedColumn());
+        return columnaSeleccionada.equals(nombreColumnaPDF);
+    }
+    
+    public static String abrirPDFSeleccionada(JTable tabla, String nombreColumnaRuta, int filaPDF, int columnaNPDF) {
+        String nombrePDF = (String) tabla.getValueAt(filaPDF,columnaNPDF);
+        System.out.println("--" + nombrePDF);
+        if (nombrePDF != null) {
+            int totalColumnas = tabla.getColumnCount();
+            int columnaRuta = 1;
+            for (int k = 1; k < totalColumnas; k++) {
+                String columnaSeleccionada = tabla.getColumnName(k);
+                if (columnaSeleccionada.equals(nombreColumnaRuta)) {
+                    columnaRuta = k;
+                }
+            }
+            String ruta = (String) tabla.getValueAt(filaPDF,columnaRuta); 
+            try {
+                File path = new File (ruta);
+                Desktop.getDesktop().open(path);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                return "ERROR AL ABRIR EL DOCUMENTO";
+            }
+            return "OK";
+        }
+        return "NO HA DECLARADO UN ARCHIVO PDF";    
     }
     //!Character.isDigit(caracterValidar) && !Character.isAlphabetic(caracterValidar) && !Character.isISOControl(caracterValidar)) || cajaTextoAValidar.getText().length() == maxCaracteres
     //JTextField cajaTextoAValidar, int maxCaracteres, char caracterValidar
