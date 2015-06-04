@@ -5,17 +5,18 @@
  */
 package Clases;
 
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JButton;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -257,6 +258,8 @@ public class ConexionMysql {
     ///*******************************************
     public boolean mostrarColumnasTablaMysqlCompuesta(JTable tabla, String consulta, String [] [] columnasTablas, int numeroColumnas) {
         limpiarTablaCompletamente(tabla);
+        Clases.ModeloTablas miModelo = new Clases.ModeloTablas();
+        tabla.setModel(miModelo);
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         for (int i = 0; i < numeroColumnas; i++) {
             modelo.addColumn(columnasTablas[i][0]);
@@ -416,14 +419,15 @@ public class ConexionMysql {
                 }
                 modelo.setValueAt(grupo,i,0);
             }
-            tabla.getColumnModel().getColumn(0).setMinWidth(Integer.parseInt(columnasTablas[0][2]));
+            /*tabla.getColumnModel().getColumn(0).setMinWidth(Integer.parseInt(columnasTablas[0][2]));
             tabla.getColumnModel().getColumn(0).setPreferredWidth(Integer.parseInt(columnasTablas[0][2]));
             tabla.getColumnModel().getColumn(0).setMaxWidth(Integer.parseInt(columnasTablas[0][2]));
             for (int i = 1; i < numeroColumnas; i++) {
                 tabla.getColumnModel().getColumn(i).setMinWidth(Integer.parseInt(columnasTablas[i][2]));
                 tabla.getColumnModel().getColumn(i).setPreferredWidth(Integer.parseInt(columnasTablas[i][2]));
                 tabla.getColumnModel().getColumn(i).setMaxWidth(Integer.parseInt(columnasTablas[i][2]));
-            }
+            }*/
+            packColumns(tabla,1);
             FormatoFilasTabla ft = new FormatoFilasTabla();
             tabla.setDefaultRenderer (Object.class,ft);
             return true;
@@ -490,6 +494,50 @@ public class ConexionMysql {
             return null;
         }
     }
+    
+    
+    //////////////////////////////////
+    
+    private void packColumns(JTable table, int margin) {
+        for (int c=0; c<table.getColumnCount(); c++) {
+            String nombreColumna = table.getColumnName(c);
+            if (nombreColumna.equals("") || nombreColumna.equals("PDF - RUTA")) {
+                packColumn(table,c,margin,true);
+            } else {
+                packColumn(table,c,margin,false);
+            }
+        }
+    }
+    
+    private void packColumn(JTable table, int vColIndex, int margin, boolean noVisible) {
+        if (noVisible) {
+            table.getColumnModel().getColumn(vColIndex).setMinWidth(0);
+            table.getColumnModel().getColumn(vColIndex).setPreferredWidth(0);
+            table.getColumnModel().getColumn(vColIndex).setMaxWidth(0);
+        } else {
+            DefaultTableColumnModel colModel = (DefaultTableColumnModel)table.getColumnModel();
+            TableColumn col = colModel.getColumn(vColIndex);
+            int width = 0;
+            TableCellRenderer renderer = col.getHeaderRenderer();
+            if (renderer == null) {
+                renderer = table.getTableHeader().getDefaultRenderer();
+            }
+            Component comp = renderer.getTableCellRendererComponent(table, col.getHeaderValue(), false, false, 0, 0);
+            width = comp.getPreferredSize().width;
+            for (int r = 0; r < table.getRowCount(); r++) {
+                renderer = table.getCellRenderer(r, vColIndex);
+                comp = renderer.getTableCellRendererComponent(table, table.getValueAt(r, vColIndex), false, false, r, vColIndex);
+                width = Math.max(width, comp.getPreferredSize().width);
+            }
+            width += 2*margin;
+            col.setPreferredWidth(width);
+            col.setMaxWidth(width);
+            col.setMinWidth(width);
+        }
+    }
+
+ 
+    //////////////////
         
     
 }
