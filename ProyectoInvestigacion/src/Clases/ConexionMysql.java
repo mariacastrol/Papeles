@@ -256,7 +256,7 @@ public class ConexionMysql {
         }
     }
     ///*******************************************
-    public boolean mostrarColumnasTablaMysqlCompuesta(JTable tabla, String consulta, String [] [] columnasTablas, int numeroColumnas) {
+    public boolean mostrarColumnasTablaMysqlCompuesta(JTable tabla, String consulta, String [] [] columnasTablas, int numeroColumnas, int ventana) {
         limpiarTablaCompletamente(tabla);
         Clases.ModeloTablas miModelo = new Clases.ModeloTablas();
         tabla.setModel(miModelo);
@@ -427,7 +427,7 @@ public class ConexionMysql {
                 tabla.getColumnModel().getColumn(i).setPreferredWidth(Integer.parseInt(columnasTablas[i][2]));
                 tabla.getColumnModel().getColumn(i).setMaxWidth(Integer.parseInt(columnasTablas[i][2]));
             }*/
-            packColumns(tabla,1);
+            packColumns(tabla,1,ventana);
             FormatoFilasTabla ft = new FormatoFilasTabla();
             tabla.setDefaultRenderer (Object.class,ft);
             return true;
@@ -498,10 +498,12 @@ public class ConexionMysql {
     
     //////////////////////////////////
     
-    private void packColumns(JTable table, int margin) {
+    private void packColumns(JTable table, int margin, int ventana) {
         for (int c=0; c<table.getColumnCount(); c++) {
             String nombreColumna = table.getColumnName(c);
-            if (nombreColumna.equals("") || nombreColumna.equals("PDF - RUTA")) {
+            if (ventana == 1 && (nombreColumna.equals("") || nombreColumna.equals("PDF - RUTA"))) {
+                packColumn(table,c,margin,true);
+            } else if (ventana == 2 && nombreColumna.equals("")) {
                 packColumn(table,c,margin,true);
             } else {
                 packColumn(table,c,margin,false);

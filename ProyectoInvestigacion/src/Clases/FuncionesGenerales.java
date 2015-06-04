@@ -5,6 +5,7 @@
  */
 package Clases;
 
+import java.awt.Component;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -108,12 +112,15 @@ public class FuncionesGenerales {
         tablaBusqueda.getColumnModel().getColumn(columnaAEliminar).setMaxWidth(0);   
     }
     
-    public static void mostrarColumnaEliminada (JTable tablaBusqueda, int columnaAMostrar, int anchoColumna){   
-        for (int i = columnaAMostrar; i <= tablaBusqueda.getColumnCount(); i++) {
-            tablaBusqueda.getColumnModel().getColumn(columnaAMostrar).setMinWidth(anchoColumna);
-            tablaBusqueda.getColumnModel().getColumn(columnaAMostrar).setPreferredWidth(anchoColumna);
-            tablaBusqueda.getColumnModel().getColumn(columnaAMostrar).setMaxWidth(anchoColumna);   
-        }  
+    public static void mostrarColumnaEliminada (JTable tablaBusqueda, int columnaAMostrar){   
+        for (int c=columnaAMostrar; c<tablaBusqueda.getColumnCount(); c++) {
+            String nombreColumna = tablaBusqueda.getColumnName(c);
+            if (nombreColumna.equals("") || nombreColumna.equals("PDF - RUTA")) {
+                ajustar(tablaBusqueda,c,2,true);
+            } else {
+                ajustar(tablaBusqueda,c,2,false);
+            }
+        } 
     }
     
     public static void limpiarTablaCompletamente(JTable tablaALimpiar) {
@@ -180,6 +187,33 @@ public class FuncionesGenerales {
             return "OK";
         }
         return "NO HA DECLARADO UN ARCHIVO PDF";    
+    }
+    
+    private static void ajustar(JTable table, int vColIndex, int margin, boolean noVisible) {
+        if (noVisible) {
+            table.getColumnModel().getColumn(vColIndex).setMinWidth(0);
+            table.getColumnModel().getColumn(vColIndex).setPreferredWidth(0);
+            table.getColumnModel().getColumn(vColIndex).setMaxWidth(0);
+        } else {
+            DefaultTableColumnModel colModel = (DefaultTableColumnModel)table.getColumnModel();
+            TableColumn col = colModel.getColumn(vColIndex);
+            int width = 0;
+            TableCellRenderer renderer = col.getHeaderRenderer();
+            if (renderer == null) {
+                renderer = table.getTableHeader().getDefaultRenderer();
+            }
+            Component comp = renderer.getTableCellRendererComponent(table, col.getHeaderValue(), false, false, 0, 0);
+            width = comp.getPreferredSize().width;
+            for (int r = 0; r < table.getRowCount(); r++) {
+                renderer = table.getCellRenderer(r, vColIndex);
+                comp = renderer.getTableCellRendererComponent(table, table.getValueAt(r, vColIndex), false, false, r, vColIndex);
+                width = Math.max(width, comp.getPreferredSize().width);
+            }
+            width += 2*margin;
+            col.setPreferredWidth(width);
+            col.setMaxWidth(width);
+            col.setMinWidth(width);
+        }
     }
     //!Character.isDigit(caracterValidar) && !Character.isAlphabetic(caracterValidar) && !Character.isISOControl(caracterValidar)) || cajaTextoAValidar.getText().length() == maxCaracteres
     //JTextField cajaTextoAValidar, int maxCaracteres, char caracterValidar

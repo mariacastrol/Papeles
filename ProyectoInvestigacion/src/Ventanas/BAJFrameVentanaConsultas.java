@@ -2601,7 +2601,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         System.out.println(consulta);
         ConexionMysql conexionConsultaPlan = new ConexionMysql();
         if (conexionConsultaPlan.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
-            if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas)) {
+            if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
                 jPanel11.setEnabled(true);
@@ -2939,7 +2939,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         System.out.println(consulta);
         ConexionMysql conexionConsultaCierre = new ConexionMysql();
         if (conexionConsultaCierre.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
-            if (!conexionConsultaCierre.mostrarColumnasTablaMysqlCompuesta(jTableCierres,consulta,nombresColumnas,columnas)) {
+            if (!conexionConsultaCierre.mostrarColumnasTablaMysqlCompuesta(jTableCierres,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
                 jPanel10.setEnabled(true);
@@ -3377,7 +3377,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
         if (conexionConsultaMS.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
-            if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableMS,consulta,nombresColumnas,columnas)) {
+            if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableMS,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
                 jPanel19.setEnabled(true);
@@ -3424,7 +3424,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox67ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox67ItemStateChanged
         if (jCheckBox67.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,1,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,1);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,1);
         }
@@ -3432,7 +3432,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox68ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox68ItemStateChanged
         if (jCheckBox68.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,2,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,2);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,2);
         }
@@ -3440,7 +3440,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox69ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox69ItemStateChanged
         if (jCheckBox69.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,3,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,3);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,3);
         }
@@ -3448,7 +3448,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox70ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox70ItemStateChanged
         if (jCheckBox70.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,4,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,4);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,4);
         }
@@ -3456,7 +3456,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox71ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox71ItemStateChanged
         if (jCheckBox71.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,5,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,5);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,5);
         }
@@ -3464,7 +3464,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox72ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox72ItemStateChanged
         if (jCheckBox72.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,6,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,6);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,6);
         }
@@ -3472,7 +3472,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox73ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox73ItemStateChanged
         if (jCheckBox73.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,7,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,7);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,7);
         }
@@ -3480,7 +3480,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox74ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox74ItemStateChanged
         if (jCheckBox74.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,8,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,8);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,8);
         }
@@ -3488,7 +3488,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox75ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox75ItemStateChanged
         if (jCheckBox75.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,9,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,9);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,9);
         }
@@ -3496,7 +3496,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox76ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox76ItemStateChanged
         if (jCheckBox76.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,10,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,10);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,10);
         }
@@ -3504,7 +3504,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox77ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox77ItemStateChanged
         if (jCheckBox77.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,11,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,11);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,11);
         }
@@ -3512,7 +3512,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox84ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox84ItemStateChanged
         if (jCheckBox84.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,17,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,17);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,17);
         }
@@ -3520,7 +3520,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox85ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox85ItemStateChanged
         if (jCheckBox85.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,12,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,12);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,12);
         }
@@ -3528,7 +3528,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox86ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox86ItemStateChanged
         if (jCheckBox86.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,13,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,13);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,13);
         }
@@ -3536,7 +3536,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox87ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox87ItemStateChanged
         if (jCheckBox87.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,14,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,14);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,14);
         }
@@ -3544,7 +3544,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox88ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox88ItemStateChanged
         if (jCheckBox88.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,15,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,15);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,15);
         }
@@ -3552,7 +3552,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox94ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox94ItemStateChanged
         if (jCheckBox94.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,16,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,16);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,16);
         }
@@ -3560,7 +3560,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox95ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox95ItemStateChanged
         if (jCheckBox95.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,18,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,18);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,18);
         }
@@ -3568,7 +3568,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox96ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox96ItemStateChanged
         if (jCheckBox96.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,19,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,19);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,19);
         }
@@ -3576,7 +3576,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox97ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox97ItemStateChanged
         if (jCheckBox97.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,20,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,20);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,20);
         }
@@ -3584,7 +3584,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox98ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox98ItemStateChanged
         if (jCheckBox98.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,21,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,21);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,21);
         }
@@ -3592,7 +3592,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox99ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox99ItemStateChanged
         if (jCheckBox99.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,22,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,22);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,22);
         }
@@ -3734,7 +3734,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox45ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox45ItemStateChanged
         if (jCheckBox45.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,1,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,1);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,1);
         }
@@ -3742,7 +3742,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox46ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox46ItemStateChanged
        if (jCheckBox46.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,2,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,2);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,2);
         }
@@ -3750,7 +3750,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox47ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox47ItemStateChanged
         if (jCheckBox47.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,3,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,3);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,3);
         }
@@ -3758,7 +3758,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox48ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox48ItemStateChanged
         if (jCheckBox48.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,4,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,4);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,4);
         }
@@ -3766,7 +3766,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox49ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox49ItemStateChanged
         if (jCheckBox49.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,5,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,5);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,5);
         }
@@ -3774,7 +3774,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox50ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox50ItemStateChanged
         if (jCheckBox50.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,6,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,6);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,6);
         }
@@ -3782,7 +3782,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox62ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox62ItemStateChanged
         if (jCheckBox62.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,7,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,7);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,7);
         }
@@ -3790,7 +3790,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox63ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox63ItemStateChanged
         if (jCheckBox63.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,8,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,8);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,8);
         }
@@ -3798,7 +3798,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox64ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox64ItemStateChanged
         if (jCheckBox64.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,9,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,9);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,9);
         }
@@ -3806,7 +3806,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox65ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox65ItemStateChanged
         if (jCheckBox65.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,10,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,10);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,10);
         }
@@ -3814,7 +3814,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox66ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox66ItemStateChanged
         if (jCheckBox66.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,11,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,11);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,11);
         }
@@ -3822,7 +3822,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox56ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox56ItemStateChanged
         if (jCheckBox56.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,17,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,17);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,17);
         }
@@ -3830,7 +3830,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox51ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox51ItemStateChanged
         if (jCheckBox51.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,12,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,12);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,12);
         }
@@ -3838,7 +3838,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox52ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox52ItemStateChanged
         if (jCheckBox52.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,13,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,13);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,13);
         }
@@ -3846,7 +3846,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox53ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox53ItemStateChanged
         if (jCheckBox53.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,14,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,14);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,14);
         }
@@ -3854,7 +3854,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox54ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox54ItemStateChanged
         if (jCheckBox54.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,15,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,15);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,15);
         }
@@ -3862,7 +3862,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox55ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox55ItemStateChanged
         if (jCheckBox55.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,16,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,16);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,16);
         }
@@ -3870,7 +3870,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox57ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox57ItemStateChanged
         if (jCheckBox57.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,18,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,18);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,18);
         }
@@ -3878,7 +3878,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox58ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox58ItemStateChanged
         if (jCheckBox58.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,19,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,19);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,19);
         }
@@ -3886,7 +3886,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox59ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox59ItemStateChanged
         if (jCheckBox59.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,20,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,20);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,20);
         }
@@ -3894,7 +3894,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox60ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox60ItemStateChanged
         if (jCheckBox60.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,21,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,21);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,21);
         }
@@ -3902,7 +3902,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox61ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox61ItemStateChanged
         if (jCheckBox61.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,22,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableCierres,22);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableCierres,22);
         }
@@ -3998,7 +3998,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox133ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox133ItemStateChanged
         if (jCheckBox133.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,1,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,1);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,1);
         }
@@ -4006,7 +4006,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox135ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox135ItemStateChanged
         if (jCheckBox135.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,2,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,2);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,2);
         }
@@ -4014,7 +4014,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox136ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox136ItemStateChanged
         if (jCheckBox136.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,3,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,3);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,3);
         }
@@ -4022,7 +4022,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox137ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox137ItemStateChanged
         if (jCheckBox137.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,4,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,4);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,4);
         }
@@ -4030,7 +4030,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox138ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox138ItemStateChanged
         if (jCheckBox138.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,5,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,5);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,5);
         }
@@ -4038,7 +4038,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox139ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox139ItemStateChanged
         if (jCheckBox139.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,6,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,6);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,6);
         }
@@ -4046,7 +4046,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox140ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox140ItemStateChanged
         if (jCheckBox140.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,30,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,30);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,30);
         }
@@ -4054,7 +4054,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox141ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox141ItemStateChanged
         if (jCheckBox141.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,31,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,31);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,31);
         }
@@ -4062,7 +4062,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox142ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox142ItemStateChanged
         if (jCheckBox142.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,32,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,32);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,32);
         }
@@ -4070,7 +4070,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox143ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox143ItemStateChanged
         if (jCheckBox143.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,7,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,7);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,7);
         }
@@ -4078,7 +4078,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox144ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox144ItemStateChanged
         if (jCheckBox144.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,8,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,8);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,8);
         }
@@ -4086,7 +4086,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox145ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox145ItemStateChanged
         if (jCheckBox145.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,29,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,29);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,29);
         }
@@ -4094,7 +4094,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox147ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox147ItemStateChanged
         if (jCheckBox147.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,9,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,9);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,9);
         }
@@ -4102,7 +4102,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox148ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox148ItemStateChanged
         if (jCheckBox148.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,10,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,10);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,10);
         }
@@ -4110,7 +4110,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox149ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox149ItemStateChanged
         if (jCheckBox149.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,11,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,11);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,11);
         }
@@ -4118,7 +4118,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox150ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox150ItemStateChanged
         if (jCheckBox150.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,12,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,12);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,12);
         }
@@ -4126,7 +4126,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox151ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox151ItemStateChanged
         if (jCheckBox151.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,13,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,13);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,13);
         }
@@ -4134,7 +4134,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox152ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox152ItemStateChanged
         if (jCheckBox152.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,18,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,18);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,18);
         }
@@ -4142,7 +4142,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox153ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox153ItemStateChanged
         if (jCheckBox153.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,14,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,14);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,14);
         }
@@ -4150,7 +4150,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox154ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox154ItemStateChanged
         if (jCheckBox154.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,15,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,15);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,15);
         }
@@ -4158,7 +4158,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox155ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox155ItemStateChanged
         if (jCheckBox155.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,16,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,16);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,16);
         }
@@ -4166,7 +4166,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox156ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox156ItemStateChanged
         if (jCheckBox156.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,17,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,17);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,17);
         }
@@ -4174,7 +4174,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox157ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox157ItemStateChanged
         if (jCheckBox157.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,19,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,19);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,19);
         }
@@ -4182,7 +4182,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox158ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox158ItemStateChanged
         if (jCheckBox158.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,20,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,20);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,20);
         }
@@ -4190,7 +4190,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox159ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox159ItemStateChanged
         if (jCheckBox159.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,21,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,21);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,21);
         }
@@ -4198,7 +4198,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox160ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox160ItemStateChanged
         if (jCheckBox160.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,22,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,22);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,22);
         }
@@ -4206,7 +4206,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox161ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox161ItemStateChanged
         if (jCheckBox161.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,23,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,23);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,23);
         }
@@ -4214,7 +4214,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox162ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox162ItemStateChanged
         if (jCheckBox162.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,24,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,24);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,24);
         }
@@ -4222,7 +4222,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox163ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox163ItemStateChanged
         if (jCheckBox163.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,25,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,25);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,25);
         }
@@ -4230,7 +4230,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox164ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox164ItemStateChanged
         if (jCheckBox164.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,26,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,26);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,26);
         }
@@ -4238,7 +4238,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox165ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox165ItemStateChanged
         if (jCheckBox165.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,27,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,27);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,27);
         }
@@ -4246,7 +4246,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox166ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox166ItemStateChanged
         if (jCheckBox166.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,28,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,28);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,28);
         }
@@ -4254,17 +4254,17 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox146ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox146ItemStateChanged
         if (jCheckBox146.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,33,200);
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,34,200);
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,35,200);
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,36,200);
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,37,200);
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,38,200);
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,39,200);
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,40,200);
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,41,200);
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,42,200);
-            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,43,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,33);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,34);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,35);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,36);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,37);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,38);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,39);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,40);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,41);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,42);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableMS,43);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,33);
             FuncionesGenerales.eliminarColumnaTemporal(jTableMS,34);
@@ -4508,7 +4508,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
         if (conexionConsultaMS.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
-            if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableML,consulta,nombresColumnas,columnas)) {
+            if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableML,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
                 jPanel12.setEnabled(true);
@@ -4645,7 +4645,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox78ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox78ItemStateChanged
         if (jCheckBox78.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,1,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,1);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,1);
         }
@@ -4653,7 +4653,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox79ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox79ItemStateChanged
         if (jCheckBox79.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,2,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,2);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,2);
         }
@@ -4661,7 +4661,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox80ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox80ItemStateChanged
         if (jCheckBox80.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,3,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,3);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,3);
         }
@@ -4669,7 +4669,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox81ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox81ItemStateChanged
         if (jCheckBox81.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,4,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,4);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,4);
         }
@@ -4677,7 +4677,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox82ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox82ItemStateChanged
         if (jCheckBox82.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,5,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,5);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,5);
         }
@@ -4685,7 +4685,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox83ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox83ItemStateChanged
         if (jCheckBox83.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,6,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,6);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,6);
         }
@@ -4693,7 +4693,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox89ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox89ItemStateChanged
         if (jCheckBox89.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,30,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,30);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,30);
         }
@@ -4701,7 +4701,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox90ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox90ItemStateChanged
         if (jCheckBox90.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,31,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,31);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,31);
         }
@@ -4709,7 +4709,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox91ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox91ItemStateChanged
         if (jCheckBox91.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,32,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,32);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,32);
         }
@@ -4717,7 +4717,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox92ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox92ItemStateChanged
         if (jCheckBox92.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,7,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,7);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,7);
         }
@@ -4725,7 +4725,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox93ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox93ItemStateChanged
         if (jCheckBox93.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,8,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,8);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,8);
         }
@@ -4733,7 +4733,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox132ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox132ItemStateChanged
         if (jCheckBox132.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,29,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,29);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,29);
         }
@@ -4741,11 +4741,11 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox134ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox134ItemStateChanged
         if (jCheckBox134.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,33,200);
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,34,200);
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,35,200);
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,36,200);
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,37,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,33);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,34);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,35);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,36);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,37);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,33);
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,34);
@@ -4757,7 +4757,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox112ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox112ItemStateChanged
         if (jCheckBox112.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,9,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,9);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,9);
         }
@@ -4765,7 +4765,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox113ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox113ItemStateChanged
         if (jCheckBox113.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,10,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,10);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,10);
         }
@@ -4773,7 +4773,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox114ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox114ItemStateChanged
         if (jCheckBox114.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,11,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,11);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,11);
         }
@@ -4781,7 +4781,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox115ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox115ItemStateChanged
         if (jCheckBox115.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,12,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,12);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,12);
         }
@@ -4789,7 +4789,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox116ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox116ItemStateChanged
         if (jCheckBox116.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,13,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,13);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,13);
         }
@@ -4797,7 +4797,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox118ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox118ItemStateChanged
         if (jCheckBox118.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,18,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,18);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,18);
         }
@@ -4805,7 +4805,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox119ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox119ItemStateChanged
         if (jCheckBox119.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,14,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,14);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,14);
         }
@@ -4813,7 +4813,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox120ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox120ItemStateChanged
         if (jCheckBox120.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,15,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,15);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,15);
         }
@@ -4821,7 +4821,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox121ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox121ItemStateChanged
         if (jCheckBox121.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,16,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,16);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,16);
         }
@@ -4829,7 +4829,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox117ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox117ItemStateChanged
         if (jCheckBox117.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,17,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,17);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,17);
         }
@@ -4837,7 +4837,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox124ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox124ItemStateChanged
         if (jCheckBox124.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,19,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,19);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,19);
         }
@@ -4845,7 +4845,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox125ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox125ItemStateChanged
         if (jCheckBox125.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,20,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,20);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,20);
         }
@@ -4853,7 +4853,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox126ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox126ItemStateChanged
         if (jCheckBox126.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,21,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,21);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,21);
         }
@@ -4861,7 +4861,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox122ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox122ItemStateChanged
         if (jCheckBox122.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,22,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,22);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,22);
         }
@@ -4869,7 +4869,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox123ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox123ItemStateChanged
         if (jCheckBox123.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,23,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,23);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,23);
         }
@@ -4877,7 +4877,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox129ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox129ItemStateChanged
         if (jCheckBox129.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,24,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,24);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,24);
         }
@@ -4885,7 +4885,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox130ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox130ItemStateChanged
         if (jCheckBox130.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,25,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,25);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,25);
         }
@@ -4893,7 +4893,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox131ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox131ItemStateChanged
         if (jCheckBox131.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,26,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,26);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,26);
         }
@@ -4901,7 +4901,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox127ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox127ItemStateChanged
         if (jCheckBox127.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,27,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,27);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,27);
         }
@@ -4909,7 +4909,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void jCheckBox128ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox128ItemStateChanged
         if (jCheckBox128.isSelected()) {
-            FuncionesGenerales.mostrarColumnaEliminada(jTableML,28,200);
+            FuncionesGenerales.mostrarColumnaEliminada(jTableML,28);
         } else {
             FuncionesGenerales.eliminarColumnaTemporal(jTableML,28);
         }

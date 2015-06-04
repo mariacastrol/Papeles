@@ -382,8 +382,8 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonBuscarCierres)
                     .addComponent(jButton11))
@@ -522,20 +522,19 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton14)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton6)
-                        .addGap(10, 10, 10))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE))
-                        .addContainerGap())))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton14)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton6)))
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -543,7 +542,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
@@ -860,7 +859,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         }
         ConexionMysql conexionConsultaPlan = new ConexionMysql();
         if (conexionConsultaPlan.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
-            if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas)) {
+            if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
                 jButton12.setEnabled(true);
@@ -1128,7 +1127,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         System.out.println(consulta);
         ConexionMysql conexionConsultaCierre = new ConexionMysql();
         if (conexionConsultaCierre.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
-            if (!conexionConsultaCierre.mostrarColumnasTablaMysqlCompuesta(jTableCierres,consulta,nombresColumnas,columnas)) {
+            if (!conexionConsultaCierre.mostrarColumnasTablaMysqlCompuesta(jTableCierres,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
                 jButton11.setEnabled(true);
@@ -1464,7 +1463,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
         if (conexionConsultaMS.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
-            if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableMS,consulta,nombresColumnas,columnas)) {
+            if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableMS,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
                 jButton14.setEnabled(true);
@@ -1690,7 +1689,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
         if (conexionConsultaMS.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
-            if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableML,consulta,nombresColumnas,columnas)) {
+            if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableML,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
                 jButton16.setEnabled(true);
@@ -1719,28 +1718,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         vueloMLlegada = null;
         primeraVezMLlegada = true;                           
     }//GEN-LAST:event_jButton16ActionPerformed
-
-    private void jTablePlanesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePlanesMouseClicked
-        if(!evt.isMetaDown() && jTablePlanes.getSelectedRow() == -1){
-            int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTablePlanes,0);
-            jTablePlanes.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
-        }
-    }//GEN-LAST:event_jTablePlanesMouseClicked
-
-    private void jTablePlanesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePlanesMousePressed
-        if(!evt.isMetaDown()){
-            int fila = jTablePlanes.getSelectedRow();
-            int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTablePlanes,fila);
-            jTablePlanes.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
-            if (FuncionesGenerales.celdaPDFSeleccionada(jTablePlanes, "PDF - NOMBRE")) {
-                int columna = jTablePlanes.getSelectedColumn();
-                String mensaje = FuncionesGenerales.abrirPDFSeleccionada(jTablePlanes,"PDF - RUTA", fila, columna);
-                if (mensaje.contains("ERROR")) {
-                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENT","ERROR",JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        }
-    }//GEN-LAST:event_jTablePlanesMousePressed
 
     private void jTableCierresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCierresMouseClicked
         if(!evt.isMetaDown() && jTablePlanes.getSelectedRow() == -1){
@@ -1807,6 +1784,28 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             jTableML.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
         }
     }//GEN-LAST:event_jTableMLMouseClicked
+
+    private void jTablePlanesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePlanesMousePressed
+        if(!evt.isMetaDown()){
+            int fila = jTablePlanes.getSelectedRow();
+            int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTablePlanes,fila);
+            jTablePlanes.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
+            if (FuncionesGenerales.celdaPDFSeleccionada(jTablePlanes, "PDF - NOMBRE")) {
+                int columna = jTablePlanes.getSelectedColumn();
+                String mensaje = FuncionesGenerales.abrirPDFSeleccionada(jTablePlanes,"PDF - RUTA", fila, columna);
+                if (mensaje.contains("ERROR")) {
+                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENT","ERROR",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }//GEN-LAST:event_jTablePlanesMousePressed
+
+    private void jTablePlanesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePlanesMouseClicked
+        if(!evt.isMetaDown() && jTablePlanes.getSelectedRow() == -1){
+            int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTablePlanes,0);
+            jTablePlanes.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
+        }
+    }//GEN-LAST:event_jTablePlanesMouseClicked
 
     /**
      * @param args the command line arguments
