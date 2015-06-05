@@ -11,6 +11,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -37,6 +38,8 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -96,6 +99,14 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
+        jMenuItem1.setText("MODIFICAR");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CONSULTAS");
         setIconImage(getIconImage());
@@ -113,6 +124,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             }
         ));
         jTablePlanes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTablePlanes.setComponentPopupMenu(jPopupMenu1);
         jTablePlanes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTablePlanesMouseClicked(evt);
@@ -266,6 +278,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             }
         ));
         jTableCierres.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableCierres.setComponentPopupMenu(jPopupMenu1);
         jTableCierres.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableCierresMouseClicked(evt);
@@ -420,6 +433,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             }
         ));
         jTableMS.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableMS.setComponentPopupMenu(jPopupMenu1);
         jTableMS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableMSMouseClicked(evt);
@@ -580,6 +594,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             }
         ));
         jTableML.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableML.setComponentPopupMenu(jPopupMenu1);
         jTableML.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableMLMouseClicked(evt);
@@ -818,6 +833,9 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         preconsulta += "APERTURAS_DE_VUELO.no_personas_a_bordo, ";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PERSONAS A BORDO";
+        preconsulta += "PASAJEROS_APERTURA.id_pasajero, ";
+            nombresColumnas[columnas][1] = "pasajeroID";
+            nombresColumnas[columnas++][0] = "PASAJERO - ID";
         preconsulta += "PASAJEROS_APERTURA.nombre, ";
             nombresColumnas[columnas][1] = "pasajeroN";
             nombresColumnas[columnas++][0] = "PASAJERO - NOMBRE(S)";
@@ -1085,6 +1103,9 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         preconsulta += "CIERRES_DE_PLAN.no_pasajeros, ";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "No. PASAJEROS";
+        preconsulta += "PASAJEROS_CIERRE.id_pasajero, ";
+            nombresColumnas[columnas][1] = "pasajeroID";
+            nombresColumnas[columnas++][0] = "PASAJERO - ID";
         preconsulta += "PASAJEROS_CIERRE.nombre, ";
             nombresColumnas[columnas][1] = "pasajeroN";
             nombresColumnas[columnas++][0] = "PASAJERO - NOMBRE(S)";
@@ -1807,6 +1828,86 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTablePlanesMouseClicked
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        VJFrameVentanaCapturarModificaciones captura = new VJFrameVentanaCapturarModificaciones();
+        
+        if (jTabbedPane1.getSelectedIndex() == 0) {
+            captura.jTabbedPane1.setSelectedIndex(0);
+            captura.jComboBoxOperacionPlanes.setSelectedIndex(0);
+            filaActual = jTablePlanes.getSelectedRow();
+            filasSeleccionadas = jTablePlanes.getSelectedRowCount();
+            VJFrameVentanaCapturarModificaciones.jTextField1.setText(jTablePlanes.getValueAt(filaActual,12).toString()); // AEROPUERTO - OACIO
+            VJFrameVentanaCapturarModificaciones.jTextField2.setText(jTablePlanes.getValueAt(filaActual,13).toString()); // AEROPUERTO - IATA
+            VJFrameVentanaCapturarModificaciones.jTextField3.setText(jTablePlanes.getValueAt(filaActual,14).toString()); // AEROPUERTO - NOMBRE
+            VJFrameVentanaCapturarModificaciones.jTextField4.setText(jTablePlanes.getValueAt(filaActual,15).toString()); // AERONAVE - MATRICULA
+            VJFrameVentanaCapturarModificaciones.jTextField5.setText(jTablePlanes.getValueAt(filaActual,16).toString()); // AERONAVE - TIPO
+            VJFrameVentanaCapturarModificaciones.jTextField7.setText(jTablePlanes.getValueAt(filaActual,2).toString()); // PILOTO - LICENCIA
+            String nombre = jTablePlanes.getValueAt(filaActual,3).toString();
+            String aPaterno = jTablePlanes.getValueAt(filaActual,4).toString();
+            String aMaterno = jTablePlanes.getValueAt(filaActual,5).toString();
+            VJFrameVentanaCapturarModificaciones.jTextField6.setText(nombre + " " + aPaterno + " " + aMaterno); // PILOTO - NOMBRE COMPLETO
+            VJFrameVentanaCapturarModificaciones.jLabel14.setText(jTablePlanes.getValueAt(filaActual,6).toString()); // PILOTO - TIPO LICENCIA
+            captura.jTextFieldPersonasPasajeros.setText(jTablePlanes.getValueAt(filaActual,18).toString());
+            String fechaYHora = jTablePlanes.getValueAt(filaActual,1).toString(); // FECHA CON HORA
+            String fechaFormatoBarras = fechaYHora.substring(0,10);
+            String fechaFormatoDiagonal = fechaFormatoBarras.replace("-","/");
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
+            try {
+                captura.jDateFecha.setDate(formatoFecha.parse(fechaFormatoDiagonal)); // FECHA
+            } catch (Exception e) {}
+            String horaMinutos [] = fechaYHora.substring(12).split(":");
+            captura.jSpinnerHorasUTC.setValue(Integer.parseInt(horaMinutos[0]));
+            captura.jSpinnerMinutosUTC.setValue(Integer.parseInt(horaMinutos[1]));
+            String multiplesRenglones = "";
+            for (int i = filaActual; i < filaActual + filasSeleccionadas; i++) {
+                String renglon = (String) jTablePlanes.getValueAt(i,17);
+                if (renglon != null && !renglon.equals("")) {
+                    multiplesRenglones += renglon;
+                }
+                if (i != filaActual + filasSeleccionadas - 1 && renglon != null && !renglon.equals("")) {
+                   multiplesRenglones += "\n";
+                }
+            }
+            captura.jTextArea1.setText(multiplesRenglones); // OTROS DATOS
+            int totalPasajeros = 0;
+            int filaDondeInicia = filaActual;
+            String idPasajero = (String) jTablePlanes.getValueAt(filaDondeInicia,19);
+            while (idPasajero != null && !idPasajero.equals("") && filaDondeInicia++ < filaActual + filasSeleccionadas) {
+                idPasajero = (String) jTablePlanes.getValueAt(filaDondeInicia,19);
+                totalPasajeros++;
+            }
+            String listaOriginalPasajeros [][] = new String [totalPasajeros][6];
+            String numeroPasajeros [][] = new String [totalPasajeros][6];
+            for (int i = 0; i < totalPasajeros; i++) {
+                for (int j = 0; j < 5; j++) {
+                    listaOriginalPasajeros[i][j] = jTablePlanes.getValueAt(filaActual + i,19 + j).toString();
+                    numeroPasajeros[i][j] = jTablePlanes.getValueAt(filaActual + i,19 + j).toString();
+                }
+            }
+            for (int k = 0; k < totalPasajeros; k++) {
+                numeroPasajeros[k][0] = numeroPasajeros[k][0].substring(12);
+            }
+            if (0 < totalPasajeros) {
+                VJFrameVentanaCapturarModificaciones.jLabel19.setEnabled(true);
+                VJFrameVentanaCapturarModificaciones.listaPasajerosOriginal = numeroPasajeros;
+            }
+            
+        } else if (jTabbedPane1.getSelectedIndex() == 1) {
+            captura.jTabbedPane1.setSelectedIndex(0);
+            captura.jComboBoxOperacionPlanes.setSelectedIndex(1);
+            filaActual = jTableCierres.getSelectedRow();
+        } else if (jTabbedPane1.getSelectedIndex() == 2) {
+            captura.jTabbedPane1.setSelectedIndex(1);
+            captura.jComboBoxOperacionManifiestos.setSelectedIndex(0);
+            filaActual = jTableMS.getSelectedRow();
+        } else {
+            captura.jTabbedPane1.setSelectedIndex(1);
+            captura.jComboBoxOperacionManifiestos.setSelectedIndex(1);
+            filaActual = jTableML.getSelectedRow();
+        }
+        captura.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2391,6 +2492,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel15;
@@ -2403,6 +2505,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2413,6 +2516,9 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     private javax.swing.JTable jTableMS;
     private javax.swing.JTable jTablePlanes;
     // End of variables declaration//GEN-END:variables
+    
+    int filaActual;
+    int filasSeleccionadas;
     
     static String criteriosPlanes = null;
     static String criteriosCierres = null;

@@ -10,11 +10,8 @@ import Clases.FuncionesGenerales;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.io.File;
 import java.text.SimpleDateFormat;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -168,7 +165,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("CAPTURAS");
+        setTitle("MODIFICACIONES");
         setIconImage(getIconImage());
         setResizable(false);
 
@@ -300,7 +297,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel5);
-        jPanel5.setBounds(32, 112, 539, 0);
+        jPanel5.setBounds(32, 112, 539, 113);
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("AERONAVE(S)"));
 
@@ -360,7 +357,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel6);
-        jPanel6.setBounds(591, 112, 0, 0);
+        jPanel6.setBounds(591, 112, 312, 113);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("PERSONAL DE VUELO"));
 
@@ -494,7 +491,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel7);
-        jPanel7.setBounds(32, 241, 0, 0);
+        jPanel7.setBounds(32, 241, 445, 188);
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("PERSONAS A BORDO"));
 
@@ -548,7 +545,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel8);
-        jPanel8.setBounds(32, 445, 0, 0);
+        jPanel8.setBounds(32, 445, 447, 87);
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("OTROS DATOS / OBSERVACIONES"));
 
@@ -579,7 +576,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel9);
-        jPanel9.setBounds(497, 241, 406, 0);
+        jPanel9.setBounds(497, 241, 406, 156);
 
         botonGuardarPlanes.setText("GUARDAR");
         botonGuardarPlanes.addActionListener(new java.awt.event.ActionListener() {
@@ -590,7 +587,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         jPanel3.add(botonGuardarPlanes);
         botonGuardarPlanes.setBounds(813, 556, 90, 23);
 
-        jDateFecha.setDateFormatString("dd/MM/yyyy");
+        jDateFecha.setDateFormatString("yyyy/MM/dd");
         jDateFecha.setMaxSelectableDate(new java.util.Date(1483250399000L));
         jDateFecha.setMinSelectableDate(new java.util.Date(1262325599000L));
         jDateFecha.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -791,7 +788,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel10);
-        jPanel10.setBounds(32, 112, 871, 0);
+        jPanel10.setBounds(32, 112, 871, 113);
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("MOVIMIENTO DE OPERACIONES"));
 
@@ -846,7 +843,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel11);
-        jPanel11.setBounds(32, 241, 0, 0);
+        jPanel11.setBounds(32, 241, 639, 93);
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("PDF (OPCIONAL)"));
 
@@ -883,7 +880,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel13);
-        jPanel13.setBounds(698, 459, 205, 0);
+        jPanel13.setBounds(698, 459, 205, 66);
 
         jButton6.setText("GUARDAR");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -1114,7 +1111,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel14);
-        jPanel14.setBounds(32, 350, 639, 0);
+        jPanel14.setBounds(32, 350, 639, 228);
 
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("SOBRECARGOS"));
 
@@ -1151,9 +1148,9 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel15);
-        jPanel15.setBounds(698, 241, 205, 0);
+        jPanel15.setBounds(698, 241, 205, 67);
 
-        jDateChooser2.setDateFormatString("dd/MM/yyyy");
+        jDateChooser2.setDateFormatString("yyyy/MM/dd");
         jDateChooser2.setMaxSelectableDate(new java.util.Date(1483250399000L));
         jDateChooser2.setMinSelectableDate(new java.util.Date(1262325599000L));
         jDateChooser2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -1255,7 +1252,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel16);
-        jPanel16.setBounds(698, 350, 205, 0);
+        jPanel16.setBounds(698, 350, 205, 66);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1525,7 +1522,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         }
         if (jLabel19.isEnabled()) {
             DefaultTableModel modelo = (DefaultTableModel) capturarListaPasajeros.jTableListaPasajeros.getModel();
-            for (String[] listaPasajero : listaPasajeros) {
+            for (String[] listaPasajero : listaPasajerosOriginal) {
                 modelo.addRow(listaPasajero);
             }
         }
@@ -2133,10 +2130,10 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     private javax.swing.JButton botonSeleccionarTercero;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox jComboBoxOperacionManifiestos;
-    private javax.swing.JComboBox jComboBoxOperacionPlanes;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
-    private com.toedter.calendar.JDateChooser jDateFecha;
+    public javax.swing.JComboBox jComboBoxOperacionManifiestos;
+    public javax.swing.JComboBox jComboBoxOperacionPlanes;
+    public com.toedter.calendar.JDateChooser jDateChooser2;
+    public com.toedter.calendar.JDateChooser jDateFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2206,12 +2203,12 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinnerHoraItinerario;
     private javax.swing.JSpinner jSpinnerHoraReal;
-    private javax.swing.JSpinner jSpinnerHorasUTC;
+    public javax.swing.JSpinner jSpinnerHorasUTC;
     private javax.swing.JSpinner jSpinnerMinutosItinerario;
     private javax.swing.JSpinner jSpinnerMinutosReal;
-    private javax.swing.JSpinner jSpinnerMinutosUTC;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public javax.swing.JSpinner jSpinnerMinutosUTC;
+    public javax.swing.JTabbedPane jTabbedPane1;
+    public javax.swing.JTextArea jTextArea1;
     public static javax.swing.JTextField jTextField1;
     public static javax.swing.JTextField jTextField11;
     public static javax.swing.JTextField jTextField12;
@@ -2236,7 +2233,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     public static javax.swing.JTextField jTextField7;
     public static javax.swing.JTextField jTextField8;
     public static javax.swing.JTextField jTextField9;
-    private javax.swing.JTextField jTextFieldPersonasPasajeros;
+    public javax.swing.JTextField jTextFieldPersonasPasajeros;
     // End of variables declaration//GEN-END:variables
 
     private String sv = "localhost";
@@ -2244,6 +2241,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     private String pw = "l1u2c3h4o5e6d7u";
     private String dB = "baseaeropuerto";
     static String [][] listaPasajeros;
+    static String [][] listaPasajerosOriginal;
     static String listaSobrecargos;
     static String [] embarque;
     static String [] desembarque;

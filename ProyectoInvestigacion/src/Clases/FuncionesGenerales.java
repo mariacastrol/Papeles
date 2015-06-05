@@ -215,6 +215,8 @@ public class FuncionesGenerales {
             col.setMinWidth(width);
         }
     }
+    
+    
     //!Character.isDigit(caracterValidar) && !Character.isAlphabetic(caracterValidar) && !Character.isISOControl(caracterValidar)) || cajaTextoAValidar.getText().length() == maxCaracteres
     //JTextField cajaTextoAValidar, int maxCaracteres, char caracterValidar
 }

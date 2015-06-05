@@ -268,6 +268,7 @@ public class ConexionMysql {
         int columnaHorarioItinerario = -1;
         int columnaHorarioReal = -1;
         int columnaOtros = -1;
+        int columnaIDPasajero = -1;
         int columnaNombrePasajero = -1;
         int columnaAPaternoPasajero = -1;
         int columnaAMaternoPasajero = -1;
@@ -290,6 +291,11 @@ public class ConexionMysql {
         for (int i = 0; i < numeroColumnas; i++) {
             if (columnasTablas[i][1].equals("variosRenglones")) {
                columnaOtros = i; 
+            }
+        }
+        for (int i = 0; i < numeroColumnas; i++) {
+            if (columnasTablas[i][1].equals("pasajeroID")) {
+               columnaIDPasajero = i; 
             }
         }
         for (int i = 0; i < numeroColumnas; i++) {
@@ -385,7 +391,9 @@ public class ConexionMysql {
                     totalPasajeros = 1;
                 } else {
                     for (int j = 1; j < numeroColumnas; j++) {
-                        if (j == columnaNombrePasajero) {
+                        if (j == columnaIDPasajero) {
+                            datosFila[j] = conjuntoResultados.getString(j);
+                        } else if (j == columnaNombrePasajero) {
                             datosFila[j] = conjuntoResultados.getString(j);
                         } else if (j == columnaAPaternoPasajero) {
                             datosFila[j] = conjuntoResultados.getString(j);
