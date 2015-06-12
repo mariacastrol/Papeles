@@ -912,12 +912,14 @@ public class VBJDialogAeropuertosPlanes extends javax.swing.JDialog {
     private final int bError = 0;
     private JTextField [] camposTextos = new JTextField[3];
     private Color colorFondo;
+    private String codigoOACI;
     
-    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
+    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK, String cO) {
         if (ping.conectarBD(sv,us,pw,dB)) {
             columnasTablaMysql = cTM;
             nombreTablaMysql = nTM;
             this.pK = pK;
+            codigoOACI = cO;
             arregloTextField();
             colorFondo = jPanel1.getBackground();
             jLabelObligatorios.setForeground(colorFondo);
@@ -939,10 +941,19 @@ public class VBJDialogAeropuertosPlanes extends javax.swing.JDialog {
             jLabel13.setForeground(new java.awt.Color(rError,gError,bError));
             jLabel1.setForeground(new java.awt.Color(rError,gError,bError));
         } else {
-            AJFrameVentanaCapturas.jTextField1.setText(jTextFieldSOACI.getText());
-            AJFrameVentanaCapturas.jTextField2.setText(jTextFieldSIATA.getText());
-            AJFrameVentanaCapturas.jTextField3.setText(jTextFieldSNombre.getText());
-            AJFrameVentanaCapturas.botonSeleccionarAeropuertoPlanes.setForeground(new java.awt.Color(0,0,0));
+            if (!codigoOACI.equals(jTextFieldSOACI.getText())) {
+                VJFrameVentanaCapturarModificaciones.jTextField1.setText(jTextFieldSOACI.getText());
+                VJFrameVentanaCapturarModificaciones.jTextField2.setText(jTextFieldSIATA.getText());
+                VJFrameVentanaCapturarModificaciones.jTextField3.setText(jTextFieldSNombre.getText());
+                VJFrameVentanaCapturarModificaciones.jTextField1.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.jTextField2.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.jTextField3.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.botonSeleccionarAeropuertoPlanes.setForeground(new java.awt.Color(0,0,0));
+            } else {
+                VJFrameVentanaCapturarModificaciones.jTextField1.setForeground(Color.BLACK);
+                VJFrameVentanaCapturarModificaciones.jTextField2.setForeground(Color.BLACK);
+                VJFrameVentanaCapturarModificaciones.jTextField3.setForeground(Color.BLACK);
+            }
             this.dispose();  
         }
     }

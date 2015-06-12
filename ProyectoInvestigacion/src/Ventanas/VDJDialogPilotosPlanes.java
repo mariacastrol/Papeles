@@ -948,12 +948,14 @@ public class VDJDialogPilotosPlanes extends javax.swing.JDialog {
     private final int bError = 0;
     private JTextField [] camposTextos = new JTextField[2];
     private Color colorFondo;
+    private String nLicencia;
     
-    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
+    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK, String licencia) {
         if (ping.conectarBD(sv,us,pw,dB)) {
             columnasTablaMysql = cTM;
             nombreTablaMysql = nTM;
             this.pK = pK;
+            nLicencia = licencia;
             arregloTextField();
             colorFondo = jPanel1.getBackground();
             jLabelObligatorios.setForeground(colorFondo);
@@ -993,10 +995,19 @@ public class VDJDialogPilotosPlanes extends javax.swing.JDialog {
             jLabel33.setForeground(new java.awt.Color(rError,gError,bError));
             jLabel1.setForeground(new java.awt.Color(rError,gError,bError));        
         } else {
-            AJFrameVentanaCapturas.jTextField6.setText(jTextFieldSNombreCompleto.getText());
-            AJFrameVentanaCapturas.jTextField7.setText(jTextFieldSLicencia.getText());
-            AJFrameVentanaCapturas.jLabel14.setText(jLabelSTLicencia.getText());
-            AJFrameVentanaCapturas.botonSeleccionarPilotoPlanes.setForeground(new java.awt.Color(0,0,0));
+            if (!nLicencia.equals(jTextFieldSLicencia.getText())) {
+                VJFrameVentanaCapturarModificaciones.jTextField6.setText(jTextFieldSNombreCompleto.getText());
+                VJFrameVentanaCapturarModificaciones.jTextField7.setText(jTextFieldSLicencia.getText());
+                VJFrameVentanaCapturarModificaciones.jLabel14.setText(jLabelSTLicencia.getText());
+                VJFrameVentanaCapturarModificaciones.jTextField6.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.jTextField7.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.jLabel14.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.botonSeleccionarPilotoPlanes.setForeground(new java.awt.Color(0,0,0));
+            } else {
+                VJFrameVentanaCapturarModificaciones.jTextField6.setForeground(Color.BLACK);
+                VJFrameVentanaCapturarModificaciones.jTextField7.setForeground(Color.BLACK);
+                VJFrameVentanaCapturarModificaciones.jLabel14.setForeground(Color.BLACK);
+            }
             this.dispose();  
         }
     }

@@ -6,6 +6,7 @@
 package Ventanas;
 
 import Clases.FuncionesGenerales;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -345,13 +346,25 @@ public class VFJDialogListaPasajerosPlanes extends javax.swing.JDialog {
             for (int i = 0; i < jTableListaPasajeros.getRowCount(); i++) {
                 for (int j = 0; j < jTableListaPasajeros.getColumnCount(); j++) {
                     listaPasajeros [i][j] = jTableListaPasajeros.getValueAt(i,j).toString();
+                    System.out.println(listaPasajeros [i][j]);
                 }
             }
-            AJFrameVentanaCapturas.listaPasajeros = listaPasajeros;
-            AJFrameVentanaCapturas.jLabel19.setEnabled(true);
+            if(!FuncionesGenerales.equal(listaPasajeros,VJFrameVentanaCapturarModificaciones.numeracionPasajerosOriginal)) {
+                VJFrameVentanaCapturarModificaciones.jLabel19.setForeground(new java.awt.Color(0,100,0));
+            } else {
+                VJFrameVentanaCapturarModificaciones.jLabel19.setForeground(Color.BLACK);
+            }
+            VJFrameVentanaCapturarModificaciones.listaPasajeros = listaPasajeros;
+            VJFrameVentanaCapturarModificaciones.jLabel19.setEnabled(true);
         } else {
-            AJFrameVentanaCapturas.listaPasajeros = null;
-            AJFrameVentanaCapturas.jLabel19.setEnabled(false);
+            VJFrameVentanaCapturarModificaciones.listaPasajeros = null;
+            VJFrameVentanaCapturarModificaciones.jLabel19.setEnabled(false);
+            if(VJFrameVentanaCapturarModificaciones.numeracionPasajerosOriginal != null) {
+                VJFrameVentanaCapturarModificaciones.jLabel19.setForeground(new java.awt.Color(0,100,0));
+                //System.out.println("se ejecuta");
+            } else {
+                VJFrameVentanaCapturarModificaciones.jLabel19.setForeground(Color.BLACK);
+            }
         }
         this.dispose();       
     }//GEN-LAST:event_botonGrabarActionPerformed

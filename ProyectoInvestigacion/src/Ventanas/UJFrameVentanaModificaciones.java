@@ -7,11 +7,11 @@ package Ventanas;
 
 import Clases.ConexionMysql;
 import Clases.FuncionesGenerales;
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -1145,7 +1145,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         if (criteriosPlanes != null) {
             consulta += criteriosPlanes;
         }
-        System.out.println(consulta);
+        //System.out.println(consulta);
         ConexionMysql conexionConsultaCierre = new ConexionMysql();
         if (conexionConsultaCierre.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
             if (!conexionConsultaCierre.mostrarColumnasTablaMysqlCompuesta(jTableCierres,consulta,nombresColumnas,columnas,2)) {
@@ -1481,7 +1481,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         if (criteriosManifiestosSalida != null) {
             consulta += criteriosManifiestosSalida;
         }
-        System.out.println(consulta);
+        //System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
         if (conexionConsultaMS.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableMS,consulta,nombresColumnas,columnas,2)) {
@@ -1707,7 +1707,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         if (criteriosManifiestosLlegada != null) {
             consulta += criteriosManifiestosLlegada;
         }
-        System.out.println(consulta);
+        //System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
         if (conexionConsultaMS.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableML,consulta,nombresColumnas,columnas,2)) {
@@ -1741,7 +1741,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jTableCierresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCierresMouseClicked
-        if(!evt.isMetaDown() && jTablePlanes.getSelectedRow() == -1){
+        if(!evt.isMetaDown() && jTableCierres.getSelectedRow() == -1){
             int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTableCierres,0);
             jTableCierres.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
         }
@@ -1836,28 +1836,55 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             captura.jComboBoxOperacionPlanes.setSelectedIndex(0);
             filaActual = jTablePlanes.getSelectedRow();
             filasSeleccionadas = jTablePlanes.getSelectedRowCount();
+            VJFrameVentanaCapturarModificaciones.aeropuertoPlanesOriginal = jTablePlanes.getValueAt(filaActual,12).toString();
             VJFrameVentanaCapturarModificaciones.jTextField1.setText(jTablePlanes.getValueAt(filaActual,12).toString()); // AEROPUERTO - OACIO
             VJFrameVentanaCapturarModificaciones.jTextField2.setText(jTablePlanes.getValueAt(filaActual,13).toString()); // AEROPUERTO - IATA
             VJFrameVentanaCapturarModificaciones.jTextField3.setText(jTablePlanes.getValueAt(filaActual,14).toString()); // AEROPUERTO - NOMBRE
+            VJFrameVentanaCapturarModificaciones.aeronavePlanesOriginal = jTablePlanes.getValueAt(filaActual,15).toString();
             VJFrameVentanaCapturarModificaciones.jTextField4.setText(jTablePlanes.getValueAt(filaActual,15).toString()); // AERONAVE - MATRICULA
             VJFrameVentanaCapturarModificaciones.jTextField5.setText(jTablePlanes.getValueAt(filaActual,16).toString()); // AERONAVE - TIPO
+            VJFrameVentanaCapturarModificaciones.pilotoPlanesOriginal = jTablePlanes.getValueAt(filaActual,2).toString();
             VJFrameVentanaCapturarModificaciones.jTextField7.setText(jTablePlanes.getValueAt(filaActual,2).toString()); // PILOTO - LICENCIA
             String nombre = jTablePlanes.getValueAt(filaActual,3).toString();
             String aPaterno = jTablePlanes.getValueAt(filaActual,4).toString();
             String aMaterno = jTablePlanes.getValueAt(filaActual,5).toString();
             VJFrameVentanaCapturarModificaciones.jTextField6.setText(nombre + " " + aPaterno + " " + aMaterno); // PILOTO - NOMBRE COMPLETO
             VJFrameVentanaCapturarModificaciones.jLabel14.setText(jTablePlanes.getValueAt(filaActual,6).toString()); // PILOTO - TIPO LICENCIA
-            captura.jTextFieldPersonasPasajeros.setText(jTablePlanes.getValueAt(filaActual,18).toString());
+            String copiloto = (String) jTablePlanes.getValueAt(filaActual,7); // COPILOTO - LICENCIA
+            VJFrameVentanaCapturarModificaciones.copilotoPlanesOriginal = null;
+            if (copiloto != null) {
+                if (!copiloto.equals("")) {
+                    VJFrameVentanaCapturarModificaciones.copilotoPlanesOriginal = copiloto;
+                    VJFrameVentanaCapturarModificaciones.jTextField9.setText(copiloto); // COPILOTO - LICENCIA
+                    String nombreC = jTablePlanes.getValueAt(filaActual,8).toString();
+                    String aPaternoC = jTablePlanes.getValueAt(filaActual,9).toString();
+                    String aMaternoC = jTablePlanes.getValueAt(filaActual,10).toString();
+                    VJFrameVentanaCapturarModificaciones.jTextField8.setText(nombreC + " " + aPaternoC + " " + aMaternoC); // COPILOTO - NOMBRE COMPLETO
+                    VJFrameVentanaCapturarModificaciones.jLabel38.setText(jTablePlanes.getValueAt(filaActual,11).toString()); // COPILOTO - TIPO LICENCIA
+                    VJFrameVentanaCapturarModificaciones.botonBorrar.setEnabled(true);
+                } else {
+                    VJFrameVentanaCapturarModificaciones.copilotoPlanesOriginal = null;
+                }
+            } else {
+                VJFrameVentanaCapturarModificaciones.copilotoPlanesOriginal = null;
+            }
+            captura.jTextFieldPersonasPasajeros.setText(jTablePlanes.getValueAt(filaActual,18).toString()); // TOTAL PERSONAS A BORDO
+            VJFrameVentanaCapturarModificaciones.numeroPPOriginal = jTablePlanes.getValueAt(filaActual,18).toString();
             String fechaYHora = jTablePlanes.getValueAt(filaActual,1).toString(); // FECHA CON HORA
+            VJFrameVentanaCapturarModificaciones.fechaCompletaPlanesOriginal = fechaYHora + ":00";
             String fechaFormatoBarras = fechaYHora.substring(0,10);
             String fechaFormatoDiagonal = fechaFormatoBarras.replace("-","/");
             SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
             try {
                 captura.jDateFecha.setDate(formatoFecha.parse(fechaFormatoDiagonal)); // FECHA
+                VJFrameVentanaCapturarModificaciones.fechaPlanesOriginal = fechaFormatoDiagonal;
+                captura.jLabel2.setForeground(Color.BLACK);
             } catch (Exception e) {}
             String horaMinutos [] = fechaYHora.substring(12).split(":");
             captura.jSpinnerHorasUTC.setValue(Integer.parseInt(horaMinutos[0]));
             captura.jSpinnerMinutosUTC.setValue(Integer.parseInt(horaMinutos[1]));
+            VJFrameVentanaCapturarModificaciones.horasPlanesOriginal = horaMinutos[0];
+            VJFrameVentanaCapturarModificaciones.minutosPlanesOriginal = horaMinutos[1];    
             String multiplesRenglones = "";
             for (int i = filaActual; i < filaActual + filasSeleccionadas; i++) {
                 String renglon = (String) jTablePlanes.getValueAt(i,17);
@@ -1869,6 +1896,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 }
             }
             captura.jTextArea1.setText(multiplesRenglones); // OTROS DATOS
+            VJFrameVentanaCapturarModificaciones.multiplesRenglonesOriginal = multiplesRenglones;
             int totalPasajeros = 0;
             int filaDondeInicia = filaActual;
             String idPasajero = (String) jTablePlanes.getValueAt(filaDondeInicia,19);
@@ -1876,26 +1904,158 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 idPasajero = (String) jTablePlanes.getValueAt(filaDondeInicia,19);
                 totalPasajeros++;
             }
-            String listaOriginalPasajeros [][] = new String [totalPasajeros][6];
-            String numeroPasajeros [][] = new String [totalPasajeros][6];
-            for (int i = 0; i < totalPasajeros; i++) {
-                for (int j = 0; j < 5; j++) {
-                    listaOriginalPasajeros[i][j] = jTablePlanes.getValueAt(filaActual + i,19 + j).toString();
-                    numeroPasajeros[i][j] = jTablePlanes.getValueAt(filaActual + i,19 + j).toString();
-                }
-            }
-            for (int k = 0; k < totalPasajeros; k++) {
-                numeroPasajeros[k][0] = numeroPasajeros[k][0].substring(12);
-            }
             if (0 < totalPasajeros) {
+                String listaOriginalPasajeros [][] = new String [totalPasajeros][6];
+                String numeroPasajeros [][] = new String [totalPasajeros][6];
+                for (int i = 0; i < totalPasajeros; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (j != 5) {
+                            listaOriginalPasajeros[i][j] = jTablePlanes.getValueAt(filaActual + i,19 + j).toString();
+                            numeroPasajeros[i][j] = jTablePlanes.getValueAt(filaActual + i,19 + j).toString();
+                        } else {
+                            listaOriginalPasajeros[i][j] = "";
+                            numeroPasajeros[i][j] = "";
+                        }
+                    }
+                }
+                for (int k = 0; k < totalPasajeros; k++) {
+                    numeroPasajeros[k][0] = numeroPasajeros[k][0].substring(12);
+                }
+                VJFrameVentanaCapturarModificaciones.listaPasajerosOriginal = listaOriginalPasajeros;
+                VJFrameVentanaCapturarModificaciones.numeracionPasajerosOriginal = numeroPasajeros;
+                VJFrameVentanaCapturarModificaciones.listaPasajeros = numeroPasajeros; // LISTA DE PASAJEROS
                 VJFrameVentanaCapturarModificaciones.jLabel19.setEnabled(true);
-                VJFrameVentanaCapturarModificaciones.listaPasajerosOriginal = numeroPasajeros;
+            } else {
+                VJFrameVentanaCapturarModificaciones.listaPasajerosOriginal = null;
+                VJFrameVentanaCapturarModificaciones.numeracionPasajerosOriginal = null;
+                VJFrameVentanaCapturarModificaciones.listaPasajeros = null; // LISTA DE PASAJEROS
+                VJFrameVentanaCapturarModificaciones.jLabel19.setEnabled(false);
             }
             
+            String rutaPDF = (String) jTablePlanes.getValueAt(filaActual,24);
+            if (rutaPDF != null) {
+                if (!rutaPDF.equals("")) {
+                    VJFrameVentanaCapturarModificaciones.rutaPDFPlanesOriginal = rutaPDF;
+                    VJFrameVentanaCapturarModificaciones.jLabel4.setEnabled(true);
+                } else {
+                    VJFrameVentanaCapturarModificaciones.rutaPDFPlanesOriginal = null;
+                }
+            } else {
+                VJFrameVentanaCapturarModificaciones.rutaPDFPlanesOriginal = null;
+            }
         } else if (jTabbedPane1.getSelectedIndex() == 1) {
             captura.jTabbedPane1.setSelectedIndex(0);
             captura.jComboBoxOperacionPlanes.setSelectedIndex(1);
             filaActual = jTableCierres.getSelectedRow();
+            filasSeleccionadas = jTableCierres.getSelectedRowCount();
+            VJFrameVentanaCapturarModificaciones.aeropuertoPlanesOriginal = jTableCierres.getValueAt(filaActual,12).toString();
+            VJFrameVentanaCapturarModificaciones.jTextField1.setText(jTableCierres.getValueAt(filaActual,12).toString()); // AEROPUERTO - OACIO
+            VJFrameVentanaCapturarModificaciones.jTextField2.setText(jTableCierres.getValueAt(filaActual,13).toString()); // AEROPUERTO - IATA
+            VJFrameVentanaCapturarModificaciones.jTextField3.setText(jTableCierres.getValueAt(filaActual,14).toString()); // AEROPUERTO - NOMBRE
+            VJFrameVentanaCapturarModificaciones.aeronavePlanesOriginal = jTableCierres.getValueAt(filaActual,15).toString();
+            VJFrameVentanaCapturarModificaciones.jTextField4.setText(jTableCierres.getValueAt(filaActual,15).toString()); // AERONAVE - MATRICULA
+            VJFrameVentanaCapturarModificaciones.jTextField5.setText(jTableCierres.getValueAt(filaActual,16).toString()); // AERONAVE - TIPO
+            VJFrameVentanaCapturarModificaciones.pilotoPlanesOriginal = jTableCierres.getValueAt(filaActual,2).toString();
+            VJFrameVentanaCapturarModificaciones.jTextField7.setText(jTableCierres.getValueAt(filaActual,2).toString()); // PILOTO - LICENCIA
+            String nombre = jTableCierres.getValueAt(filaActual,3).toString();
+            String aPaterno = jTableCierres.getValueAt(filaActual,4).toString();
+            String aMaterno = jTableCierres.getValueAt(filaActual,5).toString();
+            VJFrameVentanaCapturarModificaciones.jTextField6.setText(nombre + " " + aPaterno + " " + aMaterno); // PILOTO - NOMBRE COMPLETO
+            VJFrameVentanaCapturarModificaciones.jLabel14.setText(jTableCierres.getValueAt(filaActual,6).toString()); // PILOTO - TIPO LICENCIA
+            String copiloto = (String) jTableCierres.getValueAt(filaActual,7); // COPILOTO - LICENCIA
+            VJFrameVentanaCapturarModificaciones.copilotoPlanesOriginal = null;
+            if (copiloto != null) {
+                if (!copiloto.equals("")) {
+                    VJFrameVentanaCapturarModificaciones.copilotoPlanesOriginal = copiloto;
+                    VJFrameVentanaCapturarModificaciones.jTextField9.setText(copiloto); // COPILOTO - LICENCIA
+                    String nombreC = jTableCierres.getValueAt(filaActual,8).toString();
+                    String aPaternoC = jTableCierres.getValueAt(filaActual,9).toString();
+                    String aMaternoC = jTableCierres.getValueAt(filaActual,10).toString();
+                    VJFrameVentanaCapturarModificaciones.jTextField8.setText(nombreC + " " + aPaternoC + " " + aMaternoC); // COPILOTO - NOMBRE COMPLETO
+                    VJFrameVentanaCapturarModificaciones.jLabel38.setText(jTableCierres.getValueAt(filaActual,11).toString()); // COPILOTO - TIPO LICENCIA
+                    VJFrameVentanaCapturarModificaciones.botonBorrar.setEnabled(true);
+                } else {
+                    VJFrameVentanaCapturarModificaciones.copilotoPlanesOriginal = null;
+                }
+            } else {
+                VJFrameVentanaCapturarModificaciones.copilotoPlanesOriginal = null;
+            }
+            captura.jTextFieldPersonasPasajeros.setText(jTableCierres.getValueAt(filaActual,18).toString()); // TOTAL PERSONAS A BORDO
+            VJFrameVentanaCapturarModificaciones.numeroPPOriginal = jTableCierres.getValueAt(filaActual,18).toString();
+            String fechaYHora = jTableCierres.getValueAt(filaActual,1).toString(); // FECHA CON HORA
+            VJFrameVentanaCapturarModificaciones.fechaCompletaPlanesOriginal = fechaYHora + ":00";
+            String fechaFormatoBarras = fechaYHora.substring(0,10);
+            String fechaFormatoDiagonal = fechaFormatoBarras.replace("-","/");
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
+            try {
+                captura.jDateFecha.setDate(formatoFecha.parse(fechaFormatoDiagonal)); // FECHA
+                VJFrameVentanaCapturarModificaciones.fechaPlanesOriginal = fechaFormatoDiagonal;
+                captura.jLabel2.setForeground(Color.BLACK);
+            } catch (Exception e) {}
+            String horaMinutos [] = fechaYHora.substring(12).split(":");
+            captura.jSpinnerHorasUTC.setValue(Integer.parseInt(horaMinutos[0]));
+            captura.jSpinnerMinutosUTC.setValue(Integer.parseInt(horaMinutos[1]));
+            VJFrameVentanaCapturarModificaciones.horasPlanesOriginal = horaMinutos[0];
+            VJFrameVentanaCapturarModificaciones.minutosPlanesOriginal = horaMinutos[1];    
+            String multiplesRenglones = "";
+            for (int i = filaActual; i < filaActual + filasSeleccionadas; i++) {
+                String renglon = (String) jTableCierres.getValueAt(i,17);
+                if (renglon != null && !renglon.equals("")) {
+                    multiplesRenglones += renglon;
+                }
+                if (i != filaActual + filasSeleccionadas - 1 && renglon != null && !renglon.equals("")) {
+                   multiplesRenglones += "\n";
+                }
+            }
+            captura.jTextArea1.setText(multiplesRenglones); // OTROS DATOS
+            VJFrameVentanaCapturarModificaciones.multiplesRenglonesOriginal = multiplesRenglones;
+            int totalPasajeros = 0;
+            int filaDondeInicia = filaActual;
+            String idPasajero = (String) jTableCierres.getValueAt(filaDondeInicia,19);
+            while (idPasajero != null && !idPasajero.equals("") && filaDondeInicia++ < filaActual + filasSeleccionadas) {
+                idPasajero = (String) jTableCierres.getValueAt(filaDondeInicia,19);
+                totalPasajeros++;
+            }
+            if (0 < totalPasajeros) {
+                String listaOriginalPasajeros [][] = new String [totalPasajeros][6];
+                String numeroPasajeros [][] = new String [totalPasajeros][6];
+                for (int i = 0; i < totalPasajeros; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (j != 5) {
+                            listaOriginalPasajeros[i][j] = jTableCierres.getValueAt(filaActual + i,19 + j).toString();
+                            numeroPasajeros[i][j] = jTableCierres.getValueAt(filaActual + i,19 + j).toString();
+                        } else {
+                            listaOriginalPasajeros[i][j] = "";
+                            numeroPasajeros[i][j] = "";
+                        }
+                    }
+                }
+                for (int k = 0; k < totalPasajeros; k++) {
+                    numeroPasajeros[k][0] = numeroPasajeros[k][0].substring(12);
+                }
+                VJFrameVentanaCapturarModificaciones.listaPasajerosOriginal = listaOriginalPasajeros;
+                VJFrameVentanaCapturarModificaciones.numeracionPasajerosOriginal = numeroPasajeros;
+                VJFrameVentanaCapturarModificaciones.listaPasajeros = numeroPasajeros; // LISTA DE PASAJEROS
+                VJFrameVentanaCapturarModificaciones.jLabel19.setEnabled(true);
+            } else {
+                VJFrameVentanaCapturarModificaciones.listaPasajerosOriginal = null;
+                VJFrameVentanaCapturarModificaciones.numeracionPasajerosOriginal = null;
+                VJFrameVentanaCapturarModificaciones.listaPasajeros = null; // LISTA DE PASAJEROS
+                VJFrameVentanaCapturarModificaciones.jLabel19.setEnabled(false);
+            }
+            
+            String rutaPDF = (String) jTableCierres.getValueAt(filaActual,24);
+            if (rutaPDF != null) {
+                if (!rutaPDF.equals("")) {
+                    VJFrameVentanaCapturarModificaciones.rutaPDFPlanesOriginal = rutaPDF;
+                    VJFrameVentanaCapturarModificaciones.jLabel4.setEnabled(true);
+                } else {
+                    VJFrameVentanaCapturarModificaciones.rutaPDFPlanesOriginal = null;
+                }
+            } else {
+                VJFrameVentanaCapturarModificaciones.rutaPDFPlanesOriginal = null;
+            }
+            //
         } else if (jTabbedPane1.getSelectedIndex() == 2) {
             captura.jTabbedPane1.setSelectedIndex(1);
             captura.jComboBoxOperacionManifiestos.setSelectedIndex(0);

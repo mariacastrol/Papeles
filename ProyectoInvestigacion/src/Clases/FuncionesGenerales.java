@@ -10,6 +10,7 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.Arrays;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
@@ -136,7 +137,7 @@ public class FuncionesGenerales {
         int [] [] separador = new int [filas] [2];
         for (int i = 0; filas > i; i++) {
             InicioFin [i] = modelo.getValueAt(i, 1);
-            System.out.println("---" + InicioFin [i]);
+            //System.out.println("---" + InicioFin [i]);
         }
         int inicio = 0;
         int fin = 0;
@@ -166,7 +167,7 @@ public class FuncionesGenerales {
     
     public static String abrirPDFSeleccionada(JTable tabla, String nombreColumnaRuta, int filaPDF, int columnaNPDF) {
         String nombrePDF = (String) tabla.getValueAt(filaPDF,columnaNPDF);
-        System.out.println("--" + nombrePDF);
+        //System.out.println("--" + nombrePDF);
         if (nombrePDF != null) {
             int totalColumnas = tabla.getColumnCount();
             int columnaRuta = 1;
@@ -216,6 +217,23 @@ public class FuncionesGenerales {
         }
     }
     
+    public static boolean equal(final Object[][] array1, final Object[][] array2) {
+        if (array1 == null) {
+            return (array2 == null);
+        }
+        if (array2 == null) {
+            return false;
+        }
+        if (array1.length != array2.length) {
+            return false;
+        }
+        for (int i = 0; i < array1.length; i++) {
+            if (!Arrays.equals(array1[i], array2[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
     
     //!Character.isDigit(caracterValidar) && !Character.isAlphabetic(caracterValidar) && !Character.isISOControl(caracterValidar)) || cajaTextoAValidar.getText().length() == maxCaracteres
     //JTextField cajaTextoAValidar, int maxCaracteres, char caracterValidar
