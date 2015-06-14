@@ -2375,7 +2375,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel19;
     public javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
+    public javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -2429,11 +2429,11 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinnerHoraItinerario;
-    private javax.swing.JSpinner jSpinnerHoraReal;
+    public javax.swing.JSpinner jSpinnerHoraItinerario;
+    public javax.swing.JSpinner jSpinnerHoraReal;
     public javax.swing.JSpinner jSpinnerHorasUTC;
-    private javax.swing.JSpinner jSpinnerMinutosItinerario;
-    private javax.swing.JSpinner jSpinnerMinutosReal;
+    public javax.swing.JSpinner jSpinnerMinutosItinerario;
+    public javax.swing.JSpinner jSpinnerMinutosReal;
     public javax.swing.JSpinner jSpinnerMinutosUTC;
     public javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JTextArea jTextArea1;
@@ -2442,7 +2442,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     public static javax.swing.JTextField jTextField12;
     public static javax.swing.JTextField jTextField13;
     public static javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
+    public javax.swing.JTextField jTextField15;
     public static javax.swing.JTextField jTextField16;
     public static javax.swing.JTextField jTextField17;
     public static javax.swing.JTextField jTextField18;
@@ -2492,6 +2492,22 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     static String multiplesRenglonesOriginal;
     static String numeroPPOriginal;
     
+    static String companiaMOriginal;
+    static String aeronaveMOriginal;
+    static String noVueloMOriginal;
+    static String aeropuertoMOriginal;
+    static String comandanteMOriginal;
+    static String primerMOriginal;
+    static String segundoMOriginal;
+    static String terceroMOriginal;
+    static String listaSobrecargosOriginal;
+    static String [] embarqueOriginal;
+    static String rutaPDFMOriginal;
+    static String fechaHoraMOriginal;
+    static String horaItinerarioMOriginal;
+    static String minutosItinerarioMOriginal;
+    static String horaRealMOriginal;
+    static String minutosRealMOriginal;
     private void limpiarManifiesto() {
         botonSeleccionarCompaniaManifiestos.setForeground(new java.awt.Color(0,0,0));
         botonSeleccionarAeronaveManifiestos.setForeground(new java.awt.Color(0,0,0));

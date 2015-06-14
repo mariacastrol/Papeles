@@ -2060,6 +2060,131 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             captura.jTabbedPane1.setSelectedIndex(1);
             captura.jComboBoxOperacionManifiestos.setSelectedIndex(0);
             filaActual = jTableMS.getSelectedRow();
+            filasSeleccionadas = jTablePlanes.getSelectedRowCount();
+            VJFrameVentanaCapturarModificaciones.companiaMOriginal = jTableMS.getValueAt(filaActual,6).toString();
+            VJFrameVentanaCapturarModificaciones.jTextField11.setText(jTableMS.getValueAt(filaActual,6).toString()); // COMPAÑIA - NOMBRE
+            VJFrameVentanaCapturarModificaciones.jTextField12.setText(jTableMS.getValueAt(filaActual,5).toString()); // COMPAÑIA - SIGLAS  
+            VJFrameVentanaCapturarModificaciones.aeronaveMOriginal = jTableMS.getValueAt(filaActual,7).toString();
+            VJFrameVentanaCapturarModificaciones.jTextField13.setText(jTableMS.getValueAt(filaActual,8).toString()); // AERONAVE - EQUIPO
+            VJFrameVentanaCapturarModificaciones.jTextField14.setText(jTableMS.getValueAt(filaActual,7).toString()); // AERONAVE - MATRICULA
+            VJFrameVentanaCapturarModificaciones.noVueloMOriginal = jTableMS.getValueAt(filaActual,4).toString();
+            captura.jTextField15.setText(jTableMS.getValueAt(filaActual,4).toString()); // NUMERO DE VUELO
+            VJFrameVentanaCapturarModificaciones.aeropuertoMOriginal = jTableMS.getValueAt(filaActual,30).toString();
+            VJFrameVentanaCapturarModificaciones.jTextField16.setText(jTableMS.getValueAt(filaActual,32).toString()); // AEROPUERTO - NOMBRE
+            VJFrameVentanaCapturarModificaciones.jTextField18.setText(jTableMS.getValueAt(filaActual,30).toString()); // AEROPUERTO - IATA
+            VJFrameVentanaCapturarModificaciones.comandanteMOriginal = jTableMS.getValueAt(filaActual,9).toString();
+            VJFrameVentanaCapturarModificaciones.jTextField19.setText(jTableMS.getValueAt(filaActual,9).toString()); // COMANDANTE - LICENCIA
+            String nombreC = jTableMS.getValueAt(filaActual,10).toString();
+            String aPaternoC = jTableMS.getValueAt(filaActual,11).toString();
+            String aMaternoC = jTableMS.getValueAt(filaActual,12).toString();
+            VJFrameVentanaCapturarModificaciones.jTextField17.setText(nombreC + " " + aPaternoC + " " + aMaternoC); // COMANDANTE - NOMBRE COMPLETO
+            VJFrameVentanaCapturarModificaciones.jLabel18.setText(jTableMS.getValueAt(filaActual,13).toString()); // COMANDANTE - TIPO LICENCIA
+            VJFrameVentanaCapturarModificaciones.primerMOriginal = jTableMS.getValueAt(filaActual,14).toString();
+            VJFrameVentanaCapturarModificaciones.jTextField20.setText(jTableMS.getValueAt(filaActual,14).toString()); // PRIMER OFICIAL - LICENCIA
+            String nombreP = jTableMS.getValueAt(filaActual,15).toString();
+            String aPaternoP = jTableMS.getValueAt(filaActual,16).toString();
+            String aMaternoP = jTableMS.getValueAt(filaActual,17).toString();
+            VJFrameVentanaCapturarModificaciones.jTextField21.setText(nombreP + " " + aPaternoP + " " + aMaternoP); // PRIMER OFICIAL - NOMBRE COMPLETO
+            VJFrameVentanaCapturarModificaciones.jLabel53.setText(jTableMS.getValueAt(filaActual,18).toString()); // PRIMER OFICIAL - TIPO LICENCIA
+            String segundo = (String) jTableMS.getValueAt(filaActual,19); // SEGUNDO OFICIAL - LICENCIA
+            if (segundo != null) {
+                if (!segundo.equals("")) {
+                    VJFrameVentanaCapturarModificaciones.segundoMOriginal = segundo;
+                    VJFrameVentanaCapturarModificaciones.jTextField23.setText(segundo); // SEGUNDO OFICIAL - LICENCIA
+                    String nombreS = jTableMS.getValueAt(filaActual,20).toString();
+                    String aPaternoS = jTableMS.getValueAt(filaActual,21).toString();
+                    String aMaternoS = jTableMS.getValueAt(filaActual,22).toString();
+                    VJFrameVentanaCapturarModificaciones.jTextField22.setText(nombreS + " " + aPaternoS + " " + aMaternoS); // SEGUNDO OFICIAL - NOMBRE COMPLETO
+                    VJFrameVentanaCapturarModificaciones.jLabel51.setText(jTableMS.getValueAt(filaActual,23).toString()); // SEGUNDO OFICIAL - TIPO LICENCIA
+                    VJFrameVentanaCapturarModificaciones.botonBorrarSegundo.setEnabled(true);
+                } else {
+                    VJFrameVentanaCapturarModificaciones.segundoMOriginal = null;
+                }
+            } else {
+                VJFrameVentanaCapturarModificaciones.segundoMOriginal = null;
+            }
+            String tercero = (String) jTableMS.getValueAt(filaActual,24); // TERCER OFICIAL - LICENCIA
+            if (tercero != null) {
+                if (!tercero.equals("")) {
+                    VJFrameVentanaCapturarModificaciones.terceroMOriginal = tercero;
+                    VJFrameVentanaCapturarModificaciones.jTextField25.setText(tercero); // TERCER OFICIAL - LICENCIA
+                    String nombreS = jTableMS.getValueAt(filaActual,25).toString();
+                    String aPaternoS = jTableMS.getValueAt(filaActual,26).toString();
+                    String aMaternoS = jTableMS.getValueAt(filaActual,27).toString();
+                    VJFrameVentanaCapturarModificaciones.jTextField24.setText(nombreS + " " + aPaternoS + " " + aMaternoS); // TERCER OFICIAL - NOMBRE COMPLETO
+                    VJFrameVentanaCapturarModificaciones.jLabel52.setText(jTableMS.getValueAt(filaActual,28).toString()); // TERCER OFICIAL - TIPO LICENCIA
+                    VJFrameVentanaCapturarModificaciones.botonBorrarTercero.setEnabled(true);
+                } else {
+                    VJFrameVentanaCapturarModificaciones.terceroMOriginal = null;
+                }
+            } else {
+                VJFrameVentanaCapturarModificaciones.terceroMOriginal = null;
+            }
+            String sobrecargos = (String) jTableMS.getValueAt(filaActual,29); // LISTA SOBRECARGOS
+            if (sobrecargos != null) {
+                if (!sobrecargos.equals("")) {
+                    VJFrameVentanaCapturarModificaciones.listaSobrecargosOriginal = sobrecargos;
+                    VJFrameVentanaCapturarModificaciones.listaSobrecargos = sobrecargos;
+                    VJFrameVentanaCapturarModificaciones.jLabel48.setEnabled(true);
+                } else {
+                    VJFrameVentanaCapturarModificaciones.listaSobrecargosOriginal = null;
+                    VJFrameVentanaCapturarModificaciones.listaSobrecargos = null;
+                    VJFrameVentanaCapturarModificaciones.jLabel48.setEnabled(false);
+                }
+            } else {
+                VJFrameVentanaCapturarModificaciones.listaSobrecargosOriginal = null;
+                VJFrameVentanaCapturarModificaciones.listaSobrecargos = null;
+                VJFrameVentanaCapturarModificaciones.jLabel48.setEnabled(false);
+            }
+            /////////////////
+            String [] embarque = {
+                (String) jTableMS.getValueAt(filaActual,33),
+                (String) jTableMS.getValueAt(filaActual,34),
+                (String) jTableMS.getValueAt(filaActual,35),
+                (String) jTableMS.getValueAt(filaActual,36),
+                (String) jTableMS.getValueAt(filaActual,37),
+                (String) jTableMS.getValueAt(filaActual,38),
+                (String) jTableMS.getValueAt(filaActual,39),
+                (String) jTableMS.getValueAt(filaActual,40),
+                (String) jTableMS.getValueAt(filaActual,41),
+                (String) jTableMS.getValueAt(filaActual,42),
+                (String) jTableMS.getValueAt(filaActual,43)
+            };
+            VJFrameVentanaCapturarModificaciones.embarqueOriginal = embarque;
+            VJFrameVentanaCapturarModificaciones.embarque = embarque;
+            VJFrameVentanaCapturarModificaciones.jLabel40.setEnabled(true);
+            String rutaPDF = (String) jTableMS.getValueAt(filaActual,44);
+            if (rutaPDF != null) {
+                if (!rutaPDF.equals("")) {
+                    VJFrameVentanaCapturarModificaciones.rutaPDFMOriginal = rutaPDF;
+                    VJFrameVentanaCapturarModificaciones.jLabel39.setEnabled(true);
+                } else {
+                    VJFrameVentanaCapturarModificaciones.rutaPDFMOriginal = null;
+                }
+            } else {
+                VJFrameVentanaCapturarModificaciones.rutaPDFMOriginal = null;
+            }
+            String fecha = jTableMS.getValueAt(filaActual,1).toString(); // FECHA
+            String horaItinerario = jTableMS.getValueAt(filaActual,2).toString(); // HORA ITINERARIO
+            String horaReal = jTableMS.getValueAt(filaActual,3).toString(); // HORA REAL
+            VJFrameVentanaCapturarModificaciones.fechaCompletaPlanesOriginal = fecha + " " + horaItinerario + ":00";
+            String fechaFormatoDiagonal = fecha.replace("-","/");
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
+            try {
+                captura.jDateChooser2.setDate(formatoFecha.parse(fechaFormatoDiagonal)); // FECHA
+                VJFrameVentanaCapturarModificaciones.fechaHoraMOriginal = fechaFormatoDiagonal;
+                captura.jLabel21.setForeground(Color.BLACK);
+            } catch (Exception e) {}
+            String horaMinutos [] = horaItinerario.split(":");
+            captura.jSpinnerHoraItinerario.setValue(Integer.parseInt(horaMinutos[0]));
+            captura.jSpinnerMinutosItinerario.setValue(Integer.parseInt(horaMinutos[1]));
+            VJFrameVentanaCapturarModificaciones.horaItinerarioMOriginal = horaMinutos[0];
+            VJFrameVentanaCapturarModificaciones.minutosItinerarioMOriginal = horaMinutos[1];
+            String horaMinutosReal [] = horaReal.split(":");
+            captura.jSpinnerHoraReal.setValue(Integer.parseInt(horaMinutosReal[0]));
+            captura.jSpinnerMinutosReal.setValue(Integer.parseInt(horaMinutosReal[1]));
+            VJFrameVentanaCapturarModificaciones.horaRealMOriginal = horaMinutosReal[0];
+            VJFrameVentanaCapturarModificaciones.minutosRealMOriginal = horaMinutosReal[1];
         } else {
             captura.jTabbedPane1.setSelectedIndex(1);
             captura.jComboBoxOperacionManifiestos.setSelectedIndex(1);
