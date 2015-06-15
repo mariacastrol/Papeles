@@ -948,12 +948,14 @@ public class VLJDialogSegundos extends javax.swing.JDialog {
     private final int bError = 0;
     private JTextField [] camposTextos = new JTextField[2];
     private Color colorFondo;
+    private String licenciaS;
     
-    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
+    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK, String segundo) {
         if (ping.conectarBD(sv,us,pw,dB)) {
             columnasTablaMysql = cTM;
             nombreTablaMysql = nTM;
             this.pK = pK;
+            licenciaS = segundo;
             arregloTextField();
             colorFondo = jPanel1.getBackground();
             jLabelObligatorios.setForeground(colorFondo);
@@ -993,11 +995,27 @@ public class VLJDialogSegundos extends javax.swing.JDialog {
             jLabel33.setForeground(new java.awt.Color(rError,gError,bError));
             jLabel1.setForeground(new java.awt.Color(rError,gError,bError));         
         } else {
-            AJFrameVentanaCapturas.jTextField22.setText(jTextFieldSNombreCompleto.getText());
-            AJFrameVentanaCapturas.jTextField23.setText(jTextFieldSLicencia.getText());
-            AJFrameVentanaCapturas.jLabel51.setText(jLabelSTLicencia.getText());
-            AJFrameVentanaCapturas.botonBorrarSegundo.setEnabled(true);
-            this.dispose();  
+            String lic = jTextFieldSLicencia.getText();
+            VJFrameVentanaCapturarModificaciones.jTextField22.setText(jTextFieldSNombreCompleto.getText());
+            VJFrameVentanaCapturarModificaciones.jTextField23.setText(jTextFieldSLicencia.getText());
+            VJFrameVentanaCapturarModificaciones.jLabel51.setText(jLabelSTLicencia.getText());
+            if (licenciaS != null) {
+                if (!licenciaS.equals(lic)) {
+                    VJFrameVentanaCapturarModificaciones.jTextField22.setForeground(new java.awt.Color(0,100,0));
+                    VJFrameVentanaCapturarModificaciones.jTextField23.setForeground(new java.awt.Color(0,100,0));
+                    VJFrameVentanaCapturarModificaciones.jLabel51.setForeground(new java.awt.Color(0,100,0));
+                } else {
+                    VJFrameVentanaCapturarModificaciones.jTextField22.setForeground(Color.BLACK);
+                    VJFrameVentanaCapturarModificaciones.jTextField23.setForeground(Color.BLACK);
+                    VJFrameVentanaCapturarModificaciones.jLabel51.setForeground(Color.BLACK);
+                }
+            } else {
+                VJFrameVentanaCapturarModificaciones.jTextField22.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.jTextField23.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.jLabel51.setForeground(new java.awt.Color(0,100,0));
+            }
+            VJFrameVentanaCapturarModificaciones.botonBorrarSegundo.setEnabled(true);
+            this.dispose(); 
         }
     }
     

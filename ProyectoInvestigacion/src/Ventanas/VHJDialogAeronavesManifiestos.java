@@ -1116,12 +1116,14 @@ public class VHJDialogAeronavesManifiestos extends javax.swing.JDialog {
     private final int bError = 0;
     private JTextField [] camposTextos = new JTextField[2];
     private Color colorFondo;
+    private String aeronave;
     
-    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
+    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK, String matricula) {
         if (ping.conectarBD(sv,us,pw,dB)) {
             columnasTablaMysql = cTM;
             nombreTablaMysql = nTM;
             this.pK = pK;
+            aeronave = matricula;
             arregloTextField();
             colorFondo = jPanel1.getBackground();
             jLabelObligatorios.setForeground(colorFondo);
@@ -1157,10 +1159,17 @@ public class VHJDialogAeronavesManifiestos extends javax.swing.JDialog {
             jLabel14.setForeground(new java.awt.Color(rError,gError,bError));
             jLabel1.setForeground(new java.awt.Color(rError,gError,bError));
         } else {
-            AJFrameVentanaCapturas.jTextField14.setText(jTextFieldSMatricula.getText());
-            AJFrameVentanaCapturas.jTextField13.setText(jTextFieldSEquipo.getText());
-            AJFrameVentanaCapturas.botonSeleccionarAeronaveManifiestos.setForeground(new java.awt.Color(0,0,0));
-            this.dispose();  
+           if (!aeronave.equals(jTextFieldSMatricula.getText())) {
+                VJFrameVentanaCapturarModificaciones.jTextField14.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.jTextField13.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.botonSeleccionarAeronaveManifiestos.setForeground(new java.awt.Color(0,0,0));
+            } else {
+                VJFrameVentanaCapturarModificaciones.jTextField14.setForeground(Color.BLACK);
+                VJFrameVentanaCapturarModificaciones.jTextField13.setForeground(Color.BLACK);
+            }
+            VJFrameVentanaCapturarModificaciones.jTextField14.setText(jTextFieldSMatricula.getText());
+            VJFrameVentanaCapturarModificaciones.jTextField13.setText(jTextFieldSEquipo.getText());
+            this.dispose();
         }
     }
     

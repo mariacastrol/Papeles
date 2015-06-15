@@ -948,12 +948,14 @@ public class VKJDialogPrimeros extends javax.swing.JDialog {
     private final int bError = 0;
     private JTextField [] camposTextos = new JTextField[2];
     private Color colorFondo;
+    private String licenciaP;
     
-    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
+    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK, String primer) {
         if (ping.conectarBD(sv,us,pw,dB)) {
             columnasTablaMysql = cTM;
             nombreTablaMysql = nTM;
             this.pK = pK;
+            licenciaP = primer;
             arregloTextField();
             colorFondo = jPanel1.getBackground();
             jLabelObligatorios.setForeground(colorFondo);
@@ -993,10 +995,19 @@ public class VKJDialogPrimeros extends javax.swing.JDialog {
             jLabel33.setForeground(new java.awt.Color(rError,gError,bError));
             jLabel1.setForeground(new java.awt.Color(rError,gError,bError));        
         } else {
-            AJFrameVentanaCapturas.jTextField21.setText(jTextFieldSNombreCompleto.getText());
-            AJFrameVentanaCapturas.jTextField20.setText(jTextFieldSLicencia.getText());
-            AJFrameVentanaCapturas.jLabel53.setText(jLabelSTLicencia.getText());
-            AJFrameVentanaCapturas.botonSeleccionarPrimer.setForeground(new java.awt.Color(0,0,0));
+            if (!licenciaP.equals(jTextFieldSLicencia.getText())) {
+                VJFrameVentanaCapturarModificaciones.jTextField21.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.jTextField20.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.jLabel53.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.botonSeleccionarPrimer.setForeground(new java.awt.Color(0,0,0));
+            } else {
+                VJFrameVentanaCapturarModificaciones.jTextField21.setForeground(Color.BLACK);
+                VJFrameVentanaCapturarModificaciones.jTextField20.setForeground(Color.BLACK);
+                VJFrameVentanaCapturarModificaciones.jLabel53.setForeground(Color.BLACK);
+            }
+            VJFrameVentanaCapturarModificaciones.jTextField21.setText(jTextFieldSNombreCompleto.getText());
+            VJFrameVentanaCapturarModificaciones.jTextField20.setText(jTextFieldSLicencia.getText());
+            VJFrameVentanaCapturarModificaciones.jLabel53.setText(jLabelSTLicencia.getText());
             this.dispose();  
         }
     }

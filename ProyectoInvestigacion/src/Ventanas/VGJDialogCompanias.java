@@ -850,12 +850,14 @@ public class VGJDialogCompanias extends javax.swing.JDialog {
     private final int bError = 0;
     private JTextField [] camposTextos = new JTextField[2];
     private Color colorFondo;
+    private String compania;
     
-    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
+    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK, String siglas) {
         if (ping.conectarBD(sv,us,pw,dB)) {
             columnasTablaMysql = cTM;
             nombreTablaMysql = nTM;
             this.pK = pK;
+            compania = siglas;
             arregloTextField();
             colorFondo = jPanel1.getBackground();
             jLabelObligatorios.setForeground(colorFondo);
@@ -891,10 +893,7 @@ public class VGJDialogCompanias extends javax.swing.JDialog {
             jLabel32.setForeground(new java.awt.Color(rError,gError,bError));
             jLabel1.setForeground(new java.awt.Color(rError,gError,bError));
         } else {
-            ///
-            /*if (!matricula.equals(jTextFieldSSiglas.getText())) {
-                VJFrameVentanaCapturarModificaciones.jTextField12.setText(jTextFieldSSiglas.getText());
-                VJFrameVentanaCapturarModificaciones.jTextField11.setText(jTextFieldSCompania.getText());
+            if (!compania.equals(jTextFieldSSiglas.getText())) {
                 VJFrameVentanaCapturarModificaciones.jTextField12.setForeground(new java.awt.Color(0,100,0));
                 VJFrameVentanaCapturarModificaciones.jTextField11.setForeground(new java.awt.Color(0,100,0));
                 VJFrameVentanaCapturarModificaciones.botonSeleccionarCompaniaManifiestos.setForeground(new java.awt.Color(0,0,0));
@@ -902,7 +901,9 @@ public class VGJDialogCompanias extends javax.swing.JDialog {
                 VJFrameVentanaCapturarModificaciones.jTextField12.setForeground(Color.BLACK);
                 VJFrameVentanaCapturarModificaciones.jTextField11.setForeground(Color.BLACK);
             }
-            this.dispose();*/
+            VJFrameVentanaCapturarModificaciones.jTextField12.setText(jTextFieldSSiglas.getText());
+            VJFrameVentanaCapturarModificaciones.jTextField11.setText(jTextFieldSCompania.getText());
+            this.dispose();
         }
     }
     

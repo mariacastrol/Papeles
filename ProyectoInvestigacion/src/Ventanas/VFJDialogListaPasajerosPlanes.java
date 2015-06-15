@@ -361,7 +361,6 @@ public class VFJDialogListaPasajerosPlanes extends javax.swing.JDialog {
             VJFrameVentanaCapturarModificaciones.jLabel19.setEnabled(false);
             if(VJFrameVentanaCapturarModificaciones.numeracionPasajerosOriginal != null) {
                 VJFrameVentanaCapturarModificaciones.jLabel19.setForeground(new java.awt.Color(0,100,0));
-                //System.out.println("se ejecuta");
             } else {
                 VJFrameVentanaCapturarModificaciones.jLabel19.setForeground(Color.BLACK);
             }

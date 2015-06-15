@@ -942,9 +942,6 @@ public class VBJDialogAeropuertosPlanes extends javax.swing.JDialog {
             jLabel1.setForeground(new java.awt.Color(rError,gError,bError));
         } else {
             if (!codigoOACI.equals(jTextFieldSOACI.getText())) {
-                VJFrameVentanaCapturarModificaciones.jTextField1.setText(jTextFieldSOACI.getText());
-                VJFrameVentanaCapturarModificaciones.jTextField2.setText(jTextFieldSIATA.getText());
-                VJFrameVentanaCapturarModificaciones.jTextField3.setText(jTextFieldSNombre.getText());
                 VJFrameVentanaCapturarModificaciones.jTextField1.setForeground(new java.awt.Color(0,100,0));
                 VJFrameVentanaCapturarModificaciones.jTextField2.setForeground(new java.awt.Color(0,100,0));
                 VJFrameVentanaCapturarModificaciones.jTextField3.setForeground(new java.awt.Color(0,100,0));
@@ -954,6 +951,9 @@ public class VBJDialogAeropuertosPlanes extends javax.swing.JDialog {
                 VJFrameVentanaCapturarModificaciones.jTextField2.setForeground(Color.BLACK);
                 VJFrameVentanaCapturarModificaciones.jTextField3.setForeground(Color.BLACK);
             }
+            VJFrameVentanaCapturarModificaciones.jTextField1.setText(jTextFieldSOACI.getText());
+            VJFrameVentanaCapturarModificaciones.jTextField2.setText(jTextFieldSIATA.getText());
+            VJFrameVentanaCapturarModificaciones.jTextField3.setText(jTextFieldSNombre.getText());
             this.dispose();  
         }
     }

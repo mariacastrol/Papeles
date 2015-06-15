@@ -6,6 +6,7 @@
 package Ventanas;
 
 import Clases.FuncionesGenerales;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -231,11 +232,21 @@ public class VNJDialogListaSobrecargos extends javax.swing.JDialog {
                     sobrecargos += jTableSobrecargos.getValueAt(i,0);
                 }
             }
-            AJFrameVentanaCapturas.listaSobrecargos = sobrecargos;
-            AJFrameVentanaCapturas.jLabel48.setEnabled(true);   
+            if(!sobrecargos.equals(VJFrameVentanaCapturarModificaciones.listaSobrecargosOriginal)) {
+                VJFrameVentanaCapturarModificaciones.jLabel48.setForeground(new java.awt.Color(0,100,0));
+            } else {
+                VJFrameVentanaCapturarModificaciones.jLabel48.setForeground(Color.BLACK);
+            }
+            VJFrameVentanaCapturarModificaciones.listaSobrecargos = sobrecargos;
+            VJFrameVentanaCapturarModificaciones.jLabel48.setEnabled(true);
         } else {
-            AJFrameVentanaCapturas.listaSobrecargos = null;
-            AJFrameVentanaCapturas.jLabel48.setEnabled(false);
+            VJFrameVentanaCapturarModificaciones.listaSobrecargos = "";
+            VJFrameVentanaCapturarModificaciones.jLabel48.setEnabled(false);
+            if(VJFrameVentanaCapturarModificaciones.listaSobrecargosOriginal != null) {
+                VJFrameVentanaCapturarModificaciones.jLabel48.setForeground(new java.awt.Color(0,100,0));
+            } else {
+                VJFrameVentanaCapturarModificaciones.jLabel48.setForeground(Color.BLACK);
+            }
         }
         this.dispose();     
     }//GEN-LAST:event_botonGrabarActionPerformed

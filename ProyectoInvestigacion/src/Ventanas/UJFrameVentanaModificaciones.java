@@ -1832,8 +1832,11 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         VJFrameVentanaCapturarModificaciones captura = new VJFrameVentanaCapturarModificaciones();
         
         if (jTabbedPane1.getSelectedIndex() == 0) {
+            captura.jTabbedPane1.setEnabledAt(0,true);
+            captura.jTabbedPane1.setEnabledAt(1,false);
             captura.jTabbedPane1.setSelectedIndex(0);
             captura.jComboBoxOperacionPlanes.setSelectedIndex(0);
+            captura.jComboBoxOperacionPlanes.setEnabled(false);
             filaActual = jTablePlanes.getSelectedRow();
             filasSeleccionadas = jTablePlanes.getSelectedRowCount();
             VJFrameVentanaCapturarModificaciones.aeropuertoPlanesOriginal = jTablePlanes.getValueAt(filaActual,12).toString();
@@ -1944,8 +1947,11 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 VJFrameVentanaCapturarModificaciones.rutaPDFPlanesOriginal = null;
             }
         } else if (jTabbedPane1.getSelectedIndex() == 1) {
+            captura.jTabbedPane1.setEnabledAt(0,true);
+            captura.jTabbedPane1.setEnabledAt(1,false);
             captura.jTabbedPane1.setSelectedIndex(0);
             captura.jComboBoxOperacionPlanes.setSelectedIndex(1);
+            captura.jComboBoxOperacionPlanes.setEnabled(false);
             filaActual = jTableCierres.getSelectedRow();
             filasSeleccionadas = jTableCierres.getSelectedRowCount();
             VJFrameVentanaCapturarModificaciones.aeropuertoPlanesOriginal = jTableCierres.getValueAt(filaActual,12).toString();
@@ -2057,11 +2063,14 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             }
             //
         } else if (jTabbedPane1.getSelectedIndex() == 2) {
+            captura.jTabbedPane1.setEnabledAt(0,false);
+            captura.jTabbedPane1.setEnabledAt(1,true);
             captura.jTabbedPane1.setSelectedIndex(1);
             captura.jComboBoxOperacionManifiestos.setSelectedIndex(0);
+            captura.jComboBoxOperacionManifiestos.setEnabled(false);
             filaActual = jTableMS.getSelectedRow();
             filasSeleccionadas = jTablePlanes.getSelectedRowCount();
-            VJFrameVentanaCapturarModificaciones.companiaMOriginal = jTableMS.getValueAt(filaActual,6).toString();
+            VJFrameVentanaCapturarModificaciones.companiaMOriginal = jTableMS.getValueAt(filaActual,5).toString();
             VJFrameVentanaCapturarModificaciones.jTextField11.setText(jTableMS.getValueAt(filaActual,6).toString()); // COMPAÑIA - NOMBRE
             VJFrameVentanaCapturarModificaciones.jTextField12.setText(jTableMS.getValueAt(filaActual,5).toString()); // COMPAÑIA - SIGLAS  
             VJFrameVentanaCapturarModificaciones.aeronaveMOriginal = jTableMS.getValueAt(filaActual,7).toString();
@@ -2136,7 +2145,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 VJFrameVentanaCapturarModificaciones.listaSobrecargos = null;
                 VJFrameVentanaCapturarModificaciones.jLabel48.setEnabled(false);
             }
-            /////////////////
             String [] embarque = {
                 (String) jTableMS.getValueAt(filaActual,33),
                 (String) jTableMS.getValueAt(filaActual,34),
@@ -2156,7 +2164,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             String rutaPDF = (String) jTableMS.getValueAt(filaActual,44);
             if (rutaPDF != null) {
                 if (!rutaPDF.equals("")) {
-                    VJFrameVentanaCapturarModificaciones.rutaPDFMOriginal = rutaPDF;
+                    VJFrameVentanaCapturarModificaciones.rutaPDFMOriginal = rutaPDF; // PDF - RUTA
                     VJFrameVentanaCapturarModificaciones.jLabel39.setEnabled(true);
                 } else {
                     VJFrameVentanaCapturarModificaciones.rutaPDFMOriginal = null;
@@ -2167,12 +2175,12 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             String fecha = jTableMS.getValueAt(filaActual,1).toString(); // FECHA
             String horaItinerario = jTableMS.getValueAt(filaActual,2).toString(); // HORA ITINERARIO
             String horaReal = jTableMS.getValueAt(filaActual,3).toString(); // HORA REAL
-            VJFrameVentanaCapturarModificaciones.fechaCompletaPlanesOriginal = fecha + " " + horaItinerario + ":00";
+            VJFrameVentanaCapturarModificaciones.fechaHoraMOriginal = fecha + " " + horaItinerario + ":00";
             String fechaFormatoDiagonal = fecha.replace("-","/");
             SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
             try {
                 captura.jDateChooser2.setDate(formatoFecha.parse(fechaFormatoDiagonal)); // FECHA
-                VJFrameVentanaCapturarModificaciones.fechaHoraMOriginal = fechaFormatoDiagonal;
+                VJFrameVentanaCapturarModificaciones.fechaMOriginal = fechaFormatoDiagonal;
                 captura.jLabel21.setForeground(Color.BLACK);
             } catch (Exception e) {}
             String horaMinutos [] = horaItinerario.split(":");

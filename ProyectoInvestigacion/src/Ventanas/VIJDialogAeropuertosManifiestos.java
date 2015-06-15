@@ -916,12 +916,14 @@ public class VIJDialogAeropuertosManifiestos extends javax.swing.JDialog {
     private final int bError = 0;
     private JTextField [] camposTextos = new JTextField[3];
     private Color colorFondo;
+    private String iata;
     
-    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
+    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK, String siglas) {
         if (ping.conectarBD(sv,us,pw,dB)) {
             columnasTablaMysql = cTM;
             nombreTablaMysql = nTM;
             this.pK = pK;
+            iata = siglas;
             arregloTextField();
             colorFondo = jPanel1.getBackground();
             jLabelObligatorios.setForeground(colorFondo);
@@ -961,10 +963,17 @@ public class VIJDialogAeropuertosManifiestos extends javax.swing.JDialog {
             jLabel13.setForeground(new java.awt.Color(rError,gError,bError));
             jLabel1.setForeground(new java.awt.Color(rError,gError,bError));
         } else {
-            AJFrameVentanaCapturas.jTextField18.setText(jTextFieldSIATA.getText());
-            AJFrameVentanaCapturas.jTextField16.setText(jTextFieldSNombre.getText());
-            AJFrameVentanaCapturas.botonSeleccionarAeropuertoManifiestos.setForeground(new java.awt.Color(0,0,0));
-            this.dispose();  
+            if (!iata.equals(jTextFieldSIATA.getText())) {
+                VJFrameVentanaCapturarModificaciones.jTextField18.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.jTextField16.setForeground(new java.awt.Color(0,100,0));
+                VJFrameVentanaCapturarModificaciones.botonSeleccionarAeropuertoManifiestos.setForeground(new java.awt.Color(0,0,0));
+            } else {
+                VJFrameVentanaCapturarModificaciones.jTextField18.setForeground(Color.BLACK);
+                VJFrameVentanaCapturarModificaciones.jTextField16.setForeground(Color.BLACK);
+            }
+            VJFrameVentanaCapturarModificaciones.jTextField18.setText(jTextFieldSIATA.getText());
+            VJFrameVentanaCapturarModificaciones.jTextField16.setText(jTextFieldSNombre.getText());
+            this.dispose();
         }
     }
     

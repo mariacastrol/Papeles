@@ -1153,8 +1153,6 @@ public class VCJDialogAeronavesPlanes extends javax.swing.JDialog {
             jLabel1.setForeground(new java.awt.Color(rError,gError,bError));
         } else {
             if (!matricula.equals(jTextFieldSMatricula.getText())) {
-                VJFrameVentanaCapturarModificaciones.jTextField4.setText(jTextFieldSMatricula.getText());
-                VJFrameVentanaCapturarModificaciones.jTextField5.setText(jTextFieldSTipo.getText());
                 VJFrameVentanaCapturarModificaciones.jTextField4.setForeground(new java.awt.Color(0,100,0));
                 VJFrameVentanaCapturarModificaciones.jTextField5.setForeground(new java.awt.Color(0,100,0));
                 VJFrameVentanaCapturarModificaciones.botonSeleccionarAeronavePlanes.setForeground(new java.awt.Color(0,0,0));
@@ -1162,6 +1160,8 @@ public class VCJDialogAeronavesPlanes extends javax.swing.JDialog {
                 VJFrameVentanaCapturarModificaciones.jTextField4.setForeground(Color.BLACK);
                 VJFrameVentanaCapturarModificaciones.jTextField5.setForeground(Color.BLACK);
             }
+            VJFrameVentanaCapturarModificaciones.jTextField4.setText(jTextFieldSMatricula.getText());
+            VJFrameVentanaCapturarModificaciones.jTextField5.setText(jTextFieldSTipo.getText());
             this.dispose();
         }
     }

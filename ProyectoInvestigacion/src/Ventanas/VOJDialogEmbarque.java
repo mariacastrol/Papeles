@@ -7,6 +7,7 @@ package Ventanas;
 
 import Clases.FuncionesGenerales;
 import java.awt.Color;
+import java.util.Arrays;
 import javax.swing.JTextField;
 
 /**
@@ -750,8 +751,13 @@ public class VOJDialogEmbarque extends javax.swing.JDialog {
                 jTextFieldCargaPzas.getText() + "/" + jTextFieldCargaKg.getText(),
                 jTextFieldCorreoPzas.getText() + "/" + jTextFieldCorreoKg.getText()
             };          
-            AJFrameVentanaCapturas.embarque = embarqueDeclarado;
-            AJFrameVentanaCapturas.jLabel40.setEnabled(true);
+            VJFrameVentanaCapturarModificaciones.embarque = embarqueDeclarado;
+            VJFrameVentanaCapturarModificaciones.jLabel40.setEnabled(true);
+            if(!Arrays.equals(embarqueDeclarado,VJFrameVentanaCapturarModificaciones.embarqueOriginal)) {
+                VJFrameVentanaCapturarModificaciones.jLabel40.setForeground(new java.awt.Color(0,100,0));
+            } else {
+                VJFrameVentanaCapturarModificaciones.jLabel40.setForeground(Color.BLACK);
+            }
             this.dispose();
         } else {
             jLabel17.setForeground(new java.awt.Color(rError,gError,bError));

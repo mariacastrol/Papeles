@@ -996,9 +996,6 @@ public class VDJDialogPilotosPlanes extends javax.swing.JDialog {
             jLabel1.setForeground(new java.awt.Color(rError,gError,bError));        
         } else {
             if (!nLicencia.equals(jTextFieldSLicencia.getText())) {
-                VJFrameVentanaCapturarModificaciones.jTextField6.setText(jTextFieldSNombreCompleto.getText());
-                VJFrameVentanaCapturarModificaciones.jTextField7.setText(jTextFieldSLicencia.getText());
-                VJFrameVentanaCapturarModificaciones.jLabel14.setText(jLabelSTLicencia.getText());
                 VJFrameVentanaCapturarModificaciones.jTextField6.setForeground(new java.awt.Color(0,100,0));
                 VJFrameVentanaCapturarModificaciones.jTextField7.setForeground(new java.awt.Color(0,100,0));
                 VJFrameVentanaCapturarModificaciones.jLabel14.setForeground(new java.awt.Color(0,100,0));
@@ -1008,6 +1005,9 @@ public class VDJDialogPilotosPlanes extends javax.swing.JDialog {
                 VJFrameVentanaCapturarModificaciones.jTextField7.setForeground(Color.BLACK);
                 VJFrameVentanaCapturarModificaciones.jLabel14.setForeground(Color.BLACK);
             }
+            VJFrameVentanaCapturarModificaciones.jTextField6.setText(jTextFieldSNombreCompleto.getText());
+            VJFrameVentanaCapturarModificaciones.jTextField7.setText(jTextFieldSLicencia.getText());
+            VJFrameVentanaCapturarModificaciones.jLabel14.setText(jLabelSTLicencia.getText());
             this.dispose();  
         }
     }

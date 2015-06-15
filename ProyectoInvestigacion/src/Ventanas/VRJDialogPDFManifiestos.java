@@ -8,6 +8,7 @@ package Ventanas;
 import Clases.ConexionMysql;
 import Clases.FuncionesGenerales;
 import java.awt.Color;
+import java.io.File;
 import java.util.regex.Matcher;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -485,7 +486,9 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
         FileNameExtensionFilter filtroPDF = new FileNameExtensionFilter("Archivos pdf","pdf");
         JFileChooser fc = new JFileChooser();
         if (botonActualizar.isEnabled()) {
-           // fc.setCurrentDirectory(rutaActual);
+           rutaActual = jTextFieldAARutaPDF.getText();
+            fc.setCurrentDirectory(new File (rutaActual));
+            fc.setSelectedFile(new File(jTextFieldAANombrePDF.getText()));
         }
         fc.setMultiSelectionEnabled(false);
         fc.setFileFilter(filtroPDF);
@@ -2630,12 +2633,14 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
     private final int bError = 0;
     private Color colorFondo;
     private String rutaActual;
+    private String rutaOriginal;
     
-    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {
+    public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK, String pdf) {
         if (ping.conectarBD(sv,us,pw,dB)) {
             columnasTablaMysql = cTM;
             nombreTablaMysql = nTM;
             this.pK = pK;
+            rutaOriginal = pdf;
             colorFondo = jPanel1.getBackground();
             jLabelObligatorios.setForeground(colorFondo);
             if(!ping.mostrarColumnasTablaMysqlSimple(jTablePDFPlanes, nombreTablaMysql, columnasTablaMysql)){
@@ -2664,11 +2669,24 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
     
     private void funcionVolver() {
         if (FuncionesGenerales.estaVacioJTextField(jTextFieldSRutaPDF)) {
-            AJFrameVentanaCapturas.jLabel39.setEnabled(false);
-            AJFrameVentanaCapturas.rutaPDF = null;
+            VJFrameVentanaCapturarModificaciones.jLabel39.setEnabled(false);
+            VJFrameVentanaCapturarModificaciones.rutaPDF = null;
         } else {
-            AJFrameVentanaCapturas.jLabel39.setEnabled(true);
-            AJFrameVentanaCapturas.rutaPDF = jTextFieldSRutaPDF.getText();
+            VJFrameVentanaCapturarModificaciones.jLabel39.setEnabled(true);
+            VJFrameVentanaCapturarModificaciones.rutaPDF = jTextFieldSRutaPDF.getText();
+        }
+        if (rutaOriginal == null) {
+            if (FuncionesGenerales.estaVacioJTextField(jTextFieldSRutaPDF)) {
+                VJFrameVentanaCapturarModificaciones.jLabel39.setForeground(Color.BLACK);
+            } else {
+                VJFrameVentanaCapturarModificaciones.jLabel39.setForeground(new java.awt.Color(0,100,0));
+            }
+        } else {
+            if (rutaOriginal.equals(jTextFieldSRutaPDF.getText())) {
+                VJFrameVentanaCapturarModificaciones.jLabel39.setForeground(Color.BLACK);
+            } else{
+                VJFrameVentanaCapturarModificaciones.jLabel39.setForeground(new java.awt.Color(0,100,0));
+            }
         }
         this.dispose(); 
     }
