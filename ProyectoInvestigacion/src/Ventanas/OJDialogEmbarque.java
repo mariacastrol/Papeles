@@ -237,6 +237,9 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
 
         jTextFieldTI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldTI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldTIKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldTIKeyTyped(evt);
             }
@@ -246,6 +249,9 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
 
         jTextFieldEN.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldEN.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldENKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldENKeyTyped(evt);
             }
@@ -255,6 +261,9 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
 
         jTextFieldInt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldInt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldIntKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldIntKeyTyped(evt);
             }
@@ -264,6 +273,9 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
 
         jTextFieldEI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldEI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldEIKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldEIKeyTyped(evt);
             }
@@ -273,6 +285,9 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
 
         jTextFieldInf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldInf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldInfKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldInfKeyTyped(evt);
             }
@@ -282,6 +297,9 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
 
         jTextFieldT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldTKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldTKeyTyped(evt);
             }
@@ -778,6 +796,30 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
         jLabel17.setForeground(colorFondo);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTextFieldTIKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTIKeyReleased
+        sumaPasajeros();
+    }//GEN-LAST:event_jTextFieldTIKeyReleased
+
+    private void jTextFieldENKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldENKeyReleased
+        sumaPasajeros();
+    }//GEN-LAST:event_jTextFieldENKeyReleased
+
+    private void jTextFieldIntKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIntKeyReleased
+        sumaPasajeros();
+    }//GEN-LAST:event_jTextFieldIntKeyReleased
+
+    private void jTextFieldEIKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEIKeyReleased
+        sumaPasajeros();
+    }//GEN-LAST:event_jTextFieldEIKeyReleased
+
+    private void jTextFieldInfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldInfKeyReleased
+        sumaPasajeros();
+    }//GEN-LAST:event_jTextFieldInfKeyReleased
+
+    private void jTextFieldTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTKeyReleased
+        sumaPasajeros();
+    }//GEN-LAST:event_jTextFieldTKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -918,6 +960,29 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
                 jLabel17.setForeground(colorFondo);
             }
         }
-    }  
+    } 
+    
+    private void sumaPasajeros() {
+        int totalPasajeros = 0;
+        if (!FuncionesGenerales.estaVacioJTextField(jTextFieldTI)) {
+            totalPasajeros += Integer.parseInt(jTextFieldTI.getText());
+        }
+        if (!FuncionesGenerales.estaVacioJTextField(jTextFieldEN)) {
+            totalPasajeros += Integer.parseInt(jTextFieldEN.getText());
+        }
+        if (!FuncionesGenerales.estaVacioJTextField(jTextFieldInt)) {
+            totalPasajeros += Integer.parseInt(jTextFieldInt.getText());
+        }
+        if (!FuncionesGenerales.estaVacioJTextField(jTextFieldEI)) {
+            totalPasajeros += Integer.parseInt(jTextFieldEI.getText());
+        }
+        if (!FuncionesGenerales.estaVacioJTextField(jTextFieldInf)) {
+            totalPasajeros += Integer.parseInt(jTextFieldInf.getText());
+        }
+        if (!FuncionesGenerales.estaVacioJTextField(jTextFieldT)) {
+            totalPasajeros += Integer.parseInt(jTextFieldT.getText());
+        }
+        jTextFieldTotal.setText(Integer.toString(totalPasajeros));
+    }
     
 }

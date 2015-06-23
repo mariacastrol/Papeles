@@ -1308,7 +1308,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void botonSeleccionarAeropuertoPlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarAeropuertoPlanesActionPerformed
         BJDialogAeropuertosPlanes capturarAeropuerto = new BJDialogAeropuertosPlanes(this,true);
         String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
-        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
+        if (tipoOperacion.equals("APERTURA DE PLAN DE VUELO")) {
             capturarAeropuerto.jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("AEROPUERTO DE DESTINO"));
             capturarAeropuerto.setTitle("AEROPUERTOS: APERTURA DE PLAN DE VUELO");
         } else {
@@ -1326,7 +1326,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void botonSeleccionarAeronavePlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarAeronavePlanesActionPerformed
         CJDialogAeronavesPlanes capturarAeronave = new CJDialogAeronavesPlanes(this,true);
         String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
-        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
+        if (tipoOperacion.equals("APERTURA DE PLAN DE VUELO")) {
             capturarAeronave.setTitle("AERONAVES: APERTURA DE PLAN DE VUELO");
         } else {
             capturarAeronave.setTitle("AERONAVES: CIERRE DE PLAN DE VUELO");
@@ -1342,7 +1342,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void botonSeleccionarPilotoPlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarPilotoPlanesActionPerformed
         DJDialogPilotosPlanes capturarPiloto = new DJDialogPilotosPlanes(this,true);
         String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
-        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
+        if (tipoOperacion.equals("APERTURA DE PLAN DE VUELO")) {
             capturarPiloto.setTitle("PILOTOS: APERTURA DE PLAN DE VUELO");
         } else {
             capturarPiloto.setTitle("PILOTOS: CIERRE DE PLAN DE VUELO");
@@ -1374,7 +1374,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void botonSeleccionarCompaniaManifiestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarCompaniaManifiestosActionPerformed
         GJDialogCompanias capturarCompania = new GJDialogCompanias(this,true);
         String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
-        if (tipoOperacion.contains("MANIFIESTO DE SALIDA")) {
+        if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
             capturarCompania.setTitle("COMPAÑÍAS: MANIFIESTO DE SALIDA");
         } else {
             capturarCompania.setTitle("COMPAÑÍAS: MANIFIESTO DE LLEGADA");
@@ -1390,7 +1390,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void botonSeleccionarAeronaveManifiestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarAeronaveManifiestosActionPerformed
         HJDialogAeronavesManifiestos capturarAeronave = new HJDialogAeronavesManifiestos(this,true);
         String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
-        if (tipoOperacion.contains("MANIFIESTO DE SALIDA")) {
+        if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
             capturarAeronave.setTitle("AERONAVES: MANIFIESTO DE SALIDA");
         } else {
             capturarAeronave.setTitle("AERONAVES: MANIFIESTO DE LLEGADA");
@@ -1406,7 +1406,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void botonSeleccionarAeropuertoManifiestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarAeropuertoManifiestosActionPerformed
         IJDialogAeropuertosManifiestos capturarAeropuerto = new IJDialogAeropuertosManifiestos(this,true);
         String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
-        if (tipoOperacion.contains("MANIFIESTO DE SALIDA")) {
+        if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
             capturarAeropuerto.jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("AEROPUERTO DE DESTINO"));
             capturarAeropuerto.setTitle("AEROPUERTOS: MANIFIESTO DE SALIDA");
         } else {
@@ -1424,10 +1424,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void botonSeleccionarComandanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarComandanteActionPerformed
         JJDialogComandantes capturarComandate = new JJDialogComandantes(this,true);
         String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
-        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
-            capturarComandate.setTitle("COMANDANTES: APERTURA DE PLAN DE VUELO");
+        if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
+            capturarComandate.setTitle("COMANDANTES: MANIFIESTO DE SALIDA");
         } else {
-            capturarComandate.setTitle("COMANDANTES: CIERRE DE PLAN DE VUELO");
+            capturarComandate.setTitle("COMANDANTES: MANIFIESTO DE LLEGADA");
         }
         String [] cT = {"no_licencia","nombre","apellido_paterno","apellido_materno","tipo_licencia"};
         if (capturarComandate.setDatosConexion (sv,us,pw,dB,cT,"COMANDANTE","no_licencia")) {
@@ -1440,10 +1440,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void botonSeleccionarPrimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarPrimerActionPerformed
         KJDialogPrimeros capturarPrimer = new KJDialogPrimeros(this,true);
         String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
-        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
-            capturarPrimer.setTitle("PRIMEROS OFICIALES: APERTURA DE PLAN DE VUELO");
+        if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
+            capturarPrimer.setTitle("PRIMEROS OFICIALES: MANIFIESTO DE SALIDA");
         } else {
-            capturarPrimer.setTitle("PRIMEROS OFICIALES: CIERRE DE PLAN DE VUELO");
+            capturarPrimer.setTitle("PRIMEROS OFICIALES: MANIFIESTO DE LLEGADA");
         }
         String [] cT = {"no_licencia","nombre","apellido_paterno","apellido_materno","tipo_licencia"};
         if (capturarPrimer.setDatosConexion (sv,us,pw,dB,cT,"PRIMER_OFICIAL","no_licencia")) {
@@ -1456,10 +1456,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void botonSeleccionarSegundoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarSegundoActionPerformed
         LJDialogSegundos capturarSegundo = new LJDialogSegundos(this,true);
         String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
-        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
-            capturarSegundo.setTitle("SEGUNDOS OFICIALES: APERTURA DE PLAN DE VUELO");
+        if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
+            capturarSegundo.setTitle("SEGUNDOS OFICIALES: MANIFIESTO DE SALIDA");
         } else {
-            capturarSegundo.setTitle("SEGUNDOS OFICIALES: CIERRE DE PLAN DE VUELO");
+            capturarSegundo.setTitle("SEGUNDOS OFICIALES: MANIFIESTO DE LLEGADA");
         }
         String [] cT = {"no_licencia","nombre","apellido_paterno","apellido_materno","tipo_licencia"};
         if (capturarSegundo.setDatosConexion (sv,us,pw,dB,cT,"SEGUNDO_OFICIAL","no_licencia")) {
@@ -1472,10 +1472,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void botonSeleccionarTerceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarTerceroActionPerformed
         MJDialogTerceros capturarTercero = new MJDialogTerceros(this,true);
         String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
-        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
-            capturarTercero.setTitle("TERCEROS OFICIALES: APERTURA DE PLAN DE VUELO");
+        if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
+            capturarTercero.setTitle("TERCEROS OFICIALES: MANIFIESTO DE SALIDA");
         } else {
-            capturarTercero.setTitle("TERCEROS OFICIALES: CIERRE DE PLAN DE VUELO");
+            capturarTercero.setTitle("TERCEROS OFICIALES: MANIFIESTO DE LLEGADA");
         }
         String [] cT = {"no_licencia","nombre","apellido_paterno","apellido_materno","tipo_licencia"};
         if (capturarTercero.setDatosConexion (sv,us,pw,dB,cT,"TERCER_OFICIAL","no_licencia")) {
@@ -1535,7 +1535,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void botonDeclararSobrecargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDeclararSobrecargosActionPerformed
         NJDialogListaSobrecargos capturarListaSobrecargos = new NJDialogListaSobrecargos(this,true);
         String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
-        if (tipoOperacion.contains("MANIFIESTO DE SALIDA")) {
+        if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
             capturarListaSobrecargos.setTitle("LISTA DE SOBRECARGOS: MANIFIESTO DE SALIDA");
         } else {
             capturarListaSobrecargos.setTitle("LISTA DE SOBRECARGOS: MANIFIESTO DE LLEGADA");
@@ -1555,7 +1555,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         RJDialogPDFManifiestos capturarPDFManifiestos = new RJDialogPDFManifiestos(this,true);
         String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
         String nombreTabla = "PDFS_MANIFIESTOS";
-        if (tipoOperacion.contains("MANIFIESTO DE SALIDA")) {
+        if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
             capturarPDFManifiestos.setTitle("PDF'S: MANIFIESTO DE SALIDA");
             capturarPDFManifiestos.jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("PDF DEL MANIFIESTO DE SALIDA"));
         } else {
@@ -1698,6 +1698,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                         }
                     }
                     //
+                    JOptionPane.showMessageDialog(this,"SE HA GUARDADO CON ÉXITO");
                     limpiarPlan();
                 }
             } else {
@@ -1845,6 +1846,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                         }
                     }
                 }
+                JOptionPane.showMessageDialog(this,"SE HA GUARDADO CON ÉXITO");
                 limpiarManifiesto();
             } else {
                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
@@ -1878,10 +1880,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         String aperturaCierre = jComboBoxOperacionManifiestos.getSelectedItem().toString();
         if (aperturaCierre.equals("MANIFIESTO DE SALIDA")) {
             jLabel30.setText("DESTINO");
-            jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("EMBARQUE"));
+            jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("EMBARQUE"));
         } else {
             jLabel30.setText("ORIGEN");
-            jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("DESEMBARQUE"));
+            jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("DESEMBARQUE"));
         }
         limpiarManifiesto();
     }//GEN-LAST:event_jComboBoxOperacionManifiestosItemStateChanged
@@ -1897,18 +1899,21 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
         jTextField8.setText(null);
         jTextField9.setText(null);
+        jLabel38.setText(null);
         botonBorrar.setEnabled(false);
     }//GEN-LAST:event_botonBorrarActionPerformed
 
     private void botonBorrarSegundoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarSegundoActionPerformed
         jTextField22.setText(null);
         jTextField23.setText(null);
+        jLabel51.setText(null);
         botonBorrarSegundo.setEnabled(false);
     }//GEN-LAST:event_botonBorrarSegundoActionPerformed
 
     private void botonBorrarTerceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarTerceroActionPerformed
         jTextField24.setText(null);
         jTextField25.setText(null);
+        jLabel52.setText(null);
         botonBorrarTercero.setEnabled(false);
     }//GEN-LAST:event_botonBorrarTerceroActionPerformed
 
@@ -1946,7 +1951,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         QJDialogPDFPlanes capturarPDFPlanes = new QJDialogPDFPlanes(this,true);
         String tipoOperacion = (String) jComboBoxOperacionPlanes.getSelectedItem();
         String nombreTabla = "PDFS_APERTURA";
-        if (tipoOperacion.contains("APERTURA DE PLAN DE VUELO")) {
+        if (tipoOperacion.equals("APERTURA DE PLAN DE VUELO")) {
             capturarPDFPlanes.setTitle("PDF'S: APERTURA DE PLAN DE VUELO");
             capturarPDFPlanes.jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("PDF DEL PLAN DE VUELO"));
         } else {
@@ -1964,7 +1969,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
     private void botonDeclararEmDesembarque1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDeclararEmDesembarque1ActionPerformed
         String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
-        if (tipoOperacion.contains("MANIFIESTO DE SALIDA")) {
+        if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
             OJDialogEmbarque emb = new OJDialogEmbarque(this, true);
             if (jLabel40.isEnabled()) {
                 emb.jTextFieldTI.setText(embarque[0]);

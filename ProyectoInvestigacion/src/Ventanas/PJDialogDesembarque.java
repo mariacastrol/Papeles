@@ -66,6 +66,9 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
 
         jTextFieldTtlPersonas1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldTtlPersonas1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldTtlPersonas1KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldTtlPersonas1KeyTyped(evt);
             }
@@ -75,6 +78,9 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
 
         jTextFieldTtlPersonas2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldTtlPersonas2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldTtlPersonas2KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldTtlPersonas2KeyTyped(evt);
             }
@@ -82,6 +88,9 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
 
         jTextFieldTtlPersonas3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldTtlPersonas3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldTtlPersonas3KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldTtlPersonas3KeyTyped(evt);
             }
@@ -505,6 +514,18 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         jLabel17.setForeground(colorFondo);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTextFieldTtlPersonas1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTtlPersonas1KeyReleased
+        sumaPasajeros();
+    }//GEN-LAST:event_jTextFieldTtlPersonas1KeyReleased
+
+    private void jTextFieldTtlPersonas2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTtlPersonas2KeyReleased
+        sumaPasajeros();
+    }//GEN-LAST:event_jTextFieldTtlPersonas2KeyReleased
+
+    private void jTextFieldTtlPersonas3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTtlPersonas3KeyReleased
+        sumaPasajeros();
+    }//GEN-LAST:event_jTextFieldTtlPersonas3KeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -626,5 +647,19 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
                 jLabel17.setForeground(colorFondo);
             }
         }
-    }   
+    } 
+    
+    private void sumaPasajeros() {
+        int totalPasajeros = 0;
+        if (!FuncionesGenerales.estaVacioJTextField(jTextFieldTtlPersonas1)) {
+            totalPasajeros += Integer.parseInt(jTextFieldTtlPersonas1.getText());
+        }
+        if (!FuncionesGenerales.estaVacioJTextField(jTextFieldTtlPersonas2)) {
+            totalPasajeros += Integer.parseInt(jTextFieldTtlPersonas2.getText());
+        }
+        if (!FuncionesGenerales.estaVacioJTextField(jTextFieldTtlPersonas3)) {
+            totalPasajeros += Integer.parseInt(jTextFieldTtlPersonas3.getText());
+        }
+        jTextFieldPersonasTotal.setText(Integer.toString(totalPasajeros));
+    }
 }
