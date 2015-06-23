@@ -11,6 +11,8 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -1665,12 +1667,12 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         if (vacios == 0) {
             ConexionMysql conexionPlanes= new ConexionMysql();
             if (conexionPlanes.conectarBD(sv,us,pw,dB)) {
+                boolean seguirActualizando = true;
                 if ("APERTURA DE PLAN DE VUELO".equals(jComboBoxOperacionPlanes.getSelectedItem().toString())) {
                     Color cGreen = new Color(0,100,0);
                     String nombreTablaMysql = "APERTURAS_DE_VUELO";
                     String columnasTablaMysql [] = {"AQUI VA LA COLUMNA A MODIFICAR"};
                     String datosActualizados [] = {"AQUI VA EL NUEVO VALOR"};
-                    boolean seguirActualizando = true;
                     if (jTextField1.getForeground().getRGB() == cGreen.getRGB() && seguirActualizando) { // ACTUALIZAR AEROPUERTO
                         columnasTablaMysql[0] = "aeropuerto_destino";
                         datosActualizados[0] = jTextField1.getText();
@@ -1798,6 +1800,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                             }
                             if (!conexionPlanes.insertarTablaEnTabla(tablaPasajeros,columnasTablasPasajeros,listaPasajeros,mensajeSiRepiteRegistros)){
                                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                                seguirActualizando = false;
                             }
                         }
                     }
@@ -1806,7 +1809,6 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                     String nombreTablaMysql = "CIERRES_DE_PLAN";
                     String columnasTablaMysql [] = {"AQUI VA LA COLUMNA A MODIFICAR"};
                     String datosActualizados [] = {"AQUI VA EL NUEVO VALOR"};
-                    boolean seguirActualizando = true;
                     if (jTextField1.getForeground().getRGB() == cGreen.getRGB() && seguirActualizando) { // ACTUALIZAR AEROPUERTO
                         columnasTablaMysql[0] = "aeropuerto_origen";
                         datosActualizados[0] = jTextField1.getText();
@@ -1934,9 +1936,15 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                             }
                             if(!conexionPlanes.insertarTablaEnTabla(tablaPasajeros,columnasTablasPasajeros,listaPasajeros,mensajeSiRepiteRegistros)){
                                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                                seguirActualizando = false;
                             }
                         }
                     }
+                }
+                if (seguirActualizando) {
+                    JOptionPane.showMessageDialog(this,"SE HA GUARDADO CON ÉXITO LAS MODIFICACIONES","",JOptionPane.INFORMATION_MESSAGE,bien);
+                } else {
+                    JOptionPane.showMessageDialog(this,"ALGUNAS MODIFICACIONES NO SE LLEVARON A CABO","",JOptionPane.ERROR_MESSAGE);
                 }
                 this.dispose();
             } else {
@@ -1963,12 +1971,12 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         if (vacios == 0) {
             ConexionMysql conexionPlanes= new ConexionMysql();
             if (conexionPlanes.conectarBD(sv,us,pw,dB)) {
+                boolean seguirActualizando = true;
                 if ("MANIFIESTO DE SALIDA".equals(jComboBoxOperacionManifiestos.getSelectedItem().toString())) {
                     Color cGreen = new Color(0,100,0);
                     String nombreTablaMysql = "MANIFIESTOS_SALIDA";
                     String columnasTablaMysql [] = {"AQUI VA LA COLUMNA A MODIFICAR"};
                     String datosActualizados [] = {"AQUI VA EL NUEVO VALOR"};
-                    boolean seguirActualizando = true;
                     if (jTextField11.getForeground().getRGB() == cGreen.getRGB() && seguirActualizando) { // ACTUALIZAR COMPAÑIA
                         columnasTablaMysql[0] = "empresa";
                         datosActualizados[0] = jTextField12.getText();
@@ -2114,16 +2122,15 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                         datosActualizados[0] = fechaCompleta;
                         if (!conexionPlanes.modificarFilaEnTabla(nombreTablaMysql, columnasTablaMysql, datosActualizados, "fecha_hora_itinerario",fechaHoraMOriginal)) {
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO ACTUALIZAR FECHA",JOptionPane.ERROR_MESSAGE);
+                            seguirActualizando = false;
                         }
                     }
-                    this.dispose();
                 } else {
                     /////////////////////********************
                     Color cGreen = new Color(0,100,0);
                     String nombreTablaMysql = "MANIFIESTOS_LLEGADA";
                     String columnasTablaMysql [] = {"AQUI VA LA COLUMNA A MODIFICAR"};
                     String datosActualizados [] = {"AQUI VA EL NUEVO VALOR"};
-                    boolean seguirActualizando = true;
                     if (jTextField11.getForeground().getRGB() == cGreen.getRGB() && seguirActualizando) { // ACTUALIZAR COMPAÑIA
                         columnasTablaMysql[0] = "empresa";
                         datosActualizados[0] = jTextField12.getText();
@@ -2269,11 +2276,16 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                         datosActualizados[0] = fechaCompleta;
                         if (!conexionPlanes.modificarFilaEnTabla(nombreTablaMysql, columnasTablaMysql, datosActualizados, "fecha_hora_itinerario",fechaHoraMOriginal)) {
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO ACTUALIZAR FECHA",JOptionPane.ERROR_MESSAGE);
+                            seguirActualizando = false;
                         }
                     }
-                    this.dispose();
-                    ///////////////////////////***********************
                 }
+                if (seguirActualizando) {
+                    JOptionPane.showMessageDialog(this,"SE HA GUARDADO CON ÉXITO LAS MODIFICACIONES","",JOptionPane.INFORMATION_MESSAGE,bien);
+                } else {
+                    JOptionPane.showMessageDialog(this,"ALGUNAS MODIFICACIONES NO SE LLEVARON A CABO","",JOptionPane.ERROR_MESSAGE);
+                }
+                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
             }
@@ -2730,6 +2742,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     final int gError = 0;
     final int bError = 0;
     Color colorFondo;
+    Icon bien = new ImageIcon(getClass().getResource("/Necesarios/iconoGuardarOK.png"));
     
     static String aeropuertoPlanesOriginal;
     static String aeronavePlanesOriginal;

@@ -10,11 +10,10 @@ import Clases.FuncionesGenerales;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.io.File;
 import java.text.SimpleDateFormat;
-import javax.swing.JFileChooser;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -1697,8 +1696,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    //
-                    JOptionPane.showMessageDialog(this,"SE HA GUARDADO CON ÉXITO");
+                    JOptionPane.showMessageDialog(this,"SE HA GUARDADO CON ÉXITO","",JOptionPane.INFORMATION_MESSAGE,bien);
                     limpiarPlan();
                 }
             } else {
@@ -1846,7 +1844,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                         }
                     }
                 }
-                JOptionPane.showMessageDialog(this,"SE HA GUARDADO CON ÉXITO");
+                JOptionPane.showMessageDialog(this,"SE HA GUARDADO CON ÉXITO","",JOptionPane.INFORMATION_MESSAGE,bien);
                 limpiarManifiesto();
             } else {
                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
@@ -2225,6 +2223,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     final int gError = 0;
     final int bError = 0;
     Color colorFondo;
+    Icon bien = new ImageIcon(getClass().getResource("/Necesarios/iconoGuardarOK.png"));
     
     private void limpiarManifiesto() {
         botonSeleccionarCompaniaManifiestos.setForeground(new java.awt.Color(0,0,0));
