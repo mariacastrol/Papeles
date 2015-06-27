@@ -18,7 +18,7 @@
     </Menu>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="0"/>
     <Property name="title" type="java.lang.String" value="CONSULTAS"/>
     <Property name="iconImage" type="java.awt.Image" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
       <Connection component="Form" name="iconImage" type="property"/>
@@ -33,6 +33,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosing"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -141,17 +144,17 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jPanel13" max="32767" attributes="0"/>
                               <Component id="jPanel11" max="32767" attributes="0"/>
+                              <Component id="jPanel13" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="294" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="botonBuscarPlanes" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton12" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="7" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -206,13 +209,23 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="botonCriteriosPlanes" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel24" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel23" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel22" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel21" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel25" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel43" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="botonCriteriosPlanes" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel22" alignment="0" pref="197" max="32767" attributes="0"/>
+                                              <Component id="jLabel21" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jLabel24" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLabel23" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLabel25" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -227,13 +240,14 @@
                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel25" min="-2" pref="13" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -265,6 +279,18 @@
                           <Font name="Tahoma" size="10" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="PERSONAL DE VUELO"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel43">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="10" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="PERSONAL DE VUELO (NOMBRE)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
@@ -365,6 +391,7 @@
                                   <Component id="jCheckBox98" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jCheckBox99" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jCheckBox97" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
+                                  <Component id="jCheckBox100" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -397,7 +424,10 @@
                                           </Group>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox94" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jCheckBox94" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox100" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jCheckBox95" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -720,6 +750,19 @@
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox99ItemStateChanged"/>
                       </Events>
                     </Component>
+                    <Component class="javax.swing.JCheckBox" name="jCheckBox100">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="10" style="0"/>
+                        </Property>
+                        <Property name="selected" type="boolean" value="true"/>
+                        <Property name="text" type="java.lang.String" value="PDF"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox100ItemStateChanged"/>
+                      </Events>
+                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
@@ -801,8 +844,8 @@
                               <Component id="jPanel10" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" min="-2" pref="294" max="-2" attributes="0"/>
-                          <EmptySpace pref="16" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="288" max="-2" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="botonBuscarCierres" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton11" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -860,17 +903,18 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel30" min="-2" pref="197" max="-2" attributes="0"/>
                                   <Component id="botonCriteriosCierres" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel27" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
                                   <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel44" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
+                                  <Component id="jLabel30" min="-2" pref="197" max="-2" attributes="0"/>
+                                  <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -883,13 +927,14 @@
                               <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel27" min="-2" pref="13" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Component id="jLabel44" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel30" min="-2" pref="13" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -921,6 +966,18 @@
                           <Font name="Tahoma" size="10" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="PERSONAL DE VUELO"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel44">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="10" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="PERSONAL DE VUELO (NOMBRE)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
@@ -1020,7 +1077,7 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1848,6 +1905,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="FECHA/HORA"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -1860,6 +1918,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="HORA ITINERARIO"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -1872,6 +1931,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="HORA REAL"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -1884,6 +1944,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="NO. DE VUELO"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -1896,6 +1957,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="COMPA&#xd1;IA (SIGLAS)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -1908,6 +1970,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="COMPA&#xd1;IA (NOMBRE)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -1920,6 +1983,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="AEROPUERTO (IATA)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -1932,6 +1996,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="AEROPUERTO (OACI)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -1944,6 +2009,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="AEROPUERTO (NOMBRE)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -1956,6 +2022,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="AERONAVE (MATR&#xcd;CULA)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -1968,6 +2035,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="AERONAVE (TIPO)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -1980,6 +2048,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="SOBRECARGO (NOMBRE)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -1992,6 +2061,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="EMBARQUE"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2004,6 +2074,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="COMANDANTE (LICENCIA)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2016,6 +2087,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="COMANDANTE (NOMBRE(S))"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2028,6 +2100,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="COMANDANTE (A. PATERNO)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2040,6 +2113,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="COMANDANTE (A. MATERNO)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2052,6 +2126,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="COMANDANTE (TIPO LICENCIA)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2064,6 +2139,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="1er. OFICIAL (TIPO LICENCIA)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2076,6 +2152,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="1er. OFICIAL (LICENCIA)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2088,6 +2165,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="1er. OFICIAL (NOMBRE(S))"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2100,6 +2178,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="1er. OFICIAL (A. PATERNO)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2112,6 +2191,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="1er. OFICIAL (A. MATERNO)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2124,6 +2204,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="2o. OFICIAL (LICENCIA)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2136,6 +2217,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="2o. OFICIAL (NOMBRE(S))"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2148,6 +2230,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="2o. OFICIAL (A. PATERNO)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2160,6 +2243,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="2o. OFICIAL (A. MATERNO)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2172,6 +2256,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="2o. OFICIAL (TIPO LICENCIA)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2184,6 +2269,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="3er. OFICIAL (LICENCIA)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2196,6 +2282,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="3er. OFICIAL (NOMBRE(S))"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2208,6 +2295,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="3er. OFICIAL (A. PATERNO)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2220,6 +2308,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="3er. OFICIAL (A. MATERNO)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -2232,6 +2321,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="10" style="0"/>
                                 </Property>
+                                <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="3er. OFICIAL (TIPO LICENCIA)"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>

@@ -114,14 +114,14 @@ public class FuncionesGenerales {
     }
     
     public static void mostrarColumnaEliminada (JTable tablaBusqueda, int columnaAMostrar){   
-        for (int c=columnaAMostrar; c<tablaBusqueda.getColumnCount(); c++) {
-            String nombreColumna = tablaBusqueda.getColumnName(c);
+        //for (int c=columnaAMostrar; c<tablaBusqueda.getColumnCount(); c++) {
+            String nombreColumna = tablaBusqueda.getColumnName(columnaAMostrar);
             if (nombreColumna.equals("") || nombreColumna.equals("PDF - RUTA")) {
-                ajustar(tablaBusqueda,c,2,true);
+                ajustar(tablaBusqueda,columnaAMostrar,2,true);
             } else {
-                ajustar(tablaBusqueda,c,2,false);
+                ajustar(tablaBusqueda,columnaAMostrar,2,false);
             }
-        } 
+        //} 
     }
     
     public static void limpiarTablaCompletamente(JTable tablaALimpiar) {

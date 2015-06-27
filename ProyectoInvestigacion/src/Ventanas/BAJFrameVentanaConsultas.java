@@ -48,6 +48,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         botonCriteriosPlanes = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
@@ -75,6 +76,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox97 = new javax.swing.JCheckBox();
         jCheckBox98 = new javax.swing.JCheckBox();
         jCheckBox99 = new javax.swing.JCheckBox();
+        jCheckBox100 = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -84,6 +86,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         botonCriteriosCierres = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -215,11 +218,16 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("CONSULTAS");
         setIconImage(getIconImage());
         setMinimumSize(new java.awt.Dimension(1000, 650));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -266,6 +274,10 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jLabel22.setText("PERSONAL DE VUELO");
         jLabel22.setEnabled(false);
 
+        jLabel43.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel43.setText("PERSONAL DE VUELO (NOMBRE)");
+        jLabel43.setEnabled(false);
+
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel23.setText("PASAJERO");
         jLabel23.setEnabled(false);
@@ -284,13 +296,19 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botonCriteriosPlanes)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(botonCriteriosPlanes)
+                                .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel13Layout.setVerticalGroup(
@@ -302,13 +320,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel43)
+                .addGap(6, 6, 6)
                 .addComponent(jLabel23)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jButton12.setText("LIMPIAR");
@@ -542,6 +561,16 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             }
         });
 
+        jCheckBox100.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox100.setSelected(true);
+        jCheckBox100.setText("PDF");
+        jCheckBox100.setEnabled(false);
+        jCheckBox100.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox100ItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
@@ -576,7 +605,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     .addComponent(jCheckBox96, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckBox98, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckBox99, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCheckBox97, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCheckBox97, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox100, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
@@ -603,7 +633,9 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jCheckBox99)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox94)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCheckBox94)
+                            .addComponent(jCheckBox100))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jCheckBox95))
                     .addGroup(jPanel11Layout.createSequentialGroup()
@@ -659,15 +691,15 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonBuscarPlanes)
                     .addComponent(jButton12))
-                .addGap(0, 7, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -734,6 +766,10 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jLabel27.setText("PERSONAL DE VUELO");
         jLabel27.setEnabled(false);
 
+        jLabel44.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel44.setText("PERSONAL DE VUELO (NOMBRE)");
+        jLabel44.setEnabled(false);
+
         jLabel28.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel28.setText("PASAJERO");
         jLabel28.setEnabled(false);
@@ -753,13 +789,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonCriteriosCierres)
-                    .addComponent(jLabel29)
-                    .addComponent(jLabel28)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26))
-                .addGap(10, 10, 10))
+                    .addComponent(jLabel26)
+                    .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29)
+                    .addComponent(jLabel28))
+                .addContainerGap())
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -770,13 +807,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
                 .addComponent(jLabel28)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel29)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("CAMPOS A MOSTRAR EN LA CONSULTA"));
@@ -1042,7 +1080,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addGap(7, 7, 7)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1130,8 +1168,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonBuscarCierres)
                     .addComponent(jButton11))
@@ -1271,6 +1309,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jScrollPane8.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jCheckBox133.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox133.setSelected(true);
         jCheckBox133.setText("FECHA/HORA");
         jCheckBox133.setEnabled(false);
         jCheckBox133.addItemListener(new java.awt.event.ItemListener() {
@@ -1280,6 +1319,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox135.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox135.setSelected(true);
         jCheckBox135.setText("HORA ITINERARIO");
         jCheckBox135.setEnabled(false);
         jCheckBox135.addItemListener(new java.awt.event.ItemListener() {
@@ -1289,6 +1329,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox136.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox136.setSelected(true);
         jCheckBox136.setText("HORA REAL");
         jCheckBox136.setEnabled(false);
         jCheckBox136.addItemListener(new java.awt.event.ItemListener() {
@@ -1298,6 +1339,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox137.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox137.setSelected(true);
         jCheckBox137.setText("NO. DE VUELO");
         jCheckBox137.setEnabled(false);
         jCheckBox137.addItemListener(new java.awt.event.ItemListener() {
@@ -1307,6 +1349,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox138.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox138.setSelected(true);
         jCheckBox138.setText("COMPAÑIA (SIGLAS)");
         jCheckBox138.setEnabled(false);
         jCheckBox138.addItemListener(new java.awt.event.ItemListener() {
@@ -1316,6 +1359,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox139.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox139.setSelected(true);
         jCheckBox139.setText("COMPAÑIA (NOMBRE)");
         jCheckBox139.setEnabled(false);
         jCheckBox139.addItemListener(new java.awt.event.ItemListener() {
@@ -1325,6 +1369,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox140.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox140.setSelected(true);
         jCheckBox140.setText("AEROPUERTO (IATA)");
         jCheckBox140.setEnabled(false);
         jCheckBox140.addItemListener(new java.awt.event.ItemListener() {
@@ -1334,6 +1379,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox141.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox141.setSelected(true);
         jCheckBox141.setText("AEROPUERTO (OACI)");
         jCheckBox141.setEnabled(false);
         jCheckBox141.addItemListener(new java.awt.event.ItemListener() {
@@ -1343,6 +1389,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox142.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox142.setSelected(true);
         jCheckBox142.setText("AEROPUERTO (NOMBRE)");
         jCheckBox142.setEnabled(false);
         jCheckBox142.addItemListener(new java.awt.event.ItemListener() {
@@ -1352,6 +1399,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox143.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox143.setSelected(true);
         jCheckBox143.setText("AERONAVE (MATRÍCULA)");
         jCheckBox143.setEnabled(false);
         jCheckBox143.addItemListener(new java.awt.event.ItemListener() {
@@ -1361,6 +1409,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox144.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox144.setSelected(true);
         jCheckBox144.setText("AERONAVE (TIPO)");
         jCheckBox144.setEnabled(false);
         jCheckBox144.addItemListener(new java.awt.event.ItemListener() {
@@ -1370,6 +1419,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox145.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox145.setSelected(true);
         jCheckBox145.setText("SOBRECARGO (NOMBRE)");
         jCheckBox145.setEnabled(false);
         jCheckBox145.addItemListener(new java.awt.event.ItemListener() {
@@ -1379,6 +1429,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox146.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox146.setSelected(true);
         jCheckBox146.setText("EMBARQUE");
         jCheckBox146.setEnabled(false);
         jCheckBox146.addItemListener(new java.awt.event.ItemListener() {
@@ -1388,6 +1439,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox147.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox147.setSelected(true);
         jCheckBox147.setText("COMANDANTE (LICENCIA)");
         jCheckBox147.setEnabled(false);
         jCheckBox147.addItemListener(new java.awt.event.ItemListener() {
@@ -1397,6 +1449,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox148.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox148.setSelected(true);
         jCheckBox148.setText("COMANDANTE (NOMBRE(S))");
         jCheckBox148.setEnabled(false);
         jCheckBox148.addItemListener(new java.awt.event.ItemListener() {
@@ -1406,6 +1459,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox149.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox149.setSelected(true);
         jCheckBox149.setText("COMANDANTE (A. PATERNO)");
         jCheckBox149.setEnabled(false);
         jCheckBox149.addItemListener(new java.awt.event.ItemListener() {
@@ -1415,6 +1469,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox150.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox150.setSelected(true);
         jCheckBox150.setText("COMANDANTE (A. MATERNO)");
         jCheckBox150.setEnabled(false);
         jCheckBox150.addItemListener(new java.awt.event.ItemListener() {
@@ -1424,6 +1479,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox151.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox151.setSelected(true);
         jCheckBox151.setText("COMANDANTE (TIPO LICENCIA)");
         jCheckBox151.setEnabled(false);
         jCheckBox151.addItemListener(new java.awt.event.ItemListener() {
@@ -1433,6 +1489,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox152.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox152.setSelected(true);
         jCheckBox152.setText("1er. OFICIAL (TIPO LICENCIA)");
         jCheckBox152.setEnabled(false);
         jCheckBox152.addItemListener(new java.awt.event.ItemListener() {
@@ -1442,6 +1499,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox153.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox153.setSelected(true);
         jCheckBox153.setText("1er. OFICIAL (LICENCIA)");
         jCheckBox153.setEnabled(false);
         jCheckBox153.addItemListener(new java.awt.event.ItemListener() {
@@ -1451,6 +1509,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox154.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox154.setSelected(true);
         jCheckBox154.setText("1er. OFICIAL (NOMBRE(S))");
         jCheckBox154.setEnabled(false);
         jCheckBox154.addItemListener(new java.awt.event.ItemListener() {
@@ -1460,6 +1519,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox155.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox155.setSelected(true);
         jCheckBox155.setText("1er. OFICIAL (A. PATERNO)");
         jCheckBox155.setEnabled(false);
         jCheckBox155.addItemListener(new java.awt.event.ItemListener() {
@@ -1469,6 +1529,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox156.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox156.setSelected(true);
         jCheckBox156.setText("1er. OFICIAL (A. MATERNO)");
         jCheckBox156.setEnabled(false);
         jCheckBox156.addItemListener(new java.awt.event.ItemListener() {
@@ -1478,6 +1539,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox157.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox157.setSelected(true);
         jCheckBox157.setText("2o. OFICIAL (LICENCIA)");
         jCheckBox157.setEnabled(false);
         jCheckBox157.addItemListener(new java.awt.event.ItemListener() {
@@ -1487,6 +1549,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox158.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox158.setSelected(true);
         jCheckBox158.setText("2o. OFICIAL (NOMBRE(S))");
         jCheckBox158.setEnabled(false);
         jCheckBox158.addItemListener(new java.awt.event.ItemListener() {
@@ -1496,6 +1559,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox159.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox159.setSelected(true);
         jCheckBox159.setText("2o. OFICIAL (A. PATERNO)");
         jCheckBox159.setEnabled(false);
         jCheckBox159.addItemListener(new java.awt.event.ItemListener() {
@@ -1505,6 +1569,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox160.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox160.setSelected(true);
         jCheckBox160.setText("2o. OFICIAL (A. MATERNO)");
         jCheckBox160.setEnabled(false);
         jCheckBox160.addItemListener(new java.awt.event.ItemListener() {
@@ -1514,6 +1579,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox161.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox161.setSelected(true);
         jCheckBox161.setText("2o. OFICIAL (TIPO LICENCIA)");
         jCheckBox161.setEnabled(false);
         jCheckBox161.addItemListener(new java.awt.event.ItemListener() {
@@ -1523,6 +1589,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox162.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox162.setSelected(true);
         jCheckBox162.setText("3er. OFICIAL (LICENCIA)");
         jCheckBox162.setEnabled(false);
         jCheckBox162.addItemListener(new java.awt.event.ItemListener() {
@@ -1532,6 +1599,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox163.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox163.setSelected(true);
         jCheckBox163.setText("3er. OFICIAL (NOMBRE(S))");
         jCheckBox163.setEnabled(false);
         jCheckBox163.addItemListener(new java.awt.event.ItemListener() {
@@ -1541,6 +1609,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox164.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox164.setSelected(true);
         jCheckBox164.setText("3er. OFICIAL (A. PATERNO)");
         jCheckBox164.setEnabled(false);
         jCheckBox164.addItemListener(new java.awt.event.ItemListener() {
@@ -1550,6 +1619,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox165.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox165.setSelected(true);
         jCheckBox165.setText("3er. OFICIAL (A. MATERNO)");
         jCheckBox165.setEnabled(false);
         jCheckBox165.addItemListener(new java.awt.event.ItemListener() {
@@ -1559,6 +1629,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jCheckBox166.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jCheckBox166.setSelected(true);
         jCheckBox166.setText("3er. OFICIAL (TIPO LICENCIA)");
         jCheckBox166.setEnabled(false);
         jCheckBox166.addItemListener(new java.awt.event.ItemListener() {
@@ -2475,6 +2546,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox97.setSelected(true);
         jCheckBox98.setSelected(true);
         jCheckBox99.setSelected(true);
+        jCheckBox100.setSelected(true);
         String preconsulta = "SELECT ";
         String [] [] nombresColumnas = new String [50][3];
         int columnas = 0;
@@ -2627,7 +2699,12 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 jCheckBox97.setEnabled(true);
                 jCheckBox98.setEnabled(true);
                 jCheckBox99.setEnabled(true);
+                jCheckBox100.setEnabled(true);
                 jButton12.setEnabled(true);
+                if (jTablePlanes.getRowCount() == 0) {
+                    JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
+                }
+                botonBuscarPlanes.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -2678,6 +2755,28 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     cPlanes.jTextField13.setText(pasajero3Planes);
                 }
             }
+            ///////////////////
+            if (cBPersonal1Planes != 0 || cBPersonal2Planes != 0 || cBPersonal3Planes != 0) {
+                cPlanes.jCheckBox12.setSelected(true);
+                if (rBPersonalInfoPlanes == 1) {
+                    cPlanes.jRadioButton1.setSelected(true); 
+                } else {
+                    cPlanes.jRadioButton2.setSelected(true); 
+                }
+                if (cBPersonal1Planes == 9) {
+                    cPlanes.jCheckBox9.setSelected(true);
+                    cPlanes.jTextField8.setText(personal1Planes);
+                }
+                if (cBPersonal2Planes == 10) {
+                    cPlanes.jCheckBox10.setSelected(true);
+                    cPlanes.jTextField18.setText(personal2Planes);
+                }
+                if (cBPersonal3Planes == 11) {
+                    cPlanes.jCheckBox11.setSelected(true);
+                    cPlanes.jTextField16.setText(personal3Planes);
+                }
+            }
+            ///////////////////
             if (rBPersonalPlanes  != 0) {
                 cPlanes.jCheckBox6.setSelected(true);
                 if (rBPersonalPlanes == 15) {
@@ -2933,8 +3032,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             "ON RELACION_PDF_CIERRES.fecha = CIERRES_DE_PLAN.fecha_hora\n" +
             "LEFT JOIN PDFS_CIERRE\n" +
             "ON RELACION_PDF_CIERRES.pdf = PDFS_CIERRE.ruta_pdf\n"; 
-        if (criteriosPlanes != null) {
-            consulta += criteriosPlanes;
+        if (criteriosCierres != null) {
+            consulta += criteriosCierres;
         }
         System.out.println(consulta);
         ConexionMysql conexionConsultaCierre = new ConexionMysql();
@@ -2966,6 +3065,10 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 jCheckBox65.setEnabled(true);
                 jCheckBox66.setEnabled(true);
                 jButton11.setEnabled(true);
+                if (jTableCierres.getRowCount() == 0) {
+                    JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
+                }
+                botonBuscarCierres.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -3160,6 +3263,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox164.setSelected(true);
         jCheckBox165.setSelected(true);
         jCheckBox166.setSelected(true);
+        System.out.println("FUNCIONA");
         String preconsulta = "SELECT ";
         String [] [] nombresColumnas = new String [50][3];
         int columnas = 0;
@@ -3416,6 +3520,10 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 jCheckBox165.setEnabled(true);
                 jCheckBox166.setEnabled(true);
                 jButton14.setEnabled(true);
+                if (jTableMS.getRowCount() == 0) {
+                    JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
+                }
+                jButton6.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -3599,7 +3707,6 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox99ItemStateChanged
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        FuncionesGenerales.limpiarTablaCompletamente(jTablePlanes);
         jCheckBox67.setSelected(true);
         jCheckBox68.setSelected(true);
         jCheckBox69.setSelected(true);
@@ -3622,6 +3729,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox97.setSelected(true);
         jCheckBox98.setSelected(true);
         jCheckBox99.setSelected(true);
+        jCheckBox100.setSelected(true);
+        FuncionesGenerales.limpiarTablaCompletamente(jTablePlanes);
         jPanel11.setEnabled(false);
         jCheckBox67.setEnabled(false);
         jCheckBox68.setEnabled(false);
@@ -3645,6 +3754,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox97.setEnabled(false);
         jCheckBox98.setEnabled(false);
         jCheckBox99.setEnabled(false);
+        jCheckBox100.setEnabled(false);
         limpiarCriteriosPlanes();
         rBFechaPlanes = 0;
         fecha1Planes = null;
@@ -3656,6 +3766,13 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         pasajero2Planes = null;
         cBPasajeros3Planes = 0;
         pasajero3Planes = null;
+        cBPersonal1Planes = 0;
+        personal1Planes = null;
+        cBPersonal2Planes = 0;
+        personal2Planes = null;
+        cBPersonal3Planes = 0;
+        personal3Planes = null;
+        rBPersonalInfoPlanes = 0;
         rBPersonalPlanes = 0;
         licenciaPlanes = null;
         rBAeronavePlanes = 0;
@@ -3663,10 +3780,11 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         rBAeropuertoPlanes = 0;
         aeropuertoPlanes = null;
         primeraVezPlanes = true;
+        botonBuscarPlanes.setEnabled(true);
+        jButton12.setEnabled(false);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        FuncionesGenerales.limpiarTablaCompletamente(jTableCierres);
         jCheckBox45.setSelected(true);
         jCheckBox46.setSelected(true);
         jCheckBox47.setSelected(true);
@@ -3689,6 +3807,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox64.setSelected(true);
         jCheckBox65.setSelected(true);
         jCheckBox66.setSelected(true);
+        FuncionesGenerales.limpiarTablaCompletamente(jTableCierres);
         jPanel10.setEnabled(false);
         jCheckBox45.setEnabled(false);
         jCheckBox46.setEnabled(false);
@@ -3723,6 +3842,13 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         pasajero2Cierres = null;
         cBPasajeros3Cierres = 0;
         pasajero3Cierres = null;
+        cBPersonal1Cierres = 0;
+        personal1Cierres = null;
+        cBPersonal2Cierres = 0;
+        String personal2Cierres = null;
+        cBPersonal3Cierres = 0;
+        personal3Cierres = null;
+        rBPersonalInfoCierres = 0;
         rBPersonalCierres = 0;
         licenciaCierres = null;
         rBAeronaveCierres = 0;
@@ -3730,6 +3856,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         rBAeropuertoCierres = 0;
         aeropuertoCierres = null;
         primeraVezCierres = true;
+        botonBuscarCierres.setEnabled(true);
+        jButton11.setEnabled(false);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jCheckBox45ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox45ItemStateChanged
@@ -3909,7 +4037,6 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox61ItemStateChanged
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        FuncionesGenerales.limpiarTablaCompletamente(jTableMS);
         //
         jCheckBox133.setSelected(true);
         jCheckBox135.setSelected(true);
@@ -3944,6 +4071,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox164.setSelected(true);
         jCheckBox165.setSelected(true);
         jCheckBox166.setSelected(true);
+        FuncionesGenerales.limpiarTablaCompletamente(jTableMS);
         //
         jPanel19.setEnabled(false);
         jPanel20.setEnabled(false);
@@ -3994,6 +4122,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         aerolineaMSalida = null;
         vueloMSalida = null;
         primeraVezMSalida = true;
+        jButton6.setEnabled(true);
+        jButton14.setEnabled(false);
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jCheckBox133ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox133ItemStateChanged
@@ -4547,6 +4677,10 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 jCheckBox132.setEnabled(true);
                 jCheckBox134.setEnabled(true);
                 jButton16.setEnabled(true);
+                if (jTableML.getRowCount() == 0) {
+                    JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
+                }
+                jButton8.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -4556,7 +4690,6 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        FuncionesGenerales.limpiarTablaCompletamente(jTableML);
         //
         jCheckBox78.setSelected(true);
         jCheckBox79.setSelected(true);
@@ -4591,6 +4724,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox131.setSelected(true);
         jCheckBox132.setSelected(true);
         jCheckBox134.setSelected(true);
+        FuncionesGenerales.limpiarTablaCompletamente(jTableML);
         //
         jPanel12.setEnabled(false);
         jPanel18.setEnabled(false);
@@ -4640,7 +4774,9 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         origenMLlegada = null;
         aerolineaMLlegada = null;
         vueloMLlegada = null;
-        primeraVezMLlegada = true;                           
+        primeraVezMLlegada = true;
+        jButton8.setEnabled(true);
+        jButton16.setEnabled(false);
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jCheckBox78ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox78ItemStateChanged
@@ -5003,6 +5139,20 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTableMLMouseClicked
 
+    private void jCheckBox100ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox100ItemStateChanged
+        if (jCheckBox100.isSelected()) {
+            FuncionesGenerales.mostrarColumnaEliminada(jTablePlanes,24);
+        } else {
+            FuncionesGenerales.eliminarColumnaTemporal(jTablePlanes,24);
+        }
+    }//GEN-LAST:event_jCheckBox100ItemStateChanged
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        AAJFrameVentanaInicio ventanaInicio = new AAJFrameVentanaInicio();
+        ventanaInicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
+
     /**
      * @param args the command line arguments
      */
@@ -5306,6 +5456,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
+    private javax.swing.JCheckBox jCheckBox100;
     private javax.swing.JCheckBox jCheckBox112;
     private javax.swing.JCheckBox jCheckBox113;
     private javax.swing.JCheckBox jCheckBox114;
@@ -5438,6 +5589,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel40;
     public static javax.swing.JLabel jLabel41;
     public static javax.swing.JLabel jLabel42;
+    public static javax.swing.JLabel jLabel43;
+    public static javax.swing.JLabel jLabel44;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -5504,6 +5657,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jLabel35.setEnabled(false);
         jLabel36.setText("NO. DE VUELO");
         jLabel36.setEnabled(false);
+        criteriosManifiestosSalida = null;
     }
     
     static int rBFechaMLlegada = 0;
@@ -5533,6 +5687,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jLabel41.setEnabled(false);
         jLabel42.setText("NO. DE VUELO");
         jLabel42.setEnabled(false);
+        criteriosManifiestosLlegada = null;
     }
     
     static int rBFechaPlanes = 0;
@@ -5546,6 +5701,15 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     static int cBPasajeros3Planes = 0;
     static String pasajero3Planes = null;
     static int rBPersonalPlanes = 0;
+    /////
+    static int cBPersonal1Planes = 0;
+    static String personal1Planes = null;
+    static int cBPersonal2Planes = 0;
+    static String personal2Planes = null;
+    static int cBPersonal3Planes = 0;
+    static String personal3Planes = null;
+    static int rBPersonalInfoPlanes = 0;
+    ////
     static String licenciaPlanes = null;
     static int rBAeronavePlanes = 0;
     static String aeronavePlanes = null;
@@ -5564,6 +5728,9 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jLabel24.setEnabled(false);
         jLabel25.setText("AEROPUERTO/AERÓDROMO DE LLEGADA");
         jLabel25.setEnabled(false);
+        jLabel43.setText("PERSONAL DE VUELO (NOMBRE)");
+        jLabel43.setEnabled(false);
+        criteriosPlanes = null;
     }
     
     static int rBFechaCierres = 0;
@@ -5577,6 +5744,15 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     static int cBPasajeros3Cierres = 0;
     static String pasajero3Cierres = null;
     static int rBPersonalCierres = 0;
+    /////
+    static int cBPersonal1Cierres = 0;
+    static String personal1Cierres = null;
+    static int cBPersonal2Cierres = 0;
+    static String personal2Cierres = null;
+    static int cBPersonal3Cierres = 0;
+    static String personal3Cierres = null;
+    static int rBPersonalInfoCierres = 0;
+    ////
     static String licenciaCierres = null;
     static int rBAeronaveCierres = 0;
     static String aeronaveCierres = null;
@@ -5595,6 +5771,9 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jLabel29.setEnabled(false);
         jLabel30.setText("AEROPUERTO/AERÓDROMO DE SALIDA");
         jLabel30.setEnabled(false);
+        jLabel44.setText("PERSONAL DE VUELO (NOMBRE)");
+        jLabel44.setEnabled(false);
+        criteriosCierres = null;
     }
     
     @Override

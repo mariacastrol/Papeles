@@ -408,23 +408,25 @@ public class ConexionMysql {
                     totalPasajeros++;
                 }
             }
-            if (totalRenglonesObstros > totalPasajeros) {
-                String [] filasEnBlanco = new String [numeroColumnas];
-                for (int j = 0; j < (totalRenglonesObstros - totalPasajeros); j++) {
-                    modelo.addRow(filasEnBlanco);
+            if (0 < modelo.getRowCount()) {
+                if (totalRenglonesObstros > totalPasajeros) {
+                    String [] filasEnBlanco = new String [numeroColumnas];
+                    for (int j = 0; j < (totalRenglonesObstros - totalPasajeros); j++) {
+                        modelo.addRow(filasEnBlanco);
+                    }
                 }
-            }
-            for (int k = 0; k < totalRenglonesObstros; k++) {
-                modelo.setValueAt(renglonesObsOtros[k],filaDondeIniciaRegistro++,columnaOtros);
-            }
-            int grupo = 1;
-            modelo.setValueAt(1,0,0);
-            for (int i = 1; i < modelo.getRowCount(); i++) {
-                String fecha = (String) modelo.getValueAt(i,columnaFechaPrincipal);
-                if (!(fecha == null)) {
-                    grupo++;
+                for (int k = 0; k < totalRenglonesObstros; k++) {
+                    modelo.setValueAt(renglonesObsOtros[k],filaDondeIniciaRegistro++,columnaOtros);
                 }
-                modelo.setValueAt(grupo,i,0);
+                int grupo = 1;
+                modelo.setValueAt(1,0,0);
+                for (int i = 1; i < modelo.getRowCount(); i++) {
+                    String fecha = (String) modelo.getValueAt(i,columnaFechaPrincipal);
+                    if (!(fecha == null)) {
+                        grupo++;
+                    }
+                    modelo.setValueAt(grupo,i,0);
+                }
             }
             /*tabla.getColumnModel().getColumn(0).setMinWidth(Integer.parseInt(columnasTablas[0][2]));
             tabla.getColumnModel().getColumn(0).setPreferredWidth(Integer.parseInt(columnasTablas[0][2]));

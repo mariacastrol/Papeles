@@ -63,7 +63,8 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
         jLabelObligatorios = new javax.swing.JLabel();
         botonPDF = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTablePDFPlanes = new javax.swing.JTable();
+        jTablePDFManifiestos = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         jMenuItem1.setText("Seleccionar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -291,7 +292,7 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTablePDFPlanes.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePDFManifiestos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -307,19 +308,27 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jTablePDFPlanes.setComponentPopupMenu(jPopupMenu1);
-        jTablePDFPlanes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jTablePDFPlanes.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTablePDFManifiestos.setComponentPopupMenu(jPopupMenu1);
+        jTablePDFManifiestos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTablePDFManifiestos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTablePDFPlanesMouseClicked(evt);
+                jTablePDFManifiestosMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTablePDFPlanes);
-        if (jTablePDFPlanes.getColumnModel().getColumnCount() > 0) {
-            jTablePDFPlanes.getColumnModel().getColumn(1).setMinWidth(100);
-            jTablePDFPlanes.getColumnModel().getColumn(1).setPreferredWidth(100);
-            jTablePDFPlanes.getColumnModel().getColumn(1).setMaxWidth(100);
+        jScrollPane1.setViewportView(jTablePDFManifiestos);
+        if (jTablePDFManifiestos.getColumnModel().getColumnCount() > 0) {
+            jTablePDFManifiestos.getColumnModel().getColumn(1).setMinWidth(100);
+            jTablePDFManifiestos.getColumnModel().getColumn(1).setPreferredWidth(100);
+            jTablePDFManifiestos.getColumnModel().getColumn(1).setMaxWidth(100);
         }
+
+        jButton1.setText("MOSTRAR TODOS LOS REGISTROS");
+        jButton1.setPreferredSize(new java.awt.Dimension(220, 23));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -331,7 +340,10 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)))
                 .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
@@ -341,7 +353,9 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
+                .addGap(10, 10, 10)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -367,10 +381,10 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
         String campoConsulta = jTextFieldBuscarPDF.getText();
-        if (!ping.mostrarRegistroEspecifico(jTablePDFPlanes,nombreTablaMysql,columnasTablaMysql,columnasTablaMysql[1],campoConsulta)) {
+        if (!ping.mostrarRegistroEspecifico(jTablePDFManifiestos,nombreTablaMysql,columnasTablaMysql,columnasTablaMysql[1],campoConsulta)) {
             JOptionPane.showMessageDialog(this,ping.getMensajesError(),"ERROR AL CARGAR CONSULTA",JOptionPane.ERROR_MESSAGE);
         } else {
-            int filasTabla = jTablePDFPlanes.getRowCount();
+            int filasTabla = jTablePDFManifiestos.getRowCount();
             if (filasTabla == 0) {
                 JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO EL ARCHIVO PDF","",JOptionPane.INFORMATION_MESSAGE);
             }
@@ -393,7 +407,7 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
                 botonActualizar.setEnabled(false);
                 jTextFieldSRutaPDF.setText(null);
                 jTextFieldSNombrePDF.setText(null); 
-                if (!ping.mostrarColumnasTablaMysqlSimple(jTablePDFPlanes, nombreTablaMysql, columnasTablaMysql)) {
+                if (!ping.mostrarColumnasTablaMysqlSimple(jTablePDFManifiestos, nombreTablaMysql, columnasTablaMysql)) {
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
             }
@@ -408,7 +422,7 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
                 limpiarAA();               
-                if(!ping.mostrarColumnasTablaMysqlSimple(jTablePDFPlanes, nombreTablaMysql, columnasTablaMysql)){
+                if(!ping.mostrarColumnasTablaMysqlSimple(jTablePDFManifiestos, nombreTablaMysql, columnasTablaMysql)){
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
             }
@@ -424,10 +438,10 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        int filaSeleccionada = jTablePDFPlanes.getSelectedRow();
+        int filaSeleccionada = jTablePDFManifiestos.getSelectedRow();
         if (filaSeleccionada >= 0) {    
-            String celda = jTablePDFPlanes.getValueAt(filaSeleccionada,0).toString();
-            String celda1 = jTablePDFPlanes.getValueAt(filaSeleccionada,1).toString();
+            String celda = jTablePDFManifiestos.getValueAt(filaSeleccionada,0).toString();
+            String celda1 = jTablePDFManifiestos.getValueAt(filaSeleccionada,1).toString();
             jTextFieldAARutaPDF.setText(celda);
             jTextFieldAANombrePDF.setText(celda1);
             llaveActual = celda;
@@ -445,16 +459,16 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        int filaSeleccionada = jTablePDFPlanes.getSelectedRow();
+        int filaSeleccionada = jTablePDFManifiestos.getSelectedRow();
         if (filaSeleccionada >= 0) {
-            String campoBuscar = jTablePDFPlanes.getValueAt(filaSeleccionada,0).toString();
+            String campoBuscar = jTablePDFManifiestos.getValueAt(filaSeleccionada,0).toString();
             if (!ping.eliminarFilaEnTabla(nombreTablaMysql,pK,campoBuscar)) {
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"ERROR AL ELIMINAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
                 jTextFieldSRutaPDF.setText(null);
                 jTextFieldSNombrePDF.setText(null);                
             }
-            if(!ping.mostrarColumnasTablaMysqlSimple(jTablePDFPlanes,nombreTablaMysql,columnasTablaMysql)){
+            if(!ping.mostrarColumnasTablaMysqlSimple(jTablePDFManifiestos,nombreTablaMysql,columnasTablaMysql)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
             }
         } else {
@@ -474,13 +488,13 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jTextFieldBuscarPDFKeyTyped
 
-    private void jTablePDFPlanesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePDFPlanesMouseClicked
+    private void jTablePDFManifiestosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePDFManifiestosMouseClicked
         if (evt.getClickCount() == 2) {
             funcionSeleccionar();
         } else if (evt.getClickCount() == 3) {
             funcionVolver();
         }
-    }//GEN-LAST:event_jTablePDFPlanesMouseClicked
+    }//GEN-LAST:event_jTablePDFManifiestosMouseClicked
 
     private void botonPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPDFActionPerformed
         FileNameExtensionFilter filtroPDF = new FileNameExtensionFilter("Archivos pdf","pdf");
@@ -503,6 +517,12 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
             botonPDF.setForeground(new java.awt.Color(0,0,0));
         }
     }//GEN-LAST:event_botonPDFActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(!ping.mostrarColumnasTablaMysqlSimple(jTablePDFManifiestos, nombreTablaMysql, columnasTablaMysql)){
+            JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2599,6 +2619,7 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
     private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonPDF;
     private javax.swing.JButton botonVolver;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
@@ -2614,7 +2635,7 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTablePDFPlanes;
+    private javax.swing.JTable jTablePDFManifiestos;
     private javax.swing.JTextField jTextFieldAANombrePDF;
     private javax.swing.JTextField jTextFieldAARutaPDF;
     private javax.swing.JTextField jTextFieldBuscarPDF;
@@ -2643,7 +2664,7 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
             rutaOriginal = pdf;
             colorFondo = jPanel1.getBackground();
             jLabelObligatorios.setForeground(colorFondo);
-            if(!ping.mostrarColumnasTablaMysqlSimple(jTablePDFPlanes, nombreTablaMysql, columnasTablaMysql)){
+            if(!ping.mostrarColumnasTablaMysqlSimple(jTablePDFManifiestos, nombreTablaMysql, columnasTablaMysql)){
                 JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA INFORMACIÓN DE LA TABLA",JOptionPane.ERROR_MESSAGE);
             }
             return true;
@@ -2654,10 +2675,10 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
     }
     
     private void funcionSeleccionar() {
-        int filaSeleccionada = jTablePDFPlanes.getSelectedRow();
+        int filaSeleccionada = jTablePDFManifiestos.getSelectedRow();
         if (filaSeleccionada >= 0) {
-            String celda = jTablePDFPlanes.getValueAt(filaSeleccionada,0).toString();
-            String celda1 = jTablePDFPlanes.getValueAt(filaSeleccionada,1).toString();
+            String celda = jTablePDFManifiestos.getValueAt(filaSeleccionada,0).toString();
+            String celda1 = jTablePDFManifiestos.getValueAt(filaSeleccionada,1).toString();
             jTextFieldSRutaPDF.setText(celda);
             jTextFieldSNombrePDF.setText(celda1);       
             jLabel21.setForeground(new java.awt.Color(0,0,0));

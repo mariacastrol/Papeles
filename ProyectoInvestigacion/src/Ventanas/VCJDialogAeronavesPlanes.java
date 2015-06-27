@@ -60,6 +60,7 @@ public class VCJDialogAeronavesPlanes extends javax.swing.JDialog {
         jLabelObligatorios = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAeronavesPlanes = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         jMenuItem1.setText("Seleccionar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -322,6 +323,13 @@ public class VCJDialogAeronavesPlanes extends javax.swing.JDialog {
             jTableAeronavesPlanes.getColumnModel().getColumn(1).setMaxWidth(60);
         }
 
+        jButton1.setText("MOSTRAR TODOS LOS REGRISTROS");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -332,7 +340,8 @@ public class VCJDialogAeronavesPlanes extends javax.swing.JDialog {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -342,7 +351,9 @@ public class VCJDialogAeronavesPlanes extends javax.swing.JDialog {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
+                .addGap(10, 10, 10)
+                .addComponent(jButton1)
+                .addGap(10, 10, 10)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -515,6 +526,12 @@ public class VCJDialogAeronavesPlanes extends javax.swing.JDialog {
             funcionVolver();
         }
     }//GEN-LAST:event_jTableAeronavesPlanesMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(!ping.mostrarColumnasTablaMysqlSimple(jTableAeronavesPlanes, nombreTablaMysql, columnasTablaMysql)){
+            JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1074,6 +1091,7 @@ public class VCJDialogAeronavesPlanes extends javax.swing.JDialog {
     private javax.swing.JButton botonAgregar;
     private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonVolver;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;

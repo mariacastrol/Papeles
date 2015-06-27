@@ -78,6 +78,16 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
         jRadioButton19 = new javax.swing.JRadioButton();
         jTextField20 = new javax.swing.JTextField();
         jTextField21 = new javax.swing.JTextField();
+        jCheckBox12 = new javax.swing.JCheckBox();
+        jPanel18 = new javax.swing.JPanel();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField16 = new javax.swing.JTextField();
+        jTextField18 = new javax.swing.JTextField();
+        jCheckBox9 = new javax.swing.JCheckBox();
+        jCheckBox10 = new javax.swing.JCheckBox();
+        jCheckBox11 = new javax.swing.JCheckBox();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CRITERIOS DE BUSQUEDA");
@@ -503,17 +513,117 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
                 .addGap(10, 10, 10))
         );
 
+        jCheckBox12.setText("PERSONAL DE VUELO");
+        jCheckBox12.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox12ItemStateChanged(evt);
+            }
+        });
+
+        jPanel18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jTextField8.setEnabled(false);
+        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField8KeyTyped(evt);
+            }
+        });
+
+        jTextField16.setEnabled(false);
+        jTextField16.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField16KeyTyped(evt);
+            }
+        });
+
+        jTextField18.setEnabled(false);
+        jTextField18.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField18KeyTyped(evt);
+            }
+        });
+
+        jCheckBox9.setText("NOMBRE(S)");
+        jCheckBox9.setEnabled(false);
+        jCheckBox9.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox9ItemStateChanged(evt);
+            }
+        });
+
+        jCheckBox10.setText("APELLIDO PATERNO");
+        jCheckBox10.setEnabled(false);
+        jCheckBox10.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox10ItemStateChanged(evt);
+            }
+        });
+
+        jCheckBox11.setText("APELLIDO MATERNO");
+        jCheckBox11.setEnabled(false);
+        jCheckBox11.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox11ItemStateChanged(evt);
+            }
+        });
+
+        jRadioButton1.setSelected(true);
+        jRadioButton1.setText("PILOTO");
+        jRadioButton1.setEnabled(false);
+
+        jRadioButton2.setText("COPILOTO");
+        jRadioButton2.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jRadioButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jRadioButton2))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox9)
+                            .addComponent(jCheckBox11)
+                            .addComponent(jCheckBox10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextField18, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField16)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox9))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox10)
+                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox11)
+                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox6)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -523,23 +633,50 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(jCheckBox1)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jCheckBox4)
+                            .addComponent(jCheckBox6)
+                            .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckBox1)
+                                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCheckBox12)
+                                    .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(20, 20, 20))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jCheckBox12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jCheckBox6)
+                                .addGap(7, 7, 7)
+                                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCheckBox5)
@@ -547,15 +684,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
                         .addGap(7, 7, 7)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jCheckBox6)
-                        .addGap(7, 7, 7)
-                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(20, 20, 20))
         );
 
@@ -689,7 +818,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
     }//GEN-LAST:event_jCheckBox1ItemStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (jCheckBox4.isSelected() || jCheckBox1.isSelected() || jCheckBox6.isSelected() || jCheckBox3.isSelected() || jCheckBox5.isSelected()) {
+        if (jCheckBox4.isSelected() || jCheckBox1.isSelected() || jCheckBox6.isSelected() || jCheckBox3.isSelected() || jCheckBox5.isSelected() || jCheckBox12.isSelected()) {
             int totalVacios = 0;
             if (jCheckBox4.isSelected()) {
                 if (jRadioButton11.isSelected() && jDateChooser3.getDate() == null) {
@@ -746,6 +875,40 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
                 BAJFrameVentanaConsultas.cBPasajeros3Cierres = 0;
                 BAJFrameVentanaConsultas.pasajero3Cierres = null;
             }
+            ///////////////////////////************
+            if (jCheckBox12.isSelected()) {
+                if (jCheckBox9.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField8)) {
+                    totalVacios++;
+                    jCheckBox12.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox9.setForeground(new java.awt.Color(rError,gError,bError));
+                }
+                if (jCheckBox10.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField18)) {
+                    totalVacios++;
+                    jCheckBox12.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox10.setForeground(new java.awt.Color(rError,gError,bError));
+                }
+                if (jCheckBox11.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField16)) {
+                    totalVacios++;
+                    jCheckBox12.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox11.setForeground(new java.awt.Color(rError,gError,bError));
+                }
+                if (!jCheckBox9.isSelected() && !jCheckBox10.isSelected() && !jCheckBox11.isSelected()) {
+                    totalVacios++;
+                    jCheckBox12.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox9.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox10.setForeground(new java.awt.Color(rError,gError,bError));
+                    jCheckBox11.setForeground(new java.awt.Color(rError,gError,bError));
+                }
+            } else {
+                BAJFrameVentanaConsultas.cBPersonal1Cierres = 0;
+                BAJFrameVentanaConsultas.personal1Cierres = null;
+                BAJFrameVentanaConsultas.cBPersonal2Cierres = 0;
+                BAJFrameVentanaConsultas.personal2Cierres = null;
+                BAJFrameVentanaConsultas.cBPersonal3Cierres = 0;
+                BAJFrameVentanaConsultas.personal3Cierres = null;
+                BAJFrameVentanaConsultas.rBPersonalInfoCierres = 0;
+            }
+            //////////////////////////////*****************
             if (jCheckBox6.isSelected()) {
                 if (jRadioButton15.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField15)) {
                     totalVacios++;
@@ -901,6 +1064,107 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
                     }
                     BAJFrameVentanaConsultas.jLabel28.setEnabled(true);
                 }
+                /////////////////////////*********************
+                if (jCheckBox12.isSelected()) {
+                    String[] tripulacion = new String [3];
+                    String nombreCompleto = "";
+                    if (jCheckBox9.isSelected()) {
+                        String nombre = jTextField8.getText();
+                        if (jRadioButton1.isSelected()){
+                            tripulacion[0] = "PILOTOS_PLANES.nombre LIKE '%" + nombre + "%'";
+                            BAJFrameVentanaConsultas.rBPersonalInfoCierres = 1;
+                        } else  {
+                            tripulacion[0] = "COPILOTOS_PLANES.nombre LIKE '%" + nombre + "%'";
+                            BAJFrameVentanaConsultas.rBPersonalInfoCierres = 2;
+                        }
+                        BAJFrameVentanaConsultas.cBPersonal1Cierres = 9;
+                        BAJFrameVentanaConsultas.personal1Cierres = nombre;
+                        nombreCompleto += nombre + " ";
+                    } else {
+                        tripulacion[0] = null;
+                        BAJFrameVentanaConsultas.cBPersonal1Cierres = 0;
+                        BAJFrameVentanaConsultas.personal1Cierres = null;
+                    }
+                    if (jCheckBox10.isSelected()) {
+                        String apaterno = jTextField18.getText();
+                        if (jRadioButton1.isSelected()){
+                            tripulacion[1] = "PILOTOS_PLANES.apellido_paterno LIKE '%" + apaterno + "%'";
+                            BAJFrameVentanaConsultas.rBPersonalInfoCierres = 1;
+                        } else  {
+                            tripulacion[1] = "COPILOTOS_PLANES.apellido_paterno LIKE '%" + apaterno + "%'";
+                            BAJFrameVentanaConsultas.rBPersonalInfoCierres = 2;
+                        }
+                        BAJFrameVentanaConsultas.cBPersonal2Cierres = 10;
+                        BAJFrameVentanaConsultas.personal2Cierres = apaterno;
+                        nombreCompleto += apaterno + " ";
+                    } else {
+                        tripulacion[1] = null;
+                        BAJFrameVentanaConsultas.cBPersonal2Cierres = 0;
+                        BAJFrameVentanaConsultas.personal2Cierres = null;
+                    }
+                    if (jCheckBox11.isSelected()) {
+                        String amaterno = jTextField16.getText();
+                        if (jRadioButton1.isSelected()){
+                            tripulacion[2] = "PILOTOS_PLANES.apellido_materno LIKE '%" + amaterno + "%'";
+                            BAJFrameVentanaConsultas.rBPersonalInfoCierres = 1;
+                        } else  {
+                            tripulacion[2] = "COPILOTOS_PLANES.apellido_materno LIKE '%" + amaterno + "%'";
+                            BAJFrameVentanaConsultas.rBPersonalInfoCierres = 2;
+                        }
+                        BAJFrameVentanaConsultas.cBPersonal3Cierres = 11;
+                        BAJFrameVentanaConsultas.personal3Cierres = amaterno;
+                        nombreCompleto += amaterno + " ";
+                    } else {
+                        tripulacion[2] = null;
+                        BAJFrameVentanaConsultas.cBPersonal3Cierres = 0;
+                        BAJFrameVentanaConsultas.personal3Cierres = null;
+                    }
+                    BAJFrameVentanaConsultas.jLabel44.setText(nombreCompleto);
+                    if (!criterioBusqueda.equals("")) {
+                        if (tripulacion[0] != null) {
+                            criterioBusqueda += "AND " + tripulacion[0] + "\n";
+                        }
+                        if (tripulacion[1] != null) {
+                            criterioBusqueda += "AND " + tripulacion[1] + "\n";
+                        }
+                        if (tripulacion[2] != null) {
+                            criterioBusqueda += "AND " + tripulacion[2] + "\n";
+                        }
+                    } else {
+                        boolean bandera = false;
+                        if (tripulacion[0] != null && !bandera) {
+                            criterioBusqueda += "WHERE " + tripulacion[0] + "\n";
+                            bandera = true;
+                            if (tripulacion[1] != null) {
+                                criterioBusqueda += "AND " + tripulacion[1] + "\n";
+                            }
+                            if (tripulacion[2] != null) {
+                                criterioBusqueda += "AND " + tripulacion[2] + "\n";
+                            }
+                        }
+                        if (tripulacion[1] != null && !bandera) {
+                            criterioBusqueda += "WHERE " + tripulacion[1] + "\n";
+                            bandera = true;
+                            if (tripulacion[0] != null) {
+                                criterioBusqueda += "AND " + tripulacion[0] + "\n";
+                            }
+                            if (tripulacion[2] != null) {
+                                criterioBusqueda += "AND " + tripulacion[2] + "\n";
+                            }
+                        }
+                        if (tripulacion[2] != null && !bandera) {
+                            criterioBusqueda += "WHERE " + tripulacion[2] + "\n";
+                            if (tripulacion[0] != null) {
+                                criterioBusqueda += "AND " + tripulacion[0] + "\n";
+                            }
+                            if (tripulacion[1] != null) {
+                                criterioBusqueda += "AND " + tripulacion[1] + "\n";
+                            }
+                        }
+                    }
+                    BAJFrameVentanaConsultas.jLabel44.setEnabled(true);
+                }
+                ///////////////////***************************
                 if (jCheckBox6.isSelected()) {
                     String personal = "";
                     if (jRadioButton15.isSelected()) {
@@ -1309,6 +1573,139 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
         jDateChooser1.setEnabled(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jCheckBox12ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox12ItemStateChanged
+        if (jCheckBox12.isSelected()) {
+            jRadioButton1.setEnabled(true);
+            jRadioButton2.setEnabled(true);
+            jCheckBox9.setEnabled(true);
+            jCheckBox10.setEnabled(true);
+            jCheckBox11.setEnabled(true);
+        } else {
+            jRadioButton1.setEnabled(false);
+            jRadioButton2.setEnabled(false);
+            jRadioButton1.setSelected(true);
+            jCheckBox9.setEnabled(false);
+            jCheckBox10.setEnabled(false);
+            jCheckBox11.setEnabled(false);
+            jCheckBox9.setSelected(false);
+            jCheckBox10.setSelected(false);
+            jCheckBox11.setSelected(false);
+            jTextField8.setEnabled(false);
+            jTextField18.setEnabled(false);
+            jTextField16.setEnabled(false);
+            jTextField8.setText(null);
+            jTextField18.setText(null);
+            jTextField16.setText(null);
+            Color cN = new Color(0,0,0);
+            jCheckBox12.setForeground(cN);
+            jCheckBox9.setForeground(cN);
+            jCheckBox10.setForeground(cN);
+            jCheckBox11.setForeground(cN);
+        }
+    }//GEN-LAST:event_jCheckBox12ItemStateChanged
+
+    private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
+        int limite = 50;
+        char caracterValidar = evt.getKeyChar();
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextField8.getText().length() < limite)) {
+            getToolkit().beep();
+            evt.consume();
+        } else {
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);
+            Color cError = new Color(rError,gError,bError);
+            if (jCheckBox9.getForeground().getRGB() == cError.getRGB()) {
+                Color cN = new Color(0,0,0);
+                jCheckBox9.setForeground(cN);
+                if (jCheckBox10.getForeground().getRGB() == cN.getRGB() && jCheckBox11.getForeground().getRGB() == cN.getRGB()) {
+                    jCheckBox12.setForeground(cN);
+                }
+            }
+        }
+    }//GEN-LAST:event_jTextField8KeyTyped
+
+    private void jTextField16KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField16KeyTyped
+        int limite = 20;
+        char caracterValidar = evt.getKeyChar();
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextField16.getText().length() < limite)) {
+            getToolkit().beep();
+            evt.consume();
+        } else {
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);
+            Color cError = new Color(rError,gError,bError);
+            if (jCheckBox11.getForeground().getRGB() == cError.getRGB()) {
+                Color cN = new Color(0,0,0);
+                jCheckBox11.setForeground(cN);
+                if (jCheckBox9.getForeground().getRGB() == cN.getRGB() && jCheckBox10.getForeground().getRGB() == cN.getRGB()) {
+                    jCheckBox12.setForeground(cN);
+                }
+            }
+        }
+    }//GEN-LAST:event_jTextField16KeyTyped
+
+    private void jTextField18KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField18KeyTyped
+        int limite = 20;
+        char caracterValidar = evt.getKeyChar();
+        if (!((Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar) || Character.isSpaceChar(caracterValidar)) && jTextField18.getText().length() < limite)) {
+            getToolkit().beep();
+            evt.consume();
+        } else {
+            char caracterMayuscula = Character.toUpperCase(caracterValidar);
+            evt.setKeyChar(caracterMayuscula);
+            Color cError = new Color(rError,gError,bError);
+            if (jCheckBox10.getForeground().getRGB() == cError.getRGB()) {
+                Color cN = new Color(0,0,0);
+                jCheckBox10.setForeground(cN);
+                if (jCheckBox9.getForeground().getRGB() == cN.getRGB() && jCheckBox11.getForeground().getRGB() == cN.getRGB()) {
+                    jCheckBox12.setForeground(cN);
+                }
+            }
+        }
+    }//GEN-LAST:event_jTextField18KeyTyped
+
+    private void jCheckBox9ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox9ItemStateChanged
+        if (jCheckBox9.isSelected()) {
+            jTextField8.setEnabled(true);
+            jTextField8.requestFocus();
+        } else {
+            jTextField8.setEnabled(false);
+            jTextField8.setText(null);
+            jCheckBox9.setForeground(new java.awt.Color(0,0,0));
+            if (!jCheckBox10.isSelected() && !jCheckBox11.isSelected()) {
+                jCheckBox12.setSelected(false);
+            }
+        }
+    }//GEN-LAST:event_jCheckBox9ItemStateChanged
+
+    private void jCheckBox10ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox10ItemStateChanged
+        if (jCheckBox10.isSelected()) {
+            jTextField18.setEnabled(true);
+            jTextField18.requestFocus();
+        } else {
+            jTextField18.setEnabled(false);
+            jTextField18.setText(null);
+            jCheckBox10.setForeground(new java.awt.Color(0,0,0));
+            if (!jCheckBox9.isSelected() && !jCheckBox11.isSelected()) {
+                jCheckBox12.setSelected(false);
+            }
+        }
+    }//GEN-LAST:event_jCheckBox10ItemStateChanged
+
+    private void jCheckBox11ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox11ItemStateChanged
+        if (jCheckBox11.isSelected()) {
+            jTextField16.setEnabled(true);
+            jTextField16.requestFocus();
+        } else {
+            jTextField16.setEnabled(false);
+            jTextField16.setText(null);
+            jCheckBox11.setForeground(new java.awt.Color(0,0,0));
+            if (!jCheckBox9.isSelected() && !jCheckBox10.isSelected()) {
+                jCheckBox12.setSelected(false);
+            }
+        }
+    }//GEN-LAST:event_jCheckBox11ItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -1422,6 +1819,9 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     public javax.swing.JCheckBox jCheckBox1;
+    public javax.swing.JCheckBox jCheckBox10;
+    public javax.swing.JCheckBox jCheckBox11;
+    public javax.swing.JCheckBox jCheckBox12;
     public javax.swing.JCheckBox jCheckBox2;
     public javax.swing.JCheckBox jCheckBox3;
     public javax.swing.JCheckBox jCheckBox4;
@@ -1429,6 +1829,7 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
     public javax.swing.JCheckBox jCheckBox6;
     public javax.swing.JCheckBox jCheckBox7;
     public javax.swing.JCheckBox jCheckBox8;
+    public javax.swing.JCheckBox jCheckBox9;
     public com.toedter.calendar.JDateChooser jDateChooser1;
     public com.toedter.calendar.JDateChooser jDateChooser2;
     public com.toedter.calendar.JDateChooser jDateChooser3;
@@ -1440,6 +1841,8 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    public javax.swing.JRadioButton jRadioButton1;
     public javax.swing.JRadioButton jRadioButton10;
     public javax.swing.JRadioButton jRadioButton11;
     public javax.swing.JRadioButton jRadioButton12;
@@ -1447,16 +1850,20 @@ public class BCJDialogBusquedaCierres extends javax.swing.JDialog {
     public javax.swing.JRadioButton jRadioButton17;
     public javax.swing.JRadioButton jRadioButton18;
     public javax.swing.JRadioButton jRadioButton19;
+    public javax.swing.JRadioButton jRadioButton2;
     public javax.swing.JRadioButton jRadioButton9;
     public javax.swing.JTextField jTextField11;
     public javax.swing.JTextField jTextField12;
     public javax.swing.JTextField jTextField13;
     public javax.swing.JTextField jTextField14;
     public javax.swing.JTextField jTextField15;
+    public javax.swing.JTextField jTextField16;
     public javax.swing.JTextField jTextField17;
+    public javax.swing.JTextField jTextField18;
     public javax.swing.JTextField jTextField20;
     public javax.swing.JTextField jTextField21;
     public javax.swing.JTextField jTextField7;
+    public javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 
     private int rError = 250;
