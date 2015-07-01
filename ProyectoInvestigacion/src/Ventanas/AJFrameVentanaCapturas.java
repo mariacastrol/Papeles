@@ -164,6 +164,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -595,8 +597,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         botonGuardarPlanes.setBounds(813, 556, 90, 23);
 
         jDateFecha.setDateFormatString("dd/MM/yyyy");
-        jDateFecha.setMaxSelectableDate(new java.util.Date(1483250399000L));
-        jDateFecha.setMinSelectableDate(new java.util.Date(1262325599000L));
+        jDateFecha.setMaxSelectableDate(new java.util.Date(1925013599000L));
+        jDateFecha.setMinSelectableDate(new java.util.Date(1104562861000L));
         jDateFecha.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jDateFechaPropertyChange(evt);
@@ -1158,8 +1160,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jPanel15.setBounds(698, 241, 205, 67);
 
         jDateChooser2.setDateFormatString("dd/MM/yyyy");
-        jDateChooser2.setMaxSelectableDate(new java.util.Date(1483250399000L));
-        jDateChooser2.setMinSelectableDate(new java.util.Date(1262325599000L));
+        jDateChooser2.setMaxSelectableDate(new java.util.Date(1925013599000L));
+        jDateChooser2.setMinSelectableDate(new java.util.Date(1104562861000L));
         jDateChooser2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jDateChooser2PropertyChange(evt);
@@ -1280,7 +1282,26 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("MANIFIESTOS DE VUELO", jPanel2);
 
-        jMenu1.setText("File");
+        jMenu1.setText("ARCHIVO");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("VOLVER A LA VENTANA DE INICIO");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setText("SALIR DE LA APLICACIÓN");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -2022,10 +2043,16 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     }//GEN-LAST:event_botonDeclararEmDesembarque1ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        AAJFrameVentanaInicio ventanaInicio = new AAJFrameVentanaInicio();
-        ventanaInicio.setVisible(true);
-        this.dispose();
+        volverAlInicio();
     }//GEN-LAST:event_formWindowClosing
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        volverAlInicio();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2169,6 +2196,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -2220,7 +2249,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     public static javax.swing.JTextField jTextField9;
     private javax.swing.JTextField jTextFieldPersonasPasajeros;
     // End of variables declaration//GEN-END:variables
-
+    
     private String sv = "localhost";
     private String us = "root";
     private String pw = "l1u2c3h4o5e6d7u";
@@ -2303,6 +2332,17 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jTextField9.setText(null);
         listaPasajeros = null;
         rutaPDF = null;
+    }
+    
+    public void volverAlInicio() {
+        this.setVisible(false);
+        try {
+            Thread.sleep (500);
+        } catch (Exception e) {
+        }
+        AAJFrameVentanaInicio ventanaInicio = new AAJFrameVentanaInicio();
+        ventanaInicio.setVisible(true);
+        this.dispose();
     }
     
     @Override

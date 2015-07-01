@@ -6,7 +6,6 @@
 package Ventanas;
 
 import Clases.ConexionMysql;
-import Clases.FormatoFilasTabla;
 import Clases.FuncionesGenerales;
 import java.awt.Color;
 import java.awt.Image;
@@ -21,12 +20,12 @@ import javax.swing.JOptionPane;
  *
  * @author ADOLFO
  */
-public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
+public class UJFrameVentanaModificacionesVieja extends javax.swing.JFrame {
 
     /**
      * Creates new form JFrameVentanaConsultas
      */
-    public UJFrameVentanaModificaciones() {
+    public UJFrameVentanaModificacionesVieja() {
         initComponents();
     }
 
@@ -40,7 +39,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -51,10 +50,10 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         botonCriteriosPlanes = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -65,7 +64,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         botonCriteriosCierres = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -74,7 +72,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableMS = new javax.swing.JTable();
-        botonBuscarMS = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jButton13 = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
@@ -88,7 +86,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTableML = new javax.swing.JTable();
-        botonBuscarML = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
         jButton15 = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
@@ -100,28 +98,21 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jButton16 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
-        jMenuItem3.setText("MODIFICAR REGISTRO");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem1.setText("MODIFICAR");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jMenuItem1ActionPerformed(evt);
             }
         });
-        jPopupMenu1.add(jMenuItem3);
+        jPopupMenu1.add(jMenuItem1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("MODIFICACIONES");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CONSULTAS");
         setIconImage(getIconImage());
         setMinimumSize(new java.awt.Dimension(1000, 650));
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-        });
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -169,10 +160,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jLabel22.setText("PERSONAL DE VUELO");
         jLabel22.setEnabled(false);
 
-        jLabel43.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel43.setText("PERSONAL DE VUELO (NOMBRE)");
-        jLabel43.setEnabled(false);
-
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel23.setText("PASAJERO");
         jLabel23.setEnabled(false);
@@ -185,6 +172,10 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jLabel25.setText("AEROPUERTO/AERÓDROMO DE LLEGADA");
         jLabel25.setEnabled(false);
 
+        jLabel43.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel43.setText("PERSONAL DE VUELO (NOMBRE)");
+        jLabel43.setEnabled(false);
+
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
@@ -193,37 +184,36 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(botonCriteriosPlanes)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(120, 120, 120))
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(279, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonCriteriosPlanes)
-                    .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel21)
-                        .addComponent(jLabel24)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jLabel43)
-                    .addComponent(jLabel23))
-                .addGap(11, 11, 11))
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel43))
+                .addContainerGap())
         );
 
         jButton12.setText("LIMPIAR");
@@ -243,7 +233,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE)
                             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -258,12 +248,12 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonBuscarPlanes)
                     .addComponent(jButton12))
-                .addContainerGap())
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -331,10 +321,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jLabel27.setText("PERSONAL DE VUELO");
         jLabel27.setEnabled(false);
 
-        jLabel44.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel44.setText("PERSONAL DE VUELO (NOMBRE)");
-        jLabel44.setEnabled(false);
-
         jLabel28.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel28.setText("PASAJERO");
         jLabel28.setEnabled(false);
@@ -353,39 +339,36 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(botonCriteriosCierres)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(115, 115, 115)
+                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonCriteriosCierres)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(120, 120, 120))
+                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonCriteriosCierres)
-                    .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel26)
-                        .addComponent(jLabel29)
-                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel26)
+                    .addComponent(jLabel29)
+                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28))
-                .addGap(11, 11, 11))
+                .addContainerGap())
         );
 
         jButton11.setText("LIMPIAR");
@@ -410,7 +393,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE)
                             .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(10, 10, 10))
         );
@@ -469,10 +452,10 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTableMS);
 
-        botonBuscarMS.setText("BUSCAR");
-        botonBuscarMS.addActionListener(new java.awt.event.ActionListener() {
+        jButton6.setText("BUSCAR");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonBuscarMSActionPerformed(evt);
+                jButton6ActionPerformed(evt);
             }
         });
 
@@ -519,35 +502,34 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(120, 120, 120))
+                        .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton13)
-                    .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel31)
-                        .addComponent(jLabel34)
-                        .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel31)
+                    .addComponent(jLabel34)
+                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel33)
                     .addComponent(jLabel35))
-                .addGap(11, 11, 11))
+                .addContainerGap())
         );
 
         jButton14.setText("LIMPIAR");
@@ -568,12 +550,12 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3)))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton14)
                         .addGap(18, 18, 18)
-                        .addComponent(botonBuscarMS)))
+                        .addComponent(jButton6)))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -585,7 +567,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonBuscarMS)
+                    .addComponent(jButton6)
                     .addComponent(jButton14))
                 .addContainerGap())
         );
@@ -620,6 +602,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             }
         ));
         jTableML.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableML.setComponentPopupMenu(jPopupMenu1);
         jTableML.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableMLMouseClicked(evt);
@@ -630,10 +613,10 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTableML);
 
-        botonBuscarML.setText("BUSCAR");
-        botonBuscarML.addActionListener(new java.awt.event.ActionListener() {
+        jButton8.setText("BUSCAR");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonBuscarMLActionPerformed(evt);
+                jButton8ActionPerformed(evt);
             }
         });
 
@@ -680,29 +663,28 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(120, 120, 120))
+                        .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton15)
-                    .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel37)
-                        .addComponent(jLabel40)
-                        .addComponent(jLabel42)))
+                    .addComponent(jLabel37)
+                    .addComponent(jLabel40)
+                    .addComponent(jLabel42))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -729,12 +711,12 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jButton16)
                         .addGap(18, 18, 18)
-                        .addComponent(botonBuscarML))
+                        .addComponent(jButton8))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1043, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -746,7 +728,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonBuscarML)
+                    .addComponent(jButton8)
                     .addComponent(jButton16))
                 .addGap(11, 11, 11))
         );
@@ -770,26 +752,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("MANIFIESTOS DE LLEGADA", jPanel4);
 
-        jMenu1.setText("ARCHIVO");
-
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("VOLVER A LA VENTANA DE INICIO");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setText("SALIR DE LA APLICACIÓN");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
+        jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -920,18 +883,12 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         if (criteriosPlanes != null) {
             consulta += criteriosPlanes;
         }
-        consulta += "ORDER BY APERTURAS_DE_VUELO.fecha_hora,PASAJEROS_APERTURA.id_pasajero";
-        System.out.println(consulta);
         ConexionMysql conexionConsultaPlan = new ConexionMysql();
         if (conexionConsultaPlan.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
             if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
                 jButton12.setEnabled(true);
-                if (jTablePlanes.getRowCount() == 0) {
-                    JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
-                }
-                botonBuscarPlanes.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -940,7 +897,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
 
     private void botonCriteriosPlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCriteriosPlanesActionPerformed
         limpiarCriteriosPlanes();
-        VBBJDialogBusquedaPlanes cPlanes = new VBBJDialogBusquedaPlanes(this,true);
+        BBJDialogBusquedaPlanes cPlanes = new BBJDialogBusquedaPlanes(this,true);
         if (primeraVezPlanes == false) {
             if (rBFechaPlanes != 0) {
                 cPlanes.jCheckBox4.setSelected(true);
@@ -949,7 +906,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     try {
                         cPlanes.jDateChooser3.setDate(formatoFecha.parse(fecha1Planes));
                     } catch (ParseException ex) {
-                        Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
                     cPlanes.jRadioButton12.setSelected(true);
@@ -957,13 +914,13 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                         cPlanes.jDateChooser2.setDate(formatoFecha.parse(fecha2Planes));
                         cPlanes.jDateChooser2.setEnabled(false);
                     } catch (ParseException ex) {
-                        Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     try {
                         cPlanes.jDateChooser1.setDate(formatoFecha.parse(fecha3Planes));
                         cPlanes.jDateChooser1.setEnabled(false);
                     } catch (ParseException ex) {
-                        Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -982,28 +939,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     cPlanes.jTextField13.setText(pasajero3Planes);
                 }
             }
-            ///////////////////
-            if (cBPersonal1Planes != 0 || cBPersonal2Planes != 0 || cBPersonal3Planes != 0) {
-                cPlanes.jCheckBox12.setSelected(true);
-                if (rBPersonalInfoPlanes == 1) {
-                    cPlanes.jRadioButton1.setSelected(true); 
-                } else {
-                    cPlanes.jRadioButton2.setSelected(true); 
-                }
-                if (cBPersonal1Planes == 9) {
-                    cPlanes.jCheckBox9.setSelected(true);
-                    cPlanes.jTextField8.setText(personal1Planes);
-                }
-                if (cBPersonal2Planes == 10) {
-                    cPlanes.jCheckBox10.setSelected(true);
-                    cPlanes.jTextField18.setText(personal2Planes);
-                }
-                if (cBPersonal3Planes == 11) {
-                    cPlanes.jCheckBox11.setSelected(true);
-                    cPlanes.jTextField16.setText(personal3Planes);
-                }
-            }
-            ///////////////////
             if (rBPersonalPlanes  != 0) {
                 cPlanes.jCheckBox6.setSelected(true);
                 if (rBPersonalPlanes == 15) {
@@ -1040,7 +975,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
 
     private void botonCriteriosCierresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCriteriosCierresActionPerformed
         limpiarCriteriosCierres();
-        VBCJDialogBusquedaCierres cCierres = new VBCJDialogBusquedaCierres(this,true);
+        BCJDialogBusquedaCierres cCierres = new BCJDialogBusquedaCierres(this,true);
         if (primeraVezCierres == false) {
             if (rBFechaCierres != 0) {
                 cCierres.jCheckBox4.setSelected(true);
@@ -1049,7 +984,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     try {
                         cCierres.jDateChooser3.setDate(formatoFecha.parse(fecha1Cierres));
                     } catch (ParseException ex) {
-                        Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
                     cCierres.jRadioButton12.setSelected(true);
@@ -1057,13 +992,13 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                         cCierres.jDateChooser2.setDate(formatoFecha.parse(fecha2Cierres));
                         cCierres.jDateChooser2.setEnabled(false);
                     } catch (ParseException ex) {
-                        Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     try {
                         cCierres.jDateChooser1.setDate(formatoFecha.parse(fecha3Cierres));
                         cCierres.jDateChooser1.setEnabled(false);
                     } catch (ParseException ex) {
-                        Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -1215,21 +1150,17 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             "ON RELACION_PDF_CIERRES.fecha = CIERRES_DE_PLAN.fecha_hora\n" +
             "LEFT JOIN PDFS_CIERRE\n" +
             "ON RELACION_PDF_CIERRES.pdf = PDFS_CIERRE.ruta_pdf\n"; 
-        if (criteriosCierres != null) {
-            consulta += criteriosCierres;
+        if (criteriosPlanes != null) {
+            consulta += criteriosPlanes;
         }
         consulta += "ORDER BY CIERRES_DE_PLAN.fecha_hora,PASAJEROS_CIERRE.id_pasajero";
-        System.out.println(consulta);
+        //System.out.println(consulta);
         ConexionMysql conexionConsultaCierre = new ConexionMysql();
         if (conexionConsultaCierre.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
             if (!conexionConsultaCierre.mostrarColumnasTablaMysqlCompuesta(jTableCierres,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
                 jButton11.setEnabled(true);
-                if (jTableCierres.getRowCount() == 0) {
-                    JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
-                }
-                botonBuscarCierres.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -1247,7 +1178,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     try {
                         cManifiestosSalida.jDateChooser3.setDate(formatoFecha.parse(fecha1MSalida));
                     } catch (ParseException ex) {
-                        Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
                     cManifiestosSalida.jRadioButton12.setSelected(true);
@@ -1255,13 +1186,13 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                         cManifiestosSalida.jDateChooser2.setDate(formatoFecha.parse(fecha2MSalida));
                         cManifiestosSalida.jDateChooser2.setEnabled(false);
                     } catch (ParseException ex) {
-                        Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     try {
                         cManifiestosSalida.jDateChooser1.setDate(formatoFecha.parse(fecha3MSalida));
                         cManifiestosSalida.jDateChooser1.setEnabled(false);
                     } catch (ParseException ex) {
-                        Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -1324,7 +1255,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     try {
                         cManifiestosLlegada.jDateChooser3.setDate(formatoFecha.parse(fecha1MLlegada));
                     } catch (ParseException ex) {
-                        Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
                     cManifiestosLlegada.jRadioButton12.setSelected(true);
@@ -1332,13 +1263,13 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                         cManifiestosLlegada.jDateChooser2.setDate(formatoFecha.parse(fecha2MLlegada));
                         cManifiestosLlegada.jDateChooser2.setEnabled(false);
                     } catch (ParseException ex) {
-                        Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     try {
                         cManifiestosLlegada.jDateChooser1.setDate(formatoFecha.parse(fecha3MLlegada));
                         cManifiestosLlegada.jDateChooser1.setEnabled(false);
                     } catch (ParseException ex) {
-                        Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -1390,7 +1321,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         cManifiestosLlegada.setVisible(true);
     }//GEN-LAST:event_jButton15ActionPerformed
 
-    private void botonBuscarMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarMSActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         String preconsulta = "SELECT ";
         String [] [] nombresColumnas = new String [50][2];
         int columnas = 0;
@@ -1559,23 +1490,18 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         if (criteriosManifiestosSalida != null) {
             consulta += criteriosManifiestosSalida;
         }
-        consulta += "ORDER BY MANIFIESTOS_SALIDA.fecha_hora_itinerario";
-        System.out.println(consulta);
+        //System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
         if (conexionConsultaMS.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableMS,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
                 jButton14.setEnabled(true);
-                if (jTableMS.getRowCount() == 0) {
-                    JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
-                }
-                botonBuscarMS.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_botonBuscarMSActionPerformed
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         FuncionesGenerales.limpiarTablaCompletamente(jTablePlanes);
@@ -1590,13 +1516,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         pasajero2Planes = null;
         cBPasajeros3Planes = 0;
         pasajero3Planes = null;
-        cBPersonal1Planes = 0;
-        personal1Planes = null;
-        cBPersonal2Planes = 0;
-        personal2Planes = null;
-        cBPersonal3Planes = 0;
-        personal3Planes = null;
-        rBPersonalInfoPlanes = 0;
         rBPersonalPlanes = 0;
         licenciaPlanes = null;
         rBAeronavePlanes = 0;
@@ -1604,8 +1523,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         rBAeropuertoPlanes = 0;
         aeropuertoPlanes = null;
         primeraVezPlanes = true;
-        botonBuscarPlanes.setEnabled(true);
-        jButton12.setEnabled(false);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -1621,13 +1538,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         pasajero2Cierres = null;
         cBPasajeros3Cierres = 0;
         pasajero3Cierres = null;
-        cBPersonal1Cierres = 0;
-        personal1Cierres = null;
-        cBPersonal2Cierres = 0;
-        String personal2Cierres = null;
-        cBPersonal3Cierres = 0;
-        personal3Cierres = null;
-        rBPersonalInfoCierres = 0;
         rBPersonalCierres = 0;
         licenciaCierres = null;
         rBAeronaveCierres = 0;
@@ -1635,14 +1545,10 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         rBAeropuertoCierres = 0;
         aeropuertoCierres = null;
         primeraVezCierres = true;
-        botonBuscarCierres.setEnabled(true);
-        jButton11.setEnabled(false);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        //
         FuncionesGenerales.limpiarTablaCompletamente(jTableMS);
-        //
         limpiarCriteriosManifiestosSalida();
         rBFechaMSalida = 0;
         fecha1MSalida = null;
@@ -1657,11 +1563,9 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         aerolineaMSalida = null;
         vueloMSalida = null;
         primeraVezMSalida = true;
-        botonBuscarMS.setEnabled(true);
-        jButton14.setEnabled(false);
     }//GEN-LAST:event_jButton14ActionPerformed
 
-    private void botonBuscarMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarMLActionPerformed
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         String preconsulta = "SELECT ";
         String [] [] nombresColumnas = new String [50][2];
         int columnas = 0;
@@ -1812,30 +1716,23 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         if (criteriosManifiestosLlegada != null) {
             consulta += criteriosManifiestosLlegada;
         }
-        consulta += "ORDER BY MANIFIESTOS_LLEGADA.fecha_hora_itinerario";
-        System.out.println(consulta);
+        //System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
         if (conexionConsultaMS.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableML,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
                 jButton16.setEnabled(true);
-                if (jTableML.getRowCount() == 0) {
-                    JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
-                }
-                botonBuscarML.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
         }
         
         //
-    }//GEN-LAST:event_botonBuscarMLActionPerformed
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        //
         FuncionesGenerales.limpiarTablaCompletamente(jTableML);
-        //
         limpiarCriteriosManifiestosLlegada();
         rBFechaMLlegada = 0;
         fecha1MLlegada = null;
@@ -1849,32 +1746,8 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         origenMLlegada = null;
         aerolineaMLlegada = null;
         vueloMLlegada = null;
-        primeraVezMLlegada = true;
-        botonBuscarML.setEnabled(true);
-        jButton16.setEnabled(false);
+        primeraVezMLlegada = true;                           
     }//GEN-LAST:event_jButton16ActionPerformed
-
-    private void jTablePlanesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePlanesMouseClicked
-        if(!evt.isMetaDown() && jTablePlanes.getSelectedRow() == -1){
-            int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTablePlanes,0);
-            jTablePlanes.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
-        }
-    }//GEN-LAST:event_jTablePlanesMouseClicked
-
-    private void jTablePlanesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePlanesMousePressed
-        if(!evt.isMetaDown()){
-            int fila = jTablePlanes.getSelectedRow();
-            int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTablePlanes,fila);
-            jTablePlanes.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
-            if (FuncionesGenerales.celdaPDFSeleccionada(jTablePlanes, "PDF - NOMBRE")) {
-                int columna = jTablePlanes.getSelectedColumn();
-                String mensaje = FuncionesGenerales.abrirPDFSeleccionada(jTablePlanes,"PDF - RUTA", fila, columna);
-                if (mensaje.contains("ERROR")) {
-                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENT","ERROR",JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        }
-    }//GEN-LAST:event_jTablePlanesMousePressed
 
     private void jTableCierresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCierresMouseClicked
         if(!evt.isMetaDown() && jTableCierres.getSelectedRow() == -1){
@@ -1942,20 +1815,31 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTableMLMouseClicked
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        volverAlInicio();
-    }//GEN-LAST:event_formWindowClosing
+    private void jTablePlanesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePlanesMousePressed
+        if(!evt.isMetaDown()){
+            int fila = jTablePlanes.getSelectedRow();
+            int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTablePlanes,fila);
+            jTablePlanes.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
+            if (FuncionesGenerales.celdaPDFSeleccionada(jTablePlanes, "PDF - NOMBRE")) {
+                int columna = jTablePlanes.getSelectedColumn();
+                String mensaje = FuncionesGenerales.abrirPDFSeleccionada(jTablePlanes,"PDF - RUTA", fila, columna);
+                if (mensaje.contains("ERROR")) {
+                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENT","ERROR",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }//GEN-LAST:event_jTablePlanesMousePressed
+
+    private void jTablePlanesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePlanesMouseClicked
+        if(!evt.isMetaDown() && jTablePlanes.getSelectedRow() == -1){
+            int filasAMarcar [] = FuncionesGenerales.celdasTabla(jTablePlanes,0);
+            jTablePlanes.getSelectionModel().setSelectionInterval(filasAMarcar[0],filasAMarcar[1]);
+        }
+    }//GEN-LAST:event_jTablePlanesMouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        volverAlInicio();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         VJFrameVentanaCapturarModificaciones captura = new VJFrameVentanaCapturarModificaciones();
+        
         if (jTabbedPane1.getSelectedIndex() == 0) {
             captura.jTabbedPane1.setEnabledAt(0,true);
             captura.jTabbedPane1.setEnabledAt(1,false);
@@ -2447,7 +2331,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             /////
         }
         captura.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2466,14 +2350,526 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UJFrameVentanaModificaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UJFrameVentanaModificacionesVieja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -2990,15 +3386,13 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UJFrameVentanaModificaciones().setVisible(true);
+                new UJFrameVentanaModificacionesVieja().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonBuscarCierres;
-    private javax.swing.JButton botonBuscarML;
-    private javax.swing.JButton botonBuscarMS;
     private javax.swing.JButton botonBuscarPlanes;
     private javax.swing.JButton botonCriteriosCierres;
     private javax.swing.JButton botonCriteriosPlanes;
@@ -3008,6 +3402,8 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton8;
     public static javax.swing.JLabel jLabel21;
     public static javax.swing.JLabel jLabel22;
     public static javax.swing.JLabel jLabel23;
@@ -3031,13 +3427,10 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel41;
     public static javax.swing.JLabel jLabel42;
     public static javax.swing.JLabel jLabel43;
-    public static javax.swing.JLabel jLabel44;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel15;
@@ -3097,7 +3490,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jLabel35.setEnabled(false);
         jLabel36.setText("NO. DE VUELO");
         jLabel36.setEnabled(false);
-        criteriosManifiestosSalida = null;
     }
     
     static int rBFechaMLlegada = 0;
@@ -3127,7 +3519,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jLabel41.setEnabled(false);
         jLabel42.setText("NO. DE VUELO");
         jLabel42.setEnabled(false);
-        criteriosManifiestosLlegada = null;
     }
     
     static int rBFechaPlanes = 0;
@@ -3141,15 +3532,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     static int cBPasajeros3Planes = 0;
     static String pasajero3Planes = null;
     static int rBPersonalPlanes = 0;
-    /////
-    static int cBPersonal1Planes = 0;
-    static String personal1Planes = null;
-    static int cBPersonal2Planes = 0;
-    static String personal2Planes = null;
-    static int cBPersonal3Planes = 0;
-    static String personal3Planes = null;
-    static int rBPersonalInfoPlanes = 0;
-    ////
     static String licenciaPlanes = null;
     static int rBAeronavePlanes = 0;
     static String aeronavePlanes = null;
@@ -3168,9 +3550,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jLabel24.setEnabled(false);
         jLabel25.setText("AEROPUERTO/AERÓDROMO DE LLEGADA");
         jLabel25.setEnabled(false);
-        jLabel43.setText("PERSONAL DE VUELO (NOMBRE)");
-        jLabel43.setEnabled(false);
-        criteriosPlanes = null;
     }
     
     static int rBFechaCierres = 0;
@@ -3184,15 +3563,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     static int cBPasajeros3Cierres = 0;
     static String pasajero3Cierres = null;
     static int rBPersonalCierres = 0;
-    /////
-    static int cBPersonal1Cierres = 0;
-    static String personal1Cierres = null;
-    static int cBPersonal2Cierres = 0;
-    static String personal2Cierres = null;
-    static int cBPersonal3Cierres = 0;
-    static String personal3Cierres = null;
-    static int rBPersonalInfoCierres = 0;
-    ////
     static String licenciaCierres = null;
     static int rBAeronaveCierres = 0;
     static String aeronaveCierres = null;
@@ -3211,20 +3581,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jLabel29.setEnabled(false);
         jLabel30.setText("AEROPUERTO/AERÓDROMO DE SALIDA");
         jLabel30.setEnabled(false);
-        jLabel44.setText("PERSONAL DE VUELO (NOMBRE)");
-        jLabel44.setEnabled(false);
-        criteriosCierres = null;
-    }
-    
-    public void volverAlInicio() {
-        this.setVisible(false);
-        try {
-            Thread.sleep (500);
-        } catch (Exception e) {
-        }
-        AAJFrameVentanaInicio ventanaInicio = new AAJFrameVentanaInicio();
-        ventanaInicio.setVisible(true);
-        this.dispose();
     }
     
     @Override

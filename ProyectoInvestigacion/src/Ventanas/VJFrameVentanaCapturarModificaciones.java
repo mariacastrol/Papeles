@@ -164,12 +164,18 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("MODIFICACIONES");
         setIconImage(getIconImage());
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setPreferredSize(new java.awt.Dimension(955, 620));
 
@@ -590,8 +596,8 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         botonModificarPlanes.setBounds(803, 556, 100, 23);
 
         jDateFecha.setDateFormatString("yyyy/MM/dd");
-        jDateFecha.setMaxSelectableDate(new java.util.Date(1483250399000L));
-        jDateFecha.setMinSelectableDate(new java.util.Date(1262325599000L));
+        jDateFecha.setMaxSelectableDate(new java.util.Date(1925013599000L));
+        jDateFecha.setMinSelectableDate(new java.util.Date(1104562861000L));
         jDateFecha.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jDateFechaPropertyChange(evt);
@@ -1156,8 +1162,8 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         jPanel15.setBounds(698, 241, 205, 67);
 
         jDateChooser2.setDateFormatString("yyyy/MM/dd");
-        jDateChooser2.setMaxSelectableDate(new java.util.Date(1483250399000L));
-        jDateChooser2.setMinSelectableDate(new java.util.Date(1262325599000L));
+        jDateChooser2.setMaxSelectableDate(new java.util.Date(1925013599000L));
+        jDateChooser2.setMinSelectableDate(new java.util.Date(1009868461000L));
         jDateChooser2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jDateChooser2PropertyChange(evt);
@@ -1278,7 +1284,17 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("MANIFIESTOS DE VUELO", jPanel2);
 
-        jMenu1.setText("File");
+        jMenu1.setText("ARCHIVO");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("VOLVER A VENTANA PRINCIPAL DE MODIFICACIONES");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -2503,6 +2519,14 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField15KeyReleased
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        volverAVentanaModificaciones();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        volverAVentanaModificaciones();
+    }//GEN-LAST:event_formWindowClosing
+
     /**
      * @param args the command line arguments
      */
@@ -2677,6 +2701,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -2776,6 +2801,10 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     static String minutosItinerarioMOriginal;
     static String horaRealMOriginal;
     static String minutosRealMOriginal;
+    
+    public void volverAVentanaModificaciones() {
+        this.dispose();
+    }
     
     @Override
     public Image getIconImage() {
