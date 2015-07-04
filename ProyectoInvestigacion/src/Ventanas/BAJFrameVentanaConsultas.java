@@ -6,15 +6,21 @@
 package Ventanas;
 
 import Clases.ConexionMysql;
+import Clases.ExportarAExcel;
 import Clases.FormatoFilasTabla;
 import Clases.FuncionesGenerales;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -77,6 +83,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox98 = new javax.swing.JCheckBox();
         jCheckBox99 = new javax.swing.JCheckBox();
         jCheckBox100 = new javax.swing.JCheckBox();
+        botonEPlanes = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -115,13 +122,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox61 = new javax.swing.JCheckBox();
         jCheckBox101 = new javax.swing.JCheckBox();
         jButton11 = new javax.swing.JButton();
+        botonECierres = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableMS = new javax.swing.JTable();
         botonBuscarMS = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
-        jButton13 = new javax.swing.JButton();
+        botonCriteriosMS = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
@@ -166,13 +174,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox165 = new javax.swing.JCheckBox();
         jCheckBox166 = new javax.swing.JCheckBox();
         jCheckBox167 = new javax.swing.JCheckBox();
+        botonEMS = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTableML = new javax.swing.JTable();
         botonBuscarML = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
-        jButton15 = new javax.swing.JButton();
+        botonCriteriosML = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
@@ -217,11 +226,11 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox127 = new javax.swing.JCheckBox();
         jCheckBox128 = new javax.swing.JCheckBox();
         jCheckBox102 = new javax.swing.JCheckBox();
+        botonEML = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("CONSULTAS");
@@ -670,6 +679,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
+        botonEPlanes.setText("EXPORTAR DATOS A EXCEL");
+        botonEPlanes.setEnabled(false);
+        botonEPlanes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEPlanesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -686,6 +703,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                                 .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botonEPlanes, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton12)
                         .addGap(18, 18, 18)
                         .addComponent(botonBuscarPlanes)))
@@ -703,7 +722,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonBuscarPlanes)
-                    .addComponent(jButton12))
+                    .addComponent(jButton12)
+                    .addComponent(botonEPlanes))
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
@@ -1157,6 +1177,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             }
         });
 
+        botonECierres.setText("EXPORTAR DATOS A EXCEL");
+        botonECierres.setEnabled(false);
+        botonECierres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonECierresActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1165,6 +1193,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonECierres, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton11)
                         .addGap(18, 18, 18)
                         .addComponent(botonBuscarCierres))
@@ -1186,11 +1216,12 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonBuscarCierres)
-                    .addComponent(jButton11))
+                    .addComponent(jButton11)
+                    .addComponent(botonECierres))
                 .addContainerGap())
         );
 
@@ -1243,10 +1274,10 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
-        jButton13.setText("ESTABLECER");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        botonCriteriosMS.setText("ESTABLECER");
+        botonCriteriosMS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                botonCriteriosMSActionPerformed(evt);
             }
         });
 
@@ -1288,7 +1319,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton13)
+                            .addComponent(botonCriteriosMS)
                             .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -1297,7 +1328,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton13)
+                .addComponent(botonCriteriosMS)
                 .addGap(10, 10, 10)
                 .addComponent(jLabel31)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1819,6 +1850,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        botonEMS.setText("EXPORTAR DATOS A EXCEL");
+        botonEMS.setEnabled(false);
+        botonEMS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEMSActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -1830,6 +1869,9 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                         .addComponent(jScrollPane3)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botonEMS, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton14)
                         .addGap(18, 18, 18)
                         .addComponent(botonBuscarMS)
@@ -1852,7 +1894,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonBuscarMS)
-                    .addComponent(jButton14))
+                    .addComponent(jButton14)
+                    .addComponent(botonEMS))
                 .addContainerGap())
         );
 
@@ -1905,10 +1948,10 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
         jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
-        jButton15.setText("ESTABLECER");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        botonCriteriosML.setText("ESTABLECER");
+        botonCriteriosML.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                botonCriteriosMLActionPerformed(evt);
             }
         });
 
@@ -1950,7 +1993,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel17Layout.createSequentialGroup()
                         .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton15)
+                            .addComponent(botonCriteriosML)
                             .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -1959,7 +2002,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton15)
+                .addComponent(botonCriteriosML)
                 .addGap(10, 10, 10)
                 .addComponent(jLabel37)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2484,6 +2527,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        botonEML.setText("EXPORTAR DATOS A EXCEL");
+        botonEML.setEnabled(false);
+        botonEML.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEMLActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -2492,6 +2543,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(botonEML, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton16)
                         .addGap(18, 18, 18)
                         .addComponent(botonBuscarML))
@@ -2515,7 +2568,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonBuscarML)
-                    .addComponent(jButton16))
+                    .addComponent(jButton16)
+                    .addComponent(botonEML))
                 .addGap(11, 11, 11))
         );
 
@@ -2559,9 +2613,6 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -2740,35 +2791,38 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
-                jPanel11.setEnabled(true);
-                jCheckBox67.setEnabled(true);
-                jCheckBox68.setEnabled(true);
-                jCheckBox69.setEnabled(true);
-                jCheckBox70.setEnabled(true);
-                jCheckBox71.setEnabled(true);
-                jCheckBox72.setEnabled(true);
-                jCheckBox73.setEnabled(true);
-                jCheckBox74.setEnabled(true);
-                jCheckBox75.setEnabled(true);
-                jCheckBox76.setEnabled(true);
-                jCheckBox77.setEnabled(true);
-                jCheckBox84.setEnabled(true);
-                jCheckBox85.setEnabled(true);
-                jCheckBox86.setEnabled(true);
-                jCheckBox87.setEnabled(true);
-                jCheckBox88.setEnabled(true);
-                jCheckBox94.setEnabled(true);
-                jCheckBox95.setEnabled(true);
-                jCheckBox96.setEnabled(true);
-                jCheckBox97.setEnabled(true);
-                jCheckBox98.setEnabled(true);
-                jCheckBox99.setEnabled(true);
-                jCheckBox100.setEnabled(true);
-                jButton12.setEnabled(true);
                 if (jTablePlanes.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    botonEPlanes.setEnabled(true);
+                    jPanel11.setEnabled(true);
+                    jCheckBox67.setEnabled(true);
+                    jCheckBox68.setEnabled(true);
+                    jCheckBox69.setEnabled(true);
+                    jCheckBox70.setEnabled(true);
+                    jCheckBox71.setEnabled(true);
+                    jCheckBox72.setEnabled(true);
+                    jCheckBox73.setEnabled(true);
+                    jCheckBox74.setEnabled(true);
+                    jCheckBox75.setEnabled(true);
+                    jCheckBox76.setEnabled(true);
+                    jCheckBox77.setEnabled(true);
+                    jCheckBox84.setEnabled(true);
+                    jCheckBox85.setEnabled(true);
+                    jCheckBox86.setEnabled(true);
+                    jCheckBox87.setEnabled(true);
+                    jCheckBox88.setEnabled(true);
+                    jCheckBox94.setEnabled(true);
+                    jCheckBox95.setEnabled(true);
+                    jCheckBox96.setEnabled(true);
+                    jCheckBox97.setEnabled(true);
+                    jCheckBox98.setEnabled(true);
+                    jCheckBox99.setEnabled(true);
+                    jCheckBox100.setEnabled(true);
+                    jButton12.setEnabled(true);
                 }
                 botonBuscarPlanes.setEnabled(false);
+                botonCriteriosPlanes.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -3107,42 +3161,45 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             if (!conexionConsultaCierre.mostrarColumnasTablaMysqlCompuesta(jTableCierres,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
-                jPanel10.setEnabled(true);
-                jCheckBox45.setEnabled(true);
-                jCheckBox46.setEnabled(true);
-                jCheckBox47.setEnabled(true);
-                jCheckBox48.setEnabled(true);
-                jCheckBox49.setEnabled(true);
-                jCheckBox50.setEnabled(true);
-                jCheckBox51.setEnabled(true);
-                jCheckBox52.setEnabled(true);
-                jCheckBox53.setEnabled(true);
-                jCheckBox54.setEnabled(true);
-                jCheckBox55.setEnabled(true);
-                jCheckBox56.setEnabled(true);
-                jCheckBox57.setEnabled(true);
-                jCheckBox58.setEnabled(true);
-                jCheckBox59.setEnabled(true);
-                jCheckBox60.setEnabled(true);
-                jCheckBox61.setEnabled(true);
-                jCheckBox62.setEnabled(true);
-                jCheckBox63.setEnabled(true);
-                jCheckBox64.setEnabled(true);
-                jCheckBox65.setEnabled(true);
-                jCheckBox66.setEnabled(true);
-                jCheckBox101.setEnabled(true);
-                jButton11.setEnabled(true);
                 if (jTableCierres.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    botonECierres.setEnabled(true);
+                    jPanel10.setEnabled(true);
+                    jCheckBox45.setEnabled(true);
+                    jCheckBox46.setEnabled(true);
+                    jCheckBox47.setEnabled(true);
+                    jCheckBox48.setEnabled(true);
+                    jCheckBox49.setEnabled(true);
+                    jCheckBox50.setEnabled(true);
+                    jCheckBox51.setEnabled(true);
+                    jCheckBox52.setEnabled(true);
+                    jCheckBox53.setEnabled(true);
+                    jCheckBox54.setEnabled(true);
+                    jCheckBox55.setEnabled(true);
+                    jCheckBox56.setEnabled(true);
+                    jCheckBox57.setEnabled(true);
+                    jCheckBox58.setEnabled(true);
+                    jCheckBox59.setEnabled(true);
+                    jCheckBox60.setEnabled(true);
+                    jCheckBox61.setEnabled(true);
+                    jCheckBox62.setEnabled(true);
+                    jCheckBox63.setEnabled(true);
+                    jCheckBox64.setEnabled(true);
+                    jCheckBox65.setEnabled(true);
+                    jCheckBox66.setEnabled(true);
+                    jCheckBox101.setEnabled(true);
+                    jButton11.setEnabled(true);
                 }
                 botonBuscarCierres.setEnabled(false);
+                botonCriteriosCierres.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_botonBuscarCierresActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void botonCriteriosMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCriteriosMSActionPerformed
         limpiarCriteriosManifiestosSalida();
         BDJDialogBusquedaManifiestos cManifiestosSalida = new BDJDialogBusquedaManifiestos(this,true);
         if (primeraVezMSalida == false) {
@@ -3217,9 +3274,9 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             }
         }
         cManifiestosSalida.setVisible(true);
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_botonCriteriosMSActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void botonCriteriosMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCriteriosMLActionPerformed
         limpiarCriteriosManifiestosLlegada();
         BEJDialogBusquedaManifiestosLlegada cManifiestosLlegada = new BEJDialogBusquedaManifiestosLlegada(this,true);
         if (primeraVezMLlegada == false) {
@@ -3294,7 +3351,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             }
         }
         cManifiestosLlegada.setVisible(true);
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_botonCriteriosMLActionPerformed
 
     private void botonBuscarMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarMSActionPerformed
         jCheckBox133.setSelected(true);
@@ -3553,47 +3610,50 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableMS,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
-                jPanel19.setEnabled(true);
-                jPanel20.setEnabled(true);
-                jCheckBox133.setEnabled(true);
-                jCheckBox135.setEnabled(true);
-                jCheckBox136.setEnabled(true);
-                jCheckBox137.setEnabled(true);
-                jCheckBox138.setEnabled(true);
-                jCheckBox139.setEnabled(true);
-                jCheckBox140.setEnabled(true);
-                jCheckBox141.setEnabled(true);
-                jCheckBox142.setEnabled(true);
-                jCheckBox143.setEnabled(true);
-                jCheckBox144.setEnabled(true);
-                jCheckBox145.setEnabled(true);
-                jCheckBox146.setEnabled(true);
-                jCheckBox147.setEnabled(true);
-                jCheckBox148.setEnabled(true);
-                jCheckBox149.setEnabled(true);
-                jCheckBox150.setEnabled(true);
-                jCheckBox151.setEnabled(true);
-                jCheckBox152.setEnabled(true);
-                jCheckBox153.setEnabled(true);
-                jCheckBox154.setEnabled(true);
-                jCheckBox155.setEnabled(true);
-                jCheckBox156.setEnabled(true);
-                jCheckBox157.setEnabled(true);
-                jCheckBox158.setEnabled(true);
-                jCheckBox159.setEnabled(true);
-                jCheckBox160.setEnabled(true);
-                jCheckBox161.setEnabled(true);
-                jCheckBox162.setEnabled(true);
-                jCheckBox163.setEnabled(true);
-                jCheckBox164.setEnabled(true);
-                jCheckBox165.setEnabled(true);
-                jCheckBox166.setEnabled(true);
-                jCheckBox167.setEnabled(true);
                 jButton14.setEnabled(true);
                 if (jTableMS.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    botonEMS.setEnabled(true);
+                    jPanel19.setEnabled(true);
+                    jPanel20.setEnabled(true);
+                    jCheckBox133.setEnabled(true);
+                    jCheckBox135.setEnabled(true);
+                    jCheckBox136.setEnabled(true);
+                    jCheckBox137.setEnabled(true);
+                    jCheckBox138.setEnabled(true);
+                    jCheckBox139.setEnabled(true);
+                    jCheckBox140.setEnabled(true);
+                    jCheckBox141.setEnabled(true);
+                    jCheckBox142.setEnabled(true);
+                    jCheckBox143.setEnabled(true);
+                    jCheckBox144.setEnabled(true);
+                    jCheckBox145.setEnabled(true);
+                    jCheckBox146.setEnabled(true);
+                    jCheckBox147.setEnabled(true);
+                    jCheckBox148.setEnabled(true);
+                    jCheckBox149.setEnabled(true);
+                    jCheckBox150.setEnabled(true);
+                    jCheckBox151.setEnabled(true);
+                    jCheckBox152.setEnabled(true);
+                    jCheckBox153.setEnabled(true);
+                    jCheckBox154.setEnabled(true);
+                    jCheckBox155.setEnabled(true);
+                    jCheckBox156.setEnabled(true);
+                    jCheckBox157.setEnabled(true);
+                    jCheckBox158.setEnabled(true);
+                    jCheckBox159.setEnabled(true);
+                    jCheckBox160.setEnabled(true);
+                    jCheckBox161.setEnabled(true);
+                    jCheckBox162.setEnabled(true);
+                    jCheckBox163.setEnabled(true);
+                    jCheckBox164.setEnabled(true);
+                    jCheckBox165.setEnabled(true);
+                    jCheckBox166.setEnabled(true);
+                    jCheckBox167.setEnabled(true);
                 }
                 botonBuscarMS.setEnabled(false);
+                botonCriteriosMS.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -3851,6 +3911,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         aeropuertoPlanes = null;
         primeraVezPlanes = true;
         botonBuscarPlanes.setEnabled(true);
+        botonCriteriosPlanes.setEnabled(true);
+        botonEPlanes.setEnabled(false);
         jButton12.setEnabled(false);
     }//GEN-LAST:event_jButton12ActionPerformed
 
@@ -3929,6 +3991,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         aeropuertoCierres = null;
         primeraVezCierres = true;
         botonBuscarCierres.setEnabled(true);
+        botonCriteriosCierres.setEnabled(true);
+        botonECierres.setEnabled(false);
         jButton11.setEnabled(false);
     }//GEN-LAST:event_jButton11ActionPerformed
 
@@ -4197,6 +4261,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         vueloMSalida = null;
         primeraVezMSalida = true;
         botonBuscarMS.setEnabled(true);
+        botonCriteriosMS.setEnabled(true);
+        botonEMS.setEnabled(false);
         jButton14.setEnabled(false);
     }//GEN-LAST:event_jButton14ActionPerformed
 
@@ -4717,47 +4783,50 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableML,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
-                jPanel12.setEnabled(true);
-                jPanel18.setEnabled(true);
-                jCheckBox78.setEnabled(true);
-                jCheckBox79.setEnabled(true);
-                jCheckBox80.setEnabled(true);
-                jCheckBox81.setEnabled(true);
-                jCheckBox82.setEnabled(true);
-                jCheckBox83.setEnabled(true);
-                jCheckBox89.setEnabled(true);
-                jCheckBox90.setEnabled(true);
-                jCheckBox91.setEnabled(true);
-                jCheckBox92.setEnabled(true);
-                jCheckBox93.setEnabled(true);
-                jCheckBox112.setEnabled(true);
-                jCheckBox113.setEnabled(true);
-                jCheckBox114.setEnabled(true);
-                jCheckBox115.setEnabled(true);
-                jCheckBox116.setEnabled(true);
-                jCheckBox117.setEnabled(true);
-                jCheckBox118.setEnabled(true);
-                jCheckBox119.setEnabled(true);
-                jCheckBox120.setEnabled(true);
-                jCheckBox121.setEnabled(true);
-                jCheckBox122.setEnabled(true);
-                jCheckBox123.setEnabled(true);
-                jCheckBox124.setEnabled(true);
-                jCheckBox125.setEnabled(true);
-                jCheckBox126.setEnabled(true);
-                jCheckBox127.setEnabled(true);
-                jCheckBox128.setEnabled(true);
-                jCheckBox129.setEnabled(true);
-                jCheckBox130.setEnabled(true);
-                jCheckBox131.setEnabled(true);
-                jCheckBox132.setEnabled(true);
-                jCheckBox134.setEnabled(true);
-                jCheckBox102.setEnabled(true);
-                jButton16.setEnabled(true);
                 if (jTableML.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    botonEML.setEnabled(true);
+                    jPanel12.setEnabled(true);
+                    jPanel18.setEnabled(true);
+                    jCheckBox78.setEnabled(true);
+                    jCheckBox79.setEnabled(true);
+                    jCheckBox80.setEnabled(true);
+                    jCheckBox81.setEnabled(true);
+                    jCheckBox82.setEnabled(true);
+                    jCheckBox83.setEnabled(true);
+                    jCheckBox89.setEnabled(true);
+                    jCheckBox90.setEnabled(true);
+                    jCheckBox91.setEnabled(true);
+                    jCheckBox92.setEnabled(true);
+                    jCheckBox93.setEnabled(true);
+                    jCheckBox112.setEnabled(true);
+                    jCheckBox113.setEnabled(true);
+                    jCheckBox114.setEnabled(true);
+                    jCheckBox115.setEnabled(true);
+                    jCheckBox116.setEnabled(true);
+                    jCheckBox117.setEnabled(true);
+                    jCheckBox118.setEnabled(true);
+                    jCheckBox119.setEnabled(true);
+                    jCheckBox120.setEnabled(true);
+                    jCheckBox121.setEnabled(true);
+                    jCheckBox122.setEnabled(true);
+                    jCheckBox123.setEnabled(true);
+                    jCheckBox124.setEnabled(true);
+                    jCheckBox125.setEnabled(true);
+                    jCheckBox126.setEnabled(true);
+                    jCheckBox127.setEnabled(true);
+                    jCheckBox128.setEnabled(true);
+                    jCheckBox129.setEnabled(true);
+                    jCheckBox130.setEnabled(true);
+                    jCheckBox131.setEnabled(true);
+                    jCheckBox132.setEnabled(true);
+                    jCheckBox134.setEnabled(true);
+                    jCheckBox102.setEnabled(true);
+                    jButton16.setEnabled(true);
                 }
                 botonBuscarML.setEnabled(false);
+                botonCriteriosML.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -4855,6 +4924,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         vueloMLlegada = null;
         primeraVezMLlegada = true;
         botonBuscarML.setEnabled(true);
+        botonCriteriosML.setEnabled(true);
+        botonEML.setEnabled(false);
         jButton16.setEnabled(false);
     }//GEN-LAST:event_jButton16ActionPerformed
 
@@ -5146,7 +5217,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 int columna = jTablePlanes.getSelectedColumn();
                 String mensaje = FuncionesGenerales.abrirPDFSeleccionada(jTablePlanes,"PDF - RUTA", fila, columna);
                 if (mensaje.contains("ERROR")) {
-                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENT","ERROR",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENTO","ERROR",JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
@@ -5168,7 +5239,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 int columna = jTableCierres.getSelectedColumn();
                 String mensaje = FuncionesGenerales.abrirPDFSeleccionada(jTableCierres,"PDF - RUTA", fila, columna);
                 if (mensaje.contains("ERROR")) {
-                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENT","ERROR",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENTO","ERROR",JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
@@ -5183,7 +5254,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 int columna = jTableMS.getSelectedColumn();
                 String mensaje = FuncionesGenerales.abrirPDFSeleccionada(jTableMS,"PDF - RUTA", fila, columna);
                 if (mensaje.contains("ERROR")) {
-                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENT","ERROR",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENTO","ERROR",JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
@@ -5198,7 +5269,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 int columna = jTableML.getSelectedColumn();
                 String mensaje = FuncionesGenerales.abrirPDFSeleccionada(jTableML,"PDF - RUTA", fila, columna);
                 if (mensaje.contains("ERROR")) {
-                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENT","ERROR",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this,"NO SE PUEDE CARGAR EL DOCUMENTO","ERROR",JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
@@ -5261,6 +5332,62 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void botonEPlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEPlanesActionPerformed
+        JFileChooser fc = new JFileChooser();
+        fc.setMultiSelectionEnabled(false);
+        fc.showSaveDialog(this);
+        File sinExtension = fc.getSelectedFile();
+        ExportarAExcel exel = new ExportarAExcel();
+        File conExtension = new File(sinExtension + ".xls");
+        if (exel.fillData(jTablePlanes,conExtension)) {
+            JOptionPane.showMessageDialog(this,"SE HA EXPORTADO LA INFORMACIÓN DE LA TABLA EXITOSAMENTE","",JOptionPane.INFORMATION_MESSAGE,bienExcel);
+        } else {
+            JOptionPane.showMessageDialog(this,"NO SE PUDO EXPORTAR LA INFORMACIÓN DE LA TABLA","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_botonEPlanesActionPerformed
+
+    private void botonECierresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonECierresActionPerformed
+        JFileChooser fc = new JFileChooser();
+        fc.setMultiSelectionEnabled(false);
+        fc.showSaveDialog(this);
+        File sinExtension = fc.getSelectedFile();
+        ExportarAExcel exel = new ExportarAExcel();
+        File conExtension = new File(sinExtension + ".xls");
+        if (exel.fillData(jTableCierres,conExtension)) {
+            JOptionPane.showMessageDialog(this,"SE HA EXPORTADO LA INFORMACIÓN DE LA TABLA EXITOSAMENTE","",JOptionPane.INFORMATION_MESSAGE,bienExcel);
+        } else {
+            JOptionPane.showMessageDialog(this,"NO SE PUDO EXPORTAR LA INFORMACIÓN DE LA TABLA","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_botonECierresActionPerformed
+
+    private void botonEMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEMSActionPerformed
+        JFileChooser fc = new JFileChooser();
+        fc.setMultiSelectionEnabled(false);
+        fc.showSaveDialog(this);
+        File sinExtension = fc.getSelectedFile();
+        ExportarAExcel exel = new ExportarAExcel();
+        File conExtension = new File(sinExtension + ".xls");
+        if (exel.fillData(jTableMS,conExtension)) {
+            JOptionPane.showMessageDialog(this,"SE HA EXPORTADO LA INFORMACIÓN DE LA TABLA EXITOSAMENTE","",JOptionPane.INFORMATION_MESSAGE,bienExcel);
+        } else {
+            JOptionPane.showMessageDialog(this,"NO SE PUDO EXPORTAR LA INFORMACIÓN DE LA TABLA","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_botonEMSActionPerformed
+
+    private void botonEMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEMLActionPerformed
+        JFileChooser fc = new JFileChooser();
+        fc.setMultiSelectionEnabled(false);
+        fc.showSaveDialog(this);
+        File sinExtension = fc.getSelectedFile();
+        ExportarAExcel exel = new ExportarAExcel();
+        File conExtension = new File(sinExtension + ".xls");
+        if (exel.fillData(jTableML,conExtension)) {
+            JOptionPane.showMessageDialog(this,"SE HA EXPORTADO LA INFORMACIÓN DE LA TABLA EXITOSAMENTE","",JOptionPane.INFORMATION_MESSAGE,bienExcel);
+        } else {
+            JOptionPane.showMessageDialog(this,"NO SE PUDO EXPORTAR LA INFORMACIÓN DE LA TABLA","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_botonEMLActionPerformed
 
     /**
      * @param args the command line arguments
@@ -5558,12 +5685,16 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     private javax.swing.JButton botonBuscarMS;
     private javax.swing.JButton botonBuscarPlanes;
     private javax.swing.JButton botonCriteriosCierres;
+    private javax.swing.JButton botonCriteriosML;
+    private javax.swing.JButton botonCriteriosMS;
     private javax.swing.JButton botonCriteriosPlanes;
+    private javax.swing.JButton botonECierres;
+    private javax.swing.JButton botonEML;
+    private javax.swing.JButton botonEMS;
+    private javax.swing.JButton botonEPlanes;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JCheckBox jCheckBox100;
     private javax.swing.JCheckBox jCheckBox101;
@@ -5704,7 +5835,6 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel43;
     public static javax.swing.JLabel jLabel44;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -5743,6 +5873,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     static String criteriosCierres = null;
     static String criteriosManifiestosSalida = null;
     static String criteriosManifiestosLlegada = null;
+    
+    Icon bienExcel = new ImageIcon(getClass().getResource("/Necesarios/iconoExcel.png"));
     
     static int rBFechaMSalida = 0;
     static String fecha1MSalida = null;
