@@ -2247,7 +2247,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     
     private String sv = "localhost";
     private String us = "root";
-    private String pw = "l1u2c3h4o5e6d7u";
+    private String pw;
     private String dB = "baseaeropuerto";
     static String [][] listaPasajeros;
     static String listaSobrecargos;
@@ -2345,6 +2345,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         Image retValue = Toolkit.getDefaultToolkit().
         getImage(ClassLoader.getSystemResource("Necesarios/iconoP.png"));
         return retValue;
+    }
+    
+    public void setP(String ll) {
+        pw = ll;
     }
     
 }

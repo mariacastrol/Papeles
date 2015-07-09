@@ -244,6 +244,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel5.setLayout(null);
 
         jTablePlanes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -264,12 +265,17 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTablePlanes);
 
+        jPanel5.add(jScrollPane1);
+        jScrollPane1.setBounds(12, 216, 1043, 290);
+
         botonBuscarPlanes.setText("BUSCAR");
         botonBuscarPlanes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBuscarPlanesActionPerformed(evt);
             }
         });
+        jPanel5.add(botonBuscarPlanes);
+        botonBuscarPlanes.setBounds(982, 524, 73, 23);
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
@@ -344,6 +350,9 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jPanel5.add(jPanel13);
+        jPanel13.setBounds(12, 17, 229, 181);
+
         jButton12.setText("LIMPIAR");
         jButton12.setEnabled(false);
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -351,6 +360,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 jButton12ActionPerformed(evt);
             }
         });
+        jPanel5.add(jButton12);
+        jButton12.setBounds(891, 524, 73, 23);
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("CAMPOS A MOSTRAR EN LA CONSULTA"));
         jPanel11.setEnabled(false);
@@ -590,7 +601,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jCheckBox72, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                     .addComponent(jCheckBox71, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -679,6 +690,9 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
+        jPanel5.add(jPanel11);
+        jPanel11.setBounds(259, 17, 796, 181);
+
         botonEPlanes.setText("EXPORTAR DATOS A EXCEL");
         botonEPlanes.setEnabled(false);
         botonEPlanes.addActionListener(new java.awt.event.ActionListener() {
@@ -686,46 +700,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 botonEPlanesActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(botonEPlanes, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton12)
-                        .addGap(18, 18, 18)
-                        .addComponent(botonBuscarPlanes)))
-                .addContainerGap())
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonBuscarPlanes)
-                    .addComponent(jButton12)
-                    .addComponent(botonEPlanes))
-                .addGap(0, 11, Short.MAX_VALUE))
-        );
+        jPanel5.add(botonEPlanes);
+        botonEPlanes.setBounds(698, 524, 175, 23);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -747,6 +723,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jTabbedPane1.addTab("PLANES", jPanel1);
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel6.setLayout(null);
 
         jTableCierres.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -767,12 +744,17 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableCierres);
 
+        jPanel6.add(jScrollPane2);
+        jScrollPane2.setBounds(12, 216, 1043, 290);
+
         botonBuscarCierres.setText("BUSCAR");
         botonBuscarCierres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBuscarCierresActionPerformed(evt);
             }
         });
+        jPanel6.add(botonBuscarCierres);
+        botonBuscarCierres.setBounds(982, 524, 73, 23);
 
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
@@ -839,8 +821,12 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel29)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        jPanel6.add(jPanel15);
+        jPanel15.setBounds(12, 17, 229, 181);
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("CAMPOS A MOSTRAR EN LA CONSULTA"));
         jPanel10.setEnabled(false);
@@ -1080,7 +1066,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jCheckBox50, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                     .addComponent(jCheckBox49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1111,7 +1097,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     .addComponent(jCheckBox61, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckBox59, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBox101, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(36, 36, 36))
+                .addGap(37, 37, 37))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1169,6 +1155,9 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
+        jPanel6.add(jPanel10);
+        jPanel10.setBounds(259, 17, 796, 181);
+
         jButton11.setText("LIMPIAR");
         jButton11.setEnabled(false);
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -1176,6 +1165,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
+        jPanel6.add(jButton11);
+        jButton11.setBounds(891, 524, 73, 23);
 
         botonECierres.setText("EXPORTAR DATOS A EXCEL");
         botonECierres.setEnabled(false);
@@ -1184,46 +1175,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 botonECierresActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonECierres, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton11)
-                        .addGap(18, 18, 18)
-                        .addComponent(botonBuscarCierres))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
-                                .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(10, 10, 10))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonBuscarCierres)
-                    .addComponent(jButton11)
-                    .addComponent(botonECierres))
-                .addContainerGap())
-        );
+        jPanel6.add(botonECierres);
+        botonECierres.setBounds(698, 524, 175, 23);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1245,6 +1198,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jTabbedPane1.addTab("CIERRES DE PLANES", jPanel2);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel7.setLayout(null);
 
         jTableMS.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1265,12 +1219,17 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTableMS);
 
+        jPanel7.add(jScrollPane3);
+        jScrollPane3.setBounds(12, 216, 1043, 290);
+
         botonBuscarMS.setText("BUSCAR");
         botonBuscarMS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBuscarMSActionPerformed(evt);
             }
         });
+        jPanel7.add(botonBuscarMS);
+        botonBuscarMS.setBounds(982, 524, 73, 23);
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
@@ -1344,6 +1303,9 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel7.add(jPanel16);
+        jPanel16.setBounds(12, 17, 229, 181);
+
         jButton14.setText("LIMPIAR");
         jButton14.setEnabled(false);
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -1351,8 +1313,11 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 jButton14ActionPerformed(evt);
             }
         });
+        jPanel7.add(jButton14);
+        jButton14.setBounds(891, 524, 73, 23);
 
         jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder("CAMPOS A MOSTRAR EN LA CONSULTA"));
+        jPanel19.setEnabled(false);
 
         jScrollPane8.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane8.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -1757,7 +1722,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addGap(6, 6, 6)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel20Layout.createSequentialGroup()
                         .addComponent(jCheckBox162)
@@ -1839,7 +1804,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jPanel19Layout.setHorizontalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel19Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1850,6 +1815,9 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jPanel7.add(jPanel19);
+        jPanel19.setBounds(259, 17, 796, 181);
+
         botonEMS.setText("EXPORTAR DATOS A EXCEL");
         botonEMS.setEnabled(false);
         botonEMS.addActionListener(new java.awt.event.ActionListener() {
@@ -1857,47 +1825,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 botonEMSActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(botonEMS, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton14)
-                        .addGap(18, 18, 18)
-                        .addComponent(botonBuscarMS)
-                        .addGap(10, 10, 10))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonBuscarMS)
-                    .addComponent(jButton14)
-                    .addComponent(botonEMS))
-                .addContainerGap())
-        );
+        jPanel7.add(botonEMS);
+        botonEMS.setBounds(698, 524, 175, 23);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1919,6 +1848,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jTabbedPane1.addTab("MANIFIESTOS DE SALIDA", jPanel3);
 
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel8.setLayout(null);
 
         jTableML.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1939,12 +1869,17 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTableML);
 
+        jPanel8.add(jScrollPane4);
+        jScrollPane4.setBounds(12, 216, 1043, 290);
+
         botonBuscarML.setText("BUSCAR");
         botonBuscarML.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBuscarMLActionPerformed(evt);
             }
         });
+        jPanel8.add(botonBuscarML);
+        botonBuscarML.setBounds(982, 524, 73, 23);
 
         jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
@@ -2018,6 +1953,9 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel8.add(jPanel17);
+        jPanel17.setBounds(12, 17, 229, 181);
+
         jButton16.setText("LIMPIAR");
         jButton16.setEnabled(false);
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -2025,6 +1963,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 jButton16ActionPerformed(evt);
             }
         });
+        jPanel8.add(jButton16);
+        jButton16.setBounds(891, 524, 73, 23);
 
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder("CAMPOS A MOSTRAR EN LA CONSULTA"));
         jPanel12.setEnabled(false);
@@ -2434,7 +2374,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addGap(6, 6, 6)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addComponent(jCheckBox129)
@@ -2516,7 +2456,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -2527,6 +2467,9 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jPanel8.add(jPanel12);
+        jPanel12.setBounds(259, 17, 796, 181);
+
         botonEML.setText("EXPORTAR DATOS A EXCEL");
         botonEML.setEnabled(false);
         botonEML.addActionListener(new java.awt.event.ActionListener() {
@@ -2534,44 +2477,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                 botonEMLActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(botonEML, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton16)
-                        .addGap(18, 18, 18)
-                        .addComponent(botonBuscarML))
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonBuscarML)
-                    .addComponent(jButton16)
-                    .addComponent(botonEML))
-                .addGap(11, 11, 11))
-        );
+        jPanel8.add(botonEML);
+        botonEML.setBounds(698, 524, 175, 23);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -2579,14 +2486,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 1067, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
                 .addGap(10, 10, 10))
         );
 
@@ -2787,7 +2694,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         consulta += "ORDER BY APERTURAS_DE_VUELO.fecha_hora";
         System.out.println(consulta);
         ConexionMysql conexionConsultaPlan = new ConexionMysql();
-        if (conexionConsultaPlan.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
+        if (conexionConsultaPlan.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
@@ -3157,7 +3064,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         consulta += "ORDER BY CIERRES_DE_PLAN.fecha_hora";
         System.out.println(consulta);
         ConexionMysql conexionConsultaCierre = new ConexionMysql();
-        if (conexionConsultaCierre.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
+        if (conexionConsultaCierre.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaCierre.mostrarColumnasTablaMysqlCompuesta(jTableCierres,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
@@ -3606,7 +3513,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         consulta += "ORDER BY MANIFIESTOS_SALIDA.fecha_hora_itinerario";
         System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
-        if (conexionConsultaMS.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
+        if (conexionConsultaMS.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableMS,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
@@ -4779,7 +4686,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         consulta += "ORDER BY MANIFIESTOS_LLEGADA.fecha_hora_itinerario";
         System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
-        if (conexionConsultaMS.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
+        if (conexionConsultaMS.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableML,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
@@ -5869,6 +5776,8 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     private javax.swing.JTable jTablePlanes;
     // End of variables declaration//GEN-END:variables
     
+    private String pw;
+    
     static String criteriosPlanes = null;
     static String criteriosCierres = null;
     static String criteriosManifiestosSalida = null;
@@ -6038,5 +5947,9 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         Image retValue = Toolkit.getDefaultToolkit().
         getImage(ClassLoader.getSystemResource("Necesarios/iconoP.png"));
         return retValue;
+    }
+    
+    public void setP(String ll) {
+        pw = ll;
     }
 }

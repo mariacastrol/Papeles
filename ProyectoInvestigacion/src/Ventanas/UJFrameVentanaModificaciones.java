@@ -123,6 +123,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         });
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel5.setLayout(null);
 
         jTablePlanes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -144,12 +145,17 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTablePlanes);
 
+        jPanel5.add(jScrollPane1);
+        jScrollPane1.setBounds(12, 126, 1043, 380);
+
         botonBuscarPlanes.setText("BUSCAR");
         botonBuscarPlanes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBuscarPlanesActionPerformed(evt);
             }
         });
+        jPanel5.add(botonBuscarPlanes);
+        botonBuscarPlanes.setBounds(982, 524, 73, 23);
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
@@ -225,6 +231,9 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 .addGap(11, 11, 11))
         );
 
+        jPanel5.add(jPanel13);
+        jPanel13.setBounds(12, 17, 1043, 91);
+
         jButton12.setText("LIMPIAR");
         jButton12.setEnabled(false);
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -232,38 +241,8 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 jButton12ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton12)
-                        .addGap(18, 18, 18)
-                        .addComponent(botonBuscarPlanes)))
-                .addContainerGap())
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonBuscarPlanes)
-                    .addComponent(jButton12))
-                .addContainerGap())
-        );
+        jPanel5.add(jButton12);
+        jButton12.setBounds(891, 524, 73, 23);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -285,6 +264,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jTabbedPane1.addTab("PLANES", jPanel1);
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel6.setLayout(null);
 
         jTableCierres.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -306,12 +286,17 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableCierres);
 
+        jPanel6.add(jScrollPane2);
+        jScrollPane2.setBounds(12, 126, 1043, 380);
+
         botonBuscarCierres.setText("BUSCAR");
         botonBuscarCierres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBuscarCierresActionPerformed(evt);
             }
         });
+        jPanel6.add(botonBuscarCierres);
+        botonBuscarCierres.setBounds(982, 524, 73, 23);
 
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
@@ -387,6 +372,9 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 .addGap(11, 11, 11))
         );
 
+        jPanel6.add(jPanel15);
+        jPanel15.setBounds(12, 17, 1043, 91);
+
         jButton11.setText("LIMPIAR");
         jButton11.setEnabled(false);
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -394,38 +382,8 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton11)
-                        .addGap(18, 18, 18)
-                        .addComponent(botonBuscarCierres))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(10, 10, 10))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonBuscarCierres)
-                    .addComponent(jButton11))
-                .addContainerGap())
-        );
+        jPanel6.add(jButton11);
+        jButton11.setBounds(891, 524, 73, 23);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -447,6 +405,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jTabbedPane1.addTab("CIERRES DE PLANES", jPanel2);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel7.setLayout(null);
 
         jTableMS.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -468,12 +427,17 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTableMS);
 
+        jPanel7.add(jScrollPane3);
+        jScrollPane3.setBounds(12, 126, 1043, 380);
+
         botonBuscarMS.setText("BUSCAR");
         botonBuscarMS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBuscarMSActionPerformed(evt);
             }
         });
+        jPanel7.add(botonBuscarMS);
+        botonBuscarMS.setBounds(982, 524, 73, 23);
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
@@ -549,6 +513,9 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 .addGap(11, 11, 11))
         );
 
+        jPanel7.add(jPanel16);
+        jPanel16.setBounds(12, 17, 1043, 91);
+
         jButton14.setText("LIMPIAR");
         jButton14.setEnabled(false);
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -556,38 +523,8 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 jButton14ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton14)
-                        .addGap(18, 18, 18)
-                        .addComponent(botonBuscarMS)))
-                .addContainerGap())
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonBuscarMS)
-                    .addComponent(jButton14))
-                .addContainerGap())
-        );
+        jPanel7.add(jButton14);
+        jButton14.setBounds(891, 524, 73, 23);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -609,6 +546,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         jTabbedPane1.addTab("MANIFIESTOS DE SALIDA", jPanel3);
 
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel8.setLayout(null);
 
         jTableML.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -629,12 +567,17 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTableML);
 
+        jPanel8.add(jScrollPane4);
+        jScrollPane4.setBounds(12, 126, 1043, 380);
+
         botonBuscarML.setText("BUSCAR");
         botonBuscarML.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBuscarMLActionPerformed(evt);
             }
         });
+        jPanel8.add(botonBuscarML);
+        botonBuscarML.setBounds(982, 524, 73, 23);
 
         jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder("CRITERIOS DE BUSQUEDA"));
 
@@ -710,6 +653,9 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel8.add(jPanel17);
+        jPanel17.setBounds(12, 17, 1043, 91);
+
         jButton16.setText("LIMPIAR");
         jButton16.setEnabled(false);
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -717,38 +663,8 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 jButton16ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jButton16)
-                        .addGap(18, 18, 18)
-                        .addComponent(botonBuscarML))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1043, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonBuscarML)
-                    .addComponent(jButton16))
-                .addGap(11, 11, 11))
-        );
+        jPanel8.add(jButton16);
+        jButton16.setBounds(891, 524, 73, 23);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -756,7 +672,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 1067, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -919,7 +835,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         consulta += "ORDER BY APERTURAS_DE_VUELO.fecha_hora,PASAJEROS_APERTURA.id_pasajero";
         System.out.println(consulta);
         ConexionMysql conexionConsultaPlan = new ConexionMysql();
-        if (conexionConsultaPlan.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
+        if (conexionConsultaPlan.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
@@ -1218,7 +1134,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         consulta += "ORDER BY CIERRES_DE_PLAN.fecha_hora,PASAJEROS_CIERRE.id_pasajero";
         System.out.println(consulta);
         ConexionMysql conexionConsultaCierre = new ConexionMysql();
-        if (conexionConsultaCierre.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
+        if (conexionConsultaCierre.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaCierre.mostrarColumnasTablaMysqlCompuesta(jTableCierres,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
@@ -1560,7 +1476,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         consulta += "ORDER BY MANIFIESTOS_SALIDA.fecha_hora_itinerario";
         System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
-        if (conexionConsultaMS.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
+        if (conexionConsultaMS.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableMS,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
@@ -1817,7 +1733,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         consulta += "ORDER BY MANIFIESTOS_LLEGADA.fecha_hora_itinerario";
         System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
-        if (conexionConsultaMS.conectarBD("localhost","root","l1u2c3h4o5e6d7u","baseaeropuerto")) {
+        if (conexionConsultaMS.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableML,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
@@ -1932,6 +1848,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         VJFrameVentanaCapturarModificaciones captura = new VJFrameVentanaCapturarModificaciones();
+        captura.setP(pw);
         if (jTabbedPane1.getSelectedIndex() == 0) {
             if (jTablePlanes.getSelectedRow() != -1) {
                 captura.jTabbedPane1.setEnabledAt(0,true);
@@ -3054,6 +2971,8 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     private javax.swing.JTable jTablePlanes;
     // End of variables declaration//GEN-END:variables
     
+    private String pw;
+    
     int filaActual;
     int filasSeleccionadas;
     
@@ -3226,5 +3145,9 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         Image retValue = Toolkit.getDefaultToolkit().
         getImage(ClassLoader.getSystemResource("Necesarios/iconoP.png"));
         return retValue;
+    }
+    
+    public void setP(String ll) {
+        pw = ll;
     }
 }

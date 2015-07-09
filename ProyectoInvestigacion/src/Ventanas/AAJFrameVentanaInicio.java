@@ -5,8 +5,11 @@
  */
 package Ventanas;
 
+import Clases.SONS;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.File;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -94,7 +97,7 @@ public class AAJFrameVentanaInicio extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,11 +105,11 @@ public class AAJFrameVentanaInicio extends javax.swing.JFrame {
                             .addComponent(jRadioButton1)
                             .addComponent(jLabel2)
                             .addComponent(jRadioButton3)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(jButton2)
-                        .addGap(52, 52, 52)
-                        .addComponent(jButton1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -147,18 +150,31 @@ public class AAJFrameVentanaInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);
-        if (jRadioButton1.isSelected()) {
-            AJFrameVentanaCapturas capturas = new AJFrameVentanaCapturas();
-            capturas.setVisible(true);
-        } else if (jRadioButton2.isSelected()) {
-            BAJFrameVentanaConsultas consultas = new BAJFrameVentanaConsultas();
-            consultas.setVisible(true);
+        String sFichero = "C:\\Sicacomp\\sicacomp.txt";
+        File fichero = new File(sFichero);
+        if (fichero.exists()) {
+            if (SONS.crearCaos(sFichero)) {
+                this.setVisible(false);
+                if (jRadioButton1.isSelected()) {
+                    AJFrameVentanaCapturas capturas = new AJFrameVentanaCapturas();
+                    capturas.setP(SONS.getC());
+                    capturas.setVisible(true);
+                } else if (jRadioButton2.isSelected()) {
+                    BAJFrameVentanaConsultas consultas = new BAJFrameVentanaConsultas();
+                    consultas.setP(SONS.getC());
+                    consultas.setVisible(true);
+                } else {
+                    UJFrameVentanaModificaciones modificaciones = new UJFrameVentanaModificaciones();
+                    modificaciones.setP(SONS.getC());
+                    modificaciones.setVisible(true);
+                }
+                this.dispose();
+            }
         } else {
-            UJFrameVentanaModificaciones modificaciones = new UJFrameVentanaModificaciones();
-            modificaciones.setVisible(true);
+            JOptionPane.showMessageDialog(this,"ERROR 01","NO EXISTE",JOptionPane.ERROR_MESSAGE);
         }
-        this.dispose();
+ 
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
