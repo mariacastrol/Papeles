@@ -235,6 +235,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("CONSULTAS");
         setIconImage(getIconImage());
+        setIconImages(getIconImages());
         setMinimumSize(new java.awt.Dimension(1000, 650));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -5242,6 +5243,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void botonEPlanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEPlanesActionPerformed
         JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("EXPORTAR LA CONSULTA A DOCUMENTO DE EXCEL");
         fc.setMultiSelectionEnabled(false);
         fc.showSaveDialog(this);
         File sinExtension = fc.getSelectedFile();
@@ -5256,6 +5258,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void botonECierresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonECierresActionPerformed
         JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("EXPORTAR LA CONSULTA A DOCUMENTO DE EXCEL");
         fc.setMultiSelectionEnabled(false);
         fc.showSaveDialog(this);
         File sinExtension = fc.getSelectedFile();
@@ -5270,6 +5273,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void botonEMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEMSActionPerformed
         JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("EXPORTAR LA CONSULTA A DOCUMENTO DE EXCEL");
         fc.setMultiSelectionEnabled(false);
         fc.showSaveDialog(this);
         File sinExtension = fc.getSelectedFile();
@@ -5284,6 +5288,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
 
     private void botonEMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEMLActionPerformed
         JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("EXPORTAR LA CONSULTA A DOCUMENTO DE EXCEL");
         fc.setMultiSelectionEnabled(false);
         fc.showSaveDialog(this);
         File sinExtension = fc.getSelectedFile();
