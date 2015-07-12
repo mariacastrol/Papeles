@@ -120,6 +120,11 @@ public class XJFrameVentanaRequisitos extends javax.swing.JFrame {
         );
 
         jButton3.setText("VOLVER A VENTANA DE INICIO");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -183,6 +188,10 @@ public class XJFrameVentanaRequisitos extends javax.swing.JFrame {
         volverAlInicio();
     }//GEN-LAST:event_formWindowClosing
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        volverAlInicio();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -233,12 +242,12 @@ public class XJFrameVentanaRequisitos extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     
     private final CMysql ping = new CMysql();
-    Icon bien = new ImageIcon(getClass().getResource("/Imagenes/OKIcon.png"));
+    Icon bien = new ImageIcon(getClass().getResource("/Necesarios/OKIcon.png"));
     
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
-        getImage(ClassLoader.getSystemResource("Imagenes/iconoP.png"));
+        getImage(ClassLoader.getSystemResource("Necesarios/iconoP.png"));
         return retValue;
     }
     

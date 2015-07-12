@@ -20,7 +20,7 @@ import javax.swing.SwingWorker;
  *
  * @author ADOLFO
  */
-public class Requisitos extends SwingWorker<Void, String> {
+public class RequisitosRespaldo extends SwingWorker<Void, String> {
     Icon bien = new ImageIcon(getClass().getResource("/Necesarios/OKIcon.png"));
     
     private final JButton need_jButton;
@@ -31,7 +31,7 @@ public class Requisitos extends SwingWorker<Void, String> {
     private int tareasRealizadas;
     boolean continuar;
     
-    public Requisitos(JButton boton, CMysql c, JFrame ventanaPadre, JProgressBar jProgressBar, JPasswordField palabra) {
+    public RequisitosRespaldo(JButton boton, CMysql c, JFrame ventanaPadre, JProgressBar jProgressBar, JPasswordField palabra) {
         need_jButton = boton;
         ping = c;
         need_ventana = ventanaPadre;

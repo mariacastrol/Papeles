@@ -1923,9 +1923,10 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 int totalPasajeros = 0;
                 int filaDondeInicia = filaActual;
                 String idPasajero = (String) jTablePlanes.getValueAt(filaDondeInicia,19);
-                while (idPasajero != null && !idPasajero.equals("") && filaDondeInicia++ < filaActual + filasSeleccionadas) {
+                while (idPasajero != null && !idPasajero.equals("") && filaDondeInicia < filaActual + filasSeleccionadas) {
                     idPasajero = (String) jTablePlanes.getValueAt(filaDondeInicia,19);
                     totalPasajeros++;
+                    filaDondeInicia++;
                 }
                 if (0 < totalPasajeros) {
                     String listaOriginalPasajeros [][] = new String [totalPasajeros][6];
@@ -2043,9 +2044,10 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 int totalPasajeros = 0;
                 int filaDondeInicia = filaActual;
                 String idPasajero = (String) jTableCierres.getValueAt(filaDondeInicia,19);
-                while (idPasajero != null && !idPasajero.equals("") && filaDondeInicia++ < filaActual + filasSeleccionadas) {
+                while (idPasajero != null && !idPasajero.equals("") && filaDondeInicia < filaActual + filasSeleccionadas) {
                     idPasajero = (String) jTableCierres.getValueAt(filaDondeInicia,19);
                     totalPasajeros++;
+                    filaDondeInicia++;
                 }
                 if (0 < totalPasajeros) {
                     String listaOriginalPasajeros [][] = new String [totalPasajeros][6];
