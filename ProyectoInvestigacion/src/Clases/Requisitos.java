@@ -27,7 +27,7 @@ public class Requisitos extends SwingWorker<Void, String> {
     private final CMysql ping;
     private final JFrame need_ventana;
     private final JProgressBar need_jProgressBar;
-    private JPasswordField need_jPasswordField;
+    private final JPasswordField need_jPasswordField;
     private int tareasRealizadas;
     boolean continuar;
     
@@ -439,8 +439,10 @@ public class Requisitos extends SwingWorker<Void, String> {
             need_jProgressBar.repaint();
             JOptionPane.showMessageDialog(need_ventana,"LA BASE DE DATOS SE HA CREADO EXITOSAMENTE","",JOptionPane.INFORMATION_MESSAGE,bien);
             need_jButton.setEnabled(false);
+            need_jButton.setText("HECHO");
         } else {
             need_jButton.setEnabled(true);
+            need_jButton.setText("INTENTAR NUEVAMENTE");
         }   
     }
     

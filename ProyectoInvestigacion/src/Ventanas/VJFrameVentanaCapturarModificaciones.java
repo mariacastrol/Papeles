@@ -1959,6 +1959,15 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(this,"ALGUNAS MODIFICACIONES NO SE LLEVARON A CABO","",JOptionPane.ERROR_MESSAGE);
                 }
+                if ("APERTURA DE PLAN DE VUELO".equals(jComboBoxOperacionPlanes.getSelectedItem().toString())) {
+                    if (!conexionPlanes.mostrarColumnasTablaMysqlCompuesta(UJFrameVentanaModificaciones.jTablePlanes,UJFrameVentanaModificaciones.cActualPlanes,UJFrameVentanaModificaciones.nColumPlanes,UJFrameVentanaModificaciones.columPlanes,2)) {
+                        JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    if (!conexionPlanes.mostrarColumnasTablaMysqlCompuesta(UJFrameVentanaModificaciones.jTableCierres,UJFrameVentanaModificaciones.cActualCierres,UJFrameVentanaModificaciones.nColumCierres,UJFrameVentanaModificaciones.columCierres,2)) {
+                        JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
+                    }
+                }
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
@@ -2297,6 +2306,15 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this,"SE HA GUARDADO CON ÉXITO LAS MODIFICACIONES","",JOptionPane.INFORMATION_MESSAGE,bien);
                 } else {
                     JOptionPane.showMessageDialog(this,"ALGUNAS MODIFICACIONES NO SE LLEVARON A CABO","",JOptionPane.ERROR_MESSAGE);
+                }
+                if ("MANIFIESTO DE SALIDA".equals(jComboBoxOperacionManifiestos.getSelectedItem().toString())) {
+                    if (!conexionPlanes.mostrarColumnasTablaMysqlCompuesta(UJFrameVentanaModificaciones.jTableMS,UJFrameVentanaModificaciones.cActualMS,UJFrameVentanaModificaciones.nColumMS,UJFrameVentanaModificaciones.columMS,2)) {
+                        JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    if (!conexionPlanes.mostrarColumnasTablaMysqlCompuesta(UJFrameVentanaModificaciones.jTableML,UJFrameVentanaModificaciones.cActualML,UJFrameVentanaModificaciones.nColumML,UJFrameVentanaModificaciones.columML,2)) {
+                        JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
+                    }
                 }
                 this.dispose();
             } else {
@@ -2749,7 +2767,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     public static javax.swing.JTextField jTextField9;
     public javax.swing.JTextField jTextFieldPersonasPasajeros;
     // End of variables declaration//GEN-END:variables
-
+    
     private String sv = "localhost";
     private String us = "root";
     private String pw;

@@ -183,7 +183,6 @@ public class AAJFrameVentanaInicio extends javax.swing.JFrame {
                 }
             }
         } else {
-            System.out.println("JALA");
             XJFrameVentanaRequisitos requisitos = new XJFrameVentanaRequisitos();
             requisitos.setVisible(true);
         }

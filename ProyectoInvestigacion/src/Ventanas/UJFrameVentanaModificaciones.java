@@ -6,7 +6,6 @@
 package Ventanas;
 
 import Clases.ConexionMysql;
-import Clases.FormatoFilasTabla;
 import Clases.FuncionesGenerales;
 import java.awt.Color;
 import java.awt.Image;
@@ -840,6 +839,9 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
+                cActualPlanes = consulta;
+                nColumPlanes = nombresColumnas;
+                columPlanes = columnas;
                 jButton12.setEnabled(true);
                 if (jTablePlanes.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
@@ -1139,6 +1141,9 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             if (!conexionConsultaCierre.mostrarColumnasTablaMysqlCompuesta(jTableCierres,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
+                cActualCierres = consulta;
+                nColumCierres = nombresColumnas;
+                columCierres = columnas;
                 jButton11.setEnabled(true);
                 if (jTableCierres.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
@@ -1481,6 +1486,9 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableMS,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
+                cActualMS = consulta;
+                nColumMS = nombresColumnas;
+                columMS = columnas;
                 jButton14.setEnabled(true);
                 if (jTableMS.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
@@ -1738,6 +1746,9 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableML,consulta,nombresColumnas,columnas,2)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
+                cActualML = consulta;
+                nColumML = nombresColumnas;
+                columML = columnas;
                 jButton16.setEnabled(true);
                 if (jTableML.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
@@ -2918,7 +2929,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     private javax.swing.JButton botonCriteriosMS;
     private javax.swing.JButton botonCriteriosPlanes;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
+    public static javax.swing.JButton jButton12;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton16;
     public static javax.swing.JLabel jLabel21;
@@ -2968,13 +2979,28 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTableCierres;
-    private javax.swing.JTable jTableML;
-    private javax.swing.JTable jTableMS;
-    private javax.swing.JTable jTablePlanes;
+    public static javax.swing.JTable jTableCierres;
+    public static javax.swing.JTable jTableML;
+    public static javax.swing.JTable jTableMS;
+    public static javax.swing.JTable jTablePlanes;
     // End of variables declaration//GEN-END:variables
     
     private String pw;
+    public static String cActualPlanes;
+    public static String [][] nColumPlanes;
+    public static int columPlanes;
+    
+    public static String cActualCierres;
+    public static String [][] nColumCierres;
+    public static int columCierres;
+    
+    public static String cActualMS;
+    public static String [][] nColumMS;
+    public static int columMS;
+    
+    public static String cActualML;
+    public static String [][] nColumML;
+    public static int columML;
     
     int filaActual;
     int filasSeleccionadas;

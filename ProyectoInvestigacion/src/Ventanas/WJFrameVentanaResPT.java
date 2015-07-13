@@ -5,15 +5,13 @@
  */
 package Ventanas;
 
-import Clases.CMysql;
-import Clases.SONS;
+import Clases.RequisitosRespaldo;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -228,54 +226,8 @@ public class WJFrameVentanaResPT extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        File file = new File(jTextField1.getText());
-        String path = file.getAbsolutePath()+ ".sql";
-        if (jComboBox1.getSelectedItem().toString().startsWith("C")) {
-            try {
-                int c = JOptionPane.showConfirmDialog(this,"¿Desea crear una copia de seguridad en la siguiente ruta? \n" + path,"Mensaje de Confirmación",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE);
-                if (c == JOptionPane.YES_OPTION) {
-                    String backup = "C:\\Program Files\\MySQL\\MySQL Server 5.6\\bin\\mysqldump --opt -u " + "root" + " -p" + pw + " " + "BASEAEROPUERTO" + "  -r" + path;
-                    System.out.println(backup);
-                    Runtime rt = Runtime.getRuntime();
-                    rt.exec(backup);
-                    JOptionPane.showMessageDialog(this,"SE HA CREADO EXITOSAMENTE UNA COPIA DE LA BASE DE DATOS EN:\n" + file.getPath(),"",JOptionPane.INFORMATION_MESSAGE,bien);
-                }    
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this,"SE HA GENERADO UN ERROR AL GENERAR LA COPIA\n" + ex.getMessage(),"",JOptionPane.ERROR_MESSAGE);
-            }
-        } else {
-            
-            path = file.getAbsolutePath();
-            int c = JOptionPane.showConfirmDialog(this, "¿Desea restaurar esta base de datos?", "Mensaje de Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
-            if (c == JOptionPane.YES_OPTION) {
-                CMysql ping = new CMysql();
-                if (ping.conectarSV("localhost","root",SONS.getC())) {
-                    if (!ping.ejecutarModificacionStatement("DROP DATABASE IF EXISTS BASEAEROPUERTO;")) {
-                        JOptionPane.showMessageDialog(this,ping.getMensajesError(),"ERROR AL ELIMINAR BASE DE DATOS",JOptionPane.ERROR_MESSAGE);
-                    } else {
-                        if (!ping.ejecutarModificacionStatement("CREATE DATABASE BASEAEROPUERTO DEFAULT CHARACTER SET UTF8 COLLATE utf8_general_ci;")) {
-                            JOptionPane.showMessageDialog(this,ping.getMensajesError(),"ERROR AL CREAR BASE DE DATOS",JOptionPane.ERROR_MESSAGE);
-                        } else {
-                            try {
-                                String backup = "cmd /C cd C:\\Program Files\\MySQL\\MySQL Server 5.6\\bin & mysql -u root -p" + pw + " BASEAEROPUERTO <" + path;
-                                Process runtimeProcess = Runtime.getRuntime().exec(backup);
-                                int processComplete = runtimeProcess.waitFor();
-                                if (processComplete == 0) {
-                                    JOptionPane.showMessageDialog(this,"SE HA RESTAURADO EXITOSAMENTE LA BASE DE DATOS","",JOptionPane.INFORMATION_MESSAGE,bien);
-                                } else {
-                                    JOptionPane.showMessageDialog(this,"ERROR AL RESTAURAR BASE DE DATOS","",JOptionPane.ERROR_MESSAGE);
-                                }
-                            } catch (Exception ex) {
-                                JOptionPane.showMessageDialog(this,"SE HA GENERADO UN ERROR AL RESTAURAR LA BASE DE DATOS\n" + ex.getMessage(),"",JOptionPane.ERROR_MESSAGE);
-                            }
-                        }
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(this,ping.getMensajesError(),"CONEXIÓN FALLIDA",JOptionPane.ERROR_MESSAGE);
-                }
-            }    
-        }
-
+        RequisitosRespaldo mh = new RequisitosRespaldo(jButton2,this,jTextField1,jComboBox1,pw);
+        mh.execute(); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
