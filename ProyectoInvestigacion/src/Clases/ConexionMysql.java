@@ -31,19 +31,17 @@ public class ConexionMysql {
     private String strPassword;
     private String mensajesError;
     private final String strDriverMySQL = "com.mysql.jdbc.Driver";
-    private boolean alertaMensajesError;
     
     private Connection con = null; //maneja la conexion a mysql
-    ///*******************************************
+    
     public ConexionMysql() {
         this.strBaseDatos = "";
         this.strServidor = "";
         this.strUsuario = "";
         this.strPassword = "";
         this.mensajesError = "";
-        this.alertaMensajesError = false;
     }
-    ///*******************************************
+    
     private boolean conectarServidor(String servidor,String usuario,String pw,String bd, String driver, String metodoQueInvoca) {
         try {
             Class.forName(driver);
@@ -57,7 +55,7 @@ public class ConexionMysql {
             return false;
         } 
     }
-    ///*******************************************
+    
     public boolean conectarBD(String servidor, String usuario, String password, String BD) {
         strServidor = servidor;
         strUsuario = usuario;
@@ -65,39 +63,39 @@ public class ConexionMysql {
         strBaseDatos = BD;
         return conectarServidor(strServidor,strUsuario,strPassword,strBaseDatos,strDriverMySQL,"conectarBD");  
     }
-    ///*******************************************
+    
     public Connection conexion() {
         return con;
     } 
-    ///*******************************************
+    
     public String getCadenaConexion() {
         return strCadenaConexion;
     }
-    ///*******************************************
+    
     public String getBaseDato() {
         return strBaseDatos;
     }
-    ///*******************************************
+    
     public String getServidor() {
         return strServidor;
     }
-    ///*******************************************
+    
     public String getUsuario() {
         return strUsuario;
     }
-    ///*******************************************
+    
     public String getDriverMySQL() {
         return strDriverMySQL;
     }
-    ///*******************************************
+    
     public String getMensajesError() {
         return mensajesError;
     }
-    ///*******************************************
+    
     public void setMensajesError(String mensajesError) {
         this.mensajesError = mensajesError;
     }
-    ///*******************************************
+    
     private boolean ejecutarModificacionStatement(String instruccion, String metodoQueInvoca, String mensajeSiDuplicado) {
         try {
             Statement instruccionSt = con.createStatement();
@@ -115,7 +113,7 @@ public class ConexionMysql {
             return false;
         }
     }
-    ///*******************************************
+    
     public boolean insertarFilaEnTabla(String tablaMysql, String [] nombreColumnasTablaMysql, String [] datosAInsertar, String mensajeDuplicado) {
         String instruccionInsert = "INSERT INTO " + tablaMysql + "(";
         for (int i = 0; i < nombreColumnasTablaMysql.length; i++) {
@@ -136,7 +134,7 @@ public class ConexionMysql {
         }
         return ejecutarModificacionStatement(instruccionInsert,"insertarFilaEnTabla", mensajeDuplicado);
     }
-    ///*******************************************//
+    
     public boolean insertarTablaEnTabla(String tablaMysql, String [] nombreColumnasTablaMysql, String [] [] datosAInsertar, String mensajeDuplicado) {
         String instruccionInsert = "INSERT INTO " + tablaMysql + "(";
         for (int i = 0; i < nombreColumnasTablaMysql.length; i++) {
@@ -165,12 +163,12 @@ public class ConexionMysql {
         }
         return ejecutarModificacionStatement(instruccionInsert,"insertarTablaEnTabla", mensajeDuplicado);
     }
-    ///*******************************************
+    
     public boolean eliminarFilaEnTabla(String tablaMysql, String columnaDondeBuscar, String campoBuscado) {
         String instruccionDelete = "DELETE FROM " + tablaMysql + " WHERE " + columnaDondeBuscar + " = '" + campoBuscado + "'";
         return ejecutarModificacionStatement(instruccionDelete,"eliminarFilaEnTabla","?");
     }
-    ///*******************************************
+    
     public boolean modificarFilaEnTabla(String tablaMysql, String [] nombreColumnasTablaMysql, String [] datosActualizados, String columnaDondeBuscar, String campoBuscado) {
         String instruccionUpdate = "UPDATE " + tablaMysql + " SET";
         for (int i = 0; i < nombreColumnasTablaMysql.length; i++) {
@@ -184,7 +182,7 @@ public class ConexionMysql {
         instruccionUpdate += "WHERE " + columnaDondeBuscar + " = '" + campoBuscado + "'";    
         return ejecutarModificacionStatement(instruccionUpdate,"modificarFilaEnTabla","?");
     }
-    ///*******************************************
+    
     public boolean mostrarColumnasTablaMysqlSimple(JTable tabla, String tablaAConsultarMysql, String [] columnasAConsultarTablaMysql) {
         limpiarTabla(tabla);
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -215,7 +213,7 @@ public class ConexionMysql {
             return false;
         }
     }
-    ///*******************************************
+    
     private void limpiarTabla(JTable tablaALimpiar) {
         DefaultTableModel modelo = (DefaultTableModel) tablaALimpiar.getModel();
         int filas = modelo.getRowCount();
@@ -223,7 +221,7 @@ public class ConexionMysql {
             modelo.removeRow(0);
         }
     }
-    ///*******************************************
+    
     public boolean mostrarRegistroEspecifico(JTable tabla, String tablaAConsultarMysql, String [] columnasAConsultarTablaMysql, String columnaDondeBuscar, String campoBuscado){
         limpiarTabla (tabla);
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -254,7 +252,7 @@ public class ConexionMysql {
             return false;
         }
     }
-    ///*******************************************
+    
     public boolean mostrarColumnasTablaMysqlCompuesta(JTable tabla, String consulta, String [] [] columnasTablas, int numeroColumnas, int ventana) {
         limpiarTablaCompletamente(tabla);
         Clases.ModeloTablas miModelo = new Clases.ModeloTablas();
@@ -428,14 +426,6 @@ public class ConexionMysql {
                     modelo.setValueAt(grupo,i,0);
                 }
             }
-            /*tabla.getColumnModel().getColumn(0).setMinWidth(Integer.parseInt(columnasTablas[0][2]));
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(Integer.parseInt(columnasTablas[0][2]));
-            tabla.getColumnModel().getColumn(0).setMaxWidth(Integer.parseInt(columnasTablas[0][2]));
-            for (int i = 1; i < numeroColumnas; i++) {
-                tabla.getColumnModel().getColumn(i).setMinWidth(Integer.parseInt(columnasTablas[i][2]));
-                tabla.getColumnModel().getColumn(i).setPreferredWidth(Integer.parseInt(columnasTablas[i][2]));
-                tabla.getColumnModel().getColumn(i).setMaxWidth(Integer.parseInt(columnasTablas[i][2]));
-            }*/
             packColumns(tabla,1,ventana);
             FormatoFilasTabla ft = new FormatoFilasTabla();
             tabla.setDefaultRenderer (Object.class,ft);
@@ -447,65 +437,12 @@ public class ConexionMysql {
             return false;
         }
     }  
-    ///*******************************************
+    
     private void limpiarTablaCompletamente(JTable tablaALimpiar) {
         DefaultTableModel modelo = (DefaultTableModel) tablaALimpiar.getModel();
         modelo.setRowCount(0);
         modelo.setColumnCount(0);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    ///*********************BETA
-     public boolean getAlertaMensajesError() {
-        return alertaMensajesError;
-    }
-    ///*******************************************
-    public void setAlertaMensajesError(boolean alertaMensajesError) {
-        this.alertaMensajesError = alertaMensajesError;
-    }
-    ///*******************************************
-    public String [] obtenerInformacionRegistroEspecifico(String tablaAConsultar, String [] columnasAConsultar,String campoLlave, String campoConsulta){
-        String consulta = "SELECT ";
-        for (int i = 0; i < columnasAConsultar.length; i++) {
-            if (i < columnasAConsultar.length - 1) {
-                consulta += columnasAConsultar [i] + ", ";
-            } else {
-                consulta += columnasAConsultar [i] + " ";
-            }
-        }
-        consulta += "FROM " + tablaAConsultar + " WHERE " + campoLlave + "= '" + campoConsulta + "'";
-        
-        String [] datosFila = new String [columnasAConsultar.length];
-        
-        try {
-            Statement instruccionSt = con.createStatement();
-            ResultSet conjuntoResultados = instruccionSt.executeQuery(consulta);
-            
-            while (conjuntoResultados.next()) {
-                for (int j = 0; j < columnasAConsultar.length; j++) {
-                    datosFila [j]= conjuntoResultados.getString(columnasAConsultar [j]);
-                }     
-            }
-        return datosFila;
-        
-        } catch (Exception e) {
-            mensajesError = "CLASE: ConexionMsql";
-            mensajesError += "\nMETODO: obtenerInformacionRegistroEspecifico\nERROR: ";
-            mensajesError += e.getMessage();
-            alertaMensajesError = true;
-            return null;
-        }
-    }
-    
-    
-    //////////////////////////////////
     
     private void packColumns(JTable table, int margin, int ventana) {
         for (int c=0; c<table.getColumnCount(); c++) {
@@ -528,7 +465,7 @@ public class ConexionMysql {
         } else {
             DefaultTableColumnModel colModel = (DefaultTableColumnModel)table.getColumnModel();
             TableColumn col = colModel.getColumn(vColIndex);
-            int width = 0;
+            int width;
             TableCellRenderer renderer = col.getHeaderRenderer();
             if (renderer == null) {
                 renderer = table.getTableHeader().getDefaultRenderer();
@@ -547,8 +484,4 @@ public class ConexionMysql {
         }
     }
 
- 
-    //////////////////
-        
-    
 }

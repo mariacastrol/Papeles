@@ -16,19 +16,20 @@ import javax.swing.table.DefaultTableCellRenderer;
  */
 public class FormatoFilasTabla extends DefaultTableCellRenderer {
     private Component comp;
+    
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         comp = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-        if((int) table.getValueAt(row,0) % 2 == 0) {
+        if ((int) table.getValueAt(row,0) % 2 == 0) {
             comp.setBackground(new java.awt.Color(204,204,255));
-        }else{
+        } else {
             comp.setBackground(new java.awt.Color(255,255,255));
         }
-        if(isSelected){
+        if (isSelected) {
             comp.setBackground(new java.awt.Color(78,190,231));
             comp.setForeground(Color.BLACK);
         }
         return comp;
     }
-    
+     
 }

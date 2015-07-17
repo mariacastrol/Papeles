@@ -16,23 +16,19 @@ import java.sql.Statement;
 public class CMysql {
     private String strCadenaConexion = "";
     
-    private String strBaseDatos; 
     private String strServidor;
     private String strUsuario;
     private String strPassword;
     private String mensajesError;
     private final String strDriverMySQL = "com.mysql.jdbc.Driver";
-    private boolean alertaMensajesError;
     
     private Connection con = null; 
     
     public CMysql() {
-        this.strBaseDatos = "";
         this.strServidor = "";
         this.strUsuario = "";
         this.strPassword = "";
         this.mensajesError = "";
-        this.alertaMensajesError = false;
     }
     
     private boolean conectarSoloServidor(String servidor,String usuario,String pw,String driver,String metodoQueInvoca) {

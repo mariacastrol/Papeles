@@ -833,7 +833,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             consulta += criteriosPlanes;
         }
         consulta += "ORDER BY APERTURAS_DE_VUELO.fecha_hora,PASAJEROS_APERTURA.id_pasajero";
-        System.out.println(consulta);
         ConexionMysql conexionConsultaPlan = new ConexionMysql();
         if (conexionConsultaPlan.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas,2)) {
@@ -843,11 +842,11 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 nColumPlanes = nombresColumnas;
                 columPlanes = columnas;
                 jButton12.setEnabled(true);
+                botonCriteriosPlanes.setEnabled(false);
+                botonBuscarPlanes.setEnabled(false);
                 if (jTablePlanes.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
                 }
-                botonCriteriosPlanes.setEnabled(false);
-                botonBuscarPlanes.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -898,7 +897,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     cPlanes.jTextField13.setText(pasajero3Planes);
                 }
             }
-            ///////////////////
             if (cBPersonal1Planes != 0 || cBPersonal2Planes != 0 || cBPersonal3Planes != 0) {
                 cPlanes.jCheckBox12.setSelected(true);
                 if (rBPersonalInfoPlanes == 1) {
@@ -919,7 +917,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     cPlanes.jTextField16.setText(personal3Planes);
                 }
             }
-            ///////////////////
             if (rBPersonalPlanes  != 0) {
                 cPlanes.jCheckBox6.setSelected(true);
                 if (rBPersonalPlanes == 15) {
@@ -1003,7 +1000,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 if (rBPersonalCierres == 15) {
                     cCierres.jRadioButton15.setSelected(true);
                     cCierres.jTextField15.setText(licenciaCierres);
-                } else  {
+                } else {
                     cCierres.jRadioButton17.setSelected(true);
                     cCierres.jTextField17.setText(licenciaCierres);
                 }
@@ -1013,7 +1010,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 if (rBAeronaveCierres == 9) {
                     cCierres.jRadioButton9.setSelected(true);
                     cCierres.jTextField11.setText(aeronaveCierres);
-                } else  {
+                } else {
                     cCierres.jRadioButton10.setSelected(true);
                     cCierres.jTextField12.setText(aeronaveCierres);
                 }
@@ -1023,7 +1020,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 if (rBAeropuertoCierres == 18) {
                     cCierres.jRadioButton18.setSelected(true);
                     cCierres.jTextField20.setText(aeropuertoCierres);
-                } else  {
+                } else {
                     cCierres.jRadioButton19.setSelected(true);
                     cCierres.jTextField21.setText(aeropuertoCierres);
                 }
@@ -1135,7 +1132,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             consulta += criteriosCierres;
         }
         consulta += "ORDER BY CIERRES_DE_PLAN.fecha_hora,PASAJEROS_CIERRE.id_pasajero";
-        System.out.println(consulta);
         ConexionMysql conexionConsultaCierre = new ConexionMysql();
         if (conexionConsultaCierre.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaCierre.mostrarColumnasTablaMysqlCompuesta(jTableCierres,consulta,nombresColumnas,columnas,2)) {
@@ -1145,11 +1141,11 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 nColumCierres = nombresColumnas;
                 columCierres = columnas;
                 jButton11.setEnabled(true);
+                botonBuscarCierres.setEnabled(false);
+                botonCriteriosCierres.setEnabled(false);
                 if (jTableCierres.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
                 }
-                botonBuscarCierres.setEnabled(false);
-                botonCriteriosCierres.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -1319,10 +1315,8 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         preconsulta += "MANIFIESTOS_SALIDA.fecha_hora_itinerario, ";
             nombresColumnas[columnas][1] = "fechaPrincipal";
             nombresColumnas[columnas++][0] = "FECHA";
-        ///****-------------------------------------------
-        nombresColumnas[columnas][1] = "hi";
-        nombresColumnas[columnas++][0] = "HORA ITINERARIO";
-        ///****----------------------------------------
+            nombresColumnas[columnas][1] = "hi";
+            nombresColumnas[columnas++][0] = "HORA ITINERARIO";
         preconsulta += "MANIFIESTOS_SALIDA.hora_real, ";
             nombresColumnas[columnas][1] = "hr";
             nombresColumnas[columnas++][0] = "HORA REAL";
@@ -1480,7 +1474,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             consulta += criteriosManifiestosSalida;
         }
         consulta += "ORDER BY MANIFIESTOS_SALIDA.fecha_hora_itinerario";
-        System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
         if (conexionConsultaMS.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableMS,consulta,nombresColumnas,columnas,2)) {
@@ -1490,11 +1483,11 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 nColumMS = nombresColumnas;
                 columMS = columnas;
                 jButton14.setEnabled(true);
+                botonBuscarMS.setEnabled(false);
+                botonCriteriosMS.setEnabled(false);
                 if (jTableMS.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
                 }
-                botonBuscarMS.setEnabled(false);
-                botonCriteriosMS.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -1549,7 +1542,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         cBPersonal1Cierres = 0;
         personal1Cierres = null;
         cBPersonal2Cierres = 0;
-        String personal2Cierres = null;
+        personal2Cierres = null;
         cBPersonal3Cierres = 0;
         personal3Cierres = null;
         rBPersonalInfoCierres = 0;
@@ -1566,9 +1559,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        //
         FuncionesGenerales.limpiarTablaCompletamente(jTableMS);
-        //
         limpiarCriteriosManifiestosSalida();
         rBFechaMSalida = 0;
         fecha1MSalida = null;
@@ -1597,10 +1588,8 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
         preconsulta += "MANIFIESTOS_LLEGADA.fecha_hora_itinerario, ";
             nombresColumnas[columnas][1] = "fechaPrincipal";
             nombresColumnas[columnas++][0] = "FECHA";
-        ///****-------------------------------------------
-        nombresColumnas[columnas][1] = "hi";
-        nombresColumnas[columnas++][0] = "HORA ITINERARIO";
-        ///****----------------------------------------
+            nombresColumnas[columnas][1] = "hi";
+            nombresColumnas[columnas++][0] = "HORA ITINERARIO";
         preconsulta += "MANIFIESTOS_LLEGADA.hora_real, ";
             nombresColumnas[columnas][1] = "hr";
             nombresColumnas[columnas++][0] = "HORA REAL";
@@ -1740,7 +1729,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
             consulta += criteriosManifiestosLlegada;
         }
         consulta += "ORDER BY MANIFIESTOS_LLEGADA.fecha_hora_itinerario";
-        System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
         if (conexionConsultaMS.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableML,consulta,nombresColumnas,columnas,2)) {
@@ -1750,23 +1738,19 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 nColumML = nombresColumnas;
                 columML = columnas;
                 jButton16.setEnabled(true);
+                botonBuscarML.setEnabled(false);
+                botonCriteriosML.setEnabled(false);
                 if (jTableML.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
                 }
-                botonBuscarML.setEnabled(false);
-                botonCriteriosML.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
         }
-        
-        //
     }//GEN-LAST:event_botonBuscarMLActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        //
         FuncionesGenerales.limpiarTablaCompletamente(jTableML);
-        //
         limpiarCriteriosManifiestosLlegada();
         rBFechaMLlegada = 0;
         fecha1MLlegada = null;
@@ -1966,7 +1950,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     VJFrameVentanaCapturarModificaciones.listaPasajeros = null; // LISTA DE PASAJEROS
                     VJFrameVentanaCapturarModificaciones.jLabel19.setEnabled(false);
                 }
-
                 String rutaPDF = (String) jTablePlanes.getValueAt(filaActual,24);
                 if (rutaPDF != null) {
                     if (!rutaPDF.equals("")) {
@@ -2087,7 +2070,6 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     VJFrameVentanaCapturarModificaciones.listaPasajeros = null; // LISTA DE PASAJEROS
                     VJFrameVentanaCapturarModificaciones.jLabel19.setEnabled(false);
                 }
-
                 String rutaPDF = (String) jTableCierres.getValueAt(filaActual,24);
                 if (rutaPDF != null) {
                     if (!rutaPDF.equals("")) {
@@ -3083,7 +3065,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     static int cBPasajeros3Planes = 0;
     static String pasajero3Planes = null;
     static int rBPersonalPlanes = 0;
-    /////
+    
     static int cBPersonal1Planes = 0;
     static String personal1Planes = null;
     static int cBPersonal2Planes = 0;
@@ -3091,7 +3073,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     static int cBPersonal3Planes = 0;
     static String personal3Planes = null;
     static int rBPersonalInfoPlanes = 0;
-    ////
+    
     static String licenciaPlanes = null;
     static int rBAeronavePlanes = 0;
     static String aeronavePlanes = null;
@@ -3126,7 +3108,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     static int cBPasajeros3Cierres = 0;
     static String pasajero3Cierres = null;
     static int rBPersonalCierres = 0;
-    /////
+    
     static int cBPersonal1Cierres = 0;
     static String personal1Cierres = null;
     static int cBPersonal2Cierres = 0;
@@ -3134,7 +3116,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     static int cBPersonal3Cierres = 0;
     static String personal3Cierres = null;
     static int rBPersonalInfoCierres = 0;
-    ////
+    
     static String licenciaCierres = null;
     static int rBAeronaveCierres = 0;
     static String aeronaveCierres = null;
@@ -3179,4 +3161,5 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
     public void setP(String ll) {
         pw = ll;
     }
+    
 }

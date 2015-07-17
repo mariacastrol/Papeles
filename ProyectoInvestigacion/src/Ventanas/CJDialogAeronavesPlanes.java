@@ -381,6 +381,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
         if (!ping.mostrarRegistroEspecifico(jTableAeronavesPlanes,nombreTablaMysql,columnasTablaMysql,pK,campoConsulta)) {
             JOptionPane.showMessageDialog(this,ping.getMensajesError(),"ERROR AL CARGAR CONSULTA",JOptionPane.ERROR_MESSAGE);
         } else {
+            jTextFieldBuscarMatricula.setText(null);
             int filasTabla = jTableAeronavesPlanes.getRowCount();
             if (filasTabla == 0) {
                 JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO LA MATRÍCULA","",JOptionPane.INFORMATION_MESSAGE);
@@ -401,6 +402,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
                 jMenuItem1.setEnabled(true);
                 jMenuItem2.setEnabled(true);
                 jMenuItem3.setEnabled(true);
+                jButton1.setEnabled(true);
                 botonActualizar.setEnabled(false);
                 jTextFieldSMatricula.setText(null);
                 jTextFieldSTipo.setText(null); 
@@ -448,6 +450,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
             jMenuItem1.setEnabled(false);
             jMenuItem2.setEnabled(false);
             jMenuItem3.setEnabled(false);
+            jButton1.setEnabled(false);
             botonActualizar.setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
@@ -742,7 +745,7 @@ public class CJDialogAeronavesPlanes extends javax.swing.JDialog {
     private final int rError = 255;
     private final int gError = 0;
     private final int bError = 0;
-    private JTextField [] camposTextos = new JTextField[2];
+    private final JTextField [] camposTextos = new JTextField[2];
     private Color colorFondo;
     
     public boolean setDatosConexion (String sv, String us, String pw, String dB, String [] cTM, String nTM, String pK) {

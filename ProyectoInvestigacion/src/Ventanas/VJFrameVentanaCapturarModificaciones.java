@@ -8,12 +8,18 @@ package Ventanas;
 import Clases.ConexionMysql;
 import Clases.FuncionesGenerales;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.text.SimpleDateFormat;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,6 +35,18 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         initComponents();
         colorFondo = jPanel1.getBackground();
         jLabel3.setForeground(colorFondo);
+        JFormattedTextField format = ((JSpinner.DefaultEditor) jSpinnerHorasUTC.getEditor()).getTextField();
+        format.addFocusListener(fcsListener);
+        JFormattedTextField format1 = ((JSpinner.DefaultEditor) jSpinnerMinutosUTC.getEditor()).getTextField();
+        format1.addFocusListener(fcsListener);
+        JFormattedTextField format2 = ((JSpinner.DefaultEditor) jSpinnerHoraReal.getEditor()).getTextField();
+        format2.addFocusListener(fcsListener);
+        JFormattedTextField format3 = ((JSpinner.DefaultEditor) jSpinnerMinutosReal.getEditor()).getTextField();
+        format3.addFocusListener(fcsListener);
+        JFormattedTextField format4 = ((JSpinner.DefaultEditor) jSpinnerHoraItinerario.getEditor()).getTextField();
+        format4.addFocusListener(fcsListener);
+        JFormattedTextField format5 = ((JSpinner.DefaultEditor) jSpinnerMinutosItinerario.getEditor()).getTextField();
+        format5.addFocusListener(fcsListener);
     }
 
     /**
@@ -1748,13 +1766,11 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                         }
                     }
                     if (jLabel4.getForeground().getRGB() == cGreen.getRGB() && rutaPDFPlanesOriginal != null &&  rutaPDF == null && seguirActualizando) { // ELIMINAR PDF
-                        System.out.println("###########");
                         if (!conexionPlanes.eliminarFilaEnTabla("RELACION_PDF_APERTURAS","fecha",fechaCompletaPlanesOriginal)) {
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"ERROR AL ELIMINAR PDF",JOptionPane.ERROR_MESSAGE);
                             seguirActualizando = false;
                         }
                     } else if (jLabel4.getForeground().getRGB() == cGreen.getRGB() && rutaPDFPlanesOriginal == null && seguirActualizando) { // AGREGAR PDF
-                        System.out.println("AGREGAR");
                         String pdfs [] = {"fecha","pdf"};
                         String [] valores = {fechaCompletaPlanesOriginal,rutaPDF};
                         String mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"RELACION_PDF_APERTURAS\"";
@@ -1763,7 +1779,6 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                             seguirActualizando = false;
                         }
                     } else if (jLabel4.getForeground().getRGB() == cGreen.getRGB() && seguirActualizando) { // MODIFICAR PDF
-                        System.out.println("ACTUALIXAR");
                         columnasTablaMysql[0] = "pdf";
                         datosActualizados[0] = rutaPDF;
                         if (!conexionPlanes.modificarFilaEnTabla("RELACION_PDF_APERTURAS",columnasTablaMysql, datosActualizados, "fecha",fechaCompletaPlanesOriginal)) {
@@ -1786,8 +1801,8 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                     if (jLabel19.getForeground().getRGB() == cGreen.getRGB() && seguirActualizando) { // ACTUALIZAR LISTA PASAJEROS
                         int totalErroresAlEliminar = 0;
                         if (listaPasajerosOriginal != null) {
-                            for (int i = 0; i < listaPasajerosOriginal.length; i++) {
-                                if (!conexionPlanes.eliminarFilaEnTabla("PASAJEROS_APERTURA","id_pasajero",listaPasajerosOriginal[i][0])) {
+                            for (String[] listaPasajerosOriginal1 : listaPasajerosOriginal) {
+                                if (!conexionPlanes.eliminarFilaEnTabla("PASAJEROS_APERTURA", "id_pasajero", listaPasajerosOriginal1[0])) {
                                     totalErroresAlEliminar++;
                                 }
                             }
@@ -1884,13 +1899,11 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                         }
                     }
                     if (jLabel4.getForeground().getRGB() == cGreen.getRGB() && rutaPDFPlanesOriginal != null &&  rutaPDF == null && seguirActualizando) { // ELIMINAR PDF
-                        System.out.println("###########");
                         if (!conexionPlanes.eliminarFilaEnTabla("RELACION_PDF_CIERRES","fecha",fechaCompletaPlanesOriginal)) {
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"ERROR AL ELIMINAR PDF",JOptionPane.ERROR_MESSAGE);
                             seguirActualizando = false;
                         }
                     } else if (jLabel4.getForeground().getRGB() == cGreen.getRGB() && rutaPDFPlanesOriginal == null && seguirActualizando) { // AGREGAR PDF
-                        System.out.println("AGREGAR");
                         String pdfs [] = {"fecha","pdf"};
                         String [] valores = {fechaCompletaPlanesOriginal,rutaPDF};
                         String mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"RELACION_PDF_CIERRES\"";
@@ -1899,7 +1912,6 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                             seguirActualizando = false;
                         }
                     } else if (jLabel4.getForeground().getRGB() == cGreen.getRGB() && seguirActualizando) { // MODIFICAR PDF
-                        System.out.println("ACTUALIXAR");
                         columnasTablaMysql[0] = "pdf";
                         datosActualizados[0] = rutaPDF;
                         if (!conexionPlanes.modificarFilaEnTabla("RELACION_PDF_CIERRES",columnasTablaMysql, datosActualizados, "fecha",fechaCompletaPlanesOriginal)) {
@@ -1922,8 +1934,8 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                     if (jLabel19.getForeground().getRGB() == cGreen.getRGB() && seguirActualizando) { // ACTUALIZAR LISTA PASAJEROS
                         int totalErroresAlEliminar = 0;
                         if (listaPasajerosOriginal != null) {
-                            for (int i = 0; i < listaPasajerosOriginal.length; i++) {
-                                if (!conexionPlanes.eliminarFilaEnTabla("PASAJEROS_CIERRE","id_pasajero",listaPasajerosOriginal[i][0])) {
+                            for (String[] listaPasajerosOriginal1 : listaPasajerosOriginal) {
+                                if (!conexionPlanes.eliminarFilaEnTabla("PASAJEROS_CIERRE", "id_pasajero", listaPasajerosOriginal1[0])) {
                                     totalErroresAlEliminar++;
                                 }
                             }
@@ -2148,7 +2160,6 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                         }
                     }
                 } else {
-                    /////////////////////********************
                     Color cGreen = new Color(0,100,0);
                     String nombreTablaMysql = "MANIFIESTOS_LLEGADA";
                     String columnasTablaMysql [] = {"AQUI VA LA COLUMNA A MODIFICAR"};
@@ -2768,10 +2779,10 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     public javax.swing.JTextField jTextFieldPersonasPasajeros;
     // End of variables declaration//GEN-END:variables
     
-    private String sv = "localhost";
-    private String us = "root";
+    private final String sv = "localhost";
+    private final String us = "root";
     private String pw;
-    private String dB = "baseaeropuerto";
+    private final String dB = "baseaeropuerto";
     static String [][] listaPasajeros;
     static String listaSobrecargos;
     static String [] embarque;
@@ -2830,4 +2841,30 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     public void setP(String ll) {
         pw = ll;
     }
+    
+    private FocusListener fcsListener = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            dumpInfo(e);
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            dumpInfo(e);
+        }
+
+        private void dumpInfo(FocusEvent e) {
+            final Component c = e.getComponent();
+            if (c instanceof JFormattedTextField) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        ((JFormattedTextField) c).setText(((JFormattedTextField) c).getText());
+                        ((JFormattedTextField) c).selectAll();
+                    }
+                });
+            }
+        }
+    };
+    
 }

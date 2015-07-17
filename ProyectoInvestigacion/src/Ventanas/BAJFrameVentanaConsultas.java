@@ -7,7 +7,6 @@ package Ventanas;
 
 import Clases.ConexionMysql;
 import Clases.ExportarAExcel;
-import Clases.FormatoFilasTabla;
 import Clases.FuncionesGenerales;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -20,7 +19,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -2570,105 +2568,80 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox99.setSelected(true);
         jCheckBox100.setSelected(true);
         String preconsulta = "SELECT ";
-        String [] [] nombresColumnas = new String [50][3];
+        String [] [] nombresColumnas = new String [50][2];
         int columnas = 0;
-        nombresColumnas[columnas][2] = "0";
         nombresColumnas[columnas][1] = "-0";
         nombresColumnas[columnas++][0] = "";
         preconsulta += "APERTURAS_DE_VUELO.fecha_hora, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "fechaPrincipal";
             nombresColumnas[columnas++][0] = "FECHA";
         preconsulta += "PILOTOS_PLANES.no_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - LICENCIA";
         preconsulta += "PILOTOS_PLANES.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - NOMBRE(S)";
         preconsulta += "PILOTOS_PLANES.apellido_paterno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - A PATERNO";
         preconsulta += "PILOTOS_PLANES.apellido_materno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - A MATERNO";
         preconsulta += "PILOTOS_PLANES.tipo_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - T LICENCIA";
         preconsulta += "COPILOTOS_PLANES.no_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - LICENCIA";
         preconsulta += "COPILOTOS_PLANES.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - NOMBRE(S)";
         preconsulta += "COPILOTOS_PLANES.apellido_paterno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - A PATERNO";
         preconsulta += "COPILOTOS_PLANES.apellido_materno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - A MATERNO";
         preconsulta += "COPILOTOS_PLANES.tipo_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - T LICENCIA";
         preconsulta += "AEROPUERTOS_PLANES.codigo_oaci, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - OACI";
         preconsulta += "AEROPUERTOS_PLANES.codigo_iata, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - IATA";
         preconsulta += "AEROPUERTOS_PLANES.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - NOMBRE";
         preconsulta += "AERONAVES_PLANES.identificacion_aeronave, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AERONAVE - MATRÍCULA";
         preconsulta += "AERONAVES_PLANES.tipo, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AERONAVE - TIPO";
         preconsulta += "APERTURAS_DE_VUELO.otros_datos, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "variosRenglones";
             nombresColumnas[columnas++][0] = "OTROS DATOS";
         preconsulta += "APERTURAS_DE_VUELO.no_personas_a_bordo, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PERSONAS A BORDO";
         preconsulta += "PASAJEROS_APERTURA.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "pasajeroN";
             nombresColumnas[columnas++][0] = "PASAJERO - NOMBRE(S)";
         preconsulta += "PASAJEROS_APERTURA.apellido_paterno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "pasajeroAP";
             nombresColumnas[columnas++][0] = "PASAJERO - A PATERNO";
         preconsulta += "PASAJEROS_APERTURA.apellido_materno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "pasajeroAM";
             nombresColumnas[columnas++][0] = "PASAJERO - A MATERNO";
         preconsulta += "PASAJEROS_APERTURA.nacionalidad, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "pasajeroNa";
             nombresColumnas[columnas++][0] = "PASAJERO - NACIONALIDAD";
         preconsulta += "PDFS_APERTURA.ruta_pdf, ";
-            nombresColumnas[columnas][2] = "0";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PDF - RUTA";
         preconsulta += "PDFS_APERTURA.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PDF - NOMBRE";
         String consulta = preconsulta.substring(0, preconsulta.length() - 2); 
@@ -2693,12 +2666,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             consulta += criteriosPlanes;
         }
         consulta += "ORDER BY APERTURAS_DE_VUELO.fecha_hora";
-        System.out.println(consulta);
         ConexionMysql conexionConsultaPlan = new ConexionMysql();
         if (conexionConsultaPlan.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaPlan.mostrarColumnasTablaMysqlCompuesta(jTablePlanes,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
+                jButton12.setEnabled(true);
+                botonBuscarPlanes.setEnabled(false);
+                botonCriteriosPlanes.setEnabled(false);
                 if (jTablePlanes.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
                 } else {
@@ -2727,10 +2702,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     jCheckBox98.setEnabled(true);
                     jCheckBox99.setEnabled(true);
                     jCheckBox100.setEnabled(true);
-                    jButton12.setEnabled(true);
                 }
-                botonBuscarPlanes.setEnabled(false);
-                botonCriteriosPlanes.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaPlan.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -2781,7 +2753,6 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     cPlanes.jTextField13.setText(pasajero3Planes);
                 }
             }
-            ///////////////////
             if (cBPersonal1Planes != 0 || cBPersonal2Planes != 0 || cBPersonal3Planes != 0) {
                 cPlanes.jCheckBox12.setSelected(true);
                 if (rBPersonalInfoPlanes == 1) {
@@ -2802,7 +2773,6 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     cPlanes.jTextField16.setText(personal3Planes);
                 }
             }
-            ///////////////////
             if (rBPersonalPlanes  != 0) {
                 cPlanes.jCheckBox6.setSelected(true);
                 if (rBPersonalPlanes == 15) {
@@ -2940,105 +2910,80 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox66.setSelected(true);
         jCheckBox101.setSelected(true);
         String preconsulta = "SELECT ";
-        String [] [] nombresColumnas = new String [50][3];
+        String [] [] nombresColumnas = new String [50][2];
         int columnas = 0;
-        nombresColumnas[columnas][2] = "0";
         nombresColumnas[columnas][1] = "-0";
         nombresColumnas[columnas++][0] = "";
         preconsulta += "CIERRES_DE_PLAN.fecha_hora, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "fechaPrincipal";
             nombresColumnas[columnas++][0] = "FECHA";
         preconsulta += "PILOTOS_PLANES.no_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - LICENCIA";
         preconsulta += "PILOTOS_PLANES.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - NOMBRE(S)";
         preconsulta += "PILOTOS_PLANES.apellido_paterno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - A PATERNO";
         preconsulta += "PILOTOS_PLANES.apellido_materno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - A MATERNO";
         preconsulta += "PILOTOS_PLANES.tipo_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PILOTO - T LICENCIA";
         preconsulta += "COPILOTOS_PLANES.no_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - LICENCIA";
         preconsulta += "COPILOTOS_PLANES.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - NOMBRE(S)";
         preconsulta += "COPILOTOS_PLANES.apellido_paterno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - A PATERNO";
         preconsulta += "COPILOTOS_PLANES.apellido_materno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - A MATERNO";
         preconsulta += "COPILOTOS_PLANES.tipo_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COPILOTO - T LICENCIA";
         preconsulta += "AEROPUERTOS_PLANES.codigo_oaci, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - OACI";
         preconsulta += "AEROPUERTOS_PLANES.codigo_iata, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - IATA";
         preconsulta += "AEROPUERTOS_PLANES.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - NOMBRE";
         preconsulta += "AERONAVES_PLANES.identificacion_aeronave, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AERONAVE - MATRÍCULA";
         preconsulta += "AERONAVES_PLANES.tipo, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AERONAVE - TIPO";
         preconsulta += "CIERRES_DE_PLAN.observaciones, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "variosRenglones";
             nombresColumnas[columnas++][0] = "OBSERVACIONES";
         preconsulta += "CIERRES_DE_PLAN.no_pasajeros, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "No. PASAJEROS";
         preconsulta += "PASAJEROS_CIERRE.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "pasajeroN";
             nombresColumnas[columnas++][0] = "PASAJERO - NOMBRE(S)";
         preconsulta += "PASAJEROS_CIERRE.apellido_paterno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "pasajeroAP";
             nombresColumnas[columnas++][0] = "PASAJERO - A PATERNO";
         preconsulta += "PASAJEROS_CIERRE.apellido_materno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "pasajeroAM";
             nombresColumnas[columnas++][0] = "PASAJERO - A MATERNO";
         preconsulta += "PASAJEROS_CIERRE.nacionalidad, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "pasajeroNa";
             nombresColumnas[columnas++][0] = "PASAJERO - NACIONALIDAD";
         preconsulta += "PDFS_CIERRE.ruta_pdf, ";
-            nombresColumnas[columnas][2] = "0";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PDF - RUTA";
         preconsulta += "PDFS_CIERRE.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PDF - NOMBRE";
         String consulta = preconsulta.substring(0, preconsulta.length() - 2); 
@@ -3063,12 +3008,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             consulta += criteriosCierres;
         }
         consulta += "ORDER BY CIERRES_DE_PLAN.fecha_hora";
-        System.out.println(consulta);
         ConexionMysql conexionConsultaCierre = new ConexionMysql();
         if (conexionConsultaCierre.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaCierre.mostrarColumnasTablaMysqlCompuesta(jTableCierres,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
+                jButton11.setEnabled(true);
+                botonBuscarCierres.setEnabled(false);
+                botonCriteriosCierres.setEnabled(false);
                 if (jTableCierres.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
                 } else {
@@ -3097,10 +3044,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     jCheckBox65.setEnabled(true);
                     jCheckBox66.setEnabled(true);
                     jCheckBox101.setEnabled(true);
-                    jButton11.setEnabled(true);
                 }
-                botonBuscarCierres.setEnabled(false);
-                botonCriteriosCierres.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaCierre.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -3296,192 +3240,143 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox165.setSelected(true);
         jCheckBox166.setSelected(true);
         jCheckBox167.setSelected(true);
-        System.out.println("FUNCIONA");
         String preconsulta = "SELECT ";
-        String [] [] nombresColumnas = new String [50][3];
+        String [] [] nombresColumnas = new String [50][2];
         int columnas = 0;
-        nombresColumnas[columnas][2] = "0";
         nombresColumnas[columnas][1] = "-0";
         nombresColumnas[columnas++][0] = "";
         preconsulta += "MANIFIESTOS_SALIDA.fecha_hora_itinerario, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "fechaPrincipal";
             nombresColumnas[columnas++][0] = "FECHA";
-        ///****-------------------------------------------
-        nombresColumnas[columnas][2] = "200";
-        nombresColumnas[columnas][1] = "hi";
-        nombresColumnas[columnas++][0] = "HORA ITINERARIO";
-        ///****----------------------------------------
+            nombresColumnas[columnas][1] = "hi";
+            nombresColumnas[columnas++][0] = "HORA ITINERARIO";
         preconsulta += "MANIFIESTOS_SALIDA.hora_real, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "hr";
             nombresColumnas[columnas++][0] = "HORA REAL";
         preconsulta += "MANIFIESTOS_SALIDA.no_de_vuelo, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "NO DE VUELO";
         preconsulta += "COMPANIAS.siglas, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COMPAÑÍA - SIGLAS";
         preconsulta += "COMPANIAS.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COMPAÑÍA - NOMBRE";
         preconsulta += "AERONAVES_MANIFIESTOS.matricula, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AERONAVE - MATRÍCULA";
         preconsulta += "AERONAVES_MANIFIESTOS.equipo, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AERONAVE - EQUIPO";
         preconsulta += "COMANDANTE.no_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COMANDANTE - LICENCIA";
         preconsulta += "COMANDANTE.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COMANDATE - NOMBRE(S)";
         preconsulta += "COMANDANTE.apellido_paterno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COMANDANTE - A PATERNO";
         preconsulta += "COMANDANTE.apellido_materno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COMANDANTE - A MATERNO";
         preconsulta += "COMANDANTE.tipo_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COMANDANTE - T LICENCIA";
         preconsulta += "PRIMER_OFICIAL.no_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PRIMER_OFICIAL - LICENCIA";
         preconsulta += "PRIMER_OFICIAL.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PRIMER_OFICIAL - NOMBRE(S)";
         preconsulta += "PRIMER_OFICIAL.apellido_paterno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PRIMER_OFICIAL - A PATERNO";
         preconsulta += "PRIMER_OFICIAL.apellido_materno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PRIMER_OFICIAL - A MATERNO";
         preconsulta += "PRIMER_OFICIAL.tipo_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PRIMER_OFICIAL - T LICENCIA";    
         preconsulta += "SEGUNDO_OFICIAL.no_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "SEGUNDO_OFICIAL - LICENCIA";
         preconsulta += "SEGUNDO_OFICIAL.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "SEGUNDO_OFICIAL - NOMBRE(S)";
         preconsulta += "SEGUNDO_OFICIAL.apellido_paterno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "SEGUNDO_OFICIAL - A PATERNO";
         preconsulta += "SEGUNDO_OFICIAL.apellido_materno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "SEGUNDO_OFICIAL - A MATERNO";
         preconsulta += "SEGUNDO_OFICIAL.tipo_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "SEGUNDO_OFICIAL - T LICENCIA";    
         preconsulta += "TERCER_OFICIAL.no_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TERCER_OFICIAL - LICENCIA";
         preconsulta += "TERCER_OFICIAL.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TERCER_OFICIAL - NOMBRE(S)";
         preconsulta += "TERCER_OFICIAL.apellido_paterno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TERCER_OFICIAL - A PATERNO";
         preconsulta += "TERCER_OFICIAL.apellido_materno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TERCER_OFICIAL - A MATERNO";
         preconsulta += "TERCER_OFICIAL.tipo_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TERCER_OFICIAL - T LICENCIA";    
         preconsulta += "MANIFIESTOS_SALIDA.sobrecargos, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "SOBRECARGOS";
         preconsulta += "AEROPUERTOS_MANIFIESTOS.codigo_iata, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - IATA";
         preconsulta += "AEROPUERTOS_MANIFIESTOS.codigo_oaci, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - OACI";
         preconsulta += "AEROPUERTOS_MANIFIESTOS.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - NOMBRE";
         preconsulta += "MANIFIESTOS_SALIDA.tramo_interior, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TRAMO INTERIOR";
         preconsulta += "MANIFIESTOS_SALIDA.exentos_nacionales, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "EXENTOS NACIONALES";
         preconsulta += "MANIFIESTOS_SALIDA.internacionales, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "INTERNACIONALES";
         preconsulta += "MANIFIESTOS_SALIDA.exentos_internacionales, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "EXENTOS INTERNACIONALES";
         preconsulta += "MANIFIESTOS_SALIDA.infantes, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "INFANTES";
         preconsulta += "MANIFIESTOS_SALIDA.transito, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TRANSITO";
         preconsulta += "MANIFIESTOS_SALIDA.total, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TOTAL";
         preconsulta += "MANIFIESTOS_SALIDA.ttl_pasajeros, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TOTAL - PASAJEROS";
         preconsulta += "MANIFIESTOS_SALIDA.ttl_equipaje, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TOTAL - EQUIPAJE";
         preconsulta += "MANIFIESTOS_SALIDA.ttl_carga, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TOTAL - CARGA";
         preconsulta += "MANIFIESTOS_SALIDA.ttl_correo, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TOTAL - CORREO";
         preconsulta += "PDFS_MANIFIESTOS.ruta_pdf, ";
-            nombresColumnas[columnas][2] = "0";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PDF - RUTA";
         preconsulta += "PDFS_MANIFIESTOS.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PDF - NOMBRE";
         String consulta = preconsulta.substring(0, preconsulta.length() - 2); 
@@ -3512,13 +3407,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             consulta += criteriosManifiestosSalida;
         }
         consulta += "ORDER BY MANIFIESTOS_SALIDA.fecha_hora_itinerario";
-        System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
         if (conexionConsultaMS.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableMS,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
                 jButton14.setEnabled(true);
+                botonBuscarMS.setEnabled(false);
+                botonCriteriosMS.setEnabled(false);
                 if (jTableMS.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
                 } else {
@@ -3560,8 +3456,6 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     jCheckBox166.setEnabled(true);
                     jCheckBox167.setEnabled(true);
                 }
-                botonBuscarMS.setEnabled(false);
-                botonCriteriosMS.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
@@ -3887,7 +3781,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         cBPersonal1Cierres = 0;
         personal1Cierres = null;
         cBPersonal2Cierres = 0;
-        String personal2Cierres = null;
+        personal2Cierres = null;
         cBPersonal3Cierres = 0;
         personal3Cierres = null;
         rBPersonalInfoCierres = 0;
@@ -4081,7 +3975,6 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox61ItemStateChanged
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        //
         jCheckBox133.setSelected(true);
         jCheckBox135.setSelected(true);
         jCheckBox136.setSelected(true);
@@ -4117,7 +4010,6 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox166.setSelected(true);
         jCheckBox167.setSelected(true);
         FuncionesGenerales.limpiarTablaCompletamente(jTableMS);
-        //
         jPanel19.setEnabled(false);
         jPanel20.setEnabled(false);
         jCheckBox133.setEnabled(false);
@@ -4459,7 +4351,6 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox146ItemStateChanged
 
     private void botonBuscarMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarMLActionPerformed
-        //
         jCheckBox78.setSelected(true);
         jCheckBox79.setSelected(true);
         jCheckBox80.setSelected(true);
@@ -4495,166 +4386,124 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox134.setSelected(true);
         jCheckBox102.setSelected(true);
         String preconsulta = "SELECT ";
-        String [] [] nombresColumnas = new String [50][3];
+        String [] [] nombresColumnas = new String [50][2];
         int columnas = 0;
-        nombresColumnas[columnas][2] = "0";
         nombresColumnas[columnas][1] = "-0";
         nombresColumnas[columnas++][0] = "";
         preconsulta += "MANIFIESTOS_LLEGADA.fecha_hora_itinerario, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "fechaPrincipal";
             nombresColumnas[columnas++][0] = "FECHA";
-        ///****-------------------------------------------
-        nombresColumnas[columnas][2] = "200";
-        nombresColumnas[columnas][1] = "hi";
-        nombresColumnas[columnas++][0] = "HORA ITINERARIO";
-        ///****----------------------------------------
+            nombresColumnas[columnas][1] = "hi";
+            nombresColumnas[columnas++][0] = "HORA ITINERARIO";
         preconsulta += "MANIFIESTOS_LLEGADA.hora_real, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "hr";
             nombresColumnas[columnas++][0] = "HORA REAL";
         preconsulta += "MANIFIESTOS_LLEGADA.no_de_vuelo, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "NO DE VUELO";
         preconsulta += "COMPANIAS.siglas, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COMPAÑÍA - SIGLAS";
         preconsulta += "COMPANIAS.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COMPAÑÍA - NOMBRE";
         preconsulta += "AERONAVES_MANIFIESTOS.matricula, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AERONAVE - MATRÍCULA";
         preconsulta += "AERONAVES_MANIFIESTOS.equipo, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AERONAVE - EQUIPO";
         preconsulta += "COMANDANTE.no_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COMANDANTE - LICENCIA";
         preconsulta += "COMANDANTE.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COMANDATE - NOMBRE(S)";
         preconsulta += "COMANDANTE.apellido_paterno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COMANDANTE - A PATERNO";
         preconsulta += "COMANDANTE.apellido_materno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COMANDANTE - A MATERNO";
         preconsulta += "COMANDANTE.tipo_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "COMANDANTE - T LICENCIA";
         preconsulta += "PRIMER_OFICIAL.no_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PRIMER_OFICIAL - LICENCIA";
         preconsulta += "PRIMER_OFICIAL.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PRIMER_OFICIAL - NOMBRE(S)";
         preconsulta += "PRIMER_OFICIAL.apellido_paterno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PRIMER_OFICIAL - A PATERNO";
         preconsulta += "PRIMER_OFICIAL.apellido_materno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PRIMER_OFICIAL - A MATERNO";
         preconsulta += "PRIMER_OFICIAL.tipo_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PRIMER_OFICIAL - T LICENCIA";    
         preconsulta += "SEGUNDO_OFICIAL.no_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "SEGUNDO_OFICIAL - LICENCIA";
         preconsulta += "SEGUNDO_OFICIAL.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "SEGUNDO_OFICIAL - NOMBRE(S)";
         preconsulta += "SEGUNDO_OFICIAL.apellido_paterno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "SEGUNDO_OFICIAL - A PATERNO";
         preconsulta += "SEGUNDO_OFICIAL.apellido_materno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "SEGUNDO_OFICIAL - A MATERNO";
         preconsulta += "SEGUNDO_OFICIAL.tipo_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "SEGUNDO_OFICIAL - T LICENCIA";    
         preconsulta += "TERCER_OFICIAL.no_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TERCER_OFICIAL - LICENCIA";
         preconsulta += "TERCER_OFICIAL.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TERCER_OFICIAL - NOMBRE(S)";
         preconsulta += "TERCER_OFICIAL.apellido_paterno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TERCER_OFICIAL - A PATERNO";
         preconsulta += "TERCER_OFICIAL.apellido_materno, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TERCER_OFICIAL - A MATERNO";
         preconsulta += "TERCER_OFICIAL.tipo_licencia, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TERCER_OFICIAL - T LICENCIA";    
         preconsulta += "MANIFIESTOS_LLEGADA.sobrecargos, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "SOBRECARGOS";
         preconsulta += "AEROPUERTOS_MANIFIESTOS.codigo_iata, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - IATA";
         preconsulta += "AEROPUERTOS_MANIFIESTOS.codigo_oaci, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - OACI";
         preconsulta += "AEROPUERTOS_MANIFIESTOS.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "AEROPUERTO - NOMBRE";
         preconsulta += "MANIFIESTOS_LLEGADA.total_pasajeros, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TOTAL PASAJEROS";
         preconsulta += "MANIFIESTOS_LLEGADA.ttl_pasajeros, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TOTAL - PASAJEROS";
         preconsulta += "MANIFIESTOS_LLEGADA.ttl_equipaje, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TOTAL - EQUIPAJE";
         preconsulta += "MANIFIESTOS_LLEGADA.ttl_carga, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TOTAL - CARGA";
         preconsulta += "MANIFIESTOS_LLEGADA.ttl_correo, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "TOTAL - CORREO";
         preconsulta += "PDFS_MANIFIESTOS.ruta_pdf, ";
-            nombresColumnas[columnas][2] = "0";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PDF - RUTA";
         preconsulta += "PDFS_MANIFIESTOS.nombre, ";
-            nombresColumnas[columnas][2] = "200";
             nombresColumnas[columnas][1] = "-1";
             nombresColumnas[columnas++][0] = "PDF - NOMBRE";
         String consulta = preconsulta.substring(0, preconsulta.length() - 2); 
@@ -4685,12 +4534,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
             consulta += criteriosManifiestosLlegada;
         }
         consulta += "ORDER BY MANIFIESTOS_LLEGADA.fecha_hora_itinerario";
-        System.out.println(consulta);
         ConexionMysql conexionConsultaMS = new ConexionMysql();
         if (conexionConsultaMS.conectarBD("localhost","root",pw,"baseaeropuerto")) {
             if (!conexionConsultaMS.mostrarColumnasTablaMysqlCompuesta(jTableML,consulta,nombresColumnas,columnas,1)) {
                 JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
             } else {
+                jButton16.setEnabled(true);
+                botonBuscarML.setEnabled(false);
+                botonCriteriosML.setEnabled(false);
                 if (jTableML.getRowCount() == 0) {
                     JOptionPane.showMessageDialog(this,"SU BUSQUEDA NO HA GENERADO RESULTADOS","",JOptionPane.INFORMATION_MESSAGE);
                 } else {
@@ -4731,20 +4582,14 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
                     jCheckBox132.setEnabled(true);
                     jCheckBox134.setEnabled(true);
                     jCheckBox102.setEnabled(true);
-                    jButton16.setEnabled(true);
                 }
-                botonBuscarML.setEnabled(false);
-                botonCriteriosML.setEnabled(false);
             }
         } else {
             JOptionPane.showMessageDialog(this,conexionConsultaMS.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
         }
-        
-        //
     }//GEN-LAST:event_botonBuscarMLActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        //
         jCheckBox78.setSelected(true);
         jCheckBox79.setSelected(true);
         jCheckBox80.setSelected(true);
@@ -4780,7 +4625,6 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         jCheckBox134.setSelected(true);
         jCheckBox102.setSelected(true);
         FuncionesGenerales.limpiarTablaCompletamente(jTableML);
-        //
         jPanel12.setEnabled(false);
         jPanel18.setEnabled(false);
         jCheckBox78.setEnabled(false);
@@ -5861,7 +5705,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     static int cBPasajeros3Planes = 0;
     static String pasajero3Planes = null;
     static int rBPersonalPlanes = 0;
-    /////
+    
     static int cBPersonal1Planes = 0;
     static String personal1Planes = null;
     static int cBPersonal2Planes = 0;
@@ -5869,7 +5713,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     static int cBPersonal3Planes = 0;
     static String personal3Planes = null;
     static int rBPersonalInfoPlanes = 0;
-    ////
+    
     static String licenciaPlanes = null;
     static int rBAeronavePlanes = 0;
     static String aeronavePlanes = null;
@@ -5904,7 +5748,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     static int cBPasajeros3Cierres = 0;
     static String pasajero3Cierres = null;
     static int rBPersonalCierres = 0;
-    /////
+    
     static int cBPersonal1Cierres = 0;
     static String personal1Cierres = null;
     static int cBPersonal2Cierres = 0;
@@ -5912,7 +5756,7 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     static int cBPersonal3Cierres = 0;
     static String personal3Cierres = null;
     static int rBPersonalInfoCierres = 0;
-    ////
+    
     static String licenciaCierres = null;
     static int rBAeronaveCierres = 0;
     static String aeronaveCierres = null;
@@ -5957,4 +5801,5 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
     public void setP(String ll) {
         pw = ll;
     }
+    
 }

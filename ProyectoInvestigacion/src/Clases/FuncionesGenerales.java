@@ -8,7 +8,6 @@ package Clases;
 import java.awt.Component;
 import java.awt.Desktop;
 import java.io.File;
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import javax.swing.JLabel;
@@ -48,6 +47,8 @@ public class FuncionesGenerales {
             jLabelTipoLicencia.setText("EXTRANJERA");
         } else if (longitud == 9) {
             jLabelTipoLicencia.setText("NACIONAL");
+        } else {
+            jLabelTipoLicencia.setText("");
         }
     }
     
@@ -114,14 +115,12 @@ public class FuncionesGenerales {
     }
     
     public static void mostrarColumnaEliminada (JTable tablaBusqueda, int columnaAMostrar){   
-        //for (int c=columnaAMostrar; c<tablaBusqueda.getColumnCount(); c++) {
-            String nombreColumna = tablaBusqueda.getColumnName(columnaAMostrar);
-            if (nombreColumna.equals("") || nombreColumna.equals("PDF - RUTA")) {
-                ajustar(tablaBusqueda,columnaAMostrar,2,true);
-            } else {
-                ajustar(tablaBusqueda,columnaAMostrar,2,false);
-            }
-        //} 
+        String nombreColumna = tablaBusqueda.getColumnName(columnaAMostrar);
+        if (nombreColumna.equals("") || nombreColumna.equals("PDF - RUTA")) {
+            ajustar(tablaBusqueda,columnaAMostrar,2,true);
+        } else {
+            ajustar(tablaBusqueda,columnaAMostrar,2,false);
+        }
     }
     
     public static void limpiarTablaCompletamente(JTable tablaALimpiar) {
@@ -137,7 +136,6 @@ public class FuncionesGenerales {
         int [] [] separador = new int [filas] [2];
         for (int i = 0; filas > i; i++) {
             InicioFin [i] = modelo.getValueAt(i, 1);
-            //System.out.println("---" + InicioFin [i]);
         }
         int inicio = 0;
         int fin = 0;
@@ -167,7 +165,6 @@ public class FuncionesGenerales {
     
     public static String abrirPDFSeleccionada(JTable tabla, String nombreColumnaRuta, int filaPDF, int columnaNPDF) {
         String nombrePDF = (String) tabla.getValueAt(filaPDF,columnaNPDF);
-        //System.out.println("--" + nombrePDF);
         if (nombrePDF != null) {
             int totalColumnas = tabla.getColumnCount();
             int columnaRuta = 1;
@@ -181,8 +178,7 @@ public class FuncionesGenerales {
             try {
                 File path = new File (ruta);
                 Desktop.getDesktop().open(path);
-            } catch (IOException ex) {
-                ex.printStackTrace();
+            } catch (Exception ex) {
                 return "ERROR AL ABRIR EL DOCUMENTO";
             }
             return "OK";
@@ -198,7 +194,7 @@ public class FuncionesGenerales {
         } else {
             DefaultTableColumnModel colModel = (DefaultTableColumnModel)table.getColumnModel();
             TableColumn col = colModel.getColumn(vColIndex);
-            int width = 0;
+            int width;
             TableCellRenderer renderer = col.getHeaderRenderer();
             if (renderer == null) {
                 renderer = table.getTableHeader().getDefaultRenderer();
@@ -234,7 +230,5 @@ public class FuncionesGenerales {
         }
         return true;
     }
-    
-    //!Character.isDigit(caracterValidar) && !Character.isAlphabetic(caracterValidar) && !Character.isISOControl(caracterValidar)) || cajaTextoAValidar.getText().length() == maxCaracteres
-    //JTextField cajaTextoAValidar, int maxCaracteres, char caracterValidar
+
 }

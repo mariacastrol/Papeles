@@ -62,7 +62,7 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel1.setText("PERSONAS");
+        jLabel1.setText("PASAJEROS");
 
         jTextFieldTtlPersonas1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldTtlPersonas1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -299,7 +299,7 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
                 jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas3,1);
                 if (jTextFieldVacios == 0) {
                     jLabel1.setForeground(new java.awt.Color(0,0,0));
-                    jLabel1.setText("PERSONAS");
+                    jLabel1.setText("PASAJEROS");
                 }
             }
             desaparecerEtiqueta(0);
@@ -320,7 +320,7 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
                 jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas3,1);
                 if (jTextFieldVacios == 0) {
                     jLabel1.setForeground(new java.awt.Color(0,0,0));
-                    jLabel1.setText("PERSONAS");
+                    jLabel1.setText("PASAJEROS");
                 }
             }
             desaparecerEtiqueta(1);
@@ -341,7 +341,7 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
                 jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacio(jTextFieldTtlPersonas2,1);
                 if (jTextFieldVacios == 0) {
                     jLabel1.setForeground(new java.awt.Color(0,0,0));
-                    jLabel1.setText("PERSONAS");
+                    jLabel1.setText("PASAJEROS");
                 }
             }
             desaparecerEtiqueta(2);
@@ -474,9 +474,9 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         int jTextFieldVacios = 0;
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas1,jLabel1,"PERSONAS*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas2,jLabel1,"PERSONAS*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas3,jLabel1,"PERSONAS*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas1,jLabel1,"PASAJEROS*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas2,jLabel1,"PASAJEROS*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas3,jLabel1,"PASAJEROS*",1,rError,gError,bError);
         jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldEquipajePzas,jLabel2,"EQUIPAJE*",1,rError,gError,bError);
         jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldEquipajeKg,jLabel2,"EQUIPAJE*",1,rError,gError,bError);
         jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldCargaPzas,jLabel3,"CARGA*",1,rError,gError,bError);
@@ -501,9 +501,9 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FuncionesGenerales.ponerEnCeros(jTextFieldTtlPersonas1,jLabel1,"PERSONAS");
-        FuncionesGenerales.ponerEnCeros(jTextFieldTtlPersonas2,jLabel1,"PERSONAS");
-        FuncionesGenerales.ponerEnCeros(jTextFieldTtlPersonas3,jLabel1,"PERSONAS");
+        FuncionesGenerales.ponerEnCeros(jTextFieldTtlPersonas1,jLabel1,"PASAJEROS");
+        FuncionesGenerales.ponerEnCeros(jTextFieldTtlPersonas2,jLabel1,"PASAJEROS");
+        FuncionesGenerales.ponerEnCeros(jTextFieldTtlPersonas3,jLabel1,"PASAJEROS");
         FuncionesGenerales.ponerEnCeros(jTextFieldEquipajePzas,jLabel2,"EQUIPAJE");
         FuncionesGenerales.ponerEnCeros(jTextFieldEquipajeKg,jLabel2,"EQUIPAJE");
         FuncionesGenerales.ponerEnCeros(jTextFieldCargaPzas,jLabel3,"CARGA");
@@ -613,7 +613,7 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
     private final int rError = 255;
     private final int gError = 0;
     private final int bError = 0;
-    private JTextField [] camposTextos = new JTextField[10];
+    private final JTextField [] camposTextos = new JTextField[10];
     private Color colorFondo;
     
     public void arregloTextField() {
@@ -662,4 +662,5 @@ public class PJDialogDesembarque extends javax.swing.JDialog {
         }
         jTextFieldPersonasTotal.setText(Integer.toString(totalPasajeros));
     }
+    
 }

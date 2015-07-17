@@ -8,6 +8,8 @@ package Ventanas;
 import Clases.ConexionMysql;
 import Clases.FuncionesGenerales;
 import java.awt.Color;
+import java.awt.Component;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -440,6 +442,7 @@ public class VMJDialogTerceros extends javax.swing.JDialog {
         if (!ping.mostrarRegistroEspecifico(jTableTercerosOficiales,nombreTablaMysql,columnasTablaMysql,pK,campoConsulta)) {
             JOptionPane.showMessageDialog(this,ping.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
         } else {
+            jTextFieldBuscarLicencia.setText(null);
             int filasTabla = jTableTercerosOficiales.getRowCount();
             if (filasTabla == 0) {
                 JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO EL NÚMERO DE LICENCIA","",JOptionPane.INFORMATION_MESSAGE);
@@ -460,10 +463,12 @@ public class VMJDialogTerceros extends javax.swing.JDialog {
                 jMenuItem1.setEnabled(true);
                 jMenuItem2.setEnabled(true);
                 jMenuItem3.setEnabled(true);
+                jButton1.setEnabled(true);
                 botonActualizar.setEnabled(false);
                 jTextFieldSNombreCompleto.setText(null);
                 jTextFieldSLicencia.setText(null);
                 jLabelSTLicencia.setText(null);
+                orden();
                 if (!ping.mostrarColumnasTablaMysqlSimple(jTableTercerosOficiales, nombreTablaMysql, columnasTablaMysql)) {
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
@@ -514,7 +519,9 @@ public class VMJDialogTerceros extends javax.swing.JDialog {
             jMenuItem1.setEnabled(false);
             jMenuItem2.setEnabled(false);
             jMenuItem3.setEnabled(false);
+            jButton1.setEnabled(false);
             botonActualizar.setEnabled(true);
+            orden();
         } else {
             JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -971,7 +978,7 @@ public class VMJDialogTerceros extends javax.swing.JDialog {
     private final int rError = 255;
     private final int gError = 0;
     private final int bError = 0;
-    private JTextField [] camposTextos = new JTextField[2];
+    private final JTextField [] camposTextos = new JTextField[2];
     private Color colorFondo;
     private String licenciaT;
     
@@ -985,6 +992,7 @@ public class VMJDialogTerceros extends javax.swing.JDialog {
             colorFondo = jPanel1.getBackground();
             jLabelObligatorios.setForeground(colorFondo);
             jLabel1.setForeground(colorFondo);
+            orden();
             if(!ping.mostrarColumnasTablaMysqlSimple(jTableTercerosOficiales, nombreTablaMysql, columnasTablaMysql)){
                 JOptionPane.showMessageDialog(this, ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA INFORMACIÓN DE LA TABLA",JOptionPane.ERROR_MESSAGE);
             }
@@ -1095,6 +1103,21 @@ public class VMJDialogTerceros extends javax.swing.JDialog {
                 jLabelObligatorios.setForeground(colorFondo);
             }
         }
+    }
+    
+    private void orden() {
+        ArrayList<Component> components = new ArrayList<>();
+        components.add(jTextFieldAANombre);
+        components.add(jTextFieldAAPaterno);
+        components.add(jTextFieldAAMaterno);
+        components.add(jTextFieldAALicencia);
+        if (botonAgregar.isEnabled()) {
+            components.add(botonAgregar);
+        } else {
+            components.add(botonActualizar);
+        }   
+        jPanel4.setFocusTraversalPolicyProvider(true);
+        jPanel4.setFocusTraversalPolicy(new Clases.MyTraversalPolicy(components));
     }
     
 }

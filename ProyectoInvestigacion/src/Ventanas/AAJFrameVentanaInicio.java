@@ -67,7 +67,7 @@ public class AAJFrameVentanaInicio extends javax.swing.JFrame {
 
         jPanel2.setPreferredSize(new java.awt.Dimension(128, 105));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Necesarios/Sin título-1.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Necesarios/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

@@ -9,10 +9,8 @@ import Clases.ConexionMysql;
 import Clases.FuncionesGenerales;
 import java.awt.Color;
 import java.io.File;
-import java.util.regex.Matcher;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -384,6 +382,7 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
         if (!ping.mostrarRegistroEspecifico(jTablePDFManifiestos,nombreTablaMysql,columnasTablaMysql,columnasTablaMysql[1],campoConsulta)) {
             JOptionPane.showMessageDialog(this,ping.getMensajesError(),"ERROR AL CARGAR CONSULTA",JOptionPane.ERROR_MESSAGE);
         } else {
+            jTextFieldBuscarPDF.setText(null);
             int filasTabla = jTablePDFManifiestos.getRowCount();
             if (filasTabla == 0) {
                 JOptionPane.showMessageDialog(this,"NO SE HA ENCONTRADO EL ARCHIVO PDF","",JOptionPane.INFORMATION_MESSAGE);
@@ -404,9 +403,11 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
                 jMenuItem1.setEnabled(true);
                 jMenuItem2.setEnabled(true);
                 jMenuItem3.setEnabled(true);
+                jButton1.setEnabled(true);
                 botonActualizar.setEnabled(false);
                 jTextFieldSRutaPDF.setText(null);
                 jTextFieldSNombrePDF.setText(null); 
+                rutaActual = null;
                 if (!ping.mostrarColumnasTablaMysqlSimple(jTablePDFManifiestos, nombreTablaMysql, columnasTablaMysql)) {
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
@@ -421,7 +422,8 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
-                limpiarAA();               
+                limpiarAA();   
+                rutaActual = null;
                 if(!ping.mostrarColumnasTablaMysqlSimple(jTablePDFManifiestos, nombreTablaMysql, columnasTablaMysql)){
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
                 }
@@ -451,6 +453,7 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
             jMenuItem1.setEnabled(false);
             jMenuItem2.setEnabled(false);
             jMenuItem3.setEnabled(false);
+            jButton1.setEnabled(false);
             botonActualizar.setEnabled(true);
             rutaActual = celda;
         } else {
@@ -499,10 +502,9 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
     private void botonPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPDFActionPerformed
         FileNameExtensionFilter filtroPDF = new FileNameExtensionFilter("Archivos pdf","pdf");
         JFileChooser fc = new JFileChooser();
-        if (botonActualizar.isEnabled()) {
-           rutaActual = jTextFieldAARutaPDF.getText();
-            fc.setCurrentDirectory(new File (rutaActual));
-            fc.setSelectedFile(new File(jTextFieldAANombrePDF.getText()));
+        if (rutaActual != null) {
+            fc.setCurrentDirectory(new File(rutaActual));
+            fc.setSelectedFile(new File(rutaActual));
         }
         fc.setMultiSelectionEnabled(false);
         fc.setFileFilter(filtroPDF);
@@ -515,6 +517,7 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
             jTextFieldAARutaPDF.setText(fc.getSelectedFile().getAbsolutePath().replace("\\","/"));
             jLabelObligatorios.setForeground(colorFondo);
             botonPDF.setForeground(new java.awt.Color(0,0,0));
+            rutaActual = fc.getSelectedFile().getAbsolutePath().replace("\\","/");
         }
     }//GEN-LAST:event_botonPDFActionPerformed
 
@@ -2727,6 +2730,5 @@ public class VRJDialogPDFManifiestos extends javax.swing.JDialog {
         jLabelObligatorios.setForeground(colorFondo);
         botonPDF.setForeground(new java.awt.Color(0,0,0));
     }
-
-    
+   
 }

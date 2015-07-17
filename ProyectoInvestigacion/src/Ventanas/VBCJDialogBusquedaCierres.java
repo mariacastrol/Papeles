@@ -715,8 +715,7 @@ public class VBCJDialogBusquedaCierres extends javax.swing.JDialog {
             jDateChooser2.setEnabled(false);
             jLabel1.setEnabled(false);
             jLabel2.setEnabled(false);            
-        }
-        else{
+        } else {
             jRadioButton11.setSelected(true);
             jRadioButton11.setEnabled(false);
             jRadioButton12.setEnabled(false);
@@ -875,7 +874,6 @@ public class VBCJDialogBusquedaCierres extends javax.swing.JDialog {
                 UJFrameVentanaModificaciones.cBPasajeros3Cierres = 0;
                 UJFrameVentanaModificaciones.pasajero3Cierres = null;
             }
-            ///////////////////////////************
             if (jCheckBox12.isSelected()) {
                 if (jCheckBox9.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField8)) {
                     totalVacios++;
@@ -908,7 +906,6 @@ public class VBCJDialogBusquedaCierres extends javax.swing.JDialog {
                 UJFrameVentanaModificaciones.personal3Cierres = null;
                 UJFrameVentanaModificaciones.rBPersonalInfoCierres = 0;
             }
-            //////////////////////////////*****************
             if (jCheckBox6.isSelected()) {
                 if (jRadioButton15.isSelected() && FuncionesGenerales.estaVacioJTextField(jTextField15)) {
                     totalVacios++;
@@ -957,7 +954,7 @@ public class VBCJDialogBusquedaCierres extends javax.swing.JDialog {
                 String criterioBusqueda = "";
                 if (jCheckBox4.isSelected()) {
                     SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-                    String fecha = "";
+                    String fecha;
                     if (jRadioButton11.isSelected()) {
                         String fechaft1 = formatoFecha.format(jDateChooser3.getDate());
                         fecha = "DATE(CIERRES_DE_PLAN.fecha_hora) = '" + fechaft1 + "'";
@@ -1064,7 +1061,6 @@ public class VBCJDialogBusquedaCierres extends javax.swing.JDialog {
                     }
                     UJFrameVentanaModificaciones.jLabel28.setEnabled(true);
                 }
-                /////////////////////////*********************
                 if (jCheckBox12.isSelected()) {
                     String[] tripulacion = new String [3];
                     String nombreCompleto = "";
@@ -1164,9 +1160,8 @@ public class VBCJDialogBusquedaCierres extends javax.swing.JDialog {
                     }
                     UJFrameVentanaModificaciones.jLabel44.setEnabled(true);
                 }
-                ///////////////////***************************
                 if (jCheckBox6.isSelected()) {
-                    String personal = "";
+                    String personal;
                     if (jRadioButton15.isSelected()) {
                         String licenciaPiloto = jTextField15.getText();
                         personal = "PILOTOS_PLANES.no_licencia = '" + licenciaPiloto + "'";
@@ -1188,7 +1183,7 @@ public class VBCJDialogBusquedaCierres extends javax.swing.JDialog {
                     UJFrameVentanaModificaciones.jLabel27.setEnabled(true);
                 }
                 if (jCheckBox3.isSelected()) {
-                    String aeronave = "";
+                    String aeronave;
                     if (jRadioButton9.isSelected()) {
                         String identificacion = jTextField11.getText();
                         aeronave = "AERONAVES_PLANES.identificacion_aeronave = '" + identificacion + "'";
@@ -1210,7 +1205,7 @@ public class VBCJDialogBusquedaCierres extends javax.swing.JDialog {
                     UJFrameVentanaModificaciones.jLabel29.setEnabled(true);
                 }
                 if (jCheckBox5.isSelected()) {
-                    String aeropuerto = "";
+                    String aeropuerto;
                     if (jRadioButton18.isSelected()) {
                         String oaci = jTextField20.getText();
                         aeropuerto = "AEROPUERTOS_PLANES.codigo_oaci = '" + oaci + "'";
@@ -1232,7 +1227,6 @@ public class VBCJDialogBusquedaCierres extends javax.swing.JDialog {
                     UJFrameVentanaModificaciones.jLabel30.setEnabled(true);
                 }
                 UJFrameVentanaModificaciones.criteriosCierres = criterioBusqueda;
-                System.out.println(criterioBusqueda);
                 UJFrameVentanaModificaciones.primeraVezCierres = false;
                 this.dispose();
             }    
@@ -1930,11 +1924,11 @@ public class VBCJDialogBusquedaCierres extends javax.swing.JDialog {
     public javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 
-    private int rError = 250;
-    private int gError = 0;
-    private int bError = 0;
-    private String fechaMinima = "2005/01/01";
-    private String fechaMaxima = "2030/12/31";
+    private final int rError = 250;
+    private final int gError = 0;
+    private final int bError = 0;
+    private final String fechaMinima = "2005/01/01";
+    private final String fechaMaxima = "2030/12/31";
     
     private void setLimitesFechas() {
         SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");

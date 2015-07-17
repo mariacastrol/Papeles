@@ -8,12 +8,18 @@ package Ventanas;
 import Clases.ConexionMysql;
 import Clases.FuncionesGenerales;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.text.SimpleDateFormat;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,6 +35,19 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         initComponents();
         colorFondo = jPanel1.getBackground();
         jLabel3.setForeground(colorFondo);
+        JFormattedTextField format = ((JSpinner.DefaultEditor) jSpinnerHorasUTC.getEditor()).getTextField();
+        format.addFocusListener(fcsListener);
+        JFormattedTextField format1 = ((JSpinner.DefaultEditor) jSpinnerMinutosUTC.getEditor()).getTextField();
+        format1.addFocusListener(fcsListener);
+        JFormattedTextField format2 = ((JSpinner.DefaultEditor) jSpinnerHoraReal.getEditor()).getTextField();
+        format2.addFocusListener(fcsListener);
+        JFormattedTextField format3 = ((JSpinner.DefaultEditor) jSpinnerMinutosReal.getEditor()).getTextField();
+        format3.addFocusListener(fcsListener);
+        JFormattedTextField format4 = ((JSpinner.DefaultEditor) jSpinnerHoraItinerario.getEditor()).getTextField();
+        format4.addFocusListener(fcsListener);
+        JFormattedTextField format5 = ((JSpinner.DefaultEditor) jSpinnerMinutosItinerario.getEditor()).getTextField();
+        format5.addFocusListener(fcsListener);
+        
     }
 
     /**
@@ -1705,7 +1724,6 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    //
                     if (jLabel4.isEnabled()) {
                         String tablaPDF = "RELACION_PDF_APERTURAS";
                         String mensajeSiRepiteRegistros = "REGISTROS DUPLICADOS EN TABLA \"RELACION_PDF_APERTURAS\"";
@@ -2246,10 +2264,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldPersonasPasajeros;
     // End of variables declaration//GEN-END:variables
     
-    private String sv = "localhost";
-    private String us = "root";
+    private final String sv = "localhost";
+    private final String us = "root";
     private String pw;
-    private String dB = "baseaeropuerto";
+    private final String dB = "baseaeropuerto";
     static String [][] listaPasajeros;
     static String listaSobrecargos;
     static String [] embarque;
@@ -2351,5 +2369,30 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     public void setP(String ll) {
         pw = ll;
     }
+    
+    private FocusListener fcsListener = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            dumpInfo(e);
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            dumpInfo(e);
+        }
+
+        private void dumpInfo(FocusEvent e) {
+            final Component c = e.getComponent();
+            if (c instanceof JFormattedTextField) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        ((JFormattedTextField) c).setText(((JFormattedTextField) c).getText());
+                        ((JFormattedTextField) c).selectAll();
+                    }
+                });
+            }
+        }
+    };
     
 }

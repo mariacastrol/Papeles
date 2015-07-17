@@ -641,8 +641,7 @@ public class VBEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
             jDateChooser2.setEnabled(false);
             jLabel1.setEnabled(false);
             jLabel2.setEnabled(false);            
-        }
-        else{
+        } else {
             jRadioButton11.setSelected(true);
             jRadioButton11.setEnabled(false);
             jRadioButton12.setEnabled(false);
@@ -822,7 +821,7 @@ public class VBEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                 String criterioBusqueda = "";
                 if (jCheckBox4.isSelected()) {
                     SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-                    String fecha = "";
+                    String fecha;
                     if (jRadioButton11.isSelected()) {
                         String fechaft1 = formatoFecha.format(jDateChooser3.getDate());
                         fecha = "DATE(MANIFIESTOS_LLEGADA.fecha_hora_itinerario) = '" + fechaft1 + "'";
@@ -848,8 +847,8 @@ public class VBEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                     UJFrameVentanaModificaciones.jLabel37.setEnabled(true);
                 }
                 if (jCheckBox6.isSelected()) {
-                    String personal = "";
-                    String licencia = "";
+                    String personal;
+                    String licencia;
                     if (jRadioButton15.isSelected()) {
                         licencia = jTextField15.getText();
                         personal = "COMANDANTE.no_licencia = '" + licencia + "'";
@@ -883,7 +882,7 @@ public class VBEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                     UJFrameVentanaModificaciones.jLabel38.setEnabled(true);
                 }
                 if (jCheckBox3.isSelected()) {
-                    String aeronave = "";
+                    String aeronave;
                     if (jRadioButton9.isSelected()) {
                         String matricula = jTextField11.getText();
                         aeronave = "AERONAVES_MANIFIESTOS.matricula = '" + matricula + "'";
@@ -905,7 +904,7 @@ public class VBEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                     UJFrameVentanaModificaciones.jLabel40.setEnabled(true);
                 }
                 if (jCheckBox5.isSelected()) {
-                    String aeropuerto = "";
+                    String aeropuerto;
                     if (jRadioButton18.isSelected()) {
                         String iata = jTextField20.getText();
                         aeropuerto = "AEROPUERTOS_MANIFIESTOS.codigo_iata = '" + iata + "'";
@@ -951,7 +950,6 @@ public class VBEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
                     UJFrameVentanaModificaciones.jLabel42.setEnabled(true);
                 }
                 UJFrameVentanaModificaciones.criteriosManifiestosLlegada = criterioBusqueda;
-                System.out.println(criterioBusqueda);
                 UJFrameVentanaModificaciones.primeraVezMLlegada = false;
                 this.dispose();
             }
@@ -2445,11 +2443,11 @@ public class VBEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
     public javax.swing.JTextField jTextField21;
     // End of variables declaration//GEN-END:variables
 
-    private int rError = 250;
-    private int gError = 0;
-    private int bError = 0;
-    private String fechaMinima = "2005/01/01";
-    private String fechaMaxima = "2030/12/31";
+    private final int rError = 250;
+    private final int gError = 0;
+    private final int bError = 0;
+    private final String fechaMinima = "2005/01/01";
+    private final String fechaMaxima = "2030/12/31";
     
     private void setLimitesFechas() {
         SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
@@ -2494,4 +2492,5 @@ public class VBEJDialogBusquedaManifiestosLlegada extends javax.swing.JDialog {
         jRadioButton18.setForeground(cN);
         jRadioButton19.setForeground(cN);
     }
+    
 }

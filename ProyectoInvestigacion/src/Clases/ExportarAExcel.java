@@ -40,15 +40,13 @@ public class ExportarAExcel {
                     }
                 }
             }
-            System.out.println("HOLA");
             workbook1.write();
             workbook1.close();
-
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error creating Excel file.");
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error creando documento de Excel:\n" + ex.getMessage());
             return false;
         }
         return true;
     }
+    
 }
