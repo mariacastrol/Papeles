@@ -5,6 +5,7 @@
  */
 package Ventanas;
 
+import Clases.ConexionMysql;
 import Clases.SONS;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -159,34 +160,48 @@ public class AAJFrameVentanaInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);
         String sFichero = "C:\\Sicacomp\\sicacomp.txt";
         File fichero = new File(sFichero);
         if (fichero.exists()) {
             if (SONS.crearCaos(sFichero)) {
-                if (jRadioButton1.isSelected()) {
-                    AJFrameVentanaCapturas capturas = new AJFrameVentanaCapturas();
-                    capturas.setP(SONS.getC());
-                    capturas.setVisible(true);
-                } else if (jRadioButton2.isSelected()) {
-                    BAJFrameVentanaConsultas consultas = new BAJFrameVentanaConsultas();
-                    consultas.setP(SONS.getC());
-                    consultas.setVisible(true);
-                } else if (jRadioButton3.isSelected()){
-                    UJFrameVentanaModificaciones modificaciones = new UJFrameVentanaModificaciones();
-                    modificaciones.setP(SONS.getC());
-                    modificaciones.setVisible(true);
+                ConexionMysql conexionPlanes= new ConexionMysql();
+                if (conexionPlanes.conectarBD(sv,us,SONS.getC(),dB)) {
+                    this.setVisible(false);
+                    if (jRadioButton1.isSelected()) {
+                        AJFrameVentanaCapturas capturas = new AJFrameVentanaCapturas();
+                        capturas.setP(SONS.getC());
+                        capturas.setVisible(true);
+                    } else if (jRadioButton2.isSelected()) {
+                        BAJFrameVentanaConsultas consultas = new BAJFrameVentanaConsultas();
+                        consultas.setP(SONS.getC());
+                        consultas.setVisible(true);
+                    } else if (jRadioButton3.isSelected()){
+                        UJFrameVentanaModificaciones modificaciones = new UJFrameVentanaModificaciones();
+                        modificaciones.setP(SONS.getC());
+                        modificaciones.setVisible(true);
+                    } else {
+                        WJFrameVentanaResPT mantenimiento = new WJFrameVentanaResPT();
+                        mantenimiento.setP(SONS.getC());
+                        mantenimiento.setVisible(true);
+                    }
                 } else {
-                    WJFrameVentanaResPT mantenimiento = new WJFrameVentanaResPT();
-                    mantenimiento.setP(SONS.getC());
-                    mantenimiento.setVisible(true);
-                }
+                    String mensajeError = conexionPlanes.getMensajesError();
+                    if (mensajeError.endsWith("Unknown database 'baseaeropuerto'")) {
+                        JOptionPane.showMessageDialog(this,"NO EXISTE LA BASE DE DATOS","NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
+                        this.setVisible(false);
+                        XJFrameVentanaRequisitos requisitosBase = new XJFrameVentanaRequisitos();
+                        requisitosBase.setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this,mensajeError,"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
+                    }
+                }    
             }
         } else {
             XJFrameVentanaRequisitos requisitos = new XJFrameVentanaRequisitos();
             requisitos.setVisible(true);
+            this.dispose();
         }
-        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -242,6 +257,10 @@ public class AAJFrameVentanaInicio extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton4;
     // End of variables declaration//GEN-END:variables
 
+    private final String sv = "localhost";
+    private final String us = "root";
+    private final String dB = "baseaeropuerto";
+    
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
