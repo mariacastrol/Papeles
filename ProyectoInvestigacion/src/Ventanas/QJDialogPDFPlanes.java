@@ -422,6 +422,10 @@ public class QJDialogPDFPlanes extends javax.swing.JDialog {
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
+                jTextFieldSRutaPDF.setText(jTextFieldAARutaPDF.getText());
+                jTextFieldSNombrePDF.setText(jTextFieldAANombrePDF.getText());       
+                jLabel21.setForeground(new java.awt.Color(0,0,0));
+                jLabel22.setForeground(new java.awt.Color(0,0,0));
                 limpiarAA(); 
                 rutaActual = null;
                 if(!ping.mostrarColumnasTablaMysqlSimple(jTablePDFPlanes, nombreTablaMysql, columnasTablaMysql)){

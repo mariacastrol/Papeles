@@ -457,6 +457,13 @@ public class VBJDialogAeropuertosPlanes extends javax.swing.JDialog {
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
+                jTextFieldSOACI.setText(jTextFieldAAOACI.getText());
+                jTextFieldSIATA.setText(jTextFieldAAIATA.getText());
+                jTextFieldSNombre.setText(jTextFieldAANombre.getText());
+                jLabel12.setForeground(new java.awt.Color(0,0,0));
+                jLabel16.setForeground(new java.awt.Color(0,0,0));
+                jLabel13.setForeground(new java.awt.Color(0,0,0));
+                jLabel1.setForeground(colorFondo);
                 limpiarAA();               
                 if(!ping.mostrarColumnasTablaMysqlSimple(jTableAeropuertosPlanes, nombreTablaMysql, columnasTablaMysql)){
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);

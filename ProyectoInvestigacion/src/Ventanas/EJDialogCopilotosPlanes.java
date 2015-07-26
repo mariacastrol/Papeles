@@ -481,6 +481,12 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
+                jTextFieldSNombreCompleto.setText(jTextFieldAANombre.getText() + " " + jTextFieldAAPaterno.getText() + " " + jTextFieldAAMaterno.getText());
+                jTextFieldSLicencia.setText(jTextFieldAALicencia.getText());
+                jLabelSTLicencia.setText(jLabelAATLicencia.getText());           
+                jLabel31.setForeground(new java.awt.Color(0,0,0));
+                jLabel33.setForeground(new java.awt.Color(0,0,0));
+                jLabel1.setForeground(colorFondo); 
                 limpiarAA();
                 if(!ping.mostrarColumnasTablaMysqlSimple(jTableCopilotosPlanes, nombreTablaMysql, columnasTablaMysql)){
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
@@ -879,7 +885,7 @@ public class EJDialogCopilotosPlanes extends javax.swing.JDialog {
             String celda2 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,2).toString();
             String celda3 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,3).toString();
             String celda4 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,4).toString();
-            jTextFieldSNombreCompleto.setText(celda1+" "+celda2+" "+celda3);
+            jTextFieldSNombreCompleto.setText(celda1 + " " + celda2 + " " + celda3);
             jTextFieldSLicencia.setText(celda);
             jLabelSTLicencia.setText(celda4);           
             jLabel31.setForeground(new java.awt.Color(0,0,0));

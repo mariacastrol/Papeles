@@ -480,6 +480,12 @@ public class KJDialogPrimeros extends javax.swing.JDialog {
             if(!ping.insertarFilaEnTabla(nombreTablaMysql,columnasTablaMysql,valores,mensajeSiRepiteRegistro)){
                 JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
             } else {
+                jTextFieldSNombreCompleto.setText(jTextFieldAANombre.getText() + " " + jTextFieldAAPaterno.getText() + " " + jTextFieldAAMaterno.getText());
+                jTextFieldSLicencia.setText(jTextFieldAALicencia.getText());
+                jLabelSTLicencia.setText(jLabelAATLicencia.getText());
+                jLabel31.setForeground(new java.awt.Color(0,0,0));
+                jLabel33.setForeground(new java.awt.Color(0,0,0));
+                jLabel1.setForeground(colorFondo);
                 limpiarAA();
                 if(!ping.mostrarColumnasTablaMysqlSimple(jTablePrimerosOficiales, nombreTablaMysql, columnasTablaMysql)){
                     JOptionPane.showMessageDialog(this,ping.getMensajesError(),"NO SE HA PODIDO CARGAR LA TABLA",JOptionPane.ERROR_MESSAGE);
