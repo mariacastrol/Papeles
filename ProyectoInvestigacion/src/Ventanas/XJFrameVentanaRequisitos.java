@@ -95,7 +95,7 @@ public class XJFrameVentanaRequisitos extends javax.swing.JFrame {
             }
         });
 
-        jProgressBar1.setMaximum(33);
+        jProgressBar1.setMaximum(35);
         jProgressBar1.setStringPainted(true);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
