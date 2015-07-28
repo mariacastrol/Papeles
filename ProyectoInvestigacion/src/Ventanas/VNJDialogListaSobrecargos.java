@@ -60,8 +60,13 @@ public class VNJDialogListaSobrecargos extends javax.swing.JDialog {
         });
         jPopupMenu1.add(jMenuItem2);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("LISTA DE SOBRECARGOS");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -223,32 +228,7 @@ public class VNJDialogListaSobrecargos extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldNombreKeyTyped
 
     private void botonGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGrabarActionPerformed
-        if (jTableSobrecargos.getRowCount() > 0) {
-            String sobrecargos = "";
-            for (int i = 0; i < jTableSobrecargos.getRowCount(); i++) {
-                if (i != jTableSobrecargos.getRowCount() - 1) {
-                    sobrecargos += jTableSobrecargos.getValueAt(i,0) + ", ";
-                } else {
-                    sobrecargos += jTableSobrecargos.getValueAt(i,0);
-                }
-            }
-            if(!sobrecargos.equals(VJFrameVentanaCapturarModificaciones.listaSobrecargosOriginal)) {
-                VJFrameVentanaCapturarModificaciones.jLabel48.setForeground(new java.awt.Color(0,100,0));
-            } else {
-                VJFrameVentanaCapturarModificaciones.jLabel48.setForeground(Color.BLACK);
-            }
-            VJFrameVentanaCapturarModificaciones.listaSobrecargos = sobrecargos;
-            VJFrameVentanaCapturarModificaciones.jLabel48.setEnabled(true);
-        } else {
-            VJFrameVentanaCapturarModificaciones.listaSobrecargos = "";
-            VJFrameVentanaCapturarModificaciones.jLabel48.setEnabled(false);
-            if(VJFrameVentanaCapturarModificaciones.listaSobrecargosOriginal != null) {
-                VJFrameVentanaCapturarModificaciones.jLabel48.setForeground(new java.awt.Color(0,100,0));
-            } else {
-                VJFrameVentanaCapturarModificaciones.jLabel48.setForeground(Color.BLACK);
-            }
-        }
-        this.dispose();     
+        funcionVolver();     
     }//GEN-LAST:event_botonGrabarActionPerformed
 
     private void jTableSobrecargosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSobrecargosMouseClicked
@@ -256,6 +236,10 @@ public class VNJDialogListaSobrecargos extends javax.swing.JDialog {
             funcionSeleccionar();       
         }
     }//GEN-LAST:event_jTableSobrecargosMouseClicked
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        funcionVolver();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -452,6 +436,35 @@ public class VNJDialogListaSobrecargos extends javax.swing.JDialog {
         } else {
             JOptionPane.showMessageDialog(this,"SELECCIONE EL/ LA SOBRECARGO A MODIFICAR","",JOptionPane.INFORMATION_MESSAGE);
         }
+    }
+    
+    private void funcionVolver() {
+        if (jTableSobrecargos.getRowCount() > 0) {
+            String sobrecargos = "";
+            for (int i = 0; i < jTableSobrecargos.getRowCount(); i++) {
+                if (i != jTableSobrecargos.getRowCount() - 1) {
+                    sobrecargos += jTableSobrecargos.getValueAt(i,0) + ", ";
+                } else {
+                    sobrecargos += jTableSobrecargos.getValueAt(i,0);
+                }
+            }
+            if(!sobrecargos.equals(VJFrameVentanaCapturarModificaciones.listaSobrecargosOriginal)) {
+                VJFrameVentanaCapturarModificaciones.jLabel48.setForeground(new java.awt.Color(0,100,0));
+            } else {
+                VJFrameVentanaCapturarModificaciones.jLabel48.setForeground(Color.BLACK);
+            }
+            VJFrameVentanaCapturarModificaciones.listaSobrecargos = sobrecargos;
+            VJFrameVentanaCapturarModificaciones.jLabel48.setEnabled(true);
+        } else {
+            VJFrameVentanaCapturarModificaciones.listaSobrecargos = "";
+            VJFrameVentanaCapturarModificaciones.jLabel48.setEnabled(false);
+            if(VJFrameVentanaCapturarModificaciones.listaSobrecargosOriginal != null) {
+                VJFrameVentanaCapturarModificaciones.jLabel48.setForeground(new java.awt.Color(0,100,0));
+            } else {
+                VJFrameVentanaCapturarModificaciones.jLabel48.setForeground(Color.BLACK);
+            }
+        }
+        this.dispose();
     }
     
 }

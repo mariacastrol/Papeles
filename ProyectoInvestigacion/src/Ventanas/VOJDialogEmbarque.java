@@ -72,8 +72,13 @@ public class VOJDialogEmbarque extends javax.swing.JDialog {
         jLabel17 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("EMBARQUE: MANIFIESTO DE SALIDA");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -738,48 +743,7 @@ public class VOJDialogEmbarque extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldTotalKeyTyped
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
-        int jTextFieldVacios = 0;
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas1,jLabel1,"PASAJEROS*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas2,jLabel1,"PASAJEROS*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas3,jLabel1,"PASAJEROS*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldEquipajePzas,jLabel2,"EQUIPAJE*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldEquipajeKg,jLabel2,"EQUIPAJE*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldCargaPzas,jLabel3,"CARGA*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldCargaKg,jLabel3,"CARGA*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldCorreoPzas,jLabel4,"CORREO*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldCorreoKg,jLabel4,"CORREO*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTI,jLabel10,"TRAMO INTERIOR*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldEN,jLabel11,"EXENTOS NACIONALES*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldInt,jLabel12,"INTERNACIONALES*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldEI,jLabel13,"EXENTOS INTERNACIONALES*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldInf,jLabel14,"INFANTES*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldT,jLabel15,"TRANSITOS*",1,rError,gError,bError);
-        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTotal,jLabel16,"TOTAL*",1,rError,gError,bError);
-        if (jTextFieldVacios == 0) {
-            String [] embarqueDeclarado = {
-                jTextFieldTI.getText(),
-                jTextFieldEN.getText(),
-                jTextFieldInt.getText(),
-                jTextFieldEI.getText(),
-                jTextFieldInf.getText(),
-                jTextFieldT.getText(),
-                jTextFieldTotal.getText(),
-                jTextFieldTtlPersonas1.getText() + "/" + jTextFieldTtlPersonas2.getText() + "/" + jTextFieldTtlPersonas3.getText(),
-                jTextFieldEquipajePzas.getText() + "/" + jTextFieldEquipajeKg.getText(),
-                jTextFieldCargaPzas.getText() + "/" + jTextFieldCargaKg.getText(),
-                jTextFieldCorreoPzas.getText() + "/" + jTextFieldCorreoKg.getText()
-            };          
-            VJFrameVentanaCapturarModificaciones.embarque = embarqueDeclarado;
-            VJFrameVentanaCapturarModificaciones.jLabel40.setEnabled(true);
-            if(!Arrays.equals(embarqueDeclarado,VJFrameVentanaCapturarModificaciones.embarqueOriginal)) {
-                VJFrameVentanaCapturarModificaciones.jLabel40.setForeground(new java.awt.Color(0,100,0));
-            } else {
-                VJFrameVentanaCapturarModificaciones.jLabel40.setForeground(Color.BLACK);
-            }
-            this.dispose();
-        } else {
-            jLabel17.setForeground(new java.awt.Color(rError,gError,bError));
-        }
+        funcionVolver();
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -825,6 +789,10 @@ public class VOJDialogEmbarque extends javax.swing.JDialog {
     private void jTextFieldTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTKeyReleased
         sumaPasajeros();
     }//GEN-LAST:event_jTextFieldTKeyReleased
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        funcionVolver();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -1006,6 +974,51 @@ public class VOJDialogEmbarque extends javax.swing.JDialog {
             totalPasajeros += Integer.parseInt(jTextFieldT.getText());
         }
         jTextFieldTotal.setText(Integer.toString(totalPasajeros));
+    }
+    
+    private void funcionVolver() {
+        int jTextFieldVacios = 0;
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas1,jLabel1,"PASAJEROS*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas2,jLabel1,"PASAJEROS*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTtlPersonas3,jLabel1,"PASAJEROS*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldEquipajePzas,jLabel2,"EQUIPAJE*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldEquipajeKg,jLabel2,"EQUIPAJE*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldCargaPzas,jLabel3,"CARGA*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldCargaKg,jLabel3,"CARGA*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldCorreoPzas,jLabel4,"CORREO*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldCorreoKg,jLabel4,"CORREO*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTI,jLabel10,"TRAMO INTERIOR*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldEN,jLabel11,"EXENTOS NACIONALES*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldInt,jLabel12,"INTERNACIONALES*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldEI,jLabel13,"EXENTOS INTERNACIONALES*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldInf,jLabel14,"INFANTES*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldT,jLabel15,"TRANSITOS*",1,rError,gError,bError);
+        jTextFieldVacios += FuncionesGenerales.sumarSiEstaVacioColor(jTextFieldTotal,jLabel16,"TOTAL*",1,rError,gError,bError);
+        if (jTextFieldVacios == 0) {
+            String [] embarqueDeclarado = {
+                jTextFieldTI.getText(),
+                jTextFieldEN.getText(),
+                jTextFieldInt.getText(),
+                jTextFieldEI.getText(),
+                jTextFieldInf.getText(),
+                jTextFieldT.getText(),
+                jTextFieldTotal.getText(),
+                jTextFieldTtlPersonas1.getText() + "/" + jTextFieldTtlPersonas2.getText() + "/" + jTextFieldTtlPersonas3.getText(),
+                jTextFieldEquipajePzas.getText() + "/" + jTextFieldEquipajeKg.getText(),
+                jTextFieldCargaPzas.getText() + "/" + jTextFieldCargaKg.getText(),
+                jTextFieldCorreoPzas.getText() + "/" + jTextFieldCorreoKg.getText()
+            };          
+            VJFrameVentanaCapturarModificaciones.embarque = embarqueDeclarado;
+            VJFrameVentanaCapturarModificaciones.jLabel40.setEnabled(true);
+            if(!Arrays.equals(embarqueDeclarado,VJFrameVentanaCapturarModificaciones.embarqueOriginal)) {
+                VJFrameVentanaCapturarModificaciones.jLabel40.setForeground(new java.awt.Color(0,100,0));
+            } else {
+                VJFrameVentanaCapturarModificaciones.jLabel40.setForeground(Color.BLACK);
+            }
+            this.dispose();
+        } else {
+            jLabel17.setForeground(new java.awt.Color(rError,gError,bError));
+        }
     }
     
 }

@@ -66,8 +66,13 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
         });
         jPopupMenu1.add(jMenuItem2);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("LISTA DE PASAJEROS");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -340,20 +345,7 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldAMaternoKeyTyped
 
     private void botonGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGrabarActionPerformed
-        if (jTableListaPasajeros.getRowCount()> 0) {
-            String [][] listaPasajeros = new String [jTableListaPasajeros.getRowCount()][jTableListaPasajeros.getColumnCount()];
-            for (int i = 0; i < jTableListaPasajeros.getRowCount(); i++) {
-                for (int j = 0; j < jTableListaPasajeros.getColumnCount(); j++) {
-                    listaPasajeros [i][j] = jTableListaPasajeros.getValueAt(i,j).toString();
-                }
-            }
-            AJFrameVentanaCapturas.listaPasajeros = listaPasajeros;
-            AJFrameVentanaCapturas.jLabel19.setEnabled(true);
-        } else {
-            AJFrameVentanaCapturas.listaPasajeros = null;
-            AJFrameVentanaCapturas.jLabel19.setEnabled(false);
-        }
-        this.dispose();       
+        funcionVolver();       
     }//GEN-LAST:event_botonGrabarActionPerformed
 
     private void jTableListaPasajerosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableListaPasajerosMouseClicked
@@ -361,6 +353,10 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
             funcionSeleccionar();
         }
     }//GEN-LAST:event_jTableListaPasajerosMouseClicked
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        funcionVolver();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -480,4 +476,20 @@ public class FJDialogListaPasajerosPlanes extends javax.swing.JDialog {
         } 
     }
     
+    private void funcionVolver() {
+        if (jTableListaPasajeros.getRowCount()> 0) {
+            String [][] listaPasajeros = new String [jTableListaPasajeros.getRowCount()][jTableListaPasajeros.getColumnCount()];
+            for (int i = 0; i < jTableListaPasajeros.getRowCount(); i++) {
+                for (int j = 0; j < jTableListaPasajeros.getColumnCount(); j++) {
+                    listaPasajeros [i][j] = jTableListaPasajeros.getValueAt(i,j).toString();
+                }
+            }
+            AJFrameVentanaCapturas.listaPasajeros = listaPasajeros;
+            AJFrameVentanaCapturas.jLabel19.setEnabled(true);
+        } else {
+            AJFrameVentanaCapturas.listaPasajeros = null;
+            AJFrameVentanaCapturas.jLabel19.setEnabled(false);
+        }
+        this.dispose();
+    }
 }
