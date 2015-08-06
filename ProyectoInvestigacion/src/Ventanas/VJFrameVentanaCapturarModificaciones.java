@@ -1522,7 +1522,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         int horas = (int) jSpinnerHorasUTC.getValue();
         int minutos = (int) jSpinnerMinutosUTC.getValue();
         FuncionesGenerales.spinnerNumericoCiclico(0,23,horas,jSpinnerHorasUTC);
-        if (horasPlanesOriginal != null && minutosPlanesOriginal != null) {
+        if (horasPlanesOriginal != null && minutosPlanesOriginal != null && (horas != 24 && horas != -1)) {
             if (Integer.parseInt(horasPlanesOriginal) == horas && Integer.parseInt(minutosPlanesOriginal) == minutos) {
                 jLabel6.setForeground(Color.BLACK);
             } else {
@@ -1535,7 +1535,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         int minutos = (int) jSpinnerMinutosUTC.getValue();
         int horas = (int) jSpinnerHorasUTC.getValue();
         FuncionesGenerales.spinnerNumericoCiclico(0,59,minutos,jSpinnerMinutosUTC);
-        if (minutosPlanesOriginal != null && horasPlanesOriginal != null) {
+        if (minutosPlanesOriginal != null && horasPlanesOriginal != null && (minutos != 60 && minutos != -1)) {
             if (Integer.parseInt(minutosPlanesOriginal) == minutos && Integer.parseInt(horasPlanesOriginal) == horas) {
                 jLabel6.setForeground(Color.BLACK);
             } else {
@@ -1548,7 +1548,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         int horas = (int) jSpinnerHoraItinerario.getValue();
         int minutos = (int) jSpinnerMinutosItinerario.getValue();
         FuncionesGenerales.spinnerNumericoCiclico(0,23,horas,jSpinnerHoraItinerario);
-        if (horaItinerarioMOriginal != null && minutosItinerarioMOriginal != null) {
+        if (horaItinerarioMOriginal != null && minutosItinerarioMOriginal != null && (horas != 24 && horas != -1)) {
             if (Integer.parseInt(horaItinerarioMOriginal) == horas && Integer.parseInt(minutosItinerarioMOriginal) == minutos) {
                 jLabel34.setForeground(Color.BLACK);
             } else {
@@ -1561,7 +1561,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         int minutos = (int) jSpinnerMinutosItinerario.getValue();
         int horas = (int) jSpinnerHoraItinerario.getValue();
         FuncionesGenerales.spinnerNumericoCiclico(0,59,minutos,jSpinnerMinutosItinerario);
-        if (horaItinerarioMOriginal != null && minutosItinerarioMOriginal != null) {
+        if (horaItinerarioMOriginal != null && minutosItinerarioMOriginal != null && (minutos != 60 && minutos != -1)) {
             if (Integer.parseInt(horaItinerarioMOriginal) == horas && Integer.parseInt(minutosItinerarioMOriginal) == minutos) {
                 jLabel34.setForeground(Color.BLACK);
             } else {
@@ -1574,7 +1574,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         int horas = (int) jSpinnerHoraReal.getValue();
         int minutos = (int) jSpinnerMinutosReal.getValue();
         FuncionesGenerales.spinnerNumericoCiclico(0,23,horas,jSpinnerHoraReal);
-        if (horaRealMOriginal != null && minutosRealMOriginal != null) {
+        if (horaRealMOriginal != null && minutosRealMOriginal != null && (horas != 24 && horas != -1)) {
             if (Integer.parseInt(horaRealMOriginal) == horas && Integer.parseInt(minutosRealMOriginal) == minutos) {
                 jLabel36.setForeground(Color.BLACK);
             } else {
@@ -1587,7 +1587,7 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         int minutos = (int) jSpinnerMinutosReal.getValue();
         int horas = (int) jSpinnerHoraReal.getValue();
         FuncionesGenerales.spinnerNumericoCiclico(0,59,minutos,jSpinnerMinutosReal);
-        if (horaRealMOriginal != null && minutosRealMOriginal != null) {
+        if (horaRealMOriginal != null && minutosRealMOriginal != null && (minutos != 60 && minutos != -1)) {
             if (Integer.parseInt(horaRealMOriginal) == horas && Integer.parseInt(minutosRealMOriginal) == minutos) {
                 jLabel36.setForeground(Color.BLACK);
             } else {
@@ -1980,6 +1980,8 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
                     }
                 }
+                this.setVisible(false);
+                vPrincipalModificaciones.setVisible(true);
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
@@ -2327,6 +2329,8 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"",JOptionPane.ERROR_MESSAGE);
                     }
                 }
+                this.setVisible(false);
+                vPrincipalModificaciones.setVisible(true);
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
@@ -2826,8 +2830,10 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
     static String minutosItinerarioMOriginal;
     static String horaRealMOriginal;
     static String minutosRealMOriginal;
+    UJFrameVentanaModificaciones vPrincipalModificaciones;
     
     public void volverAVentanaModificaciones() {
+        vPrincipalModificaciones.setVisible(true);
         this.dispose();
     }
     
@@ -2838,8 +2844,9 @@ public class VJFrameVentanaCapturarModificaciones extends javax.swing.JFrame {
         return retValue;
     }
     
-    public void setP(String ll) {
+    public void setP(String ll, UJFrameVentanaModificaciones ventana) {
         pw = ll;
+        vPrincipalModificaciones = ventana;
     }
     
     private FocusListener fcsListener = new FocusListener() {

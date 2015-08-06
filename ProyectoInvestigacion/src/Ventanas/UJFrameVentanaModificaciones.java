@@ -1844,7 +1844,7 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         VJFrameVentanaCapturarModificaciones captura = new VJFrameVentanaCapturarModificaciones();
-        captura.setP(pw);
+        captura.setP(pw,this);
         if (jTabbedPane1.getSelectedIndex() == 0) {
             if (jTablePlanes.getSelectedRow() != -1) {
                 captura.jTabbedPane1.setEnabledAt(0,true);
@@ -1883,11 +1883,9 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     } else {
                         VJFrameVentanaCapturarModificaciones.copilotoPlanesOriginal = null;
                     }
-                } else {
-                    VJFrameVentanaCapturarModificaciones.copilotoPlanesOriginal = null;
                 }
-                captura.jTextFieldPersonasPasajeros.setText(jTablePlanes.getValueAt(filaActual,18).toString()); // TOTAL PERSONAS A BORDO
                 VJFrameVentanaCapturarModificaciones.numeroPPOriginal = jTablePlanes.getValueAt(filaActual,18).toString();
+                captura.jTextFieldPersonasPasajeros.setText(jTablePlanes.getValueAt(filaActual,18).toString()); // TOTAL PERSONAS A BORDO
                 String fechaYHora = jTablePlanes.getValueAt(filaActual,1).toString(); // FECHA CON HORA
                 VJFrameVentanaCapturarModificaciones.fechaCompletaPlanesOriginal = fechaYHora + ":00";
                 String fechaFormatoBarras = fechaYHora.substring(0,10);
@@ -1899,10 +1897,10 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     captura.jLabel2.setForeground(Color.BLACK);
                 } catch (Exception e) {}
                 String horaMinutos [] = fechaYHora.substring(12).split(":");
-                captura.jSpinnerHorasUTC.setValue(Integer.parseInt(horaMinutos[0]));
-                captura.jSpinnerMinutosUTC.setValue(Integer.parseInt(horaMinutos[1]));
                 VJFrameVentanaCapturarModificaciones.horasPlanesOriginal = horaMinutos[0];
-                VJFrameVentanaCapturarModificaciones.minutosPlanesOriginal = horaMinutos[1];    
+                VJFrameVentanaCapturarModificaciones.minutosPlanesOriginal = horaMinutos[1];
+                captura.jSpinnerHorasUTC.setValue(Integer.parseInt(horaMinutos[0]));
+                captura.jSpinnerMinutosUTC.setValue(Integer.parseInt(horaMinutos[1]));    
                 String multiplesRenglones = "";
                 for (int i = filaActual; i < filaActual + filasSeleccionadas; i++) {
                     String renglon = (String) jTablePlanes.getValueAt(i,17);
@@ -1961,8 +1959,10 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 } else {
                     VJFrameVentanaCapturarModificaciones.rutaPDFPlanesOriginal = null;
                 }
+                this.setVisible(false);
                 captura.setVisible(true);
             } else {
+                captura.dispose();
                 JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
             }
         } else if (jTabbedPane1.getSelectedIndex() == 1) {
@@ -2019,10 +2019,10 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     captura.jLabel2.setForeground(Color.BLACK);
                 } catch (Exception e) {}
                 String horaMinutos [] = fechaYHora.substring(12).split(":");
+                VJFrameVentanaCapturarModificaciones.horasPlanesOriginal = horaMinutos[0];
+                VJFrameVentanaCapturarModificaciones.minutosPlanesOriginal = horaMinutos[1];
                 captura.jSpinnerHorasUTC.setValue(Integer.parseInt(horaMinutos[0]));
                 captura.jSpinnerMinutosUTC.setValue(Integer.parseInt(horaMinutos[1]));
-                VJFrameVentanaCapturarModificaciones.horasPlanesOriginal = horaMinutos[0];
-                VJFrameVentanaCapturarModificaciones.minutosPlanesOriginal = horaMinutos[1];    
                 String multiplesRenglones = "";
                 for (int i = filaActual; i < filaActual + filasSeleccionadas; i++) {
                     String renglon = (String) jTableCierres.getValueAt(i,17);
@@ -2081,8 +2081,10 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                 } else {
                     VJFrameVentanaCapturarModificaciones.rutaPDFPlanesOriginal = null;
                 }
+                this.setVisible(false);
                 captura.setVisible(true);
             } else {
+                captura.dispose();
                 JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
             }
         } else if (jTabbedPane1.getSelectedIndex() == 2) {
@@ -2208,17 +2210,19 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     captura.jLabel21.setForeground(Color.BLACK);
                 } catch (Exception e) {}
                 String horaMinutos [] = horaItinerario.split(":");
-                captura.jSpinnerHoraItinerario.setValue(Integer.parseInt(horaMinutos[0]));
-                captura.jSpinnerMinutosItinerario.setValue(Integer.parseInt(horaMinutos[1]));
                 VJFrameVentanaCapturarModificaciones.horaItinerarioMOriginal = horaMinutos[0];
                 VJFrameVentanaCapturarModificaciones.minutosItinerarioMOriginal = horaMinutos[1];
+                captura.jSpinnerHoraItinerario.setValue(Integer.parseInt(horaMinutos[0]));
+                captura.jSpinnerMinutosItinerario.setValue(Integer.parseInt(horaMinutos[1]));
                 String horaMinutosReal [] = horaReal.split(":");
                 captura.jSpinnerHoraReal.setValue(Integer.parseInt(horaMinutosReal[0]));
                 captura.jSpinnerMinutosReal.setValue(Integer.parseInt(horaMinutosReal[1]));
                 VJFrameVentanaCapturarModificaciones.horaRealMOriginal = horaMinutosReal[0];
                 VJFrameVentanaCapturarModificaciones.minutosRealMOriginal = horaMinutosReal[1];
+                this.setVisible(false);
                 captura.setVisible(true);
             } else {
+                captura.dispose();
                 JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
             }
         } else {
@@ -2338,17 +2342,19 @@ public class UJFrameVentanaModificaciones extends javax.swing.JFrame {
                     captura.jLabel21.setForeground(Color.BLACK);
                 } catch (Exception e) {}
                 String horaMinutos [] = horaItinerario.split(":");
-                captura.jSpinnerHoraItinerario.setValue(Integer.parseInt(horaMinutos[0]));
-                captura.jSpinnerMinutosItinerario.setValue(Integer.parseInt(horaMinutos[1]));
                 VJFrameVentanaCapturarModificaciones.horaItinerarioMOriginal = horaMinutos[0];
                 VJFrameVentanaCapturarModificaciones.minutosItinerarioMOriginal = horaMinutos[1];
+                captura.jSpinnerHoraItinerario.setValue(Integer.parseInt(horaMinutos[0]));
+                captura.jSpinnerMinutosItinerario.setValue(Integer.parseInt(horaMinutos[1]));
                 String horaMinutosReal [] = horaReal.split(":");
                 captura.jSpinnerHoraReal.setValue(Integer.parseInt(horaMinutosReal[0]));
                 captura.jSpinnerMinutosReal.setValue(Integer.parseInt(horaMinutosReal[1]));
                 VJFrameVentanaCapturarModificaciones.horaRealMOriginal = horaMinutosReal[0];
                 VJFrameVentanaCapturarModificaciones.minutosRealMOriginal = horaMinutosReal[1];
+                this.setVisible(false);
                 captura.setVisible(true);
             } else {
+                captura.dispose();
                 JOptionPane.showMessageDialog(this,mensajeNoSeleccionado,"SELECCIÓN",JOptionPane.INFORMATION_MESSAGE);
             }
         }
