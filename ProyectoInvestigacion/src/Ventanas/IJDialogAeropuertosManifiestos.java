@@ -495,6 +495,7 @@ public class IJDialogAeropuertosManifiestos extends javax.swing.JDialog {
             String celda = jTableAeropuertosManifiestos.getValueAt(filaSeleccionada,0).toString();
             String celda1 = jTableAeropuertosManifiestos.getValueAt(filaSeleccionada,1).toString();
             String celda2 = jTableAeropuertosManifiestos.getValueAt(filaSeleccionada,2).toString();
+            limpiarAA();
             jTextFieldAAIATA.setText(celda);
             jTextFieldAAOACI.setText(celda1);
             jTextFieldAANombre.setText(celda2);

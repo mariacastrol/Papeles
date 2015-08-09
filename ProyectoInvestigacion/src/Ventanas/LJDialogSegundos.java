@@ -515,6 +515,7 @@ public class LJDialogSegundos extends javax.swing.JDialog {
             String celda2 = jTableSegundosOficiales.getValueAt(filaSeleccionada,2).toString();
             String celda3 = jTableSegundosOficiales.getValueAt(filaSeleccionada,3).toString();
             String celda4 = jTableSegundosOficiales.getValueAt(filaSeleccionada,4).toString();
+            limpiarAA();
             jTextFieldAALicencia.setText(celda);
             jTextFieldAANombre.setText(celda1);
             jTextFieldAAPaterno.setText(celda2);

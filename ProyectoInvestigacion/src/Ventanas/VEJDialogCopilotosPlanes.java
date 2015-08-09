@@ -516,6 +516,7 @@ public class VEJDialogCopilotosPlanes extends javax.swing.JDialog {
             String celda2 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,2).toString();
             String celda3 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,3).toString();
             String celda4 = jTableCopilotosPlanes.getValueAt(filaSeleccionada,4).toString();
+            limpiarAA();
             jTextFieldAALicencia.setText(celda);
             jTextFieldAANombre.setText(celda1);
             jTextFieldAAPaterno.setText(celda2);

@@ -454,6 +454,7 @@ public class RJDialogPDFManifiestos extends javax.swing.JDialog {
         if (filaSeleccionada >= 0) {    
             String celda = jTablePDFManifiestos.getValueAt(filaSeleccionada,0).toString();
             String celda1 = jTablePDFManifiestos.getValueAt(filaSeleccionada,1).toString();
+            limpiarAA();
             jTextFieldAARutaPDF.setText(celda);
             jTextFieldAANombrePDF.setText(celda1);
             llaveActual = celda;

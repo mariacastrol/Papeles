@@ -499,6 +499,7 @@ public class GJDialogCompanias extends javax.swing.JDialog {
         if (filaSeleccionada >= 0) {    
             String celda = jTableCompaniasManifiestos.getValueAt(filaSeleccionada,0).toString();
             String celda1 = jTableCompaniasManifiestos.getValueAt(filaSeleccionada,1).toString();
+            limpiarAA();
             jTextFieldAASiglas.setText(celda);
             jTextFieldAACompania.setText(celda1);
             llaveActual = celda;

@@ -505,6 +505,7 @@ public class HJDialogAeronavesManifiestos extends javax.swing.JDialog {
         if (filaSeleccionada >= 0) {    
             String celda = jTableAeronavesManifiestos.getValueAt(filaSeleccionada,0).toString();
             String celda1 = jTableAeronavesManifiestos.getValueAt(filaSeleccionada,1).toString();
+            limpiarAA();
             jTextFieldAAMatricula.setText(celda);
             jTextFieldAAEquipo.setText(celda1);
             llaveActual = celda;

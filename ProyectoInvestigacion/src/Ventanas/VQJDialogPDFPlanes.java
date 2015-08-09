@@ -454,6 +454,7 @@ public class VQJDialogPDFPlanes extends javax.swing.JDialog {
         if (filaSeleccionada >= 0) {    
             String celda = jTablePDFPlanes.getValueAt(filaSeleccionada,0).toString();
             String celda1 = jTablePDFPlanes.getValueAt(filaSeleccionada,1).toString();
+            limpiarAA();
             jTextFieldAARutaPDF.setText(celda);
             jTextFieldAANombrePDF.setText(celda1);
             llaveActual = celda;

@@ -490,6 +490,7 @@ public class BJDialogAeropuertosPlanes extends javax.swing.JDialog {
             String celda = jTableAeropuertosPlanes.getValueAt(filaSeleccionada,0).toString();
             String celda1 = jTableAeropuertosPlanes.getValueAt(filaSeleccionada,1).toString();
             String celda2 = jTableAeropuertosPlanes.getValueAt(filaSeleccionada,2).toString();
+            limpiarAA();
             jTextFieldAAOACI.setText(celda);
             jTextFieldAAIATA.setText(celda1);
             jTextFieldAANombre.setText(celda2);

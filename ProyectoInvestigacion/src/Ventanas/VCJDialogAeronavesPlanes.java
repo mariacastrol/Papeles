@@ -450,6 +450,7 @@ public class VCJDialogAeronavesPlanes extends javax.swing.JDialog {
         if (filaSeleccionada >= 0) {    
             String celda = jTableAeronavesPlanes.getValueAt(filaSeleccionada,0).toString();
             String celda1 = jTableAeronavesPlanes.getValueAt(filaSeleccionada,1).toString();
+            limpiarAA();
             jTextFieldAAMatricula.setText(celda);
             jTextFieldAATipo.setText(celda1);
             llaveActual = celda;
