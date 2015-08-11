@@ -44,7 +44,7 @@ public class VMYJDialogInformacion extends javax.swing.JDialog {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("MARIA GUADALUPE CASTRO LOPEZ\nJOSE GUADALUPE RUIZ PINEDA\n\nALUMNOS EGRESADOS DE LA\nUNIDAD PROFESIONAL\nINTERDISCIPLINARIA DE INGENIERIA\nCAMPUS GUANAJUATO (UPIIG)\n\nINGENIERIA EN AERONAUTICA");
+        jTextArea1.setText("MARIA GUADALUPE CASTRO LOPEZ\n(mgcastrolopez@outlook.com)\n\nJOSE GUADALUPE RUIZ PINEDA\n\nALUMNOS EGRESADOS DE LA\nUNIDAD PROFESIONAL\nINTERDISCIPLINARIA DE INGENIERIA\nCAMPUS GUANAJUATO (UPIIG)\n\nINGENIERIA EN AERONAUTICA");
         jTextArea1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextArea1.setEnabled(false);
         jScrollPane1.setViewportView(jTextArea1);
