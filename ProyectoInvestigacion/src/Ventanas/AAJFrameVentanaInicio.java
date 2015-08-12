@@ -101,6 +101,7 @@ public class AAJFrameVentanaInicio extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         jButton3.setText("?");
         jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
