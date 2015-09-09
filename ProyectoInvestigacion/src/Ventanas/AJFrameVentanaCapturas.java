@@ -181,6 +181,8 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         jPanel16 = new javax.swing.JPanel();
         botonDeclararEmDesembarque1 = new javax.swing.JButton();
         jLabel40 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -220,7 +222,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jComboBoxOperacionPlanes);
-        jComboBoxOperacionPlanes.setBounds(32, 52, 190, 20);
+        jComboBoxOperacionPlanes.setBounds(32, 52, 190, 22);
 
         jLabel2.setText("FECHA");
         jPanel3.add(jLabel2);
@@ -238,7 +240,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jSpinnerHorasUTC);
-        jSpinnerHorasUTC.setBounds(688, 52, 40, 20);
+        jSpinnerHorasUTC.setBounds(688, 52, 40, 18);
 
         jLabel7.setText(":");
         jPanel3.add(jLabel7);
@@ -252,7 +254,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jSpinnerMinutosUTC);
-        jSpinnerMinutosUTC.setBounds(740, 52, 40, 20);
+        jSpinnerMinutosUTC.setBounds(740, 52, 40, 18);
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("AEROPUERTO/AERODROMO DE DESTINO"));
 
@@ -325,7 +327,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel5);
-        jPanel5.setBounds(32, 112, 539, 114);
+        jPanel5.setBounds(32, 112, 539, 113);
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("AERONAVE(S)"));
 
@@ -385,7 +387,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel6);
-        jPanel6.setBounds(591, 112, 312, 114);
+        jPanel6.setBounds(591, 112, 312, 113);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("PERSONAL DE VUELO"));
 
@@ -519,7 +521,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel7);
-        jPanel7.setBounds(32, 241, 445, 189);
+        jPanel7.setBounds(32, 241, 445, 188);
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("PERSONAS A BORDO"));
 
@@ -573,7 +575,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel8);
-        jPanel8.setBounds(32, 445, 445, 88);
+        jPanel8.setBounds(32, 445, 447, 87);
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("OTROS DATOS / OBSERVACIONES"));
 
@@ -604,7 +606,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel9);
-        jPanel9.setBounds(497, 241, 406, 157);
+        jPanel9.setBounds(497, 241, 406, 156);
 
         botonGuardarPlanes.setText("GUARDAR");
         botonGuardarPlanes.addActionListener(new java.awt.event.ActionListener() {
@@ -696,7 +698,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jComboBoxOperacionManifiestos);
-        jComboBoxOperacionManifiestos.setBounds(32, 52, 190, 20);
+        jComboBoxOperacionManifiestos.setBounds(32, 52, 190, 22);
 
         jLabel21.setText("FECHA");
         jPanel4.add(jLabel21);
@@ -816,7 +818,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel10);
-        jPanel10.setBounds(32, 112, 871, 114);
+        jPanel10.setBounds(32, 112, 871, 113);
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("MOVIMIENTO DE OPERACIONES"));
 
@@ -871,7 +873,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel11);
-        jPanel11.setBounds(32, 241, 639, 94);
+        jPanel11.setBounds(32, 241, 639, 93);
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("PDF (OPCIONAL)"));
 
@@ -908,7 +910,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel13);
-        jPanel13.setBounds(698, 459, 205, 67);
+        jPanel13.setBounds(698, 459, 205, 66);
 
         jButton6.setText("GUARDAR");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -1139,7 +1141,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel14);
-        jPanel14.setBounds(32, 350, 639, 229);
+        jPanel14.setBounds(32, 350, 639, 228);
 
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("SOBRECARGOS"));
 
@@ -1176,7 +1178,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel15);
-        jPanel15.setBounds(698, 241, 205, 68);
+        jPanel15.setBounds(698, 241, 205, 67);
 
         jDateChooser2.setDateFormatString("dd/MM/yyyy");
         jDateChooser2.setMaxSelectableDate(new java.util.Date(1925013599000L));
@@ -1201,7 +1203,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jSpinnerHoraItinerario);
-        jSpinnerHoraItinerario.setBounds(688, 52, 40, 20);
+        jSpinnerHoraItinerario.setBounds(688, 52, 40, 18);
 
         jLabel35.setText(":");
         jPanel4.add(jLabel35);
@@ -1215,7 +1217,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jSpinnerMinutosItinerario);
-        jSpinnerMinutosItinerario.setBounds(740, 52, 40, 20);
+        jSpinnerMinutosItinerario.setBounds(740, 52, 40, 18);
 
         jLabel36.setText("HORA REAL");
         jPanel4.add(jLabel36);
@@ -1229,7 +1231,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jSpinnerHoraReal);
-        jSpinnerHoraReal.setBounds(810, 52, 40, 20);
+        jSpinnerHoraReal.setBounds(810, 52, 40, 18);
 
         jLabel37.setText(":");
         jPanel4.add(jLabel37);
@@ -1243,7 +1245,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jSpinnerMinutosReal);
-        jSpinnerMinutosReal.setBounds(862, 52, 40, 20);
+        jSpinnerMinutosReal.setBounds(862, 52, 40, 18);
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("EMBARQUE"));
 
@@ -1280,7 +1282,21 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel16);
-        jPanel16.setBounds(698, 350, 205, 67);
+        jPanel16.setBounds(698, 350, 205, 66);
+
+        jLabel5.setText("VUELO DEMORADO");
+        jLabel5.setEnabled(false);
+        jPanel4.add(jLabel5);
+        jLabel5.setBounds(807, 80, 100, 14);
+
+        jCheckBox1.setText("jCheckBox1");
+        jCheckBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox1ItemStateChanged(evt);
+            }
+        });
+        jPanel4.add(jCheckBox1);
+        jCheckBox1.setBounds(783, 76, 20, 23);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1539,21 +1555,61 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private void jSpinnerHoraItinerarioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerHoraItinerarioStateChanged
         int valor = (int) jSpinnerHoraItinerario.getValue();
         FuncionesGenerales.spinnerNumericoCiclico(0,23,valor,jSpinnerHoraItinerario);
+        hora1 = valor;
+        if (valor != -1 && valor != 24) {
+            if (Clases.FuncionesGenerales.esVueloDemorado(hora1, minutos1, hora2, minutos2)) {
+                jCheckBox1.setSelected(true);
+                //jLabel5.setEnabled(true);
+            } else {
+                jCheckBox1.setSelected(false);
+                //jLabel5.setEnabled(false);
+            }
+        }
     }//GEN-LAST:event_jSpinnerHoraItinerarioStateChanged
 
     private void jSpinnerMinutosItinerarioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerMinutosItinerarioStateChanged
         int valor = (int) jSpinnerMinutosItinerario.getValue();
         FuncionesGenerales.spinnerNumericoCiclico(0,59,valor,jSpinnerMinutosItinerario);
+        minutos1 = valor;
+        if (valor != -1 && valor != 60) {
+            if (Clases.FuncionesGenerales.esVueloDemorado(hora1, minutos1, hora2, minutos2)) {
+                jCheckBox1.setSelected(true);
+                //jLabel5.setEnabled(true);
+            } else {
+                jCheckBox1.setSelected(false);
+                //jLabel5.setEnabled(false);
+            }
+        }
     }//GEN-LAST:event_jSpinnerMinutosItinerarioStateChanged
 
     private void jSpinnerHoraRealStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerHoraRealStateChanged
         int valor = (int) jSpinnerHoraReal.getValue();
         FuncionesGenerales.spinnerNumericoCiclico(0,23,valor,jSpinnerHoraReal);
+        hora2 = valor;
+        if (valor != -1 && valor != 24) {
+            if (Clases.FuncionesGenerales.esVueloDemorado(hora1, minutos1, hora2, minutos2)) {
+                jCheckBox1.setSelected(true);
+                //jLabel5.setEnabled(true);
+            } else {
+                jCheckBox1.setSelected(false);
+                //jLabel5.setEnabled(false);
+            }
+        }
     }//GEN-LAST:event_jSpinnerHoraRealStateChanged
 
     private void jSpinnerMinutosRealStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerMinutosRealStateChanged
         int valor = (int) jSpinnerMinutosReal.getValue();
         FuncionesGenerales.spinnerNumericoCiclico(0,59,valor,jSpinnerMinutosReal);
+        minutos2 = valor;
+        if (valor != -1 && valor != 60) {
+            if (Clases.FuncionesGenerales.esVueloDemorado(hora1, minutos1, hora2, minutos2)) {
+                jCheckBox1.setSelected(true);
+                //jLabel5.setEnabled(true);
+            } else {
+                jCheckBox1.setSelected(false);
+                //jLabel5.setEnabled(false);
+            }
+        }
     }//GEN-LAST:event_jSpinnerMinutosRealStateChanged
 
     private void botonListaPasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListaPasajerosActionPerformed
@@ -1692,6 +1748,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 if(!conexionPlanes.insertarFilaEnTabla(tablaAC,columnasAC,valores1,mensajeSiRepiteAC)){
                     JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
                 } else {
+                    boolean continuar = true;
                     if (!jTextField8.getText().equals("") && jTextField8.getText() != null) {
                         String copilotos [] = {"fecha","copiloto"};
                         String [] valores = {fechaCompleta,jTextField9.getText()};
@@ -1703,9 +1760,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                         }
                         if(!conexionPlanes.insertarFilaEnTabla(nombreTabla,copilotos,valores,mensajeSiRepiteRegistro)){
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                            continuar = false;
                         }
                     }
-                    if (jLabel19.isEnabled()) {
+                    if (jLabel19.isEnabled() && continuar) {
                         String tablaPasajeros = "PASAJEROS_APERTURA";
                         String mensajeSiRepiteRegistros = "REGISTROS DUPLICADOS EN TABLA \"PASAJEROS_APERTURA\"";
                         if (tipoOperacion.equals("CIERRE DE PLAN DE VUELO")) {
@@ -1722,9 +1780,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                         }
                         if(!conexionPlanes.insertarTablaEnTabla(tablaPasajeros,columnasTablasPasajeros,listaPasajeros,mensajeSiRepiteRegistros)){
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                            continuar = false;
                         }
                     }
-                    if (jLabel4.isEnabled()) {
+                    if (jLabel4.isEnabled() && continuar) {
                         String tablaPDF = "RELACION_PDF_APERTURAS";
                         String mensajeSiRepiteRegistros = "REGISTROS DUPLICADOS EN TABLA \"RELACION_PDF_APERTURAS\"";
                         if (tipoOperacion.equals("CIERRE DE PLAN DE VUELO")) {
@@ -1735,9 +1794,12 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                         String[] datosAInsertar = {fechaCompleta,rutaPDF};
                         if(!conexionPlanes.insertarFilaEnTabla(tablaPDF,columnasTablaRelacionPDF,datosAInsertar,mensajeSiRepiteRegistros)){
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                            continuar = false;
                         }
                     }
-                    JOptionPane.showMessageDialog(this,"SE HA GUARDADO CON ÉXITO","",JOptionPane.INFORMATION_MESSAGE,bien);
+                    if (continuar) {
+                        JOptionPane.showMessageDialog(this,"SE HA GUARDADO CON ÉXITO","",JOptionPane.INFORMATION_MESSAGE,bien);
+                    }
                     limpiarPlan();
                 }
             } else {
@@ -1796,46 +1858,50 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                 String tiempoReal = horasReal + ":" + minutosReal + ":00";
                 SimpleDateFormat ft4 = new SimpleDateFormat("yyyy-MM-dd");   
                 String fechaCompletaM = ft4.format(jDateChooser2.getDate()) + " " + horasItinerario + ":" + minutosItinerario + ":00";
-                String columnasATomar [] = {"fecha_hora_itinerario","hora_real","no_de_vuelo","empresa","aeronave","comandante","primer","sobrecargos","destino","tramo_interior","exentos_nacionales","internacionales","exentos_internacionales","infantes","transito","total","ttl_pasajeros","ttl_equipaje","ttl_carga","ttl_correo"};
-                String valoresAInsertar [] = {fechaCompletaM,tiempoReal,jTextField15.getText(),jTextField12.getText(),jTextField14.getText(),jTextField19.getText(),jTextField20.getText(),"",jTextField18.getText(),"0","0","0","0","0","0","0","0/0/0","0/0/0","0/0/0","0/0/0"};
+                String columnasATomar [] = {"fecha_hora_itinerario","hora_real","demora","no_de_vuelo","empresa","aeronave","comandante","primer","sobrecargos","destino","tramo_interior","exentos_nacionales","internacionales","exentos_internacionales","infantes","transito","total","ttl_pasajeros","ttl_equipaje","ttl_carga","ttl_correo"};
+                String valoresAInsertar [] = {fechaCompletaM,tiempoReal,"",jTextField15.getText(),jTextField12.getText(),jTextField14.getText(),jTextField19.getText(),jTextField20.getText(),"",jTextField18.getText(),"0","0","0","0","0","0","0","0/0/0","0/0","0/0","0/0"};
                 String tablaSL = "MANIFIESTOS_SALIDA";
                 String mensajeSiRepiteSL = "YA EXISTE EN LA BASE DE DATOS UN MANIFIESTO DE SALIDA CON ESTA FECHA Y HORA";
                 String tipoOperacion = (String) jComboBoxOperacionManifiestos.getSelectedItem();
                 if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
                     if (jLabel40.isEnabled()) {
-                        valoresAInsertar[9] = embarque[0];
-                        valoresAInsertar[10] = embarque[1];
-                        valoresAInsertar[11] = embarque[2];
-                        valoresAInsertar[12] = embarque[3];
-                        valoresAInsertar[13] = embarque[4];
-                        valoresAInsertar[14] = embarque[5];
-                        valoresAInsertar[15] = embarque[6];
-                        valoresAInsertar[16] = embarque[7];
-                        valoresAInsertar[17] = embarque[8];
-                        valoresAInsertar[18] = embarque[9];
-                        valoresAInsertar[19] = embarque[10];
+                        valoresAInsertar[10] = embarque[0];
+                        valoresAInsertar[11] = embarque[1];
+                        valoresAInsertar[12] = embarque[2];
+                        valoresAInsertar[13] = embarque[3];
+                        valoresAInsertar[14] = embarque[4];
+                        valoresAInsertar[15] = embarque[5];
+                        valoresAInsertar[16] = embarque[6];
+                        valoresAInsertar[17] = embarque[7];
+                        valoresAInsertar[18] = embarque[8];
+                        valoresAInsertar[19] = embarque[9];
+                        valoresAInsertar[20] = embarque[10];
                     }
                 } else {
                     tablaSL = "MANIFIESTOS_LLEGADA";
-                    String columnasML [] = {"fecha_hora_itinerario","hora_real","no_de_vuelo","empresa","aeronave","comandante","primer","sobrecargos","origen","total_pasajeros","ttl_pasajeros","ttl_equipaje","ttl_carga","ttl_correo"};
+                    String columnasML [] = {"fecha_hora_itinerario","hora_real","demora","no_de_vuelo","empresa","aeronave","comandante","primer","sobrecargos","origen","total_pasajeros","ttl_pasajeros","ttl_equipaje","ttl_carga","ttl_correo"};
                     columnasATomar = columnasML;
-                    String [] valoresML = {fechaCompletaM,tiempoReal,jTextField15.getText(),jTextField12.getText(),jTextField14.getText(),jTextField19.getText(),jTextField20.getText(),"",jTextField18.getText(),"0","0/0/0","0/0/0","0/0/0","0/0/0"};
+                    String [] valoresML = {fechaCompletaM,tiempoReal,"",jTextField15.getText(),jTextField12.getText(),jTextField14.getText(),jTextField19.getText(),jTextField20.getText(),"",jTextField18.getText(),"0","0/0/0","0/0","0/0","0/0"};
                     valoresAInsertar = valoresML;
                     mensajeSiRepiteSL = "YA EXISTE EN LA BASE DE DATOS UN MANIFIESTO DE LLEGADA CON ESTA FECHA Y HORA";
                     if (jLabel40.isEnabled()) {
-                        valoresAInsertar[9] = desembarque[0];
-                        valoresAInsertar[10] = desembarque[1];
-                        valoresAInsertar[11] = desembarque[2];
-                        valoresAInsertar[12] = desembarque[3];
-                        valoresAInsertar[13] = desembarque[4];
+                        valoresAInsertar[10] = desembarque[0];
+                        valoresAInsertar[11] = desembarque[1];
+                        valoresAInsertar[12] = desembarque[2];
+                        valoresAInsertar[13] = desembarque[3];
+                        valoresAInsertar[14] = desembarque[4];
                     }
                 }
                 if (jLabel48.isEnabled()) {
-                    valoresAInsertar[7] = listaSobrecargos;
+                    valoresAInsertar[8] = listaSobrecargos;
+                }
+                if (jCheckBox1.isSelected()) {
+                    valoresAInsertar[2] = "DEMORADO";
                 }
                 if(!conexionPlanes.insertarFilaEnTabla(tablaSL,columnasATomar,valoresAInsertar,mensajeSiRepiteSL)){
                     JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
                 } else {
+                    boolean continuar = true;
                     if (tipoOperacion.equals("MANIFIESTO DE SALIDA")) {
                         if (!jTextField22.getText().equals("") && jTextField22.getText() != null) {
                             String columnasSS [] = {"licencia_ss","fecha_ss"};
@@ -1843,14 +1909,16 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                             String mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"SEGUNDO_SALIDA\"";
                             if(!conexionPlanes.insertarFilaEnTabla("SEGUNDO_SALIDA",columnasSS,datosSegundo,mensajeSiRepiteRegistro)){
                                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                                continuar = false;
                             }
                         }
-                        if (!jTextField24.getText().equals("") && jTextField24.getText() != null) {
+                        if (!jTextField24.getText().equals("") && jTextField24.getText() != null && continuar) {
                             String columnasTS [] = {"licencia_ts","fecha_ts"};
                             String [] datosTercero = {jTextField25.getText(),fechaCompletaM};
                             String mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"TERCERO_SALIDA\"";
                             if(!conexionPlanes.insertarFilaEnTabla("TERCERO_SALIDA",columnasTS,datosTercero,mensajeSiRepiteRegistro)){
                                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                                continuar = false;
                             }
                         }
                     } else {
@@ -1860,18 +1928,20 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                             String mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"SEGUNDO_LLEGADA\"";
                             if(!conexionPlanes.insertarFilaEnTabla("SEGUNDO_LLEGADA",columnasSL,datosSegundo,mensajeSiRepiteRegistro)){
                                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                                continuar = false;
                             }
                         }
-                        if (!jTextField24.getText().equals("") && jTextField24.getText() != null) {
+                        if (!jTextField24.getText().equals("") && jTextField24.getText() != null && continuar) {
                             String columnasTL [] = {"licencia_tl","fecha_tl"};
                             String [] datosTercero = {jTextField25.getText(),fechaCompletaM};
                             String mensajeSiRepiteRegistro = "REGISTROS DUPLICADOS EN TABLA \"TERCERO_LLEGADA\"";
                             if(!conexionPlanes.insertarFilaEnTabla("TERCERO_LLEGADA",columnasTL,datosTercero,mensajeSiRepiteRegistro)){
                                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                                continuar = false;
                             }
                         }
                     }
-                    if (jLabel39.isEnabled()) {
+                    if (jLabel39.isEnabled() && continuar) {
                         String tablaPDF = "PDFS_SALIDA";
                         String mensajeSiRepiteRegistros = "REGISTROS DUPLICADOS EN TABLA \"PDFS_SALIDA\"";
                         if (tipoOperacion.equals("MANIFIESTO DE LLEGADA")) {
@@ -1882,11 +1952,14 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
                         String[] datosAInsertar = {fechaCompletaM,rutaPDF};
                         if(!conexionPlanes.insertarFilaEnTabla(tablaPDF,columnasTablaRelacionPDF,datosAInsertar,mensajeSiRepiteRegistros)){
                             JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO INSERTAR REGISTRO",JOptionPane.ERROR_MESSAGE);
+                            continuar = false;
                         }
                     }
+                    if (continuar) {
+                        JOptionPane.showMessageDialog(this,"SE HA GUARDADO CON ÉXITO","",JOptionPane.INFORMATION_MESSAGE,bien);
+                    }
+                    limpiarManifiesto();
                 }
-                JOptionPane.showMessageDialog(this,"SE HA GUARDADO CON ÉXITO","",JOptionPane.INFORMATION_MESSAGE,bien);
-                limpiarManifiesto();
             } else {
                 JOptionPane.showMessageDialog(this,conexionPlanes.getMensajesError(),"NO SE HA PODIDO CONECTAR A LA BASE",JOptionPane.ERROR_MESSAGE);
             }
@@ -2069,6 +2142,14 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jCheckBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox1ItemStateChanged
+        if (jCheckBox1.isSelected()) {
+            jLabel5.setEnabled(true);
+        } else {
+            jLabel5.setEnabled(false);
+        }
+    }//GEN-LAST:event_jCheckBox1ItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -2157,6 +2238,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JButton botonSeleccionarTercero;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox jComboBoxOperacionManifiestos;
     private javax.swing.JComboBox jComboBoxOperacionPlanes;
     private com.toedter.calendar.JDateChooser jDateChooser2;
@@ -2201,6 +2283,7 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     public static javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel51;
     public static javax.swing.JLabel jLabel52;
     public static javax.swing.JLabel jLabel53;
@@ -2273,6 +2356,10 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
     static String [] embarque;
     static String [] desembarque;
     static String rutaPDF;
+    private int hora1 = 0;
+    private int minutos1 = 0;
+    private int hora2 = 0;
+    private int minutos2 = 0;
     final int rError = 255;
     final int gError = 0;
     final int bError = 0;
@@ -2318,6 +2405,11 @@ public class AJFrameVentanaCapturas extends javax.swing.JFrame {
         embarque = null;
         desembarque = null;
         rutaPDF = null;
+        hora1 = 0;
+        minutos1 = 0;
+        hora2 = 0;
+        minutos2 = 0;
+        jCheckBox1.setSelected(false);
     }
     
     private void limpiarPlan() {

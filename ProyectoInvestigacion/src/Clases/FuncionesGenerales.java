@@ -230,5 +230,20 @@ public class FuncionesGenerales {
         }
         return true;
     }
+    
+    public static boolean esVueloDemorado (int hora1, int minutos1, int hora2, int minutos2) {
+        int totalMinutos1;
+        int totalMinutos2;
+        if (hora1 == hora2) {
+            totalMinutos1 = minutos1;
+            totalMinutos2 = minutos2;
+        } else {
+            totalMinutos1 = hora1*60 + minutos1;
+            totalMinutos2 = hora2*60 + minutos2; 
+        }
+        
+        int diferenciaMinutos = totalMinutos2 - totalMinutos1;
+        return Math.abs(diferenciaMinutos) >= 15;
+    }
 
 }

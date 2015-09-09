@@ -169,6 +169,17 @@ public class ConexionMysql {
         return ejecutarModificacionStatement(instruccionDelete,"eliminarFilaEnTabla","?");
     }
     
+    public boolean eliminarFilaEnTablaAND(String tablaMysql, String [] columnasDondeBuscar, String [] camposBuscados) {
+        String instruccionDelete = "DELETE FROM " + tablaMysql + " WHERE";
+        for (int j = 0; j < columnasDondeBuscar.length; j++) {
+            if (j != 0) {
+                instruccionDelete += " AND";
+            }
+            instruccionDelete += " " + columnasDondeBuscar[j] + " = '" + camposBuscados[j] + "'";
+        }
+        return ejecutarModificacionStatement(instruccionDelete,"eliminarFilaEnTablaAND","?");
+    }
+    
     public boolean modificarFilaEnTabla(String tablaMysql, String [] nombreColumnasTablaMysql, String [] datosActualizados, String columnaDondeBuscar, String campoBuscado) {
         String instruccionUpdate = "UPDATE " + tablaMysql + " SET";
         for (int i = 0; i < nombreColumnasTablaMysql.length; i++) {
@@ -181,6 +192,26 @@ public class ConexionMysql {
         }
         instruccionUpdate += "WHERE " + columnaDondeBuscar + " = '" + campoBuscado + "'";    
         return ejecutarModificacionStatement(instruccionUpdate,"modificarFilaEnTabla","?");
+    }
+    
+    public boolean modificarFilaEnTablaAND(String tablaMysql, String [] nombreColumnasTablaMysql, String [] datosActualizados, String [] columnasDondeBuscar, String [] camposBuscados) {
+        String instruccionUpdate = "UPDATE " + tablaMysql + " SET";
+        for (int i = 0; i < nombreColumnasTablaMysql.length; i++) {
+            instruccionUpdate += " " + nombreColumnasTablaMysql[i] + " = " + "'" + datosActualizados[i];
+            if (i < nombreColumnasTablaMysql.length - 1) {
+                instruccionUpdate += "',";
+            } else {
+                instruccionUpdate += "' ";
+            }
+        }
+        instruccionUpdate += "WHERE";
+        for (int j = 0; j < columnasDondeBuscar.length; j++) {
+            if (j != 0) {
+                instruccionUpdate += " AND";
+            }
+            instruccionUpdate += " " + columnasDondeBuscar[j] + " = '" + camposBuscados[j] + "'";
+        }
+        return ejecutarModificacionStatement(instruccionUpdate,"modificarFilaEnTablaAND","?");
     }
     
     public boolean mostrarColumnasTablaMysqlSimple(JTable tabla, String tablaAConsultarMysql, String [] columnasAConsultarTablaMysql) {

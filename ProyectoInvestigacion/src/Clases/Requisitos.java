@@ -269,7 +269,8 @@ public class Requisitos extends SwingWorker<Void, String> {
                                     "CREATE TABLE MANIFIESTOS_SALIDA\n" +
                                     "(\n" +
                                     "fecha_hora_itinerario		DATETIME		NOT NULL,\n" +
-                                    "hora_real				TIME,\n" +
+                                    "hora_real				TIME            NOT NULL,\n" +
+                                    "demora				VARCHAR (8),\n" +
                                     "no_de_vuelo				VARCHAR (7),\n" +
                                     "empresa 				VARCHAR (3),\n" +
                                     "aeronave 				VARCHAR (7),\n" +
@@ -288,7 +289,7 @@ public class Requisitos extends SwingWorker<Void, String> {
                                     "ttl_equipaje			VARCHAR (15),\n" +
                                     "ttl_carga				VARCHAR (15),\n" +
                                     "ttl_correo				VARCHAR (15),\n" +
-                                    "PRIMARY KEY (fecha_hora_itinerario),\n" +
+                                    "PRIMARY KEY (fecha_hora_itinerario,hora_real),\n" +
                                     "INDEX (empresa),\n" +
                                     "FOREIGN KEY (empresa) REFERENCES COMPANIAS (siglas) ON DELETE CASCADE ON UPDATE CASCADE,\n" +
                                     "INDEX (aeronave),\n" +
@@ -303,7 +304,8 @@ public class Requisitos extends SwingWorker<Void, String> {
                                     "CREATE TABLE MANIFIESTOS_LLEGADA\n" +
                                     "(\n" +
                                     "fecha_hora_itinerario		DATETIME		NOT NULL,\n" +
-                                    "hora_real				TIME,\n" +
+                                    "hora_real				TIME            NOT NULL,\n" +
+                                    "demora				VARCHAR (8),\n" +
                                     "no_de_vuelo				VARCHAR (7),\n" +
                                     "empresa 				VARCHAR (3),\n" +
                                     "aeronave 				VARCHAR (7),\n" +
@@ -316,7 +318,7 @@ public class Requisitos extends SwingWorker<Void, String> {
                                     "ttl_equipaje			VARCHAR (15),\n" +
                                     "ttl_carga				VARCHAR (15),\n" +
                                     "ttl_correo				VARCHAR (15),\n" +
-                                    "PRIMARY KEY (fecha_hora_itinerario),\n" +
+                                    "PRIMARY KEY (fecha_hora_itinerario,hora_real),\n" +
                                     "INDEX (empresa),\n" +
                                     "FOREIGN KEY (empresa) REFERENCES COMPANIAS (siglas) ON DELETE CASCADE ON UPDATE CASCADE,\n" +
                                     "INDEX (aeronave),\n" +
@@ -332,59 +334,65 @@ public class Requisitos extends SwingWorker<Void, String> {
                                     "(\n" +
                                     "licencia_ss		VARCHAR (9)		NOT NULL,\n" +
                                     "fecha_ss		DATETIME		NOT NULL,\n" +
-                                    "PRIMARY KEY (fecha_ss),\n" +
+                                    "hora_real_ss               TIME            NOT NULL,\n" +
+                                    "PRIMARY KEY (fecha_ss,hora_real_ss),\n" +
                                     "INDEX (licencia_ss),\n" +
                                     "FOREIGN KEY (licencia_ss) REFERENCES SEGUNDO_OFICIAL (no_licencia) ON DELETE CASCADE ON UPDATE CASCADE,\n" +
-                                    "INDEX (fecha_ss),\n" +
-                                    "FOREIGN KEY (fecha_ss) REFERENCES MANIFIESTOS_SALIDA (fecha_hora_itinerario) ON DELETE CASCADE ON UPDATE CASCADE\n" +
+                                    "INDEX (fecha_ss,hora_real_ss),\n" +
+                                    "FOREIGN KEY (fecha_ss,hora_real_ss) REFERENCES MANIFIESTOS_SALIDA (fecha_hora_itinerario,hora_real) ON DELETE CASCADE ON UPDATE CASCADE\n" +
                                     ") ENGINE=InnoDB;\n" +
                                     "CREATE TABLE TERCERO_SALIDA\n" +
                                     "(\n" +
-                                    "licencia_ts		VARCHAR (9)		NOT NULL,\n" +
+                                    "licencia_ts		VARCHAR (9)     NOT NULL,\n" +
                                     "fecha_ts		DATETIME		NOT NULL,\n" +
-                                    "PRIMARY KEY (fecha_ts),\n" +
+                                    "hora_real_ts               TIME            NOT NULL,\n" +
+                                    "PRIMARY KEY (fecha_ts,hora_real_ts),\n" +
                                     "INDEX (licencia_ts),\n" +
                                     "FOREIGN KEY (licencia_ts) REFERENCES TERCER_OFICIAL (no_licencia) ON DELETE CASCADE ON UPDATE CASCADE,\n" +
-                                    "INDEX (fecha_ts),\n" +
-                                    "FOREIGN KEY (fecha_ts) REFERENCES MANIFIESTOS_SALIDA (fecha_hora_itinerario) ON DELETE CASCADE ON UPDATE CASCADE\n" +
+                                    "INDEX (fecha_ts,hora_real_ts),\n" +
+                                    "FOREIGN KEY (fecha_ts,hora_real_ts) REFERENCES MANIFIESTOS_SALIDA (fecha_hora_itinerario,hora_real) ON DELETE CASCADE ON UPDATE CASCADE\n" +
                                     ") ENGINE=InnoDB;\n" +
                                     "CREATE TABLE SEGUNDO_LLEGADA\n" +
                                     "(\n" +
                                     "licencia_sl		VARCHAR (9)		NOT NULL,\n" +
                                     "fecha_sl		DATETIME		NOT NULL,\n" +
-                                    "PRIMARY KEY (fecha_sl),\n" +
+                                    "hora_real_sl               TIME            NOT NULL,\n" +
+                                    "PRIMARY KEY (fecha_sl,hora_real_sl),\n" +
                                     "INDEX (licencia_sl),\n" +
                                     "FOREIGN KEY (licencia_sl) REFERENCES SEGUNDO_OFICIAL (no_licencia) ON DELETE CASCADE ON UPDATE CASCADE,\n" +
-                                    "INDEX (fecha_sl),\n" +
-                                    "FOREIGN KEY (fecha_sl) REFERENCES MANIFIESTOS_LLEGADA (fecha_hora_itinerario) ON DELETE CASCADE ON UPDATE CASCADE\n" +
+                                    "INDEX (fecha_sl,hora_real_sl),\n" +
+                                    "FOREIGN KEY (fecha_sl,hora_real_sl) REFERENCES MANIFIESTOS_LLEGADA (fecha_hora_itinerario,hora_real) ON DELETE CASCADE ON UPDATE CASCADE\n" +
                                     ") ENGINE=InnoDB;\n" +
                                     "CREATE TABLE TERCERO_LLEGADA\n" +
                                     "(\n" +
                                     "licencia_tl		VARCHAR (9)		NOT NULL,\n" +
                                     "fecha_tl		DATETIME		NOT NULL,\n" +
-                                    "PRIMARY KEY (fecha_tl),\n" +
+                                    "hora_real_tl               TIME            NOT NULL,\n" +
+                                    "PRIMARY KEY (fecha_tl,hora_real_tl),\n" +
                                     "INDEX (licencia_tl),\n" +
                                     "FOREIGN KEY (licencia_tl) REFERENCES TERCER_OFICIAL (no_licencia) ON DELETE CASCADE ON UPDATE CASCADE,\n" +
-                                    "INDEX (fecha_tl),\n" +
-                                    "FOREIGN KEY (fecha_tl) REFERENCES MANIFIESTOS_LLEGADA (fecha_hora_itinerario) ON DELETE CASCADE ON UPDATE CASCADE\n" +
+                                    "INDEX (fecha_tl,hora_real_tl),\n" +
+                                    "FOREIGN KEY (fecha_tl,hora_real_tl) REFERENCES MANIFIESTOS_LLEGADA (fecha_hora_itinerario,hora_real) ON DELETE CASCADE ON UPDATE CASCADE\n" +
                                     ") ENGINE=InnoDB;\n" +
                                     "CREATE TABLE PDFS_SALIDA\n" +
                                     "(\n" +
                                     "fecha		DATETIME		NOT NULL,\n" +
+                                    "hora_real               TIME            NOT NULL,\n" +
                                     "pdf		VARCHAR (250) 	NOT NULL,\n" +
-                                    "PRIMARY KEY (fecha),\n" +
-                                    "INDEX (fecha),\n" +
-                                    "FOREIGN KEY (fecha) REFERENCES MANIFIESTOS_SALIDA (fecha_hora_itinerario) ON DELETE CASCADE ON UPDATE CASCADE,\n" +
+                                    "PRIMARY KEY (fecha,hora_real),\n" +
+                                    "INDEX (fecha,hora_real),\n" +
+                                    "FOREIGN KEY (fecha,hora_real) REFERENCES MANIFIESTOS_SALIDA (fecha_hora_itinerario,hora_real) ON DELETE CASCADE ON UPDATE CASCADE,\n" +
                                     "INDEX (pdf),\n" +
                                     "FOREIGN KEY (pdf) REFERENCES PDFS_MANIFIESTOS (ruta_pdf) ON DELETE CASCADE ON UPDATE CASCADE\n" +
                                     ") ENGINE=InnoDB;\n" +
                                     "CREATE TABLE PDFS_LLEGADA\n" +
                                     "(\n" +
                                     "fecha		DATETIME		NOT NULL,\n" +
+                                    "hora_real               TIME            NOT NULL,\n" +
                                     "pdf		VARCHAR (250) 	NOT NULL,\n" +
-                                    "PRIMARY KEY (fecha),\n" +
-                                    "INDEX (fecha),\n" +
-                                    "FOREIGN KEY (fecha) REFERENCES MANIFIESTOS_LLEGADA (fecha_hora_itinerario) ON DELETE CASCADE ON UPDATE CASCADE,\n" +
+                                    "PRIMARY KEY (fecha,hora_real),\n" +
+                                    "INDEX (fecha,hora_real),\n" +
+                                    "FOREIGN KEY (fecha,hora_real) REFERENCES MANIFIESTOS_LLEGADA (fecha_hora_itinerario,hora_real) ON DELETE CASCADE ON UPDATE CASCADE,\n" +
                                     "INDEX (pdf),\n" +
                                     "FOREIGN KEY (pdf) REFERENCES PDFS_MANIFIESTOS (ruta_pdf) ON DELETE CASCADE ON UPDATE CASCADE\n" +
                                     ") ENGINE=InnoDB;\n";
@@ -813,7 +821,7 @@ public class Requisitos extends SwingWorker<Void, String> {
                 if (continuar) {
                     instruccion += ";";
                     if (!ping.ejecutarModificacionStatement(instruccion)) {
-                        JOptionPane.showMessageDialog(need_ventana,ping.getMensajesError(),"ERROR AL INSERTAR TABLAS",JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(need_ventana,ping.getMensajesError() + "\n" + instruccion,"ERROR AL INSERTAR TABLAS",JOptionPane.ERROR_MESSAGE);
                         if (!ping.ejecutarModificacionStatement("DROP DATABASE BASEAEROPUERTO")) {
                             JOptionPane.showMessageDialog(need_ventana,ping.getMensajesError(),"ERROR AL ELIMINAR TABLAS",JOptionPane.ERROR_MESSAGE);
                         }
