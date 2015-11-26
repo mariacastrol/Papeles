@@ -192,16 +192,16 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jTextFieldTtlPersonas2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldTtlPersonas3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextFieldEquipajeKg, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCargaKg, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCorreoKg, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldEquipajeKg)
+                    .addComponent(jTextFieldCargaKg)
+                    .addComponent(jTextFieldCorreoKg))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -354,7 +354,7 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
                             .addComponent(jTextFieldT, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldInf, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -425,7 +425,7 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
                                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel17))
-                        .addContainerGap(30, Short.MAX_VALUE))))
+                        .addGap(30, 30, 30))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -522,7 +522,7 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldTtlPersonas3KeyTyped
 
     private void jTextFieldEquipajePzasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEquipajePzasKeyTyped
-        int limite = 4;
+        int limite = 6;
         char caracterValidar = evt.getKeyChar();
         if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldEquipajePzas.getText().length() < limite)){
             getToolkit().beep(); 
@@ -540,7 +540,7 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldEquipajePzasKeyTyped
 
     private void jTextFieldEquipajeKgKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEquipajeKgKeyTyped
-        int limite = 4;
+        int limite = 6;
         char caracterValidar = evt.getKeyChar();
         if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldEquipajeKg.getText().length() < limite)){
             getToolkit().beep(); 
@@ -558,7 +558,7 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldEquipajeKgKeyTyped
 
     private void jTextFieldCargaPzasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCargaPzasKeyTyped
-        int limite = 4;
+        int limite = 6;
         char caracterValidar = evt.getKeyChar();
         if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldCargaPzas.getText().length() < limite)){
             getToolkit().beep(); 
@@ -576,7 +576,7 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldCargaPzasKeyTyped
 
     private void jTextFieldCargaKgKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCargaKgKeyTyped
-        int limite = 4;
+        int limite = 6;
         char caracterValidar = evt.getKeyChar();
         if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldCargaKg.getText().length() < limite)){
             getToolkit().beep(); 
@@ -594,7 +594,7 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldCargaKgKeyTyped
 
     private void jTextFieldCorreoPzasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCorreoPzasKeyTyped
-        int limite = 4;
+        int limite = 6;
         char caracterValidar = evt.getKeyChar();
         if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldCorreoPzas.getText().length() < limite)){
             getToolkit().beep(); 
@@ -612,7 +612,7 @@ public class OJDialogEmbarque extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldCorreoPzasKeyTyped
 
     private void jTextFieldCorreoKgKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCorreoKgKeyTyped
-        int limite = 4;
+        int limite = 6;
         char caracterValidar = evt.getKeyChar();
         if (!((Character.isDigit(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldCorreoKg.getText().length() < limite)){
             getToolkit().beep(); 

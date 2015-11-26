@@ -47,6 +47,7 @@ public class VMYJDialogInformacion extends javax.swing.JDialog {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Necesarios/hola.png"))); // NOI18N
         jLabel2.setText("...");
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setText("MARIA GUADALUPE CASTRO LOPEZ\n(mgcastrolopez@outlook.com)\n\nJOSE GUADALUPE RUIZ PINEDA\n\nALUMNOS EGRESADOS DE LA\nUNIDAD PROFESIONAL\nINTERDISCIPLINARIA DE INGENIERIA\nCAMPUS GUANAJUATO (UPIIG)\n\nINGENIERIA EN AERONAUTICA");
@@ -77,9 +78,11 @@ public class VMYJDialogInformacion extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("AUTORES", jPanel1);
 
+        jTextArea2.setEditable(false);
         jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         jTextArea2.setRows(5);
-        jTextArea2.setText("SICACOMP utiliza las siguientes librerías de terceros:\n*MySQL Connector/J\nhttp://dev.mysql.com/downloads/connector/j/\n\n*JCalendar\nhttp://toedter.com/jcalendar/\n\n*Java Excel API\nhttp://jexcelapi.sourceforge.net/\n\nEl uso de este programa está permitido exclusivamente dentro de la \ncomandancia del Aeropuerto Internacional del Bajío");
+        jTextArea2.setText("SICACOMP utiliza las siguientes librerías de terceros:\n*MySQL Connector/J\nhttp://dev.mysql.com/downloads/connector/j/\n\n*JCalendar\nhttp://toedter.com/jcalendar/\n\n*Java Excel API\nhttp://jexcelapi.sourceforge.net/\n\nEl uso de este programa está permitido exclusivamente dentro de la \ncomandancia del Aeropuerto Internacional del Bajío (BJX, MMLO).\n\nQueda prohibida la distribución de este programa de computadora por\ncualquier medio, así como el uso del mismo sin el previo consentimiento\nde ambos autores de este software.");
         jTextArea2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextArea2.setEnabled(false);
         jScrollPane2.setViewportView(jTextArea2);

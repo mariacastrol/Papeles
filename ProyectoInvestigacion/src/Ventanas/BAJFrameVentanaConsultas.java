@@ -5130,14 +5130,16 @@ public class BAJFrameVentanaConsultas extends javax.swing.JFrame {
         JFileChooser fc = new JFileChooser();
         fc.setDialogTitle("EXPORTAR LA CONSULTA A DOCUMENTO DE EXCEL");
         fc.setMultiSelectionEnabled(false);
-        fc.showSaveDialog(this);
-        File sinExtension = fc.getSelectedFile();
-        ExportarAExcel exel = new ExportarAExcel();
-        File conExtension = new File(sinExtension + ".xls");
-        if (exel.fillData(jTablePlanes,conExtension)) {
-            JOptionPane.showMessageDialog(this,"SE HA EXPORTADO LA INFORMACIÓN DE LA TABLA EXITOSAMENTE","",JOptionPane.INFORMATION_MESSAGE,bienExcel);
-        } else {
-            JOptionPane.showMessageDialog(this,"NO SE PUDO EXPORTAR LA INFORMACIÓN DE LA TABLA","ERROR",JOptionPane.ERROR_MESSAGE);
+        int fileValue =fc.showSaveDialog(this);
+        if (fileValue == JFileChooser.APPROVE_OPTION){
+            File sinExtension = fc.getSelectedFile();
+            ExportarAExcel exel = new ExportarAExcel();
+            File conExtension = new File(sinExtension + ".xls");
+            if (exel.fillData(jTablePlanes,conExtension)) {
+                JOptionPane.showMessageDialog(this,"SE HA EXPORTADO LA INFORMACIÓN DE LA TABLA EXITOSAMENTE","",JOptionPane.INFORMATION_MESSAGE,bienExcel);
+            } else {
+                JOptionPane.showMessageDialog(this,"NO SE PUDO EXPORTAR LA INFORMACIÓN DE LA TABLA","ERROR",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_botonEPlanesActionPerformed
 

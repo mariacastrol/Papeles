@@ -12,6 +12,7 @@ import java.io.File;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -200,8 +201,14 @@ public class WJFrameVentanaResPT extends javax.swing.JFrame {
             int returnVal = fc.showSaveDialog(this);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File sinExtension = fc.getSelectedFile();
-                jTextField1.setText(sinExtension.getAbsolutePath());
-                jButton2.setEnabled(true);
+                if (fc.getName(sinExtension).contains(" ")) {
+                    JOptionPane.showMessageDialog(this,"El nombre del archivo de respaldo\nno puede contener espacios","NOMBRE DEL ARCHIVO",JOptionPane.ERROR_MESSAGE);
+                    jTextField1.setText(null);
+                    jButton2.setEnabled(false);
+                } else {
+                    jTextField1.setText(sinExtension.getAbsolutePath());
+                    jButton2.setEnabled(true);
+                }
             } else {
                 jTextField1.setText(null);
                 jButton2.setEnabled(false);
@@ -222,7 +229,7 @@ public class WJFrameVentanaResPT extends javax.swing.JFrame {
                 jTextField1.setText(null);
                 jButton2.setEnabled(false);
             }
-        }   
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

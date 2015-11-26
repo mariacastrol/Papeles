@@ -457,7 +457,7 @@ public class VGJDialogCompanias extends javax.swing.JDialog {
     private void jTextFieldAASiglasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAASiglasKeyTyped
         int limite = 3;
         char caracterValidar = evt.getKeyChar();
-        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldBuscarSiglas.getText().length() < limite)){
+        if (!((Character.isDigit(caracterValidar) || Character.isAlphabetic(caracterValidar) || Character.isISOControl(caracterValidar)) && jTextFieldAASiglas.getText().length() < limite)){
             getToolkit().beep(); 
             evt.consume();
         } else {

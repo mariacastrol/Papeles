@@ -29,6 +29,7 @@ public class RequisitosRespaldo extends SwingWorker<Void, String> {
     private final JComboBox need_combo;
     private final String need_con;
     private boolean perfecto;
+    private int c;
     File file;
     
     public RequisitosRespaldo(JButton boton, JFrame ventanaPadre, JTextField caja, JComboBox combo, String con) {
@@ -46,10 +47,10 @@ public class RequisitosRespaldo extends SwingWorker<Void, String> {
         perfecto = true;
         if (need_combo.getSelectedItem().toString().startsWith("C")) {
             try {
-                int c = JOptionPane.showConfirmDialog(need_ventana,"¿Desea crear una copia de seguridad en la siguiente ruta? \n" + path,"Mensaje de Confirmación",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE);
+                c = JOptionPane.showConfirmDialog(need_ventana,"¿Desea crear una copia de seguridad en la siguiente ruta? \n" + path,"Mensaje de Confirmación",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE);
                 if (c == JOptionPane.YES_OPTION) {
                     publish("false","TRABAJANDO...");
-                    String backup = "C:\\Program Files\\MySQL\\MySQL Server 5.6\\bin\\mysqldump --opt -u " + "root" + " -p" + need_con + " " + "BASEAEROPUERTO" + "  -r" + path;
+                    String backup = "C:\\Program Files\\MySQL\\MySQL Server 5.7\\bin\\mysqldump --opt -u " + "root" + " -p" + need_con + " " + "BASEAEROPUERTO" + "  -r" + path;
                     Runtime rt = Runtime.getRuntime();
                     rt.exec(backup);
                     perfecto = true;
@@ -60,7 +61,7 @@ public class RequisitosRespaldo extends SwingWorker<Void, String> {
             }
         } else {
             path = file.getAbsolutePath();
-            int c = JOptionPane.showConfirmDialog(need_ventana, "¿Desea restaurar esta base de datos?", "Mensaje de Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            c = JOptionPane.showConfirmDialog(need_ventana, "¿Desea restaurar esta base de datos?", "Mensaje de Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
             if (c == JOptionPane.YES_OPTION) {
                 publish("false","TRABAJANDO...");
                 CMysql ping = new CMysql();
@@ -74,7 +75,7 @@ public class RequisitosRespaldo extends SwingWorker<Void, String> {
                             perfecto = false;
                         } else {
                             try {
-                                String backup = "cmd /C cd C:\\Program Files\\MySQL\\MySQL Server 5.6\\bin & mysql -u root -p" + need_con + " BASEAEROPUERTO <" + path;
+                                String backup = "cmd /C cd C:\\Program Files\\MySQL\\MySQL Server 5.7\\bin & mysql -u root -p" + need_con + " BASEAEROPUERTO <" + path;
                                 Process runtimeProcess = Runtime.getRuntime().exec(backup);
                                 int processComplete = runtimeProcess.waitFor();
                                 if (processComplete == 0) {
@@ -106,7 +107,7 @@ public class RequisitosRespaldo extends SwingWorker<Void, String> {
 
     @Override
     protected void done() {
-        if (perfecto) {
+        if (perfecto && c == JOptionPane.YES_OPTION) {
             if (need_combo.getSelectedItem().toString().startsWith("C")) {
                 JOptionPane.showMessageDialog(need_ventana,"SE HA CREADO EXITOSAMENTE UNA COPIA DE LA BASE DE DATOS EN:\n" + file.getPath(),"",JOptionPane.INFORMATION_MESSAGE,bien);
             } else {
@@ -114,10 +115,18 @@ public class RequisitosRespaldo extends SwingWorker<Void, String> {
             }
             need_jButton.setText("HECHO");
             need_jButton.setEnabled(false);
+        } else if (perfecto && c != JOptionPane.YES_OPTION) {
+            if (need_combo.getSelectedItem().toString().startsWith("C")) {
+                need_jButton.setText("CREAR COPIA");
+            } else {
+                need_jButton.setText("RESTAURAR BASE DE DATOS");
+            }
+            need_caja.setText(null);
+            need_jButton.setEnabled(false);
         } else {
             need_jButton.setText("INTENTAR NUEVAMENTE");
             need_jButton.setEnabled(true);
-        }   
+        } 
     }
     
 }

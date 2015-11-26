@@ -117,6 +117,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="jTextArea1">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                         <Property name="text" type="java.lang.String" value="MARIA GUADALUPE CASTRO LOPEZ&#xa;(mgcastrolopez@outlook.com)&#xa;&#xa;JOSE GUADALUPE RUIZ PINEDA&#xa;&#xa;ALUMNOS EGRESADOS DE LA&#xa;UNIDAD PROFESIONAL&#xa;INTERDISCIPLINARIA DE INGENIERIA&#xa;CAMPUS GUANAJUATO (UPIIG)&#xa;&#xa;INGENIERIA EN AERONAUTICA"/>
@@ -169,9 +170,13 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="jTextArea2">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Monospaced" size="12" style="0"/>
+                        </Property>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="SICACOMP utiliza las siguientes librer&#xed;as de terceros:&#xa;*MySQL Connector/J&#xa;http://dev.mysql.com/downloads/connector/j/&#xa;&#xa;*JCalendar&#xa;http://toedter.com/jcalendar/&#xa;&#xa;*Java Excel API&#xa;http://jexcelapi.sourceforge.net/&#xa;&#xa;El uso de este programa est&#xe1; permitido exclusivamente dentro de la &#xa;comandancia del Aeropuerto Internacional del Baj&#xed;o"/>
+                        <Property name="text" type="java.lang.String" value="SICACOMP utiliza las siguientes librer&#xed;as de terceros:&#xa;*MySQL Connector/J&#xa;http://dev.mysql.com/downloads/connector/j/&#xa;&#xa;*JCalendar&#xa;http://toedter.com/jcalendar/&#xa;&#xa;*Java Excel API&#xa;http://jexcelapi.sourceforge.net/&#xa;&#xa;El uso de este programa est&#xe1; permitido exclusivamente dentro de la &#xa;comandancia del Aeropuerto Internacional del Baj&#xed;o (BJX, MMLO).&#xa;&#xa;Queda prohibida la distribuci&#xf3;n de este programa de computadora por&#xa;cualquier medio, as&#xed; como el uso del mismo sin el previo consentimiento&#xa;de ambos autores de este software."/>
                         <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="0" green="0" red="0" type="rgb"/>
                         </Property>
